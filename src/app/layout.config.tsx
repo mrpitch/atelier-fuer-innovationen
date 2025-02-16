@@ -19,13 +19,13 @@ export const baseOptions: BaseLayoutProps = {
         >
           <circle cx={12} cy={12} r={12} fill="currentColor" />
         </svg>
-        My App
+        Atelier-fuer-innovationen
       </>
     ),
   },
   links: [
     {
-      text: 'Documentation',
+      text: 'Überblick',
       url: '/docs',
       active: 'nested-url',
     },
