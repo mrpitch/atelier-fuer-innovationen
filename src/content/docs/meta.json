@@ -1,6 +1,9 @@
 {
     "pages": [
-        "!impressum",
-        "z...a"
+        "index",
+        "teil-1",
+        "teil-2",
+        "components",
+        "!impressum"
     ]
 }
