@@ -1,0 +1,19 @@
+{
+    "slides": [
+        {
+            "slug": "slide-1",
+            "name": "Slide 1",
+            "url": "#slide-1"
+        },
+        {
+            "slug": "slide-2",
+            "name": "Slide 2",
+            "url": "#slide-2"
+        },
+        {
+            "slug": "slide-3",
+            "name": "Slide 3",
+            "url": "#slide-3"
+        }
+    ]
+}
