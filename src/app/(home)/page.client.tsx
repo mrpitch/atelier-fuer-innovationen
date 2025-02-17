@@ -65,7 +65,7 @@ export function PreviewImages() {
 						src="/images/home-2.jpg"
 						alt="preview"
 						width={1100}
-						height={6200}
+						height={620}
 						priority
 						className={cn(
 							'animate-in fade-in slide-in-from-bottom-12 w-full duration-1000 [mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)] select-none',
