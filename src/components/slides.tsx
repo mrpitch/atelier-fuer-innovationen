@@ -46,7 +46,7 @@ export const Slide = async ({ slug }: { slug: string }) => {
 	if (!slide) return null
 
 	return (
-		<div>
+		<div className="mb-8">
 			<ImageZoom
 				src={slide?.image}
 				width={1000}
