@@ -21,3 +21,20 @@ export const buttonVariants = cva(
 		},
 	}
 )
+
+export const linkVariants = cva(
+	'no-underline hover:underline decoration-from-font',
+	{
+		variants: {
+			color: {
+				primary: 'text-fd-primary hover:text-fd-primary/80',
+				secondary: 'text-fd-secondary hover:text-fd-secondary/80',
+			},
+			size: {
+				lg: 'text-lg',
+				sm: 'text-sm',
+				xs: 'text-xs',
+			},
+		},
+	}
+)

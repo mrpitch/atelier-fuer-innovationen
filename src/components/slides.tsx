@@ -1,6 +1,12 @@
+import Link from 'next/link'
+
+import { linkVariants } from '@/components/ui/button'
+import { ImageZoom } from '@/components/image-zoom'
+
 interface ISlide {
 	slug: string
 	name: string
+	image: string
 	url: string
 }
 
@@ -37,5 +43,23 @@ export const Slides = async () => {
 
 export const Slide = async ({ slug }: { slug: string }) => {
 	const slide = await getSlideBySlug(slug)
-	return <div>Single Slide: {slide?.name}</div>
+	if (!slide) return null
+
+	return (
+		<div>
+			<ImageZoom
+				src={slide?.image}
+				width={1000}
+				height={1000}
+				alt={slide?.name}
+			/>
+			<Link
+				className={linkVariants({ color: 'primary', size: 'sm' })}
+				href={slide?.url}
+				target="_blank"
+			>
+				Download {slide?.name}
+			</Link>
+		</div>
+	)
 }
