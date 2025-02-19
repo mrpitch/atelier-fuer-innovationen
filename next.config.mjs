@@ -4,7 +4,7 @@ const withMDX = createMDX()
 
 /** @type {import('next').NextConfig} */
 const config = {
-	output: 'export',
+	output: 'standalone',
 	reactStrictMode: true,
 	images: {
 		dangerouslyAllowSVG: true,
