@@ -6,7 +6,7 @@ export const Footer = () => {
 			<div className="mx-12">
 				<Link
 					className="hover:text-primary-foreground text-xs"
-					href="/impressum"
+					href="/docs/impressum"
 				>
 					Impressum
 				</Link>
