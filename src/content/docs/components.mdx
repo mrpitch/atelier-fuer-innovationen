@@ -6,8 +6,9 @@ description: A collection of UI components for the documentation.
 import { Accordions, Accordion } from '@/components/accordion'
 import { Banner } from '@/components/banner'
 import { ImageZoom } from '@/components/image-zoom'
-import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
+import { InlineTOC } from 'fumadocs-ui/components/inline-toc'
 import { Card } from '@/components/card'
+import { Slides, Slide } from '@/components/slides'
 import { Steps, Step } from '@/components/steps'
 import { Tabs, Tab } from '@/components/tabs'
 
@@ -16,33 +17,43 @@ import { Tabs, Tab } from '@/components/tabs'
 <InlineTOC items={toc} />
 ## Accordion
 <Accordions>
-  <Accordion title="Item 1" description="Description 1">
-    Content for Item 1
-  </Accordion>
+	<Accordion title="Item 1" description="Description 1">
+		Content for Item 1
+	</Accordion>
 </Accordions>
 
 ## Banner
-<Banner type="note">
-  This is a note banner.
-</Banner>
+
+<Banner type="note">This is a note banner.</Banner>
 
 ## Card
-<Card>
-  This is a card.
-</Card>
+
+<Card>This is a card.</Card>
 
 ## Steps
+
 <Steps>
-  <Step>Step 1</Step>
-  <Step>Step 2</Step>
-  <Step>Step 3</Step>   
+	<Step>Step 1</Step>
+	<Step>Step 2</Step>
+	<Step>Step 3</Step>
 </Steps>
 
 ## Tabs
+
 <Tabs>
-  <Tab value="Tab 1">Content for Tab 1</Tab>
-  <Tab value="Tab 2">Content for Tab 2</Tab>
-</Tabs> 
+	<Tab value="Tab 1">Content for Tab 1</Tab>
+	<Tab value="Tab 2">Content for Tab 2</Tab>
+</Tabs>
 
 ## ImageZoom
-<ImageZoom src="https://loremflickr.com/500/300/dog" width="500" height="300" alt="A cat stuck in a box, demonstrating the CSS box model" />
+
+<ImageZoom
+	src="/images/home-1.jpg"
+	width="500"
+	height="300"
+	alt="A cat stuck in a box, demonstrating the CSS box model"
+/>
+
+## Slide
+
+<Slide slug="slide-1" />

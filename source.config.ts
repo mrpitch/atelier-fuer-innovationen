@@ -1,11 +1,11 @@
-import { defineDocs, defineConfig } from 'fumadocs-mdx/config';
+import { defineDocs, defineConfig } from 'fumadocs-mdx/config'
 
 export const docs = defineDocs({
-  dir: 'src/content/docs',
-});
+	dir: 'src/content/docs',
+})
 
 export default defineConfig({
-  mdxOptions: {
-    // MDX options
-  },
-});
+	mdxOptions: {
+		// MDX options
+	},
+})

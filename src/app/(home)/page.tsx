@@ -1,19 +1,57 @@
-import Link from 'next/link';
+import Link from 'next/link'
+
+import { HomeHero } from '@/app/_components/home-hero'
+import { Cards, Card } from '@/components/card'
+import { AlbumIcon, Book, ComponentIcon, Rocket } from 'lucide-react'
 
 export default function HomePage() {
-  return (
-    <main className="flex flex-1 flex-col justify-center text-center">
-      <h1 className="mb-4 text-2xl font-bold">Hello World</h1>
-      <p className="text-fd-muted-foreground">
-        You can open{' '}
-        <Link
-          href="/docs"
-          className="text-fd-foreground font-semibold underline"
-        >
-          /docs
-        </Link>{' '}
-        and see the documentation.
-      </p>
-    </main>
-  );
+	const gridColor =
+		'color-mix(in oklab, var(--color-fd-primary) 10%, transparent)'
+
+	return (
+		<>
+			<div
+				className="absolute inset-x-0 top-[360px] h-[250px] max-md:hidden"
+				style={{
+					background: `repeating-linear-gradient(to right, ${gridColor}, ${gridColor} 1px,transparent 1px,transparent 50px), repeating-linear-gradient(to bottom, ${gridColor}, ${gridColor} 1px,transparent 1px,transparent 50px)`,
+				}}
+			/>
+
+			<main className="relative z-[2] container max-w-[1100px] px-2 py-4 lg:py-8">
+				<div className="relative">
+					<HomeHero />
+
+					<div className="mt-24 flex flex-col items-center justify-center">
+						<Cards>
+							<Link href="/docs">
+								<Card icon={<Rocket />} title="Einführung">
+									A Hoiwe mi oa Baamwach i hob di liab, resch ebba. Vo de oans,
+									zwoa, gsuffa muass, is.
+								</Card>
+							</Link>
+							<Link href="/docs/teil-1">
+								<Card icon={<Book />} title="Teil 1">
+									A bissal wos gehd ollaweil hawadere midananda mim Radl foahn i
+									moan oiwei jedza, schnacksln vo de so
+								</Card>
+							</Link>
+							<Link href="/docs/teil-2">
+								<Card icon={<AlbumIcon />} title="Teil 2">
+									Schüds nei gfreit mi i moan scho aa, Gaudi. Heitzdog Radler
+									greaßt eich nachad Guglhupf
+								</Card>
+							</Link>
+
+							<Link href="/docs/components">
+								<Card icon={<ComponentIcon />} title="Components">
+									Wurscht schoo. Resch Steckerleis vui da, Baamwach im Beidl.
+									Diandldrahn da an Fingahaggln, nia need.
+								</Card>
+							</Link>
+						</Cards>
+					</div>
+				</div>
+			</main>
+		</>
+	)
 }
