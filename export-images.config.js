@@ -3,6 +3,7 @@
  */
 const config = {
 	imageDir: '_optimized',
+	cacheDir: 'out/.cache',
 	quality: 75,
 	filenameGenerator: ({ path, name, extension, width }) =>
 		`${path.replace(/^\//, '').replace(/\//g, '-')}-${name}.${width}.${extension}`,
