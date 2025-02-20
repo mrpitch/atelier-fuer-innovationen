@@ -1,6 +1,8 @@
 'use client'
 
-import Image, { type ImageProps } from 'next/image'
+//import Image from 'next-export-optimize-images/image'
+import Picture from 'next-export-optimize-images/picture'
+import { type ImageProps } from 'next/image'
 import { type ImgHTMLAttributes } from 'react'
 import './image-zoom.css'
 import Zoom, { type UncontrolledProps } from 'react-medium-image-zoom'
@@ -43,7 +45,7 @@ export function ImageZoom({
 			}}
 		>
 			{children ?? (
-				<Image
+				<Picture
 					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 900px"
 					alt={alt}
 					{...props}
