@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import { HomeHero } from '@/app/_components/home-hero'
 import { Cards, Card } from '@/components/card'
-import { AlbumIcon, Book, ComponentIcon, Rocket } from 'lucide-react'
+import { Book, ComponentIcon, Rocket } from 'lucide-react'
 
 export default function HomePage() {
 	const gridColor =
@@ -23,25 +23,18 @@ export default function HomePage() {
 
 					<div className="mt-24 flex flex-col items-center justify-center">
 						<Cards>
-							<Link href="/docs">
-								<Card icon={<Rocket />} title="Einführung">
+							<Link href="/docs/atelier">
+								<Card icon={<Rocket />} title="Atelier">
 									A Hoiwe mi oa Baamwach i hob di liab, resch ebba. Vo de oans,
 									zwoa, gsuffa muass, is.
 								</Card>
 							</Link>
-							<Link href="/docs/teil-1">
-								<Card icon={<Book />} title="Teil 1">
+							<Link href="/docs/xeniapolis">
+								<Card icon={<Book />} title="Xeniapolis">
 									A bissal wos gehd ollaweil hawadere midananda mim Radl foahn i
 									moan oiwei jedza, schnacksln vo de so
 								</Card>
 							</Link>
-							<Link href="/docs/teil-2">
-								<Card icon={<AlbumIcon />} title="Teil 2">
-									Schüds nei gfreit mi i moan scho aa, Gaudi. Heitzdog Radler
-									greaßt eich nachad Guglhupf
-								</Card>
-							</Link>
-
 							<Link href="/docs/components">
 								<Card icon={<ComponentIcon />} title="Components">
 									Wurscht schoo. Resch Steckerleis vui da, Baamwach im Beidl.
