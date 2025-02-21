@@ -28,21 +28,27 @@ export const baseOptions: BaseLayoutProps = {
 	links: [
 		{
 			type: 'menu',
-			text: 'Lust Wandeln',
+			text: 'Übersicht',
 			url: '/docs',
+			items: [],
+		},
+		{
+			type: 'menu',
+			text: 'Atelier',
+			url: '/docs/atelier',
 			items: [
 				{
 					icon: <Book />,
 					text: 'Teil 1',
 					description: 'Einfache Erstellung von Dokumentationen',
-					url: '/docs/teil-1',
+					url: '/docs/atelier/teil-1',
 				},
 				{
 					icon: <AlbumIcon />,
 					text: 'Teil 2',
 					description:
 						'Generate interactive playgrounds and docs for your OpenAPI schema.',
-					url: '/docs/teil-2',
+					url: '/docs/atelier/teil-2',
 				},
 				{
 					icon: <ComponentIcon />,
@@ -51,6 +57,25 @@ export const baseOptions: BaseLayoutProps = {
 					url: '/docs/components',
 				},
 			],
-		},
+		},{
+			type: 'menu',
+			text: 'Xeniapolis',
+			url: '/docs/xeniapolis',
+			items: [
+				{
+					icon: <Book />,
+					text: 'Viertel der Annäherung',
+					description: 'Lorem ipsum dolor sit amet',
+					url: '/docs/xeniapolisviertel-der-annaeherung',
+				},
+				{
+					icon: <AlbumIcon />,
+					text: 'Viertel der Führung',
+					description:
+						'Lorem ipsum dolor sit amet',
+					url: '/docs/xeniapolis/viertel-der-fuerung',
+				},
+			],
+		}
 	],
 }
