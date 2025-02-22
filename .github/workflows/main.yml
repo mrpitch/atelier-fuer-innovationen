@@ -4,7 +4,7 @@ name: Deploy Website
 on:
   push:
     branches:
-      - vercel/main
+      - aws/main
 
 jobs:
   deploy:
