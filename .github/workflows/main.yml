@@ -1,4 +1,3 @@
-##https://medium.com/@bipingiri27/deploy-nextjs-app-to-s3-and-cloudfront-with-github-actions-c24cb58f2c6f
 name: Deploy Website
 
 on:
@@ -28,4 +27,4 @@ jobs:
       - name: Deploy to S3
         run: aws s3 sync ./out/ s3://${{ secrets.AWS_S3_BUCKET_NAME }}
       - name: Create CloudFront invalidation
-        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/*"
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CF_DISTRIBUTION_ID }} --paths "/*"
