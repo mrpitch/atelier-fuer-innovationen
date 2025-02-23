@@ -1,0 +1,11 @@
+{
+    "title": "Atelier",
+    "description": "Description Atelier",
+    "root": true,
+    "pages": [
+        "index",
+        "a-whales-tale",
+        "teil-1",
+        "teil-2"
+    ]
+}
