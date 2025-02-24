@@ -17,6 +17,12 @@
             "name": "Slide 3",
             "image": "/slides/slide-3.jpg",
             "url": "/slides/slide-3.pdf"
+        },
+        {
+            "slug": "virtuelle-stadtstaaten",
+            "name": "Virtuelle Stadtstaaten",
+            "image": "/slides/virtuelle-stadtstaaten.png",
+            "url": "/slides/virtuelle-stadtstaaten.pdf"
         }
     ]
 }

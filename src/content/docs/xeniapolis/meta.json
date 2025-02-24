@@ -4,7 +4,13 @@
     "root": true,
     "pages": [
         "index",
-        "viertel-der-annaeherung",
-        "viertel-der-fuerung"
+        "annaeherung",
+        "maerkte",
+        "kontext",
+        "inszenierung",
+        "zukunft",
+        "wertschoepfung",
+        "potenziale",
+        "fuehrung"
     ]
 }
