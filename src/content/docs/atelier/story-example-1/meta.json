@@ -1,0 +1,16 @@
+{
+  "title": "Story Example 1",
+  "description": "Beschreibung zu Story Example 1",
+  "icon": "Building2",
+  "pages": [
+    "index",
+    "story-example-1-page-1",
+    "---Chapter 1---",
+    "chapter-1/index",
+    "chapter-1/another-page-1",
+    "chapter-1/another-page-2",
+    "---Chapter 2---",
+    "chapter-2/another-page-1",
+    "chapter-2/another-page-2"
+  ]
+}

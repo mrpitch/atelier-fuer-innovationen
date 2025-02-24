@@ -28,21 +28,21 @@ export const baseOptions: BaseLayoutProps = {
 	links: [
 		{
 			type: 'menu',
-			text: 'Lust Wandeln',
+			text: 'Einführung',
 			url: '/docs',
 			items: [
 				{
 					icon: <Book />,
-					text: 'Teil 1',
+					text: 'Atelier',
 					description: 'Einfache Erstellung von Dokumentationen',
-					url: '/docs/teil-1',
+					url: '/docs/atelier',
 				},
 				{
 					icon: <AlbumIcon />,
-					text: 'Teil 2',
+					text: 'Xeniapolis',
 					description:
 						'Generate interactive playgrounds and docs for your OpenAPI schema.',
-					url: '/docs/teil-2',
+					url: '/docs/xeniapolis',
 				},
 				{
 					icon: <ComponentIcon />,

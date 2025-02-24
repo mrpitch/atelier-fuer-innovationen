@@ -39,7 +39,7 @@ export function PreviewImages() {
 					)}`}
 					onClick={() => setActive(0)}
 				>
-					Obazda
+					Atelier
 				</button>
 				<button
 					className={`cursor-pointer ${cn(
@@ -47,7 +47,7 @@ export function PreviewImages() {
 					)}`}
 					onClick={() => setActive(1)}
 				>
-					Da Kini
+					Xeniapolis
 				</button>
 			</div>
 			<div className="overflow-hidden rounded-xs opacity-80 dark:opacity-50">
