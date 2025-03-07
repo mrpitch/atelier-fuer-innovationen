@@ -3,15 +3,6 @@
   "description": "Beschreibung zu Viertel der Potenziale",
   "icon": "Building2",
   "pages": [
-    "index",
-    "potenziale-page-1",
-    "---Chapter 1---",
-    "chapter-1/index",
-    "chapter-1/another-page-1",
-    "chapter-1/another-page-2",
-    "---Chapter 2---",
-    "chapter-2/index",
-    "chapter-2/another-page-1",
-    "chapter-2/another-page-2"
+    "index"
   ]
 }
