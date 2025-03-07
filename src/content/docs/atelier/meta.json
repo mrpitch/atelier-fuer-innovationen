@@ -2,10 +2,11 @@
     "title": "Atelier",
     "description": "Description Atelier",
     "root": true,
+    "icon": "HousePlus",
     "pages": [
         "index",
         "a-whales-tale",
-        "teil-1",
-        "teil-2"
+        "story-example-1",
+        "story-example-2"
     ]
 }
