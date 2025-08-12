@@ -1,67 +1,35 @@
 ---
-title: A Whale's Tale
-description: Your first document
-icon: HomeIcon
+title: Einführung
+description: Einführung in die Dokumentation
 ---
 
-import { Slide } from '@/components/slides'
+import Link from 'next/link'
+import { Cards, Card } from '@/components/card'
+import { Book, AlbumIcon, ComponentIcon } from 'lucide-react'
+import { OverviewCards } from '@/components/overview-cards'
 
-# An Unexpected Dinner Guest:
+<Cards>
+	<Link href="/docs/atelier">
+		<Card icon={<Book />} title="Atelier">
+    								At vero eos et accusam et justo duo dolores et ea rebum. Stet
+    								clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+    								dolor sit amet.
+    							</Card>
+    						</Link>
+    						<Link href="/docs/xeniapolis">
+    							<Card icon={<AlbumIcon />} title="Xeniapolis">
+    								Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+    								diam nonumy eirmod tempor invidunt ut labore et dolore magna
+    								aliquyam erat, sed diam voluptua.
+    							</Card>
+    							</Link>
 
-## Part 1: The Accidental Meeting
+    						<Link href="/docs/components">
+    							<Card icon={<ComponentIcon />} title="Components">
+    								Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+    								diam nonumy eirmod tempor invidunt ut labore et dolore magna
+    								aliquyam erat, sed diam voluptua.
+    							</Card>
+    						</Link>
 
-<Slide slug="slide-6" />
-
-You know, as a whale, I've swallowed many things in my centuries of roaming the vast oceans - countless krill, the occasional squid, and even a few unfortunate pieces of plastic (humans really need to work on that). But never, in all my years, had I swallowed something that talked back to me. Until that peculiar Tuesday afternoon.
-
-I was having what I'd consider a perfectly normal day, filter feeding near the surface, enjoying the warmth of the sun on my back, when I noticed this peculiar flailing creature. Now, usually, I'm quite careful about what I scoop up in my massive mouth - we blue whales have a reputation to maintain, after all. But this human was right in the middle of my lunch route, and before I could adjust my trajectory (do you know how hard it is to make sudden turns when you're 100 feet long?), _gulp_ - there he was, sitting in my mouth along with several thousand gallons of seawater.
-
-## Part 2: Breaking the Ice
-
-<Slide slug="slide-2" />
-
-"Well, this is awkward," I thought to myself, feeling him squirming around between my baleen plates. I was just about to politely spit him out when he did something completely unexpected - he spoke.
-
-"Hello?" his voice echoed in my cavernous mouth. "Is anyone there? Or am I just going crazy from the lack of oxygen?"
-
-I was so surprised that I nearly swallowed my entire mouthful of water - which would have been quite unfortunate for both of us. Here was a human, sitting in my mouth, trying to start a conversation. How... civilized.
-
-"Ahem," I responded, using the specialized whale-to-human translation abilities that all whales possess but rarely get to use (we're quite advanced, you know). "Yes, hello. I apologize for the unexpected... accommodation."
-
-The human was silent for a moment. I worried perhaps I'd shocked him into unconsciousness, which would have been terribly impolite.
-
-"Am I... am I talking to a whale?" he finally stammered.
-
-"Indeed you are. Blue whale, to be precise. Balaenoptera musculus, if you're feeling scientific. Though my friends call me Walter." I felt quite proud of knowing my Latin name - I'd overheard it from a marine biologist once and made sure to memorize it.
-
-## Part 3: Getting Acquainted
-
-<Slide slug="slide-5" />
-
-"Walter... the whale," he said slowly. "Right. Of course. I'm Tom. Though I suppose you didn't really ask for an introduction."
-
-I found myself rather charmed by his attempt at politeness, despite the circumstances. "Pleased to meet you, Tom. Although I do wish it had been under different circumstances. I don't usually make a habit of swallowing humans."
-
-"That's... reassuring?" Tom replied, his voice carrying a mix of terror and bewilderment that I found quite endearing. "So, um, not to be rude, but is there any chance you could... you know... not digest me?"
-
-I couldn't help but chuckle, which probably felt like an earthquake from his perspective. "Oh, heavens no! I couldn't digest you even if I wanted to. Blue whales are filter feeders, you see. We only eat tiny creatures - krill mostly. You're far too big and, frankly, not nearly crunchy enough."
-
-I felt him relax slightly at this news. Humans are so adorably concerned about being digested. As I maintained the air pocket I'd created for him (we whales are quite considerate hosts), I found myself growing increasingly fascinated by this unexpected encounter. It's not every day one gets to have a proper conversation with a human, and I had so many questions about their peculiar land-dwelling ways.
-
-"Tell me, Tom," I ventured, genuinely curious, "what brings a human so far out into the open ocean? Most of your kind prefer to stay closer to shore, or at least within those noisy floating contraptions you call boats."
-
-As Tom explained about something called "long-distance swimming" and "training for the English Channel," I found myself utterly captivated. Here was a human who voluntarily chose to spend hours in our domain, swimming through the waves just like us. Perhaps humans weren't as strange as I'd always thought.
-
-Our conversation flowed as naturally as the ocean currents, and I discovered that Tom was actually a marine biologist. How exciting! Though I did have to bite my tongue (metaphorically speaking, of course) to stop myself from correcting some of his assumptions about whale behavior. We do have our secrets to keep, after all.
-
-Just as Tom was explaining the concept of "swimming competitions" (humans do love to turn everything into a contest), I noticed a pod of dolphins approaching in the distance. Those notorious gossips would surely spread word of this unusual encounter across the seven seas. While I had thoroughly enjoyed our chat, I knew it was time to end this impromptu meeting.
-
-"Tom," I said reluctantly, "I hate to cut this short, but I believe it's time I returned you to the surface. The dolphins are coming, and they're terrible at keeping secrets. I'd rather not become known as 'Walter, the whale who plays with his food.'"
-
-"Oh!" Tom exclaimed, sounding almost disappointed. "Yes, of course. This has been... surprisingly enlightening, actually. Though I'm not sure anyone will believe me when I tell them about it."
-
-"They probably won't," I agreed, preparing to surface. "But that's what makes it special, don't you think? Our little secret."
-
-As I gently released Tom back into the ocean, watching him swim towards his waiting support boat, I felt a strange sense of satisfaction. Yes, I had accidentally swallowed a human, but I'd also made my first human friend. Not bad for a Tuesday afternoon.
-
-Though next time, I thought to myself as I dove back into the depths, perhaps I'll try a more conventional way of starting a conversation. Swallowing someone whole does seem a bit forward for a first meeting.
+</Cards>
