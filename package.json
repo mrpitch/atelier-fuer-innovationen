@@ -5,8 +5,7 @@
 	"scripts": {
 		"build": "next build && next-export-optimize-images",
 		"dev": "next dev",
-		"start": "next start",
-		"start:export": "npx serve@latest out",
+		"start": "npx serve@latest out",
 		"nuke": "rm -r node_modules; rm -r pnpm-lock.yaml",
 		"postinstall": "fumadocs-mdx"
 	},

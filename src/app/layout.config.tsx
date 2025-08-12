@@ -2,7 +2,13 @@ import Image from 'next-export-optimize-images/image'
 import Logo from '@/public/images/logo.png'
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared'
 
-import { HousePlus, Building2, ComponentIcon } from 'lucide-react'
+import {
+	HousePlus,
+	Building2,
+	ComponentIcon,
+	Book,
+	AlbumIcon,
+} from 'lucide-react'
 
 /**
  * Shared layout configurations
@@ -67,7 +73,8 @@ export const baseOptions: BaseLayoutProps = {
 					url: '/docs/components',
 				},
 			],
-		},{
+		},
+		{
 			type: 'menu',
 			text: 'Xeniapolis',
 			url: '/docs/xeniapolis',
@@ -81,11 +88,10 @@ export const baseOptions: BaseLayoutProps = {
 				{
 					icon: <AlbumIcon />,
 					text: 'Viertel der Führung',
-					description:
-						'Lorem ipsum dolor sit amet',
+					description: 'Lorem ipsum dolor sit amet',
 					url: '/docs/xeniapolis/viertel-der-fuerung',
 				},
 			],
-		}
+		},
 	],
 }
