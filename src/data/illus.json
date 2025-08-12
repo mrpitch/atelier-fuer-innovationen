@@ -1,0 +1,69 @@
+{
+    "illus": [
+        {
+            "slug": "illustration-ansicht",
+            "name": "Städte des Wissens als Stätten der Begegnung",
+            "image": "/illus/illustration-ansicht.png"
+        },
+        {
+            "slug": "illustration-aufbruch-zum-kontinent-der-loesungen",
+            "name": "Aufbruch zum Kontinent der Lösungen",
+            "image": "/illus/aufbruch-zum-kontinent-der-loesungen.png"
+        },
+        {
+            "slug": "illustration-xenia-im-netzwerk-der-wissensstaedte",
+            "name": "Xenia im Netzwerk der Wissensstädte",
+            "image": "/illus/illustration-xenia-im-netzwerk-der-wissensstaedte.png"
+        },
+        {
+            "slug": "illustration-ateliers-fuer-innovatoren",
+            "name": "Ateliers für Innovatoren",
+            "image": "/illus/illustration-ateliers-fuer-innovatoren.png"
+        },
+        {
+            "slug": "modell-zentrum",
+            "name": "Ein Besuch im Zentrum der Wissensstadt",
+            "image": "/illus/modell-zentrum.png"
+        },
+        {
+            "slug": "modell-annaeherung",
+            "name": "Das Viertel der Annäherung im Zentrum der Wissensstadt",
+            "image": "/illus/modell-annaeherung.png"
+        },
+        {
+            "slug": "modell-markt",
+            "name": "Das Viertel der Märkte und Kooperation im Zentrum der Wissensstadt",
+            "image": "/illus/modell-markt.png"
+        },
+        {
+            "slug": "modell-kontext",
+            "name": "Das Viertel der Kontexte im Zentrum der Wissensstadt",
+            "image": "/illus/modell-kontext.png"
+        },
+        {
+            "slug": "modell-inszenierung",
+            "name": "Das Viertel der Inszenierung im Zentrum der Wissensstadt",
+            "image": "/illus/modell-inszenierung.png"
+        },
+        {
+            "slug": "modell-zukunft",
+            "name": "Das Viertel der Zukunft im Zentrum der Wissensstadt",
+            "image": "/illus/modell-zukunft.png"
+        },
+        {
+            "slug": "modell-wertschoepfung",
+            "name": "Das Viertel der Wertschöpfung im Zentrum der Wissensstadt",
+            "image": "/illus/modell-wertschoepfung.png"
+        },
+        {
+            "slug": "modell-potentiale",
+            "name": "Das Viertel der Potentiale im Zentrum der Wissensstadt",
+            "image": "/illus/modell-potentiale.png"
+        },
+        {
+            "slug": "modell-fuehrung",
+            "name": "Das Viertel der Führung im Zentrum der Wissensstadt",
+            "image": "/illus/modell-fuehrung.png"
+        }
+    ]
+}

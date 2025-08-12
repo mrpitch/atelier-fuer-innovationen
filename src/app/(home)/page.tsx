@@ -23,22 +23,33 @@ export default function HomePage() {
 
 					<div className="mt-24 flex flex-col items-center justify-center">
 						<Cards>
+							<Link href="/docs">
+								<Card icon={<Rocket />} title="Einführung">
+									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+									diam nonumy eirmod tempor invidunt ut labore et dolore magna
+									aliquyam erat, sed diam voluptua.
+								</Card>
+							</Link>
 							<Link href="/docs/atelier">
-								<Card icon={<Rocket />} title="Atelier">
-									A Hoiwe mi oa Baamwach i hob di liab, resch ebba. Vo de oans,
-									zwoa, gsuffa muass, is.
+								<Card icon={<Book />} title="Atelier">
+									At vero eos et accusam et justo duo dolores et ea rebum. Stet
+									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+									dolor sit amet.
 								</Card>
 							</Link>
 							<Link href="/docs/xeniapolis">
-								<Card icon={<Book />} title="Xeniapolis">
-									A bissal wos gehd ollaweil hawadere midananda mim Radl foahn i
-									moan oiwei jedza, schnacksln vo de so
+								<Card icon={<AlbumIcon />} title="Xeniapolis">
+									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+									diam nonumy eirmod tempor invidunt ut labore et dolore magna
+									aliquyam erat, sed diam voluptua.
 								</Card>
 							</Link>
+
 							<Link href="/docs/components">
 								<Card icon={<ComponentIcon />} title="Components">
-									Wurscht schoo. Resch Steckerleis vui da, Baamwach im Beidl.
-									Diandldrahn da an Fingahaggln, nia need.
+									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+									diam nonumy eirmod tempor invidunt ut labore et dolore magna
+									aliquyam erat, sed diam voluptua.
 								</Card>
 							</Link>
 						</Cards>

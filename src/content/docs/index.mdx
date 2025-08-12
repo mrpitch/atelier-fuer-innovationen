@@ -1,14 +1,35 @@
 ---
-title: Lust Wandeln
-description: Lust Wandeln
+title: Einführung
+description: Einführung in die Dokumentation
 ---
 
 import Link from 'next/link'
-import { Card } from '@/components/card'
+import { Cards, Card } from '@/components/card'
+import { Book, AlbumIcon, ComponentIcon } from 'lucide-react'
+import { OverviewCards } from '@/components/overview-cards'
 
-<Link href="/docs/atelier">
-	<Card title="Atelier" description="Description Atelier" />
-</Link>
-<Link href="/docs/xeniapolis">
-	<Card title="Xeniapolis" description="Description Xeniapolis" />
-</Link>
+<Cards>
+	<Link href="/docs/atelier">
+		<Card icon={<Book />} title="Atelier">
+    								At vero eos et accusam et justo duo dolores et ea rebum. Stet
+    								clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+    								dolor sit amet.
+    							</Card>
+    						</Link>
+    						<Link href="/docs/xeniapolis">
+    							<Card icon={<AlbumIcon />} title="Xeniapolis">
+    								Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+    								diam nonumy eirmod tempor invidunt ut labore et dolore magna
+    								aliquyam erat, sed diam voluptua.
+    							</Card>
+    							</Link>
+
+    						<Link href="/docs/components">
+    							<Card icon={<ComponentIcon />} title="Components">
+    								Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+    								diam nonumy eirmod tempor invidunt ut labore et dolore magna
+    								aliquyam erat, sed diam voluptua.
+    							</Card>
+    						</Link>
+
+</Cards>

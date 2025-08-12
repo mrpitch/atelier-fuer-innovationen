@@ -1,4 +1,11 @@
-import { source } from '@/lib/source';
-import { createFromSource } from 'fumadocs-core/search/server';
+import { source } from '@/lib/source'
+import { createFromSource } from 'fumadocs-core/search/server'
 
-export const { GET } = createFromSource(source);
+// output: standalone, server side api route
+// export const { GET } = createFromSource(source);
+
+// output: export, client side api route
+// it should be cached forever
+export const revalidate = false
+
+export const { staticGET: GET } = createFromSource(source)

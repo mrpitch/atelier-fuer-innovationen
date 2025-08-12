@@ -1,7 +1,9 @@
 'use client'
 import { useState } from 'react'
 
-import Image from 'next/image'
+//import Image from 'next/image'
+//import Image from 'next-export-optimize-images/image'
+import Picture from 'next-export-optimize-images/picture'
 
 import { cva } from 'class-variance-authority'
 import { cn } from '@/lib/cn'
@@ -37,7 +39,7 @@ export function PreviewImages() {
 					)}`}
 					onClick={() => setActive(0)}
 				>
-					Obazda
+					Atelier
 				</button>
 				<button
 					className={`cursor-pointer ${cn(
@@ -45,15 +47,16 @@ export function PreviewImages() {
 					)}`}
 					onClick={() => setActive(1)}
 				>
-					Da Kini
+					Xeniapolis
 				</button>
 			</div>
 			<div className="overflow-hidden rounded-xs opacity-80 dark:opacity-50">
-				<Image
+				<Picture
 					src="/images/home-1.jpg"
 					alt="preview"
-					width={1100}
-					height={620}
+					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 900px"
+					width={1900}
+					height={1080}
 					priority
 					className={cn(
 						'animate-in fade-in slide-in-from-bottom-12 w-full duration-1000 [mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)] select-none',
@@ -61,11 +64,12 @@ export function PreviewImages() {
 					)}
 				/>
 				{active === 1 && (
-					<Image
+					<Picture
 						src="/images/home-2.jpg"
+						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 900px"
 						alt="preview"
-						width={1100}
-						height={620}
+						width={1900}
+						height={1080}
 						priority
 						className={cn(
 							'animate-in fade-in slide-in-from-bottom-12 w-full duration-1000 [mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)] select-none',

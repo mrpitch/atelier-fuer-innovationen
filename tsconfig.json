@@ -21,7 +21,8 @@
 			"@/app/*": ["./src/app/*"],
 			"@/lib/*": ["./src/lib/*"],
 			"@/components/*": ["./src/components/*"],
-			"@/data/*": ["./src/data/*"]
+			"@/data/*": ["./src/data/*"],
+			"@/public/*": ["./public/*"]
 		},
 		"plugins": [
 			{
@@ -29,6 +30,12 @@
 			}
 		]
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"export-images.config.js"
+	],
 	"exclude": ["node_modules"]
 }

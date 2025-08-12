@@ -1,6 +1,9 @@
 'use client'
 
-import Image, { type ImageProps } from 'next/image'
+//import Image from 'next-export-optimize-images/image'
+import Picture from 'next-export-optimize-images/picture'
+import { getOptimizedImageProps } from 'next-export-optimize-images/image'
+import { type ImageProps } from 'next/image'
 import { type ImgHTMLAttributes } from 'react'
 import './image-zoom.css'
 import Zoom, { type UncontrolledProps } from 'react-medium-image-zoom'
@@ -18,12 +21,6 @@ export type ImageZoomProps = ImageProps & {
 	alt?: string
 }
 
-function getImageSrc(src: ImageProps['src']): string {
-	if (typeof src === 'string') return src
-	if ('default' in src) return src.default.src
-	return src.src
-}
-
 export function ImageZoom({
 	zoomInProps,
 	children,
@@ -31,19 +28,25 @@ export function ImageZoom({
 	alt = '',
 	...props
 }: ImageZoomProps) {
+	const optimizedImageProps = getOptimizedImageProps({
+		src: props.src,
+		alt: '',
+		width: props.width,
+		height: props.height,
+	}).props
 	return (
 		<Zoom
 			zoomMargin={20}
 			wrapElement="span"
 			{...rmiz}
 			zoomImg={{
-				src: getImageSrc(props.src),
+				src: optimizedImageProps.src,
 				sizes: undefined,
 				...zoomInProps,
 			}}
 		>
 			{children ?? (
-				<Image
+				<Picture
 					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 900px"
 					alt={alt}
 					{...props}
