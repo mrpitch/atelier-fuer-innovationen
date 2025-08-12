@@ -288,26 +288,37 @@ Global Users
 
 ### Documentation
 
-- **FumaDocs**: MDX documentation framework
-- **FumaDocs UI**: Pre-built documentation components
+- **FumaDocs 15**: MDX documentation framework
+- **FumaDocs MDX 11**: MDX processing
+- **FumaDocs TypeScript 4**: TypeScript integration
+- **FumaDocs UI 15**: Pre-built documentation components
 
 ### Styling & UI
 
 - **Tailwind CSS 4**: Utility-first CSS
-- **Radix UI**: Accessible UI primitives
+- **Radix UI**: Accessible UI primitives (accordion, collapsible, tabs)
 - **Lucide React**: Icon library
 - **Class Variance Authority**: Component variants
 
 ### Image Processing
 
-- **next-export-optimize-images**: Static export optimization
+- **next-export-optimize-images 4**: Static export optimization
 - **Sharp**: High-performance image processing
 
 ### Development
 
-- **ESLint**: Code quality
-- **Prettier**: Code formatting
-- **PostCSS**: CSS processing
+- **ESLint 8**: Code quality
+- **Prettier 3**: Code formatting
+- **PostCSS 8**: CSS processing
+
+### Version Management
+
+The project uses simplified version ranges for automatic updates:
+
+- **`^15`**: Allows any 15.x.x version (Next.js, FumaDocs)
+- **`^19`**: Allows any 19.x.x version (React)
+- **`^4`**: Allows any 4.x.x version (Tailwind CSS, PostCSS)
+- **`^5`**: Allows any 5.x.x version (TypeScript, React Medium Image Zoom)
 
 ## 🐛 Troubleshooting
 
