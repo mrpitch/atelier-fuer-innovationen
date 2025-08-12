@@ -17,6 +17,24 @@
             "name": "Slide 3",
             "image": "/slides/slide-3.jpg",
             "url": "/slides/slide-3.pdf"
+        },
+        {
+            "slug": "virtuelle-stadtstaaten",
+            "name": "Virtuelle Stadtstaaten",
+            "image": "/slides/virtuelle-stadtstaaten.png",
+            "url": "/slides/virtuelle-stadtstaaten.pdf"
+        },
+        {
+            "slug": "konstellationen-spektrum-von-guetern-und-leistungen",
+            "name": "Konstellationen - Spektrum von Gütern und Leistungen",
+            "image": "/slides/konstellationen-spektrum-von-guetern-und-leistungen.png",
+            "url": "/slides/konstellationen-spektrum-von-guetern-und-leistungen.pdf"
+        },
+        {
+            "slug": "kondratieffs-zyklen",
+            "name": "Kondratieff´s Zyklen",
+            "image": "/slides/kondratieffs-zyklen.png",
+            "url": "/slides/kondratieffs-zyklen.pdf"
         }
     ]
 }

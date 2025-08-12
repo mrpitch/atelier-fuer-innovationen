@@ -3,9 +3,10 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"build": "next build",
+		"build": "next build && next-export-optimize-images",
 		"dev": "next dev",
 		"start": "next start",
+		"start:export": "npx serve@latest out",
 		"nuke": "rm -r node_modules; rm -r pnpm-lock.yaml",
 		"postinstall": "fumadocs-mdx"
 	},
@@ -34,6 +35,7 @@
 		"@types/react-dom": "^19.0.3",
 		"eslint": "^8",
 		"eslint-config-next": "15.1.6",
+		"next-export-optimize-images": "^4.6.1",
 		"postcss": "^8.5.1",
 		"prettier": "^3.5.1",
 		"prettier-plugin-tailwindcss": "^0.6.11",

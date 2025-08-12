@@ -6,17 +6,20 @@ import { PreviewImages } from '@/app/(home)/page.client'
 export function HomeHero() {
 	return (
 		<div className="bg-fd-card/80 relative z-[2] flex flex-col border border-x px-6 pt-12 max-lg:overflow-hidden max-md:text-center md:px-12 md:pt-16">
-			<h1 className="mb-8 text-4xl font-medium md:hidden">Jo mei mi mechad</h1>
+			<h1 className="mb-8 text-4xl font-medium md:hidden">
+				magna aliquyam erat
+			</h1>
 			<h1 className="mb-8 max-w-[600px] text-4xl font-medium max-md:hidden">
-				Bavaria ipsum dolor sit amet gscheid Boarischer Greichats
+				Lorem ipsum dolor sit amet
 			</h1>
 			<p className="text-fd-muted-foreground mb-8 md:max-w-[80%] md:text-xl">
-				Di Gams Lewakaas, Baamwach auffi hi do. Engelgwand san Mongdratzal ded
-				hob Servas Buam nimma ded Bussal di.
+				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+				eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+				voluptua.
 			</p>
 			<div className="inline-flex items-center gap-3 max-md:mx-auto">
 				<Link
-					href="/docs"
+					href="/docs/atelier"
 					className={cn(
 						buttonVariants({
 							size: 'lg',
@@ -25,10 +28,10 @@ export function HomeHero() {
 						})
 					)}
 				>
-					Auf gehts
+					Atelier
 				</Link>
 				<Link
-					href="/docs/teil-1"
+					href="/docs/xeniapolis"
 					className={cn(
 						buttonVariants({
 							size: 'lg',
@@ -37,7 +40,7 @@ export function HomeHero() {
 						})
 					)}
 				>
-					Auf’d Schellnsau
+					Xeniapolis
 				</Link>
 			</div>
 			<PreviewImages />

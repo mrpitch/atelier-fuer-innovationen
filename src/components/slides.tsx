@@ -7,7 +7,7 @@ interface ISlide {
 	slug: string
 	name: string
 	image: string
-	url: string
+	url?: string
 }
 
 // interface ISlides {
@@ -49,17 +49,19 @@ export const Slide = async ({ slug }: { slug: string }) => {
 		<div className="mb-8">
 			<ImageZoom
 				src={slide?.image}
-				width={1000}
-				height={1000}
+				width={1920}
+				height={1080}
 				alt={slide?.name}
 			/>
-			<Link
-				className={linkVariants({ color: 'primary', size: 'sm' })}
-				href={slide?.url}
-				target="_blank"
-			>
-				Download {slide?.name}
-			</Link>
+			{slide?.url ? (
+				<Link
+					className={linkVariants({ color: 'primary', size: 'sm' })}
+					href={slide?.url}
+					target="_blank"
+				>
+					Download {slide?.name}
+				</Link>
+			) : null}
 		</div>
 	)
 }

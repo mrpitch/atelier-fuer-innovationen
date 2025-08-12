@@ -1,29 +1,16 @@
 import { createMDX } from 'fumadocs-mdx/next'
+import withExportImages from 'next-export-optimize-images'
 
 const withMDX = createMDX()
 
 /** @type {import('next').NextConfig} */
 const config = {
-	output: 'standalone',
+	output: 'export',
 	reactStrictMode: true,
 	images: {
-		dangerouslyAllowSVG: true,
-		deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-		remotePatterns: [
-			{
-				protocol: 'http',
-				hostname: 'localhost',
-				port: '3000',
-				pathname: '/**',
-			},
-			{
-				protocol: 'https',
-				hostname: 'loremflickr.com',
-				pathname: '/**',
-			},
-		],
-		formats: ['image/avif', 'image/webp'],
+		imageSizes: [640, 960, 1280, 1600, 1920],
+		deviceSizes: [640, 960, 1280, 1600, 1920],
 	},
 }
 
-export default withMDX(config)
+export default withExportImages(withMDX(config))

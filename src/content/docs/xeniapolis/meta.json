@@ -2,9 +2,22 @@
     "title": "Xeniapolis",
     "description": "Xeniapolis ist eine Stadt, die aus vier Vierteln besteht. Jedes Viertel hat seine eigene Geschichte und seine eigene Kultur.",
     "root": true,
+    "icon": "Building2",
     "pages": [
+        "---Annäherung---",
         "index",
-        "viertel-der-annaeherung",
-        "viertel-der-fuerung"
+        "kurzuebersicht",
+        "besuch-in-der-wissensstadt",
+        "die-stadtviertel-der-wissensstadt",
+        "---Märkte---",
+        "idee-kontakt-begegnungen",
+        "konstellationen-beim-uebergang-zur-nformationsgesellschaft",
+        "---Rest---",
+        "kontext",
+        "inszenierung",
+        "zukunft",
+        "wertschoepfung",
+        "potenziale",
+        "fuehrung"
     ]
 }
