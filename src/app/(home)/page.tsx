@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import { HomeHero } from '@/app/_components/home-hero'
 import { Cards, Card } from '@/components/card'
-import { Book, ComponentIcon, Rocket } from 'lucide-react'
+import { Book, ComponentIcon, Rocket, AlbumIcon } from 'lucide-react'
 
 export default function HomePage() {
 	const gridColor =
