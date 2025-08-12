@@ -25,27 +25,31 @@ export default function HomePage() {
 						<Cards>
 							<Link href="/docs">
 								<Card icon={<Rocket />} title="Einführung">
-									A Hoiwe mi oa Baamwach i hob di liab, resch ebba. Vo de oans,
-									zwoa, gsuffa muass, is.
+									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+									diam nonumy eirmod tempor invidunt ut labore et dolore magna
+									aliquyam erat, sed diam voluptua.
 								</Card>
 							</Link>
-							<Link href="/docs/teil-1">
-								<Card icon={<Book />} title="Teil 1">
-									A bissal wos gehd ollaweil hawadere midananda mim Radl foahn i
-									moan oiwei jedza, schnacksln vo de so
+							<Link href="/docs/atelier">
+								<Card icon={<Book />} title="Atelier">
+									At vero eos et accusam et justo duo dolores et ea rebum. Stet
+									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+									dolor sit amet.
 								</Card>
 							</Link>
-							<Link href="/docs/teil-2">
-								<Card icon={<AlbumIcon />} title="Teil 2">
-									Schüds nei gfreit mi i moan scho aa, Gaudi. Heitzdog Radler
-									greaßt eich nachad Guglhupf
+							<Link href="/docs/xeniapolis">
+								<Card icon={<AlbumIcon />} title="Xeniapolis">
+									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+									diam nonumy eirmod tempor invidunt ut labore et dolore magna
+									aliquyam erat, sed diam voluptua.
 								</Card>
 							</Link>
 
 							<Link href="/docs/components">
 								<Card icon={<ComponentIcon />} title="Components">
-									Wurscht schoo. Resch Steckerleis vui da, Baamwach im Beidl.
-									Diandldrahn da an Fingahaggln, nia need.
+									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+									diam nonumy eirmod tempor invidunt ut labore et dolore magna
+									aliquyam erat, sed diam voluptua.
 								</Card>
 							</Link>
 						</Cards>

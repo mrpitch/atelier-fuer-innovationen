@@ -1,6 +1,8 @@
+import Image from 'next-export-optimize-images/image'
+import Logo from '@/public/images/logo.png'
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared'
 
-import { AlbumIcon, Book, ComponentIcon } from 'lucide-react'
+import { HousePlus, Building2, ComponentIcon } from 'lucide-react'
 
 /**
  * Shared layout configurations
@@ -9,40 +11,48 @@ import { AlbumIcon, Book, ComponentIcon } from 'lucide-react'
  * Home Layout: app/(home)/layout.tsx
  * Docs Layout: app/docs/layout.tsx
  */
+
+export const logo = (
+	<>
+		<Image
+			alt="Atelier für Innovatoren"
+			src={Logo}
+			width={40}
+			height={40}
+			className="hidden w-10 md:block"
+			aria-label="Logo Atelier für Innovatoren"
+		/>
+	</>
+)
 export const baseOptions: BaseLayoutProps = {
 	nav: {
 		title: (
 			<>
-				<svg
-					width="24"
-					height="24"
-					xmlns="http://www.w3.org/2000/svg"
-					aria-label="Logo"
-				>
-					<circle cx={12} cy={12} r={12} fill="currentColor" />
-				</svg>
-				Atelier-fuer-innovationen
+				{logo}
+				<span className="font-medium [.uwu_&]:hidden [header_&]:text-[15px]">
+					Atelier-fuer-innovationen
+				</span>
 			</>
 		),
 	},
 	links: [
 		{
 			type: 'menu',
-			text: 'Lust Wandeln',
+			text: 'Einführung',
 			url: '/docs',
 			items: [
 				{
-					icon: <Book />,
-					text: 'Teil 1',
+					icon: <HousePlus />,
+					text: 'Atelier',
 					description: 'Einfache Erstellung von Dokumentationen',
-					url: '/docs/teil-1',
+					url: '/docs/atelier',
 				},
 				{
-					icon: <AlbumIcon />,
-					text: 'Teil 2',
+					icon: <Building2 />,
+					text: 'Xeniapolis',
 					description:
 						'Generate interactive playgrounds and docs for your OpenAPI schema.',
-					url: '/docs/teil-2',
+					url: '/docs/xeniapolis',
 				},
 				{
 					icon: <ComponentIcon />,
