@@ -40,6 +40,12 @@ export const baseOptions: BaseLayoutProps = {
 			type: 'menu',
 			text: 'Einführung',
 			url: '/docs',
+			items: [],
+		},
+		{
+			type: 'menu',
+			text: 'Atelier',
+			url: '/docs/atelier',
 			items: [
 				{
 					icon: <HousePlus />,
@@ -61,6 +67,25 @@ export const baseOptions: BaseLayoutProps = {
 					url: '/docs/components',
 				},
 			],
-		},
+		},{
+			type: 'menu',
+			text: 'Xeniapolis',
+			url: '/docs/xeniapolis',
+			items: [
+				{
+					icon: <Book />,
+					text: 'Viertel der Annäherung',
+					description: 'Lorem ipsum dolor sit amet',
+					url: '/docs/xeniapolisviertel-der-annaeherung',
+				},
+				{
+					icon: <AlbumIcon />,
+					text: 'Viertel der Führung',
+					description:
+						'Lorem ipsum dolor sit amet',
+					url: '/docs/xeniapolis/viertel-der-fuerung',
+				},
+			],
+		}
 	],
 }
