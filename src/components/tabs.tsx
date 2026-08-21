@@ -90,6 +90,7 @@ export function Tabs({
       ? localStorage.getItem(groupId)
       : sessionStorage.getItem(groupId);
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- sync selected tab from persisted group storage, only readable after mount
     if (previous) onUpdate(previous);
     addChangeListener(groupId, onUpdate);
     return () => {
@@ -103,6 +104,7 @@ export function Tabs({
 
     for (const [value, id] of valueToIdMap.entries()) {
       if (id === hash) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- sync selected tab from the URL hash, only readable after mount
         setValue(value);
         break;
       }
