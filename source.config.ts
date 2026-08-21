@@ -1,3 +1,16 @@
+// fumadocs-mdx v11 -> v15 breaking changes relevant to this file (see PR/commit
+// for the fuller per-package migration notes): `getDefaultMDXOptions()` was
+// replaced by `applyMdxPreset()`, `postInstall()` now takes an options object
+// (configPath/outDir/...), and `extractedReferences` is no longer generated
+// by default (opt in via `postprocess`). `defineDocs`/`defineConfig` are
+// unchanged. None of this is applied here yet; that's a later ticket.
+//
+// Also note: the generated `.source/` output shape changed — v11 emitted a
+// single `.source/index.ts` (imported in src/lib/source.ts as `@/.source`);
+// v15 emits `.source/server.ts` + `.source/dynamic.ts` + `.source/browser.ts`
+// instead and no longer writes `index.ts` at all. `tsconfig.json`'s
+// `@/.source` path alias and src/lib/source.ts's import both still point at
+// the old `index.ts` and will need updating in a later ticket.
 import { defineDocs, defineConfig } from 'fumadocs-mdx/config'
 
 export const docs = defineDocs({
