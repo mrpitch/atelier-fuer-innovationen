@@ -71,8 +71,7 @@ atelier-fuer-innovationen/
 ├── .source/                     # FumaDocs generated files
 ├── out/                         # Build output (static files)
 └── Configuration files
-    ├── next.config.mjs          # Next.js config
-    ├── export-images.config.js  # Image optimization
+    ├── next.config.mjs          # Next.js config & image optimization
     ├── source.config.ts         # FumaDocs config
     ├── tsconfig.json           # TypeScript config
     ├── postcss.config.mjs      # PostCSS config
@@ -85,7 +84,6 @@ atelier-fuer-innovationen/
 
 ```javascript
 import { createMDX } from 'fumadocs-mdx/next'
-import withExportImages from 'next-export-optimize-images'
 
 const withMDX = createMDX()
 
@@ -93,30 +91,27 @@ const config = {
   output: 'export',                    // Static export
   reactStrictMode: true,              // Development strict mode
   images: {
+    loader: 'custom',                 // required by next-image-export-optimizer
     imageSizes: [640, 960, 1280, 1600, 1920],
     deviceSizes: [640, 960, 1280, 1600, 1920],
   },
+  transpilePackages: ['next-image-export-optimizer'],
+  env: {
+    nextImageExportOptimizer_imageFolderPath: 'public',
+    nextImageExportOptimizer_exportFolderPath: 'out',
+    nextImageExportOptimizer_quality: '75',
+    nextImageExportOptimizer_storePicturesInWEBP: 'true',
+    nextImageExportOptimizer_exportFolderName: '_optimized',
+    nextImageExportOptimizer_generateAndUseBlurImages: 'true',
+  },
 }
 
-export default withExportImages(withMDX(config))
+export default withMDX(config)
 ```
 
-### Image Optimization (`export-images.config.js`)
+### Image Optimization (`next-image-export-optimizer`)
 
-```javascript
-const config = {
-  imageDir: '_optimized',             // Optimized images output
-  cacheDir: 'out/.cache',             // Processing cache
-  quality: 75,                        // JPEG/WebP quality
-  convertFormat: [
-    ['png', 'webp'],                  // PNG → WebP
-    ['jpg', 'webp'],                  // JPG → WebP
-  ],
-  generateFormats: ['webp'],          // Generate WebP versions
-  filenameGenerator: ({ path, name, extension, width }) =>
-    `${path.replace(/^\//, '').replace(/\//g, '-')}-${name}.${width}.${extension}`,
-}
-```
+Configured entirely through the `images` and `env` blocks above (no separate config file). Images are rendered with the `ExportedImage` component from `next-image-export-optimizer` instead of `next/image`, and the build step (`next-image-export-optimizer`, run after `next build`) converts PNG/JPG sources to WebP at quality 75, writing responsive sizes into `_optimized/` directories alongside each source image.
 
 ### TypeScript Path Mapping (`tsconfig.json`)
 
@@ -152,7 +147,7 @@ const config = {
 ```bash
 pnpm build
 # 1. next build - Compiles Next.js app to static files
-# 2. next-export-optimize-images - Optimizes all images
+# 2. next-image-export-optimizer - Optimizes all images
 #    - Converts PNG/JPG to WebP
 #    - Creates responsive sizes (640, 960, 1280, 1600, 1920px)
 #    - Updates image references in HTML
@@ -302,7 +297,7 @@ Global Users
 
 ### Image Processing
 
-- **next-export-optimize-images 4**: Static export optimization
+- **next-image-export-optimizer 1**: Static export optimization
 - **Sharp**: High-performance image processing
 
 ### Development
