@@ -1,14 +1,13 @@
 'use client'
 
-//import Image from 'next-export-optimize-images/image'
-import Picture from 'next-export-optimize-images/picture'
-import { getOptimizedImageProps } from 'next-export-optimize-images/image'
-import { type ImageProps } from 'next/image'
+import ExportedImage, {
+	type ExportedImageProps,
+} from 'next-image-export-optimizer'
 import { type ImgHTMLAttributes } from 'react'
 import './image-zoom.css'
 import Zoom, { type UncontrolledProps } from 'react-medium-image-zoom'
 
-export type ImageZoomProps = ImageProps & {
+export type ImageZoomProps = ExportedImageProps & {
 	/**
 	 * Image props when zoom in
 	 */
@@ -28,25 +27,14 @@ export function ImageZoom({
 	alt = '',
 	...props
 }: ImageZoomProps) {
-	const optimizedImageProps = getOptimizedImageProps({
-		src: props.src,
-		alt: '',
-		width: props.width,
-		height: props.height,
-	}).props
+	// next-image-export-optimizer exposes no equivalent of the old plugin's
+	// getOptimizedImageProps(), so unless the caller supplies zoomInProps,
+	// zoomImg is left undefined and react-medium-image-zoom falls back to
+	// cloning the already-optimized <ExportedImage> element for the zoomed view.
 	return (
-		<Zoom
-			zoomMargin={20}
-			wrapElement="span"
-			{...rmiz}
-			zoomImg={{
-				src: optimizedImageProps.src,
-				sizes: undefined,
-				...zoomInProps,
-			}}
-		>
+		<Zoom zoomMargin={20} wrapElement="span" {...rmiz} zoomImg={zoomInProps}>
 			{children ?? (
-				<Picture
+				<ExportedImage
 					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 900px"
 					alt={alt}
 					{...props}
