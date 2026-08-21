@@ -42,7 +42,14 @@ ENV PATH="/home/agent/.local/bin:$PATH"
 # the image on its own, and they seed a warm package-manager store for
 # iterations where the bind-mounted node_modules is missing or stale.
 WORKDIR /home/agent/workspace
-COPY --chown=${AGENT_UID}:${AGENT_GID} package.json pnpm-lock.yaml ./
+COPY --chown=${AGENT_UID}:${AGENT_GID} package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json source.config.ts ./
+# source.config.ts + tsconfig.json (beyond the usual package.json/lockfile
+# pair) are needed here because this repo's postinstall runs `fumadocs-mdx`,
+# which reads its config directly during install rather than lazily at
+# build/dev time — omitting it fails install with "Cannot find config file".
+# pnpm-workspace.yaml carries the allowBuilds entries for esbuild/sharp's
+# install scripts (pnpm 10+ ignores them by default otherwise) — without
+# it here, install fails non-interactively with ERR_PNPM_IGNORED_BUILDS.
 # .npmrc is always mounted as a build secret rather than COPYed in, so this
 # Dockerfile is identical whether or not the repo has a private registry:
 # empty/no-registry .npmrc → install behaves exactly like it wasn't there;
