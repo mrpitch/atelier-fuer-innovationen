@@ -29,6 +29,7 @@ export const Accordions = forwardRef<
 		const id = window.location.hash.substring(1)
 
 		if (id.length > 0)
+			// eslint-disable-next-line react-hooks/set-state-in-effect -- sync initial accordion value from the URL hash, only readable after mount
 			setValue((prev) => (typeof prev === 'string' ? id : [id, ...prev]))
 	}, [])
 
