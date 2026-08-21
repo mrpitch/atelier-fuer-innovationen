@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx sandcastle *)",
+      "Bash(pnpm tsx *)",
+      "Bash(docker build *)"
+    ]
+  }
+}
