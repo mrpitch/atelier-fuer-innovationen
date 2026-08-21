@@ -1,6 +1,6 @@
 import { execFileSync, execSync } from 'node:child_process'
 import { mkdirSync, readFileSync } from 'node:fs'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 
 import { claudeCode, Output, run } from '@ai-hero/sandcastle'
 import { docker } from '@ai-hero/sandcastle/sandboxes/docker'
@@ -27,6 +27,23 @@ const CONTAINER_NODE_MODULES_CACHE = join(
 	'container-cache',
 	'node_modules',
 )
+
+// The image has no `~/.npmrc`, so the host's `store-dir` setting never
+// reaches the container — pnpm falls back to its own last-resort default:
+// a `.pnpm-store` folder relative to cwd. Since cwd inside the container
+// *is* this bind-mounted worktree (see the node_modules comment above),
+// that fallback wrote a stray `.pnpm-store` straight into the repo on
+// every real (non-cached) install. Mounting the host's actual global pnpm
+// store and pointing `store-dir` at it (via `npm_config_store_dir` below)
+// makes the container share the same content-addressable cache as the
+// host instead of creating a second one.
+//
+// `pnpm store path` reports `<store-dir>/vN` (pnpm appends its own
+// cache-format version segment); `dirname` strips that back down to the
+// actual `store-dir` value so the container recreates the same `vN`
+// segment on its own, landing in the same place as the host's store.
+const HOST_PNPM_STORE = dirname(execSync('pnpm store path', { encoding: 'utf8' }).trim())
+const CONTAINER_PNPM_STORE = '/home/agent/.pnpm-store'
 
 // Cold-cache installs (first run, or after a lockfile change) can take
 // several minutes inside the sandbox; sandcastle's default hook timeout is
@@ -77,7 +94,11 @@ export function buildRunOptions(input: SandcastleIssueInput) {
 	return {
 		name: 'worker',
 		sandbox: docker({
-			mounts: [{ hostPath: CONTAINER_NODE_MODULES_CACHE, sandboxPath: 'node_modules' }],
+			mounts: [
+				{ hostPath: CONTAINER_NODE_MODULES_CACHE, sandboxPath: 'node_modules' },
+				{ hostPath: HOST_PNPM_STORE, sandboxPath: CONTAINER_PNPM_STORE },
+			],
+			env: { npm_config_store_dir: CONTAINER_PNPM_STORE },
 		}),
 		agent: claudeCode('claude-sonnet-5'),
 		promptFile: './.sandcastle/prompt.md',
