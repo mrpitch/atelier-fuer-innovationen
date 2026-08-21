@@ -12,10 +12,10 @@ import {
   useLayoutEffect,
   useId,
   useEffect,
+  useEffectEvent,
 } from 'react';
 import { cn } from '../lib/cn';
 import * as Primitive from './ui/tabs';
-import { useEffectEvent } from 'fumadocs-core/utils/use-effect-event';
 
 export { Primitive };
 
@@ -95,7 +95,7 @@ export function Tabs({
     return () => {
       removeChangeListener(groupId, onUpdate);
     };
-  }, [groupId, onUpdate, persist]);
+  }, [groupId, persist]);
 
   useLayoutEffect(() => {
     const hash = window.location.hash.slice(1);
