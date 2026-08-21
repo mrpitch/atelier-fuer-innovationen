@@ -9,8 +9,8 @@
 // single `.source/index.ts` (imported in src/lib/source.ts as `@/.source`);
 // v15 emits `.source/server.ts` + `.source/dynamic.ts` + `.source/browser.ts`
 // instead and no longer writes `index.ts` at all. `tsconfig.json`'s
-// `@/.source` path alias and src/lib/source.ts's import both still point at
-// the old `index.ts` and will need updating in a later ticket.
+// `@/.source` path alias now points at `.source/server.ts`, which exposes the
+// same `docs` collection (with `toFumadocsSource()`) that `index.ts` used to.
 import { defineDocs, defineConfig } from 'fumadocs-mdx/config'
 
 export const docs = defineDocs({
