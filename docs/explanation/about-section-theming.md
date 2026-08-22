@@ -3,6 +3,7 @@ name: 'About section theming'
 description: "Explains how the site's two coexisting shadcn-style palettes (default/Atelier and Xeniapolis) are wired up, and what a new component or page needs to do (usually nothing) to respect them."
 tags: [theming, shadcn, css, xeniapolis, atelier, design-tokens, concept]
 kind: explanation
+type: Explanation
 status: current
 last_reviewed: 2026-08-22
 ---

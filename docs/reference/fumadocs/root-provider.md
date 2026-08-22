@@ -2,6 +2,7 @@
 name: "RootProvider: framework entrypoint + static search"
 description: "RootProvider must be imported from fumadocs-ui/provider/next and configured with search.options.type: 'static' for this repo's statically-exported site."
 kind: reference
+type: Reference
 status: current
 last_reviewed: 2026-08-22
 tags: [fumadocs, provider, search, static-export, v16]

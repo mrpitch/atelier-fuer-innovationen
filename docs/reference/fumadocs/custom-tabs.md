@@ -2,6 +2,7 @@
 name: "Custom Tabs component (legacy)"
 description: "src/components/tabs.tsx is a ~1.5-year-old local reimplementation of Tabs features fumadocs-ui now covers natively — prefer the built-in Tabs going forward."
 kind: reference
+type: Reference
 status: current
 last_reviewed: 2026-08-22
 tags: [fumadocs, tabs, components, migration, tech-debt]

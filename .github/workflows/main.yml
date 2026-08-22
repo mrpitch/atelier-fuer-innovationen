@@ -6,6 +6,19 @@ on:
       - main
 
 jobs:
+  validate-okf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+      - name: Install modules
+        run: pnpm install
+      - name: Run tests
+        run: pnpm test
+      - name: Validate OKF frontmatter conformance
+        run: pnpm validate:okf
+
   deploy:
     runs-on: ubuntu-latest
     steps:

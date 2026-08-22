@@ -10,6 +10,8 @@
 		"nuke": "rm -r node_modules; rm -r pnpm-lock.yaml",
 		"postinstall": "fumadocs-mdx",
 		"afk": "tsx --env-file=.sandcastle/.env scripts/run-sandcastle.ts",
+		"test": "tsx --test scripts/*.test.ts",
+		"validate:okf": "tsx scripts/validate-okf.ts",
 		"sandcastle:build": "DOCKER_BUILDKIT=1 docker build --secret id=npmrc,src=.npmrc --build-arg AGENT_UID=$(id -u) --build-arg AGENT_GID=$(id -g) -t sandcastle:atelier-fuer-innovationen -f .sandcastle/Dockerfile ."
 	},
 	"dependencies": {
