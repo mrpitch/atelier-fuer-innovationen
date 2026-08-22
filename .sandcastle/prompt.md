@@ -41,6 +41,16 @@ or its commit step; both are expected to happen inside this sandbox now.
   external dependency you don't have, or `/implement`'s review turning up
   something you can't resolve), stop and report it as a blocker rather than
   committing a broken or incomplete change.
+- Wrap any command that touches the network (registry lookups via
+  `npm view`/`pnpm view`, external fetches, etc.) in `timeout <seconds>`.
+  An unbounded hang produces no output and silently burns the sandbox's
+  idle-timeout budget until the whole run is killed with no partial
+  credit — a `timeout`-wrapped command fails fast and visibly instead.
+- A fresh, independent agent reviews your completed work in a follow-up
+  pass with no memory of this session. Leave the tree in a state that
+  review can make sense of on its own — a clear commit message covering
+  *why*, not just *what* — rather than relying on this session's own
+  `/code-review` step being the only check that runs.
 
 ## Reporting the result
 

@@ -12,11 +12,11 @@
 - **Command:** `pnpm` (`packageManager: pnpm@11.3.0`)
 - **Format/lint command:** `npx prettier --write` (no `format`/`lint`/`lint:fix` script defined in package.json; `prettier` + `prettier-plugin-tailwindcss` are devDependencies)
 - **Test command:** not applicable — no test runner or `test` script found
-- **Build command:** `pnpm build` (`next build && next-export-optimize-images`)
+- **Build command:** `pnpm build` (`next build && next-image-export-optimizer`)
 
 ## Tech Stack
 
-- **Framework:** Next.js 15 (static export, via `next-export-optimize-images`)
+- **Framework:** Next.js 15 (static export, via `next-image-export-optimizer`)
 - **Language:** TypeScript
 - **Test runner:** none configured
 - **Other key libraries:** React 19, Fumadocs (`fumadocs-core`, `fumadocs-mdx`, `fumadocs-ui`, `fumadocs-typescript`, `@fumadocs/cli`), Tailwind CSS 4, Radix UI (`@radix-ui/react-accordion`, `-collapsible`, `-tabs`), `class-variance-authority`, `lucide-react`

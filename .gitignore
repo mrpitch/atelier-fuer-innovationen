@@ -1,5 +1,6 @@
 # deps
 /node_modules
+/.pnpm-store
 
 # generated content
 .contentlayer
@@ -12,6 +13,10 @@
 /out/
 /build
 *.tsbuildinfo
+
+# image optimization cache
+/public/**/_optimized/
+/public/next-image-export-optimizer-hashes.json
 
 # misc
 .DS_Store

@@ -1,4 +1,4 @@
-import Image from 'next-export-optimize-images/image'
+import ExportedImage from 'next-image-export-optimizer'
 import Logo from '@/public/images/logo.png'
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared'
 
@@ -20,7 +20,7 @@ import {
 
 export const logo = (
 	<>
-		<Image
+		<ExportedImage
 			alt="Atelier für Innovatoren"
 			src={Logo}
 			width={40}
