@@ -7,3 +7,21 @@ re-run the script after adding or moving files.
 ## Reference
 
 - [Glossary](reference/glossary.md)
+
+### Fumadocs
+
+- [Card Component](reference/fumadocs/card-component.md)
+- [Custom Tabs](reference/fumadocs/custom-tabs.md)
+- [Root Provider](reference/fumadocs/root-provider.md)
+- [Search Route](reference/fumadocs/search-route.md)
+- [Sidebar Tab Colors](reference/fumadocs/sidebar-tab-colors.md)
+- [Toc Item Type](reference/fumadocs/toc-item-type.md)
+
+## Explanation
+
+- [About Section Theming](explanation/about-section-theming.md)
+
+## Architecture Decision Records
+
+- [0001 Adopt Fumadocs Base Ui](adr/0001-adopt-fumadocs-base-ui.md)
+- [0002 Per Section Theming](adr/0002-per-section-theming.md)
