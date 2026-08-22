@@ -13,10 +13,10 @@
 		"moduleResolution": "bundler",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"jsx": "preserve",
+		"jsx": "react-jsx",
 		"incremental": true,
 		"paths": {
-			"@/.source": ["./.source/index.ts"],
+			"@/.source": ["./.source/server.ts"],
 			"@/*": ["./src/*"],
 			"@/app/*": ["./src/app/*"],
 			"@/lib/*": ["./src/lib/*"],
@@ -35,7 +35,7 @@
 		"**/*.ts",
 		"**/*.tsx",
 		".next/types/**/*.ts",
-		"export-images.config.js"
+		".next/dev/types/**/*.ts"
 	],
 	"exclude": ["node_modules"]
 }

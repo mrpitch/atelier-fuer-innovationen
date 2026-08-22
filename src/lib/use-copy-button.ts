@@ -13,6 +13,7 @@ export function useCopyButton(
   const [checked, setChecked] = useState(false);
   const timeoutRef = useRef<number | null>(null);
   const callbackRef = useRef(onCopy);
+  // eslint-disable-next-line react-hooks/refs -- keep the latest callback available to onClick without adding it as an effect dependency
   callbackRef.current = onCopy;
 
   const onClick: MouseEventHandler = useCallback(() => {

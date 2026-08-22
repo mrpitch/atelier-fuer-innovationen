@@ -33,6 +33,7 @@ export function Banner({
   const globalKey = id ? `nd-banner-${id}` : null;
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- sync open state from localStorage, only readable after mount
     if (globalKey) setOpen(localStorage.getItem(globalKey) !== 'true');
   }, [globalKey]);
 
