@@ -19,7 +19,7 @@
 - **Framework:** Next.js 15 (static export, via `next-image-export-optimizer`)
 - **Language:** TypeScript
 - **Test runner:** none configured
-- **Other key libraries:** React 19, Fumadocs (`fumadocs-core`, `fumadocs-mdx`, `fumadocs-ui`, `fumadocs-typescript`, `@fumadocs/cli`), Tailwind CSS 4, Radix UI (`@radix-ui/react-accordion`, `-collapsible`, `-tabs`), `class-variance-authority`, `lucide-react`
+- **Other key libraries:** React 19, Fumadocs (`fumadocs-core`, `fumadocs-mdx`, `@fumadocs/base-ui`, `fumadocs-typescript`, `@fumadocs/cli`), Tailwind CSS 4, Radix UI (`@radix-ui/react-accordion`, `-collapsible`, `-tabs`), `class-variance-authority`, `lucide-react`
 
 ## Project Structure
 
