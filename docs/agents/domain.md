@@ -1,3 +1,7 @@
+---
+type: Agent Instructions
+---
+
 # Domain Docs
 
 How the engineering skills should consume this repo's domain documentation when exploring the codebase. This repo uses the **Diataxis** layout — see the `diataxis` skill for the full framework.
@@ -44,3 +48,40 @@ If the concept you need isn't in the glossary yet, that's a signal — either yo
 If your output contradicts an existing ADR in `docs/adr/`, surface it explicitly rather than silently overriding:
 
 > _Contradicts ADR-0007 (event-sourced orders) — but worth reopening because…_
+
+## OKF frontmatter
+
+Every non-exempt `.md`/`.mdx` file in this repo also carries an [Open Knowledge Format (OKF) v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf) `type` field, layered additively on top of whichever convention already owns that file's other frontmatter. `scripts/validate-okf.ts` (run via `pnpm validate:okf`) is the single place this rule is defined and enforced; exemptions (any `README.md`, `docs/index.md`, `docs/agents/diataxis-context.md`, `AGENTS.md`/`CLAUDE.md`, `.claude/skills/**`, `.agents/skills/**`, `.sandcastle/**`, build/vendor output) live there, not duplicated here.
+
+### `docs/**`: `type` is derived from `kind`
+
+Diataxis's own fields (`name`, `kind`, `status`, `last_reviewed`, …) are untouched; `type` is added alongside `kind`, one line below it:
+
+| `kind`        | `type`             |
+| ------------- | ------------------ |
+| `tutorial`    | `Tutorial`         |
+| `how-to`      | `How-To Guide`     |
+| `reference`   | `Reference`        |
+| `explanation` | `Explanation`      |
+| `adr`         | `ADR`              |
+| `onboarding`  | `Onboarding Guide` |
+| `api`         | `API Reference`    |
+| `runbook`     | `Runbook`          |
+
+`docs/agents/*.md` sits outside the Diataxis quadrants (no `kind` field) and gets `type: Agent Instructions` directly.
+
+### `src/content/docs/**`: a fixed site-content vocabulary
+
+Fumadocs' own fields (`title`, `description`, `icon`) are untouched; `type` plus OKF's own `status` vocabulary (`draft | stable | deprecated`) are added net-new. Every Atelier/Xeniapolis page today is `status: draft` Lorem-ipsum placeholder content. The `type` a new page should pick, by where it lives:
+
+| Path pattern                                  | `type`         |
+| ---------------------------------------------- | -------------- |
+| `atelier/story-example-*/**` (any file)        | `Story`        |
+| any `*/konzepte/*.mdx`                         | `Concept`      |
+| any `*/guides/*.mdx`                           | `Guide`        |
+| any `index.mdx` (not already matched above)    | `Overview`     |
+| `impressum.mdx`                                | `Legal Notice` |
+| `components.mdx`                               | `Reference`    |
+| everything else (standalone pages, `seite-*`)  | `Article`      |
+
+Patterns are checked in the order listed — e.g. an `index.mdx` inside `story-example-1/chapter-1/` is `Story`, not `Overview`, because the story-example rule matches first.

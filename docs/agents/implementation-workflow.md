@@ -1,3 +1,7 @@
+---
+type: Agent Instructions
+---
+
 # Implementation Workflow
 
 This repo uses the **epic/afk workflow** (`/implement-epic`) instead of — or alongside — plain `/implement`. A spec issue (from `/to-spec`) is the epic; its sub-issues (from `/to-tickets`, as GitHub native sub-issues) are worked one at a time, gated `afk` (autonomous) or `hitl` (supervised).

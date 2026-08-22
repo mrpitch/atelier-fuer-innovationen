@@ -3,6 +3,7 @@ name: 'Per-section theming via CSS custom-property scoping'
 description: 'Records the decision to give the Xeniapolis content section its own full-page shadcn-style palette override, layered on a site-wide default palette, via a data-section attribute rather than separate route layouts.'
 tags: [theming, shadcn, css, xeniapolis, atelier, fumadocs, design-tokens]
 kind: adr
+type: ADR
 status: accepted
 last_reviewed: 2026-08-22
 ---

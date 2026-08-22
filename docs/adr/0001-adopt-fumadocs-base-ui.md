@@ -3,6 +3,7 @@ name: 'Adopt @fumadocs/base-ui over fumadocs-ui (Radix UI)'
 description: "Records the decision to switch this site's headless component primitive library from fumadocs-ui (Radix UI) to @fumadocs/base-ui (Base UI), despite the latter trailing the former's current release by a full major."
 tags: [fumadocs, base-ui, radix-ui, components, dependencies]
 kind: adr
+type: ADR
 status: accepted
 last_reviewed: 2026-08-22
 ---
