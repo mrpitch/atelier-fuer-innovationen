@@ -11,8 +11,6 @@ import {
 	typeNextBold,
 } from '@/lib/styles/fonts/index'
 
-import { Footer } from '@/app/_components/footer'
-
 export default function Layout({ children }: { children: ReactNode }) {
 	return (
 		<html
@@ -36,7 +34,6 @@ export default function Layout({ children }: { children: ReactNode }) {
 				>
 					{children}
 				</RootProvider>
-				<Footer />
 			</body>
 		</html>
 	)
