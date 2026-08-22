@@ -2,6 +2,7 @@
 name: "TOCItemType import path (v16)"
 description: "TOCItemType is imported from fumadocs-core/toc in v16, not fumadocs-core/server — the old path no longer exports it."
 kind: reference
+type: Reference
 status: current
 last_reviewed: 2026-08-22
 tags: [fumadocs, toc, types, v16]

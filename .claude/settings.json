@@ -1,9 +1,18 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(npx sandcastle *)",
-      "Bash(pnpm tsx *)",
-      "Bash(docker build *)"
-    ]
-  }
+	"permissions": {
+		"allow": [
+			"Bash(npx sandcastle *)",
+			"Bash(pnpm tsx *)",
+			"Bash(docker build *)",
+			"Bash(git add *)",
+			"Bash(git commit -m ' *)",
+			"Bash(gh issue *)",
+			"Bash(gh api *)",
+			"Bash(gh repo *)",
+			"Bash(git ls-remote *)",
+			"Bash(git fetch *)",
+			"Bash(git checkout *)",
+			"Bash(./scripts/set-project-status.sh *)"
+		]
+	}
 }

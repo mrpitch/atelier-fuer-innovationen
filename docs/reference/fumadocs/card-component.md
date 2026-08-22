@@ -2,6 +2,7 @@
 name: "Card component: fumadocs-core/link + fd-* tokens"
 description: "src/components/card.tsx uses fumadocs-core/link (not next/link) for automatic internal/external href handling, and styles via fumadocs' fd-* design-token classes."
 kind: reference
+type: Reference
 status: current
 last_reviewed: 2026-08-22
 tags: [fumadocs, card, link, theming]
