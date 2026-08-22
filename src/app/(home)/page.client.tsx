@@ -1,9 +1,7 @@
 'use client'
 import { useState } from 'react'
 
-//import Image from 'next/image'
-//import Image from 'next-export-optimize-images/image'
-import Picture from 'next-export-optimize-images/picture'
+import ExportedImage from 'next-image-export-optimizer'
 
 import { cva } from 'class-variance-authority'
 import { cn } from '@/lib/cn'
@@ -51,7 +49,7 @@ export function PreviewImages() {
 				</button>
 			</div>
 			<div className="overflow-hidden rounded-xs opacity-80 dark:opacity-50">
-				<Picture
+				<ExportedImage
 					src="/images/home-1.jpg"
 					alt="preview"
 					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 900px"
@@ -64,7 +62,7 @@ export function PreviewImages() {
 					)}
 				/>
 				{active === 1 && (
-					<Picture
+					<ExportedImage
 						src="/images/home-2.jpg"
 						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 900px"
 						alt="preview"

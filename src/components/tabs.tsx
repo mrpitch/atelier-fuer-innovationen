@@ -12,10 +12,10 @@ import {
   useLayoutEffect,
   useId,
   useEffect,
+  useEffectEvent,
 } from 'react';
 import { cn } from '../lib/cn';
 import * as Primitive from './ui/tabs';
-import { useEffectEvent } from 'fumadocs-core/utils/use-effect-event';
 
 export { Primitive };
 
@@ -90,12 +90,13 @@ export function Tabs({
       ? localStorage.getItem(groupId)
       : sessionStorage.getItem(groupId);
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- sync selected tab from persisted group storage, only readable after mount
     if (previous) onUpdate(previous);
     addChangeListener(groupId, onUpdate);
     return () => {
       removeChangeListener(groupId, onUpdate);
     };
-  }, [groupId, onUpdate, persist]);
+  }, [groupId, persist]);
 
   useLayoutEffect(() => {
     const hash = window.location.hash.slice(1);
@@ -103,6 +104,7 @@ export function Tabs({
 
     for (const [value, id] of valueToIdMap.entries()) {
       if (id === hash) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- sync selected tab from the URL hash, only readable after mount
         setValue(value);
         break;
       }
