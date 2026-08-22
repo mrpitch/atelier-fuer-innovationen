@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import { HomeHero } from '@/app/_components/home-hero'
-import { Cards, Card } from '@/components/card'
+import { Cards, Card } from '@fumadocs/base-ui/components/card'
 import { Book, ComponentIcon, Rocket, AlbumIcon } from 'lucide-react'
 
 export default function HomePage() {
