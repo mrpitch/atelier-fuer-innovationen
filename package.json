@@ -29,6 +29,9 @@
 		"react-medium-image-zoom": "^5.3",
 		"tailwind-merge": "^3"
 	},
+	"optionalDependencies": {
+		"vite": "*"
+	},
 	"devDependencies": {
 		"@ai-hero/sandcastle": "^0.12.0",
 		"@fumadocs/cli": "^1",
