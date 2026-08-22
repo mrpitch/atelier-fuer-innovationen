@@ -1,6 +1,6 @@
 ---
-name: "Custom Tabs component (legacy — migrate when possible)"
-description: "src/components/tabs.tsx is a ~1.5-year-old local reimplementation of features fumadocs-ui's Tabs lacked at the time; fumadocs-ui's built-in Tabs now covers the same ground and should be preferred going forward."
+name: "Custom Tabs component (legacy)"
+description: "src/components/tabs.tsx is a ~1.5-year-old local reimplementation of Tabs features fumadocs-ui now covers natively — prefer the built-in Tabs going forward."
 kind: reference
 status: current
 last_reviewed: 2026-08-22
@@ -18,3 +18,4 @@ tags: [fumadocs, tabs, components, migration, tech-debt]
 
 - **Prefer fumadocs-ui's built-in `Tabs` for any new usage** rather than this local component.
 - Migrating existing usages of `src/components/tabs.tsx` to the built-in component is a worthwhile follow-up cleanup, not done as part of this standard — verify prop-for-prop parity against the current fumadocs-ui docs before swapping, since exact persistence/hash-sync semantics should be checked rather than assumed identical.
+- The v16 upgrade also moved this file's `useEffectEvent` import from the polyfill at `fumadocs-core/utils/use-effect-event` (removed in v16) to React 19.2's own native `useEffectEvent` — a fumadocs-adjacent change to this exact file, separate from the migration-to-built-in-Tabs question above.
