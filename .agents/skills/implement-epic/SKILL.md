@@ -134,10 +134,11 @@ Then invoke the configured command, substituting `{issue}` for `<N>` and nothing
 
 **Keep this command literal.** Its fixed shape is what lets the Bash permission check match it against an allowlist rule; arguments built from `$(...)` are opaque to that check, so it would prompt a human every run and an afk run could never start unattended.
 
-The sandbox reads `.sandcastle/base-branch.txt` and runs `/implement` itself — same rules and same fixed point as the in-session path — and is expected to print one JSON line to stdout: `{ "success": boolean, "summary": string, "blockers": string | null }`. Parse it:
+The sandbox reads `.sandcastle/base-branch.txt` and runs `/implement` itself — same rules and same fixed point as the in-session path — and is expected to print one JSON line to stdout: `{ "success": boolean, "summary": string, "blockers": string | null, "reviewReport"?: string | null }`. `reviewReport`, when present and non-null, is a report from a review pass the sandbox command ran on the implementation — carry it forward to step 4's PR-comment audit trail as-is; not every `sandbox_command` produces one, so its absence isn't itself a problem. Parse the line:
 
 - **`success: true`** — proceed to step 4.
 - **`success: false`** (includes an exhausted iteration cap) — run the **hand-back procedure** with `gate_report` = the run's `summary` and `blockers`.
+- **The command exits non-zero, or prints nothing parseable as the JSON line above** — this is a crash, not a gate failure: something died before it could self-report (a timeout, a container error, an unhandled exception). Treat it exactly like `success: false` and run the **hand-back procedure**, with `gate_report` built from whatever the command printed (stderr, a stack trace, anything) — there may be no `summary`/`blockers` to extract cleanly, so include the raw output verbatim rather than leaving `gate_report` empty. **Do not re-invoke `sandbox_command` directly to retry** — that pays the sandbox's full orientation cost again with no more information than the first attempt had, for no better odds. The hand-back procedure's own one repair pass is the retry; let it happen through that path, where the failure gets carried forward as context instead of discarded.
 
 This applies identically whether `<N>` is a standalone `feat/*` issue or a sub-issue picked up mid-epic — only this step is affected. Sub-issue selection (step 1) and the epic coordination in step 2 (epic branch, project status) never route through the sandbox.
 
@@ -165,7 +166,7 @@ pr_url=$(gh pr create --base epic/<epic-N>-<slug> --title "..." --body "...
 Closes #<N>")
 ```
 
-**afk runs:** if `/implement`'s own code-review step produced a report, post it as a PR comment for the audit trail:
+**afk runs:** post a code-review report as a PR comment for the audit trail, if one is available — sandboxed, that's `reviewReport` from `sandbox_command`'s JSON output (step 3); in-session, it's whatever `/implement`'s own `/code-review` step produced directly in this context. Either way, without this step the only record of what review actually found is a sandbox log file on the machine that ran it, which nothing keeps and no one else can read — this is the durable copy:
 
 ```bash
 gh pr comment "$pr_url" --body "$(cat <<'EOF'
@@ -178,7 +179,7 @@ EOF
 
 #### Auto-merge — afk epic sub-issues only, and only if `auto_merge_afk_epic_subissues` is `true`
 
-When `<N>` is an afk sub-issue of an epic and auto-merge is enabled, the gate is already green by construction if the run reached this step: `/implement` completed cleanly — any failure that survived its repair pass handed the issue back before this step. Squash-merge the PR into the epic branch and sync the local checkout:
+When `<N>` is an afk sub-issue of an epic and auto-merge is enabled, the gate is already green by construction if the run reached this step: `/implement` completed cleanly — any failure that survived its repair pass handed the issue back before this step. Whether "completed cleanly" means self-review only or self-review plus an independent check is entirely down to what `sandbox_command` (or the in-session path) treats as `success: true` — this workflow doesn't second-guess that signal, so make sure whatever produces it is a gate you're actually willing to auto-merge on unattended. Squash-merge the PR into the epic branch and sync the local checkout:
 
 ```bash
 gh pr merge "$pr_url" --squash --delete-branch

@@ -28,6 +28,19 @@ const CONTAINER_NODE_MODULES_CACHE = join(
 	'node_modules',
 )
 
+// Same bind-mount problem as node_modules above, different symptom: without
+// this, `.next` inside the container is the host's real `.next` directory
+// (bind-mounted, not copied). If the implement or review pass runs `pnpm
+// dev`/`pnpm build` to verify its work — exactly what .sandcastle/prompt.md
+// tells it to — Turbopack's cache ends up with absolute paths baked in
+// pointing at the *container's* cwd (`/home/agent/workspace`), not the
+// host's. The host's next `pnpm dev` then fails to resolve its own module
+// graph against a cache built for a path that doesn't exist here. Isolating
+// `.next` the same way as node_modules means a sandbox build can never
+// corrupt the host's own dev cache; the host just rebuilds one of its own
+// on the next `pnpm dev`, same as if the sandbox had never run.
+const CONTAINER_NEXT_CACHE = join(process.cwd(), '.sandcastle', 'container-cache', 'next')
+
 // The image has no `~/.npmrc`, so the host's `store-dir` setting never
 // reaches the container — pnpm falls back to its own last-resort default:
 // a `.pnpm-store` folder relative to cwd. Since cwd inside the container
@@ -50,10 +63,36 @@ const CONTAINER_PNPM_STORE = '/home/agent/.pnpm-store'
 // too short for that case.
 const SANDBOX_READY_TIMEOUT_MS = 300_000
 
+// What `.sandcastle/prompt.md` itself instructs the implementing agent to
+// emit — the wrapper's own final output (see resultSchema below) is a
+// superset assembled from this plus the independent review pass.
+const implementResultSchema = z.object({
+	success: z.boolean(),
+	summary: z.string(),
+	blockers: z.string().nullable(),
+})
+
+// What `.sandcastle/review-prompt.md` instructs the independent reviewer to
+// emit. A separate schema/agent/session from implementResultSchema on
+// purpose — see runSandcastle()'s doc comment.
+const reviewResultSchema = z.object({
+	verdict: z.enum(['clean', 'issues_found']),
+	findings: z.string(),
+	summary: z.string(),
+})
+
+// The wrapper's own contract with implement-epic (see
+// docs/agents/implementation-workflow.md's "Sandbox command" section):
+// `success` is only `true` once both the implementer and the independent
+// reviewer are satisfied, never on the implementer's self-report alone.
 export const resultSchema = z.object({
 	success: z.boolean(),
 	summary: z.string(),
 	blockers: z.string().nullable(),
+	// The independent reviewer's report — implement-epic's step 4 posts this
+	// as a PR comment for the audit trail. Null only when the implement pass
+	// itself failed/blocked before a review pass ever ran.
+	reviewReport: z.string().nullable(),
 })
 
 const issueSchema = z.object({
@@ -87,19 +126,44 @@ export function readFixedPoint(): string {
 	}
 }
 
+// A safety margin above sandcastle's own 600s default. Doesn't replace
+// wrapping network calls in `timeout` (see prompt.md's Rules) — that's
+// what actually keeps a hung registry lookup from burning the whole
+// budget — this just gives a well-behaved-but-slow step more room before
+// AgentIdleTimeoutError kills the run outright.
+const IDLE_TIMEOUT_SECONDS = 900
+
+// Fresh docker() sandbox config per call — buildImplementRunOptions() and
+// buildReviewRunOptions() each get their own, rather than sharing one
+// object, in case sandcastle mutates it internally.
+function buildDockerSandbox() {
+	return docker({
+		mounts: [
+			{ hostPath: CONTAINER_NODE_MODULES_CACHE, sandboxPath: 'node_modules' },
+			{ hostPath: CONTAINER_NEXT_CACHE, sandboxPath: '.next' },
+			{ hostPath: HOST_PNPM_STORE, sandboxPath: CONTAINER_PNPM_STORE },
+		],
+		env: { npm_config_store_dir: CONTAINER_PNPM_STORE },
+	})
+}
+
+// CI=true keeps this non-interactive. Cheap once the mounts above are
+// warm — including on the review pass's own container, since it shares
+// the same host-mounted caches and the lockfile hasn't changed — only a
+// lockfile change or a genuinely first run does real work here.
+const installHook = {
+	onSandboxReady: [
+		{ command: 'CI=true pnpm install --frozen-lockfile', timeoutMs: SANDBOX_READY_TIMEOUT_MS },
+	],
+}
+
 // No explicit return-type annotation: `run()`'s overload resolution depends
 // on the literal `output` type surviving inference (OutputObjectDefinition
 // vs. the base RunOptions), so widening it here would pick the wrong overload.
-export function buildRunOptions(input: SandcastleIssueInput) {
+export function buildImplementRunOptions(input: SandcastleIssueInput) {
 	return {
-		name: 'worker',
-		sandbox: docker({
-			mounts: [
-				{ hostPath: CONTAINER_NODE_MODULES_CACHE, sandboxPath: 'node_modules' },
-				{ hostPath: HOST_PNPM_STORE, sandboxPath: CONTAINER_PNPM_STORE },
-			],
-			env: { npm_config_store_dir: CONTAINER_PNPM_STORE },
-		}),
+		name: 'implement',
+		sandbox: buildDockerSandbox(),
 		agent: claudeCode('claude-sonnet-5'),
 		promptFile: './.sandcastle/prompt.md',
 		promptArgs: {
@@ -113,17 +177,39 @@ export function buildRunOptions(input: SandcastleIssueInput) {
 			// guards against the host being on the wrong branch instead.
 		},
 		maxIterations: MAX_ITERATIONS,
-		output: Output.object({ tag: 'result', schema: resultSchema }),
+		// maxRetries: a malformed <result> tag resumes the same session with a
+		// token-efficient error description instead of failing the whole run
+		// (and losing the already-committed work) over a formatting slip.
+		output: Output.object({ tag: 'result', schema: implementResultSchema, maxRetries: 1 }),
 		branchStrategy: { type: 'head' as const },
-		hooks: {
-			sandbox: {
-				// CI=true keeps this non-interactive. Cheap once the cache above is
-				// warm; only a lockfile change or a first run does real work here.
-				onSandboxReady: [
-					{ command: 'CI=true pnpm install --frozen-lockfile', timeoutMs: SANDBOX_READY_TIMEOUT_MS },
-				],
-			},
+		idleTimeoutSeconds: IDLE_TIMEOUT_SECONDS,
+		hooks: { sandbox: installHook },
+	}
+}
+
+// The review pass runs as a brand-new session (no resumeSession) on the
+// SAME host branch — head strategy bind-mounts whatever's currently
+// checked out, which by now includes the implementer's commit(s) — so it
+// has no access to the implementer's reasoning, only the diff and the
+// issue. That's what makes it an independent check rather than the
+// implementer grading its own work; see runSandcastle()'s doc comment.
+export function buildReviewRunOptions(input: SandcastleIssueInput) {
+	return {
+		name: 'review',
+		sandbox: buildDockerSandbox(),
+		agent: claudeCode('claude-sonnet-5'),
+		promptFile: './.sandcastle/review-prompt.md',
+		promptArgs: {
+			ISSUE_NUMBER: input.issueNumber,
+			ISSUE_TITLE: input.issueTitle,
+			ISSUE_BODY: input.issueBody,
+			FIXED_POINT: input.fixedPoint,
 		},
+		maxIterations: MAX_ITERATIONS,
+		output: Output.object({ tag: 'result', schema: reviewResultSchema, maxRetries: 1 }),
+		branchStrategy: { type: 'head' as const },
+		idleTimeoutSeconds: IDLE_TIMEOUT_SECONDS,
+		hooks: { sandbox: installHook },
 	}
 }
 
@@ -188,17 +274,57 @@ place — continue from it rather than starting over.
 ${report}`
 }
 
-// docker()'s bind-mount provider requires the mounted hostPath to already
+// docker()'s bind-mount provider requires each mounted hostPath to already
 // exist before container creation.
-function ensureContainerNodeModulesCache() {
+function ensureContainerCacheDirs() {
 	mkdirSync(CONTAINER_NODE_MODULES_CACHE, { recursive: true })
+	mkdirSync(CONTAINER_NEXT_CACHE, { recursive: true })
 }
 
+// Two sequential run() calls on the same host branch, deliberately not one
+// call whose prompt does both jobs and not a resumed session for the
+// second: the implementer already runs /code-review on itself inside
+// .sandcastle/prompt.md's own /implement step, and self-review's blind
+// spots are exactly the ones a second pass in the *same* context would
+// share. A fresh session with no resumeSession sees only the diff and the
+// issue, not the implementer's own rationalizations — a real second
+// opinion, not the same agent grading its own work twice. Container boot
+// is cheap either way (~1s, confirmed against this repo's own sandbox
+// logs) and the package caches are host-mounted, so a second container
+// costs one more no-op `pnpm install`, not a second real one.
+//
+// `success` is only ever `true` once the independent review comes back
+// clean — implement-epic's auto-merge (docs/agents/implementation-workflow.md)
+// treats `success: true` as its only gate, so this is what actually keeps
+// a self-approved change from squash-merging into the epic branch
+// unattended.
 export async function runSandcastle(input: SandcastleIssueInput) {
 	assertOnIssueBranch(input.issueNumber)
-	ensureContainerNodeModulesCache()
-	const { output } = await run(buildRunOptions(input))
-	return output
+	ensureContainerCacheDirs()
+
+	const { output: implementOutput } = await run(buildImplementRunOptions(input))
+	if (!implementOutput.success) {
+		// Nothing was committed cleanly (or /implement itself reported a
+		// blocker) — there's nothing for an independent review to look at yet.
+		return { ...implementOutput, reviewReport: null }
+	}
+
+	const { output: reviewOutput } = await run(buildReviewRunOptions(input))
+	if (reviewOutput.verdict === 'clean') {
+		return {
+			success: true,
+			summary: implementOutput.summary,
+			blockers: null,
+			reviewReport: reviewOutput.summary,
+		}
+	}
+
+	return {
+		success: false,
+		summary: implementOutput.summary,
+		blockers: `Independent review (fresh session, no context shared with the implementer) found issues after the implementation was already committed:\n\n${reviewOutput.findings}`,
+		reviewReport: reviewOutput.findings,
+	}
 }
 
 export interface SandcastleCliArgs {
