@@ -1,6 +1,6 @@
 import ExportedImage from 'next-image-export-optimizer'
 import Logo from '@/public/images/logo.png'
-import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared'
+import type { BaseLayoutProps } from '@fumadocs/base-ui/layouts/shared'
 
 import {
 	HousePlus,

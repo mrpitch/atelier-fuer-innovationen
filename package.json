@@ -13,14 +13,14 @@
 		"sandcastle:build": "DOCKER_BUILDKIT=1 docker build --secret id=npmrc,src=.npmrc --build-arg AGENT_UID=$(id -u) --build-arg AGENT_GID=$(id -g) -t sandcastle:atelier-fuer-innovationen -f .sandcastle/Dockerfile ."
 	},
 	"dependencies": {
+		"@fumadocs/base-ui": "^16.15.0",
 		"@radix-ui/react-accordion": "^1.2",
 		"@radix-ui/react-collapsible": "^1.1",
 		"@radix-ui/react-tabs": "^1.1",
 		"class-variance-authority": "^0.7.1",
-		"fumadocs-core": "^16",
+		"fumadocs-core": "^16.15.0",
 		"fumadocs-mdx": "^15",
 		"fumadocs-typescript": "^5",
-		"fumadocs-ui": "^16",
 		"lucide-react": "^0.475.0",
 		"next": "^16",
 		"next-image-export-optimizer": "^1.20.1",
@@ -28,6 +28,9 @@
 		"react-dom": "^19.2",
 		"react-medium-image-zoom": "^5.3",
 		"tailwind-merge": "^3"
+	},
+	"optionalDependencies": {
+		"vite": "*"
 	},
 	"devDependencies": {
 		"@ai-hero/sandcastle": "^0.12.0",

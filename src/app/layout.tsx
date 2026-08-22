@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-import { RootProvider } from 'fumadocs-ui/provider/next'
+import { RootProvider } from '@fumadocs/base-ui/provider/next'
 import '@/lib/styles/globals.css'
 import { cn } from '@/lib/cn'
 
