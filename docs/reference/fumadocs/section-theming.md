@@ -9,6 +9,21 @@ tags: [fumadocs, theming, sections, xeniapolis, css]
 
 # Per-section theming: data-section scoping
 
+Two hand-authored shadcn-style palettes coexist in `globals.css`:
+
+- **Atelier (default)** — applied at `:root`/`.dark`, covers the home page,
+  shared chrome, the Atelier content section, and the docs root.
+- **Xeniapolis (override)** — defined under `[data-section='xeniapolis']`,
+  overrides all shadcn tokens including `--sidebar-*` so the entire page
+  re-themes, not just the article body.
+
+`--atelier-color` and `--xeniapolis-color` are set at `:root`/`.dark` (never
+inside any section scope) so the sidebar tab-switcher icon transform always
+shows both section identities regardless of the current page. See
+[Sidebar tab icon color transform](./sidebar-tab-colors.md).
+
+---
+
 `src/app/docs/[[...slug]]/layout.tsx` wraps the entire page in a
 `<div data-section="xeniapolis">` when the current page is in the
 Xeniapolis content section:
@@ -60,10 +75,3 @@ entire palette switches, not just the content area.
   at all times. They live at `:root`/`.dark` only — never inside a section
   scope.
 
-## Adding a third section
-
-Add a new `[data-section='<folder>']` block in `globals.css` with its own
-token overrides, and extend `getPageSection()`'s return values to cover it.
-Do not add a new `--<folder>-color` unless you also wire it up in the
-`tabs.transform` in `layout.tsx` and define it at `:root`/`.dark` (not
-inside the section scope).
