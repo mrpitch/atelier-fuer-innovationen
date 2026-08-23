@@ -21,6 +21,10 @@ afterwards.
 
 {{ISSUE_BODY}}
 
+## Before starting
+
+Read `.sandcastle/efficiency-rules.md` and apply its rules for the duration of this session.
+
 ## How to work
 
 Run `/implement` on this issue — read `.agents/skills/implement/SKILL.md` if

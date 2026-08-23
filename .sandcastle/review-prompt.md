@@ -17,6 +17,10 @@ whatever reasoning the implementer left in commit messages.
 
 {{ISSUE_BODY}}
 
+## Before starting
+
+Read `.sandcastle/efficiency-rules.md` and apply its rules for the duration of this session.
+
 ## How to work
 
 Run `/code-review` — read `.agents/skills/code-review/SKILL.md` if it
