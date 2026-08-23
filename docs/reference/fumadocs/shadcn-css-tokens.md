@@ -2,6 +2,7 @@
 name: "Theming: shadcn.css token names"
 description: "This repo uses @fumadocs/base-ui/css/shadcn.css, so CSS tokens are shadcn names (--background, --primary) — not the --color-fd-* names shown in upstream fumadocs theming docs."
 kind: reference
+type: Reference
 status: current
 last_reviewed: 2026-08-23
 tags: [fumadocs, theming, css, shadcn, tokens]

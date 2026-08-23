@@ -2,6 +2,7 @@
 name: "Tabs migration: local Radix Tabs to @fumadocs/base-ui"
 description: "src/components/tabs.tsx is now a thin wrapper on @fumadocs/base-ui's native Tabs, which implements groupId/persist/updateAnchor natively — verified against the installed package source."
 kind: reference
+type: Reference
 status: current
 last_reviewed: 2026-08-22
 tags: [fumadocs, tabs, components, migration, v16]
