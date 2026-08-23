@@ -4,9 +4,9 @@ import {
   DocsBody,
   DocsDescription,
   DocsTitle,
-} from 'fumadocs-ui/page';
+} from '@fumadocs/base-ui/page';
 import { notFound } from 'next/navigation';
-import defaultMdxComponents from 'fumadocs-ui/mdx';
+import defaultMdxComponents from '@fumadocs/base-ui/mdx';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;

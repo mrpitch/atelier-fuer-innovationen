@@ -5,13 +5,16 @@
 			"Bash(pnpm tsx *)",
 			"Bash(docker build *)",
 			"Bash(git add *)",
-			"Bash(git commit -m ' *)",
+			"Bash(git commit *)",
+			"Bash(git fetch *)",
+			"Bash(git checkout *)",
+			"Bash(git ls-remote *)",
 			"Bash(gh issue *)",
 			"Bash(gh api *)",
 			"Bash(gh repo *)",
-			"Bash(git ls-remote *)",
-			"Bash(git fetch *)",
-			"Bash(git checkout *)",
+			"Bash(pnpm sandcastle *)",
+			"Bash(pnpm sandcastle:build *)",
+			"Bash(pnpm install *)",
 			"Bash(./scripts/set-project-status.sh *)"
 		]
 	}

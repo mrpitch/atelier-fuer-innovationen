@@ -1,33 +1,19 @@
-import { NextFontWithVariable } from 'next/dist/compiled/@next/font'
-import localFont from 'next/font/local'
+import { Roboto, Almendra, Roboto_Mono } from 'next/font/google'
 
-/**
- * NOT USED - localFont({src}) requires src to be an explicit written literal, so importing and destructuring is not working
-import fonts from '../fonts.json'
-const {
-	font: { light, regular, semibold, bold },
-} = fonts
-*/
-
-export const typeNextLight: NextFontWithVariable = localFont({
-	src: './inter-latin-200.woff2',
-	display: 'swap',
-	variable: '--font-typeNextLight',
+export const fontSans = Roboto({
+	weight: ['400', '500', '700'],
+	subsets: ['latin'],
+	variable: '--font-sans',
 })
 
-export const typeNextRegular: NextFontWithVariable = localFont({
-	src: './inter-latin-regular.woff2',
-	display: 'swap',
-	variable: '--font-typeNextRegular',
+export const fontSerif = Almendra({
+	weight: ['400', '700'],
+	subsets: ['latin'],
+	variable: '--font-serif',
 })
 
-export const typeNextSemiBold: NextFontWithVariable = localFont({
-	src: './inter-latin-600.woff2',
-	display: 'swap',
-	variable: '--font-typeNextSemiBold',
-})
-export const typeNextBold: NextFontWithVariable = localFont({
-	src: './inter-latin-800.woff2',
-	display: 'swap',
-	variable: '--font-typeNextBold',
+export const fontMono = Roboto_Mono({
+	weight: ['400', '500', '700'],
+	subsets: ['latin'],
+	variable: '--font-mono',
 })

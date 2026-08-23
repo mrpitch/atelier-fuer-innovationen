@@ -47,6 +47,12 @@ COPY --chown=${AGENT_UID}:${AGENT_GID} package.json pnpm-lock.yaml pnpm-workspac
 # pair) are needed here because this repo's postinstall runs `fumadocs-mdx`,
 # which reads its config directly during install rather than lazily at
 # build/dev time — omitting it fails install with "Cannot find config file".
+# `vite` is in optionalDependencies (not devDependencies) solely to satisfy
+# fumadocs-mdx@15.3.0's postinstall: the CLI imports from its own
+# dist/vite/index.js even for Next.js projects, so a clean pnpm store
+# (Docker, fresh CI) fails with ERR_MODULE_NOT_FOUND unless vite is
+# explicitly installed. Locally the global pnpm store leaks it in as a
+# phantom dep, masking the bug — the Docker environment exposed it.
 # pnpm-workspace.yaml carries the allowBuilds entries for esbuild/sharp's
 # install scripts (pnpm 10+ ignores them by default otherwise) — without
 # it here, install fails non-interactively with ERR_PNPM_IGNORED_BUILDS.

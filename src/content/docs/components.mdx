@@ -5,13 +5,14 @@ type: Reference
 status: draft
 ---
 
-import { Accordions, Accordion } from '@/components/accordion'
-import { Banner } from '@/components/banner'
+import { Accordions, Accordion } from '@fumadocs/base-ui/components/accordion'
+import { Banner } from '@fumadocs/base-ui/components/banner'
 import { ImageZoom } from '@/components/image-zoom'
-import { InlineTOC } from 'fumadocs-ui/components/inline-toc'
-import { Card } from '@/components/card'
-import { Slides, Slide } from '@/components/slides'
-import { Steps, Step } from '@/components/steps'
+import { InlineTOC } from '@fumadocs/base-ui/components/inline-toc'
+import { Cards, Card } from '@fumadocs/base-ui/components/card'
+import { Illu } from '@/components/illus'
+import { Slide } from '@/components/slides'
+import { Steps, Step } from '@fumadocs/base-ui/components/steps'
 import { Tabs, Tab } from '@/components/tabs'
 
 # UI Components
@@ -19,18 +20,28 @@ import { Tabs, Tab } from '@/components/tabs'
 <InlineTOC items={toc} />
 ## Accordion
 <Accordions>
-	<Accordion title="Item 1" description="Description 1">
+	<Accordion title="Item 1" description="Description 1" id="accordion-item-1">
 		Content for Item 1
 	</Accordion>
 </Accordions>
 
 ## Banner
 
-<Banner type="note">This is a note banner.</Banner>
+<Banner id="showcase-banner">This is a dismissible banner.</Banner>
 
 ## Card
 
-<Card>This is a card.</Card>
+<Cards>
+	<Card title="Atelier" href="/docs/atelier">
+		Internal link to the Atelier section.
+	</Card>
+	<Card
+		title="Repository"
+		href="https://github.com/mrpitch/atelier-fuer-innovationen"
+	>
+		External link to the project's GitHub repository.
+	</Card>
+</Cards>
 
 ## Steps
 
@@ -42,9 +53,25 @@ import { Tabs, Tab } from '@/components/tabs'
 
 ## Tabs
 
-<Tabs items={['Tab 1', 'Tab 2']}>
-	<Tab value="Tab 1">Content for Tab 1</Tab>
-	<Tab value="Tab 2">Content for Tab 2</Tab>
+<Tabs items={['Tab 1', 'Tab 2']} groupId="showcase-tabs" persist updateAnchor>
+	<Tab value="Tab 1" id="showcase-tab-1">
+		Content for Tab 1
+	</Tab>
+	<Tab value="Tab 2" id="showcase-tab-2">
+		Content for Tab 2
+	</Tab>
+</Tabs>
+
+Switching a tab above also switches its synced pair below, and the selection
+persists across a reload.
+
+<Tabs items={['Tab 1', 'Tab 2']} groupId="showcase-tabs" persist updateAnchor>
+	<Tab value="Tab 1" id="showcase-tab-1-synced">
+		Content for Tab 1 (synced)
+	</Tab>
+	<Tab value="Tab 2" id="showcase-tab-2-synced">
+		Content for Tab 2 (synced)
+	</Tab>
 </Tabs>
 
 ## ImageZoom
@@ -59,3 +86,11 @@ import { Tabs, Tab } from '@/components/tabs'
 ## Slide
 
 <Slide slug="slide-1" />
+
+<Slide slug="slide-2" />
+
+## Illustration
+
+<Illu slug="illustration-ansicht" />
+
+<Illu slug="illustration-xenia-im-netzwerk-der-wissensstaedte" />
