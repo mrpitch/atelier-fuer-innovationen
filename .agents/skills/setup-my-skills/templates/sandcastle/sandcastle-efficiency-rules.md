@@ -1,6 +1,5 @@
 # Sandcastle session efficiency rules
 
-Derived from post-mortem analysis of feat-33 through feat-37 sessions.
 Apply these for the duration of every sandcastle run.
 
 ## 1. Context hygiene
@@ -9,7 +8,7 @@ Apply these for the duration of every sandcastle run.
 `.sandcastle/logs/*.log` is your prior tool output re-serialized. Reading it doubles tokens already paid.
 
 **Never cat a file without confirming it is small.**
-Use `wc -l` or `head` first. Reserve full `cat` for files under ~50 lines. Applies to package.json, tsconfig.json, pnpm-lock.yaml, and all compiled JS/CSS.
+Use `wc -l` or `head` first. Reserve full `cat` for files under ~50 lines. Applies to package.json, tsconfig.json, lockfiles, and all compiled JS/CSS.
 
 **Never read compiled `.js` dist files for API information.**
 Read `.d.ts` declarations instead. If you must trace runtime behavior, use `grep -n "pattern"`, not `cat`.
@@ -29,8 +28,8 @@ If the diffstat shows >200 lines changed, scope to the files you need:
 The harness notifies you on completion. Do not `tail`, `cat`, or `wc` a task's `.output` path — it dumps raw JSONL transcript back into context.
 
 **Never `cat` or `tail` a running server log.**
-Use `grep -q "Ready" /tmp/nextdev.log && echo "ready"` for liveness checks.
-Use `grep -i "error\|warn" /tmp/nextdev.log` for problem diagnosis.
+Use `grep -q "Ready" /tmp/devserver.log && echo "ready"` for liveness checks.
+Use `grep -i "error\|warn" /tmp/devserver.log` for problem diagnosis.
 
 ## 2. Command efficiency
 
@@ -42,13 +41,13 @@ Do not issue each as a separate tool call.
 
 **Use installed package facts, not registry calls.**
 `cat node_modules/pkg/package.json | grep '"version"'` is instant and offline.
-`pnpm view` is a network call returning large JSON — avoid once the package is installed.
+A package manager's `view`/`show`/`info` command is a network round trip — avoid it once the package is already installed.
 
-**Combine tsc and eslint into one call. Always scope eslint to source.**
+**Combine your typecheck and lint checks into one call. Always scope lint to source.**
 ```bash
-timeout 120 pnpm exec tsc --noEmit && timeout 120 pnpm exec eslint 'src/**/*.{ts,tsx}'; echo "EXIT=$?"
+timeout 120 REPLACE_WITH_CHECK_COMMAND; echo "EXIT=$?"
 ```
-Running `eslint .` without scoping picks up `.sandcastle/container-cache` and returns hundreds of false-positive errors.
+Running lint unscoped can pick up `.sandcastle/container-cache` and other build artifacts, returning hundreds of false-positive errors.
 
 **Extract JSON fields with `grep`, not full JSON dumps.**
 `grep -A3 '"./components"' node_modules/pkg/package.json` over
@@ -57,27 +56,24 @@ Running `eslint .` without scoping picks up `.sandcastle/container-cache` and re
 **Always filter `ps aux` immediately.**
 `ps aux | grep target-process | grep -v grep` — never unfiltered `ps aux`.
 
-**Never `pnpm add` the same package twice without diagnosing the block.**
-If `pnpm add pkg` is permission-blocked, edit `package.json` directly and run the allowlisted `pnpm install` instead.
+**Never repeat a blocked dependency-install command without diagnosing the block.**
+If adding a dependency is permission-blocked, edit `package.json` directly and run the allowlisted install command instead.
 
 **Wrap all network-touching commands in `timeout <seconds>`.**
-`pnpm view`, external fetches, registry lookups. An unbounded hang silently burns the sandbox idle-timeout budget.
+Registry lookups, external fetches. An unbounded hang silently burns the sandbox idle-timeout budget.
 
 ## 3. Verification strategy
 
 **Never re-run a check that already passed without an intervening code change.**
-If `tsc --noEmit` just returned exit 0, do not run it again before your next edit.
+If a typecheck just returned exit 0, do not run it again before your next edit.
 
-**Document the OOM once; never reproduce it.**
-`pnpm build` OOM-kills at the 1.9GB sandbox ceiling — documented in commit `dd40d3b`.
-Do not: re-run to confirm, run with `NODE_OPTIONS`, or `git stash/pop/install` to "verify pre-existing."
-Reference the prior documentation. One build run per feature session is the maximum.
+**Document an expensive, reproducible failure once; never reproduce it.**
+If a build or test run fails for a documented, pre-existing reason (an environment ceiling, a known flaky suite), reference the earlier documentation rather than re-running it to "confirm." One run of an expensive check per session is the maximum unless code actually changed.
 
-**After a mid-session build attempt, clear `.next` before the next `tsc --noEmit`.**
-`rm -rf .next` — even an OOM-killed build contaminates TypeScript's incremental cache.
+**After a mid-session build attempt, clear the build cache before the next typecheck.**
+An interrupted or failed build can leave stale incremental-compilation state that contaminates the next check's results.
 
-**If `pnpm exec tsc` prints "Already up to date," fall back once to the binary directly.**
-`./node_modules/.bin/tsc --noEmit` — but only once; do not alternate between both forms.
+**If a tool reports "nothing to do" when you know code changed, fall back to invoking its binary directly once — but don't alternate between both forms.**
 
 ## 4. Sub-agent / multi-agent coordination
 
@@ -107,37 +103,34 @@ This scaffold wires `playwright-mcp` into every sandcastle run by default — `.
 
 **Start the dev server non-blocking with a readiness poll.**
 ```bash
-nohup pnpm exec next dev -p PORT > /tmp/nextdev.log 2>&1 &
+nohup <dev-server-command> > /tmp/devserver.log 2>&1 &
 disown
 for i in $(seq 1 30); do
-  grep -q "Ready" /tmp/nextdev.log && echo "ready after ${i}s" && break
+  grep -q "<ready-marker>" /tmp/devserver.log && echo "ready after ${i}s" && break
   sleep 1
 done
 ```
-Never run `next dev` as a foreground `timeout N` command — the server dies when the timeout fires.
+Never run the dev server as a foreground `timeout N` command — the server dies when the timeout fires.
 
-**Issue all smoke-test curl calls in one batch immediately after "Ready" is confirmed.**
+**Without a browser-automation MCP, issue all smoke-test curl calls in one batch immediately after readiness is confirmed.**
 Extract only status codes and targeted attributes inline, then kill the server:
-`pkill -f "next dev"`
+`pkill -f "<dev-server-process-name>"`
 
 **Never bump port numbers to work around a dead server.**
-Diagnose the crash first: `grep -i "error\|kill\|oom" /tmp/nextdev.log`.
-Bumping to 3418, 3419, etc. creates orphaned processes, splits logs, and obscures the failure.
+Diagnose the crash first: `grep -i "error\|kill\|oom" /tmp/devserver.log`.
+Bumping ports creates orphaned processes, splits logs, and obscures the failure.
 
-**Prefer `next start` over `next dev` for smoke tests.**
-`next dev` triggers JIT compilation on every page hit and fails under memory pressure.
-If the goal is verifying HTTP status codes and static markup, `next start` is more stable.
-If the build OOM-kills (see R14), `next dev` is the fallback — plan for its instability.
+**If the framework offers a production/start mode alongside its dev mode, prefer the production mode for smoke tests.**
+Dev mode's JIT/hot-reload behavior is typically less stable under memory pressure. If only HTTP status codes and static markup need verifying, the production mode is more stable — fall back to dev mode only if a production build isn't feasible in the sandbox.
 
 ## 6. Review-specific rules
 
-**Review agents must not run `pnpm build`.**
-The implement agent's commit message documents the build result.
-Verify correctness via `tsc --noEmit`, targeted source inspection, and diff analysis only.
+**Review agents must not run the project's full build.**
+The implement agent's commit message documents the build result. Verify correctness via a typecheck, targeted source inspection, and diff analysis only.
 
 **Review agents must not re-fetch the full diff multiple times.**
 Run `git diff FIXED_POINT > /tmp/review.diff` once at the start.
 Reference `/tmp/review.diff` for all subsequent analysis; do not run `git diff` again.
 
 **Do not manufacture blocking findings for judgement calls.**
-If the implementer made a reasonable choice that you would have done differently, note it at most as a nit. Reserve `issues_found` for actual defects.
+If the implementer made a reasonable choice you would have done differently, note it at most as a nit. Reserve `issues_found` for actual defects.

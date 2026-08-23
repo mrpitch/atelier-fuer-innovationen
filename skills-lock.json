@@ -83,7 +83,7 @@
       "source": "mrpitch/myskills",
       "sourceType": "github",
       "skillPath": ".agents/skills/implement-epic/SKILL.md",
-      "computedHash": "6c7fba31b0b33804f2e382014ddf200d5c8f86312dc68a64e957ce1aaa721a51"
+      "computedHash": "178a0a56845aedab20de3d03de89ede9f1ebad2e07e07feb6cff27014e59a779"
     },
     "improve-codebase-architecture": {
       "source": "mattpocock/skills",
@@ -109,11 +109,17 @@
       "skillPath": "skills/engineering/resolving-merge-conflicts/SKILL.md",
       "computedHash": "63b2dcadbe9124caeb3448f1378286fe18dcefb2494f60e136831b8b4986ca27"
     },
+    "sandcastle-log-review": {
+      "source": "mrpitch/myskills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/sandcastle-log-review/SKILL.md",
+      "computedHash": "9f3c1c549984d2ca9339d1fa60bb9c3dd63b42bd7e1cde7a2a58b53744b90134"
+    },
     "setup-my-skills": {
       "source": "mrpitch/myskills",
       "sourceType": "github",
       "skillPath": ".agents/skills/setup-my-skills/SKILL.md",
-      "computedHash": "782ab328c85b38709c86dcf263715c157b01a9bfadc170273ac297419fc2340c"
+      "computedHash": "b39f69febf1260289d09a76254fce2779453c4a165bd3c6be7a0a0f588b4aab2"
     },
     "tdd": {
       "source": "mattpocock/skills",
