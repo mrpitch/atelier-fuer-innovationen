@@ -1,6 +1,8 @@
-import { execFileSync, execSync } from 'node:child_process'
-import { mkdirSync, readFileSync } from 'node:fs'
-import { join } from 'node:path'
+import { execFileSync, execSync, spawn } from 'node:child_process'
+import { mkdirSync, mkdtempSync, readFileSync, rmSync } from 'node:fs'
+import { connect, createServer } from 'node:net'
+import { tmpdir } from 'node:os'
+import { dirname, join } from 'node:path'
 
 import { claudeCode, Output, run } from '@ai-hero/sandcastle'
 import { docker } from '@ai-hero/sandcastle/sandboxes/docker'
@@ -28,15 +30,87 @@ const CONTAINER_NODE_MODULES_CACHE = join(
 	'node_modules',
 )
 
+// Framework-specific dev/build caches (Next.js's `.next`, Vite's
+// `node_modules/.vite`, etc.) hit the same bind-mount problem as
+// node_modules above, different symptom: if this repo's `/implement` check
+// command (see .sandcastle/prompt.md's REPLACE_WITH_CHECK_COMMAND) runs a
+// dev/build step, the cache it writes can bake the *container's* absolute
+// cwd (`/home/agent/workspace`) into cached output. The host's next
+// dev/build then fails to resolve its own module graph against a cache
+// built for a path that doesn't exist outside the container.
+//
+// This template is framework-agnostic, so isolating such a cache is left
+// as a manual (or setup-my-skills-assisted) follow-up rather than baked in
+// here — only do this if the check command actually builds/runs the dev
+// server; a lint+unit-test-only check command has no such cache to
+// isolate. To add one, mirror CONTAINER_NODE_MODULES_CACHE above, e.g. for
+// Next.js's `.next`:
+//
+//   const CONTAINER_NEXT_CACHE = join(process.cwd(), '.sandcastle', 'container-cache', 'next')
+//
+// then add `{ hostPath: CONTAINER_NEXT_CACHE, sandboxPath: '.next' }` to
+// buildDockerSandbox()'s `mounts` below, and create the directory
+// alongside CONTAINER_NODE_MODULES_CACHE in ensureContainerCacheDirs().
+
+// The image has no `~/.npmrc`, so the host's `store-dir` setting never
+// reaches the container — pnpm falls back to its own last-resort default:
+// a `.pnpm-store` folder relative to cwd. Since cwd inside the container
+// *is* this bind-mounted worktree (see the node_modules comment above),
+// that fallback would write a stray `.pnpm-store` straight into the repo on
+// every real (non-cached) install. Mounting the host's actual global pnpm
+// store and pointing `store-dir` at it (via `npm_config_store_dir` below)
+// makes the container share the same content-addressable cache as the
+// host instead of creating a second one.
+//
+// `pnpm store path` reports `<store-dir>/vN` (pnpm appends its own
+// cache-format version segment); `dirname` strips that back down to the
+// actual `store-dir` value so the container recreates the same `vN`
+// segment on its own, landing in the same place as the host's store.
+const HOST_PNPM_STORE = dirname(execSync('pnpm store path', { encoding: 'utf8' }).trim())
+const CONTAINER_PNPM_STORE = '/home/agent/.pnpm-store'
+
 // Cold-cache installs (first run, or after a lockfile change) can take
 // several minutes inside the sandbox; sandcastle's default hook timeout is
 // too short for that case.
 const SANDBOX_READY_TIMEOUT_MS = 300_000
 
+// A safety margin above sandcastle's own 600s default. Doesn't replace
+// wrapping network calls in `timeout` (see sandcastle-prompt.md's Rules) —
+// that's what actually keeps a hung registry lookup from burning the whole
+// budget — this just gives a well-behaved-but-slow step more room before
+// AgentIdleTimeoutError kills the run outright.
+const IDLE_TIMEOUT_SECONDS = 900
+
+// What .sandcastle/prompt.md itself instructs the implementing agent to
+// emit — the wrapper's own final output (see resultSchema below) is a
+// superset assembled from this plus the independent review pass.
+const implementResultSchema = z.object({
+	success: z.boolean(),
+	summary: z.string(),
+	blockers: z.string().nullable(),
+})
+
+// What .sandcastle/review-prompt.md instructs the independent reviewer to
+// emit. A separate schema/agent/session from implementResultSchema on
+// purpose — see runSandcastle()'s doc comment.
+const reviewResultSchema = z.object({
+	verdict: z.enum(['clean', 'issues_found']),
+	findings: z.string(),
+	summary: z.string(),
+})
+
+// The wrapper's own contract with implement-epic (see
+// docs/agents/implementation-workflow.md's sandbox_command section):
+// `success` is only `true` once both the implementer and the independent
+// reviewer are satisfied, never on the implementer's self-report alone.
 export const resultSchema = z.object({
 	success: z.boolean(),
 	summary: z.string(),
 	blockers: z.string().nullable(),
+	// The independent reviewer's report — implement-epic's step 4 posts this
+	// as a PR comment for the audit trail. Null only when the implement pass
+	// itself failed/blocked before a review pass ever ran.
+	reviewReport: z.string().nullable(),
 })
 
 const issueSchema = z.object({
@@ -70,15 +144,219 @@ export function readFixedPoint(): string {
 	}
 }
 
+// --- Host Chrome for Playwright MCP -----------------------------------
+//
+// The sandbox container has no browser and never gets one baked into its
+// image — Sandcastle only ever runs on this host machine (never a remote
+// sandbox), so instead of a second container, the container's own
+// .sandcastle/mcp-playwright-connect.sh attaches over CDP to a real Chrome
+// this script launches right here, on the host, before the container starts.
+//
+// Chrome's own remote-debugging server has no authentication, so it never
+// listens beyond loopback (127.0.0.1) — the only thing actually reachable
+// from the sandbox is a dumb TCP forwarder in front of it, bound to
+// 0.0.0.0 because that's what the container needs to reach it via
+// host.docker.internal (Docker Desktop has no separate "docker-only"
+// interface on macOS to bind to instead). That forwarder allowlists
+// loopback-only sources: Docker Desktop NATs the container's
+// host.docker.internal traffic so it arrives here as 127.0.0.1, while a
+// genuine LAN client arrives with its own real address — verified
+// empirically, not assumed. (Linux hosts using
+// `--add-host=host.docker.internal:host-gateway` don't get that
+// NAT-to-loopback rewrite; the container's real bridge-subnet address
+// would need allowlisting there instead — not handled here.)
+//
+// Chrome's remote-debugging HTTP server also rejects any request whose
+// Host header isn't "localhost" or a literal IP address (DNS-rebinding
+// protection, shipped since Chrome 66) — this is why
+// mcp-playwright-connect.sh resolves host.docker.internal to its IP
+// *inside the container* before connecting, rather than handing Playwright
+// the hostname directly.
+const CHROME_READY_TIMEOUT_MS = 15_000
+
+interface HostBrowser {
+	forwardPort: number
+	close(): Promise<void>
+}
+
+// Tracked so a SIGINT/SIGTERM mid-run (or an uncaught error) still gets a
+// chance to kill Chrome and free its port, instead of orphaning the
+// process — see the process.once() handlers below.
+let activeHostBrowser: HostBrowser | null = null
+
+function findChromeBinary(): string {
+	const macCandidates = [
+		'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+		'/Applications/Chromium.app/Contents/MacOS/Chromium',
+	]
+	for (const candidate of macCandidates) {
+		try {
+			execFileSync('test', ['-x', candidate])
+			return candidate
+		} catch {
+			// not present, try the next candidate
+		}
+	}
+	for (const bin of ['google-chrome-stable', 'google-chrome', 'chromium', 'chromium-browser']) {
+		try {
+			return execSync(`command -v ${bin}`, { encoding: 'utf8' }).trim()
+		} catch {
+			// not on PATH, try the next candidate
+		}
+	}
+	throw new Error(
+		'No Chrome/Chromium binary found on this host. Playwright MCP needs a real ' +
+			'browser to attach to — install Google Chrome (or Chromium) on the machine ' +
+			'running afk/hitl sessions.',
+	)
+}
+
+// OS-assigned free port: bind to port 0, read back what the kernel picked,
+// close immediately. A small TOCTOU race exists between the close and
+// whatever binds it next, acceptable for a single local dev machine.
+function allocatePort(): Promise<number> {
+	return new Promise((resolve, reject) => {
+		const server = createServer()
+		server.on('error', reject)
+		server.listen(0, '127.0.0.1', () => {
+			const address = server.address()
+			if (address === null || typeof address === 'string') {
+				reject(new Error('Failed to allocate a port'))
+				return
+			}
+			server.close(() => resolve(address.port))
+		})
+	})
+}
+
+async function waitForChromeReady(port: number): Promise<void> {
+	const deadline = Date.now() + CHROME_READY_TIMEOUT_MS
+	while (Date.now() < deadline) {
+		try {
+			const response = await fetch(`http://127.0.0.1:${port}/json/version`)
+			if (response.ok) return
+		} catch {
+			// not up yet
+		}
+		await new Promise((resolve) => setTimeout(resolve, 200))
+	}
+	throw new Error(`Chrome did not become ready on 127.0.0.1:${port} within ${CHROME_READY_TIMEOUT_MS}ms`)
+}
+
+// One Chrome + forwarder pair per call — buildImplementRunOptions() and
+// buildReviewRunOptions() each start their own rather than sharing one
+// instance, so the review pass never inherits console/localStorage/cookie
+// state the implementer's browsing session left behind. Costs one extra
+// Chrome boot (~1-2s); matches this file's existing insistence (see
+// buildReviewRunOptions()'s doc comment) that the review pass be a genuinely
+// fresh perspective, not just a fresh Claude Code session sharing state
+// underneath it.
+async function startHostBrowser(): Promise<HostBrowser> {
+	const chromeBinary = findChromeBinary()
+	const chromePort = await allocatePort()
+	const forwardPort = await allocatePort()
+	const userDataDir = mkdtempSync(join(tmpdir(), 'sandcastle-chrome-'))
+
+	const chrome = spawn(
+		chromeBinary,
+		[
+			'--headless=new',
+			`--remote-debugging-port=${chromePort}`,
+			'--remote-debugging-address=127.0.0.1',
+			'--no-sandbox',
+			'--disable-gpu',
+			`--user-data-dir=${userDataDir}`,
+		],
+		{ stdio: 'ignore' },
+	)
+
+	try {
+		await waitForChromeReady(chromePort)
+	} catch (error) {
+		chrome.kill()
+		rmSync(userDataDir, { recursive: true, force: true })
+		throw error
+	}
+
+	const forwarder = createServer((client) => {
+		const remote = client.remoteAddress ?? ''
+		const isLoopback = remote === '127.0.0.1' || remote === '::1' || remote === '::ffff:127.0.0.1'
+		if (!isLoopback) {
+			client.destroy()
+			return
+		}
+		const upstream = connect(chromePort, '127.0.0.1')
+		client.pipe(upstream)
+		upstream.pipe(client)
+		client.on('error', () => {})
+		upstream.on('error', () => {})
+	})
+	await new Promise<void>((resolve) => forwarder.listen(forwardPort, '0.0.0.0', resolve))
+
+	let closed = false
+	const hostBrowser: HostBrowser = {
+		forwardPort,
+		async close() {
+			if (closed) return
+			closed = true
+			await new Promise<void>((resolve) => forwarder.close(() => resolve()))
+			chrome.kill()
+			rmSync(userDataDir, { recursive: true, force: true })
+			if (activeHostBrowser === hostBrowser) activeHostBrowser = null
+		},
+	}
+	activeHostBrowser = hostBrowser
+	return hostBrowser
+}
+
+// Backstop for a killed/crashed run: without this, SIGINT/SIGTERM leaves
+// Chrome running and its port held, invisible until the next run mysteriously
+// can't bind the same port range.
+async function shutdownActiveBrowserAndExit(): Promise<void> {
+	await activeHostBrowser?.close()
+	process.exit(1)
+}
+process.once('SIGINT', () => void shutdownActiveBrowserAndExit())
+process.once('SIGTERM', () => void shutdownActiveBrowserAndExit())
+
+// Fresh docker() sandbox config per call — buildImplementRunOptions() and
+// buildReviewRunOptions() each get their own, rather than sharing one
+// object, in case sandcastle mutates it internally.
+function buildDockerSandbox(cdpForwardPort: number) {
+	return docker({
+		mounts: [
+			{ hostPath: CONTAINER_NODE_MODULES_CACHE, sandboxPath: 'node_modules' },
+			{ hostPath: HOST_PNPM_STORE, sandboxPath: CONTAINER_PNPM_STORE },
+		],
+		env: {
+			npm_config_store_dir: CONTAINER_PNPM_STORE,
+			// Read by .sandcastle/mcp-playwright-connect.sh to build its
+			// --cdp-endpoint after resolving host.docker.internal to an IP.
+			SANDCASTLE_CDP_PORT: String(cdpForwardPort),
+		},
+	})
+}
+
+// CI=true keeps this non-interactive. Cheap once the mounts above are
+// warm — including on the review pass's own container, since it shares
+// the same host-mounted caches and the lockfile hasn't changed — only a
+// lockfile change or a genuinely first run does real work here.
+// REPLACE_WITH_INSTALL_COMMAND — setup-my-skills fills this in to match
+// this repo's detected package manager, e.g. "CI=true pnpm install
+// --frozen-lockfile", "npm ci", or "yarn install --frozen-lockfile".
+const installHook = {
+	onSandboxReady: [
+		{ command: 'REPLACE_WITH_INSTALL_COMMAND', timeoutMs: SANDBOX_READY_TIMEOUT_MS },
+	],
+}
+
 // No explicit return-type annotation: `run()`'s overload resolution depends
 // on the literal `output` type surviving inference (OutputObjectDefinition
 // vs. the base RunOptions), so widening it here would pick the wrong overload.
-export function buildRunOptions(input: SandcastleIssueInput) {
+export function buildImplementRunOptions(input: SandcastleIssueInput, cdpForwardPort: number) {
 	return {
-		name: 'worker',
-		sandbox: docker({
-			mounts: [{ hostPath: CONTAINER_NODE_MODULES_CACHE, sandboxPath: 'node_modules' }],
-		}),
+		name: 'implement',
+		sandbox: buildDockerSandbox(cdpForwardPort),
 		agent: claudeCode('claude-sonnet-5'),
 		promptFile: './.sandcastle/prompt.md',
 		promptArgs: {
@@ -92,21 +370,39 @@ export function buildRunOptions(input: SandcastleIssueInput) {
 			// guards against the host being on the wrong branch instead.
 		},
 		maxIterations: MAX_ITERATIONS,
-		output: Output.object({ tag: 'result', schema: resultSchema }),
+		// maxRetries: a malformed <result> tag resumes the same session with a
+		// token-efficient error description instead of failing the whole run
+		// (and losing the already-committed work) over a formatting slip.
+		output: Output.object({ tag: 'result', schema: implementResultSchema, maxRetries: 1 }),
 		branchStrategy: { type: 'head' as const },
-		hooks: {
-			sandbox: {
-				// CI=true keeps this non-interactive. Cheap once the cache above is
-				// warm; only a lockfile change or a first run does real work here.
-				// REPLACE_WITH_INSTALL_COMMAND — setup-my-skills fills this in to
-				// match this repo's detected package manager, e.g.
-				// "CI=true pnpm install --frozen-lockfile", "npm ci", or
-				// "yarn install --frozen-lockfile".
-				onSandboxReady: [
-					{ command: 'REPLACE_WITH_INSTALL_COMMAND', timeoutMs: SANDBOX_READY_TIMEOUT_MS },
-				],
-			},
+		idleTimeoutSeconds: IDLE_TIMEOUT_SECONDS,
+		hooks: { sandbox: installHook },
+	}
+}
+
+// The review pass runs as a brand-new session (no resumeSession) on the
+// SAME host branch — head strategy bind-mounts whatever's currently
+// checked out, which by now includes the implementer's commit(s) — so it
+// has no access to the implementer's reasoning, only the diff and the
+// issue. That's what makes it an independent check rather than the
+// implementer grading its own work; see runSandcastle()'s doc comment.
+export function buildReviewRunOptions(input: SandcastleIssueInput, cdpForwardPort: number) {
+	return {
+		name: 'review',
+		sandbox: buildDockerSandbox(cdpForwardPort),
+		agent: claudeCode('claude-sonnet-5'),
+		promptFile: './.sandcastle/review-prompt.md',
+		promptArgs: {
+			ISSUE_NUMBER: input.issueNumber,
+			ISSUE_TITLE: input.issueTitle,
+			ISSUE_BODY: input.issueBody,
+			FIXED_POINT: input.fixedPoint,
 		},
+		maxIterations: MAX_ITERATIONS,
+		output: Output.object({ tag: 'result', schema: reviewResultSchema, maxRetries: 1 }),
+		branchStrategy: { type: 'head' as const },
+		idleTimeoutSeconds: IDLE_TIMEOUT_SECONDS,
+		hooks: { sandbox: installHook },
 	}
 }
 
@@ -171,17 +467,73 @@ place — continue from it rather than starting over.
 ${report}`
 }
 
-// docker()'s bind-mount provider requires the mounted hostPath to already
+// docker()'s bind-mount provider requires each mounted hostPath to already
 // exist before container creation.
-function ensureContainerNodeModulesCache() {
+function ensureContainerCacheDirs() {
 	mkdirSync(CONTAINER_NODE_MODULES_CACHE, { recursive: true })
 }
 
+// Two sequential run() calls on the same host branch, deliberately not one
+// call whose prompt does both jobs and not a resumed session for the
+// second: the implementer already runs /code-review on itself inside
+// .sandcastle/prompt.md's own /implement step, and self-review's blind
+// spots are exactly the ones a second pass in the *same* context would
+// share. A fresh session with no resumeSession sees only the diff and the
+// issue, not the implementer's own rationalizations — a real second
+// opinion, not the same agent grading its own work twice. Container boot
+// is cheap either way, and the package caches are host-mounted, so a
+// second container costs one more no-op install, not a second real one.
+//
+// `success` is only ever `true` once the independent review comes back
+// clean — implement-epic's auto-merge (docs/agents/implementation-workflow.md)
+// treats `success: true` as its only gate, so this is what actually keeps
+// a self-approved change from squash-merging into the epic branch
+// unattended.
 export async function runSandcastle(input: SandcastleIssueInput) {
 	assertOnIssueBranch(input.issueNumber)
-	ensureContainerNodeModulesCache()
-	const { output } = await run(buildRunOptions(input))
-	return output
+	ensureContainerCacheDirs()
+
+	const implementBrowser = await startHostBrowser()
+	let implementOutput
+	try {
+		;({ output: implementOutput } = await run(
+			buildImplementRunOptions(input, implementBrowser.forwardPort),
+		))
+	} finally {
+		await implementBrowser.close()
+	}
+	if (!implementOutput.success) {
+		// Nothing was committed cleanly (or /implement itself reported a
+		// blocker) — there's nothing for an independent review to look at yet.
+		return { ...implementOutput, reviewReport: null }
+	}
+
+	// A fresh Chrome for the review pass, not the implementer's — see
+	// startHostBrowser()'s doc comment: a reused browser could leak
+	// console/localStorage/cookie state from the implement pass into what's
+	// supposed to be an independent check.
+	const reviewBrowser = await startHostBrowser()
+	let reviewOutput
+	try {
+		;({ output: reviewOutput } = await run(buildReviewRunOptions(input, reviewBrowser.forwardPort)))
+	} finally {
+		await reviewBrowser.close()
+	}
+	if (reviewOutput.verdict === 'clean') {
+		return {
+			success: true,
+			summary: implementOutput.summary,
+			blockers: null,
+			reviewReport: reviewOutput.summary,
+		}
+	}
+
+	return {
+		success: false,
+		summary: implementOutput.summary,
+		blockers: `Independent review (fresh session, no context shared with the implementer) found issues after the implementation was already committed:\n\n${reviewOutput.findings}`,
+		reviewReport: reviewOutput.findings,
+	}
 }
 
 export interface SandcastleCliArgs {

@@ -10,7 +10,7 @@ CLAUDE_CODE_OAUTH_TOKEN=
 # inside the sandbox (e.g. a scoped API token). Nothing here is read from
 # the host's shell environment — the container only sees what's in this file.
 
-# macOS + Colima only: point Docker at the Colima socket before running any
-# `sandcastle docker *` command. Replace <username> with your macOS username,
-# and run `colima start` first. Not needed on Linux or Docker Desktop.
+# Colima Docker socket. Set this before running any `sandcastle docker *` command.
+# Replace <username> with your macOS username.
+# Run `colima start` before using Sandcastle.
 # DOCKER_HOST=unix:///Users/<username>/.colima/default/docker.sock

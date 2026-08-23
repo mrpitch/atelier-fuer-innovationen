@@ -1,5 +1,7 @@
-import { execFileSync, execSync } from 'node:child_process'
-import { mkdirSync, readFileSync } from 'node:fs'
+import { execFileSync, execSync, spawn } from 'node:child_process'
+import { mkdirSync, mkdtempSync, readFileSync, rmSync } from 'node:fs'
+import { connect, createServer } from 'node:net'
+import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 
 import { claudeCode, Output, run } from '@ai-hero/sandcastle'
@@ -62,6 +64,13 @@ const CONTAINER_PNPM_STORE = '/home/agent/.pnpm-store'
 // several minutes inside the sandbox; sandcastle's default hook timeout is
 // too short for that case.
 const SANDBOX_READY_TIMEOUT_MS = 300_000
+
+// A safety margin above sandcastle's own 600s default. Doesn't replace
+// wrapping network calls in `timeout` (see prompt.md's Rules) — that's
+// what actually keeps a hung registry lookup from burning the whole
+// budget — this just gives a well-behaved-but-slow step more room before
+// AgentIdleTimeoutError kills the run outright.
+const IDLE_TIMEOUT_SECONDS = 900
 
 // What `.sandcastle/prompt.md` itself instructs the implementing agent to
 // emit — the wrapper's own final output (see resultSchema below) is a
@@ -126,24 +135,197 @@ export function readFixedPoint(): string {
 	}
 }
 
-// A safety margin above sandcastle's own 600s default. Doesn't replace
-// wrapping network calls in `timeout` (see prompt.md's Rules) — that's
-// what actually keeps a hung registry lookup from burning the whole
-// budget — this just gives a well-behaved-but-slow step more room before
-// AgentIdleTimeoutError kills the run outright.
-const IDLE_TIMEOUT_SECONDS = 900
+// --- Host Chrome for Playwright MCP -----------------------------------
+//
+// The sandbox container has no browser and never gets one baked into its
+// image — Sandcastle only ever runs on this host machine (never a remote
+// sandbox), so instead of a second container, the container's own
+// .sandcastle/mcp-playwright-connect.sh attaches over CDP to a real Chrome
+// this script launches right here, on the host, before the container starts.
+//
+// Chrome's own remote-debugging server has no authentication, so it never
+// listens beyond loopback (127.0.0.1) — the only thing actually reachable
+// from the sandbox is a dumb TCP forwarder in front of it, bound to
+// 0.0.0.0 because that's what the container needs to reach it via
+// host.docker.internal (Docker Desktop has no separate "docker-only"
+// interface on macOS to bind to instead). That forwarder allowlists
+// loopback-only sources: Docker Desktop NATs the container's
+// host.docker.internal traffic so it arrives here as 127.0.0.1, while a
+// genuine LAN client arrives with its own real address — verified
+// empirically, not assumed. (Linux hosts using
+// `--add-host=host.docker.internal:host-gateway` don't get that
+// NAT-to-loopback rewrite; the container's real bridge-subnet address
+// would need allowlisting there instead — not handled here.)
+//
+// Chrome's remote-debugging HTTP server also rejects any request whose
+// Host header isn't "localhost" or a literal IP address (DNS-rebinding
+// protection, shipped since Chrome 66) — this is why
+// mcp-playwright-connect.sh resolves host.docker.internal to its IP
+// *inside the container* before connecting, rather than handing Playwright
+// the hostname directly.
+const CHROME_READY_TIMEOUT_MS = 15_000
+
+interface HostBrowser {
+	forwardPort: number
+	close(): Promise<void>
+}
+
+// Tracked so a SIGINT/SIGTERM mid-run (or an uncaught error) still gets a
+// chance to kill Chrome and free its port, instead of orphaning the
+// process — see the process.once() handlers below.
+let activeHostBrowser: HostBrowser | null = null
+
+function findChromeBinary(): string {
+	const macCandidates = [
+		'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+		'/Applications/Chromium.app/Contents/MacOS/Chromium',
+	]
+	for (const candidate of macCandidates) {
+		try {
+			execFileSync('test', ['-x', candidate])
+			return candidate
+		} catch {
+			// not present, try the next candidate
+		}
+	}
+	for (const bin of ['google-chrome-stable', 'google-chrome', 'chromium', 'chromium-browser']) {
+		try {
+			return execSync(`command -v ${bin}`, { encoding: 'utf8' }).trim()
+		} catch {
+			// not on PATH, try the next candidate
+		}
+	}
+	throw new Error(
+		'No Chrome/Chromium binary found on this host. Playwright MCP needs a real ' +
+			'browser to attach to — install Google Chrome (or Chromium) on the machine ' +
+			'running afk/hitl sessions.',
+	)
+}
+
+// OS-assigned free port: bind to port 0, read back what the kernel picked,
+// close immediately. A small TOCTOU race exists between the close and
+// whatever binds it next, acceptable for a single local dev machine.
+function allocatePort(): Promise<number> {
+	return new Promise((resolve, reject) => {
+		const server = createServer()
+		server.on('error', reject)
+		server.listen(0, '127.0.0.1', () => {
+			const address = server.address()
+			if (address === null || typeof address === 'string') {
+				reject(new Error('Failed to allocate a port'))
+				return
+			}
+			server.close(() => resolve(address.port))
+		})
+	})
+}
+
+async function waitForChromeReady(port: number): Promise<void> {
+	const deadline = Date.now() + CHROME_READY_TIMEOUT_MS
+	while (Date.now() < deadline) {
+		try {
+			const response = await fetch(`http://127.0.0.1:${port}/json/version`)
+			if (response.ok) return
+		} catch {
+			// not up yet
+		}
+		await new Promise((resolve) => setTimeout(resolve, 200))
+	}
+	throw new Error(`Chrome did not become ready on 127.0.0.1:${port} within ${CHROME_READY_TIMEOUT_MS}ms`)
+}
+
+// One Chrome + forwarder pair per call — buildImplementRunOptions() and
+// buildReviewRunOptions() each start their own rather than sharing one
+// instance, so the review pass never inherits console/localStorage/cookie
+// state the implementer's browsing session left behind. Costs one extra
+// Chrome boot (~1-2s); matches this file's existing insistence (see
+// buildReviewRunOptions()'s doc comment) that the review pass be a genuinely
+// fresh perspective, not just a fresh Claude Code session sharing state
+// underneath it.
+async function startHostBrowser(): Promise<HostBrowser> {
+	const chromeBinary = findChromeBinary()
+	const chromePort = await allocatePort()
+	const forwardPort = await allocatePort()
+	const userDataDir = mkdtempSync(join(tmpdir(), 'sandcastle-chrome-'))
+
+	const chrome = spawn(
+		chromeBinary,
+		[
+			'--headless=new',
+			`--remote-debugging-port=${chromePort}`,
+			'--remote-debugging-address=127.0.0.1',
+			'--no-sandbox',
+			'--disable-gpu',
+			`--user-data-dir=${userDataDir}`,
+		],
+		{ stdio: 'ignore' },
+	)
+
+	try {
+		await waitForChromeReady(chromePort)
+	} catch (error) {
+		chrome.kill()
+		rmSync(userDataDir, { recursive: true, force: true })
+		throw error
+	}
+
+	const forwarder = createServer((client) => {
+		const remote = client.remoteAddress ?? ''
+		const isLoopback = remote === '127.0.0.1' || remote === '::1' || remote === '::ffff:127.0.0.1'
+		if (!isLoopback) {
+			client.destroy()
+			return
+		}
+		const upstream = connect(chromePort, '127.0.0.1')
+		client.pipe(upstream)
+		upstream.pipe(client)
+		client.on('error', () => {})
+		upstream.on('error', () => {})
+	})
+	await new Promise<void>((resolve) => forwarder.listen(forwardPort, '0.0.0.0', resolve))
+
+	let closed = false
+	const hostBrowser: HostBrowser = {
+		forwardPort,
+		async close() {
+			if (closed) return
+			closed = true
+			await new Promise<void>((resolve) => forwarder.close(() => resolve()))
+			chrome.kill()
+			rmSync(userDataDir, { recursive: true, force: true })
+			if (activeHostBrowser === hostBrowser) activeHostBrowser = null
+		},
+	}
+	activeHostBrowser = hostBrowser
+	return hostBrowser
+}
+
+// Backstop for a killed/crashed run: without this, SIGINT/SIGTERM leaves
+// Chrome running and its port held, invisible until the next run mysteriously
+// can't bind the same port range.
+async function shutdownActiveBrowserAndExit(): Promise<void> {
+	await activeHostBrowser?.close()
+	process.exit(1)
+}
+process.once('SIGINT', () => void shutdownActiveBrowserAndExit())
+process.once('SIGTERM', () => void shutdownActiveBrowserAndExit())
 
 // Fresh docker() sandbox config per call — buildImplementRunOptions() and
 // buildReviewRunOptions() each get their own, rather than sharing one
 // object, in case sandcastle mutates it internally.
-function buildDockerSandbox() {
+function buildDockerSandbox(cdpForwardPort: number) {
 	return docker({
 		mounts: [
 			{ hostPath: CONTAINER_NODE_MODULES_CACHE, sandboxPath: 'node_modules' },
 			{ hostPath: CONTAINER_NEXT_CACHE, sandboxPath: '.next' },
 			{ hostPath: HOST_PNPM_STORE, sandboxPath: CONTAINER_PNPM_STORE },
 		],
-		env: { npm_config_store_dir: CONTAINER_PNPM_STORE },
+		env: {
+			npm_config_store_dir: CONTAINER_PNPM_STORE,
+			// Read by .sandcastle/mcp-playwright-connect.sh to build its
+			// --cdp-endpoint after resolving host.docker.internal to an IP.
+			SANDCASTLE_CDP_PORT: String(cdpForwardPort),
+		},
 	})
 }
 
@@ -160,10 +342,10 @@ const installHook = {
 // No explicit return-type annotation: `run()`'s overload resolution depends
 // on the literal `output` type surviving inference (OutputObjectDefinition
 // vs. the base RunOptions), so widening it here would pick the wrong overload.
-export function buildImplementRunOptions(input: SandcastleIssueInput) {
+export function buildImplementRunOptions(input: SandcastleIssueInput, cdpForwardPort: number) {
 	return {
 		name: 'implement',
-		sandbox: buildDockerSandbox(),
+		sandbox: buildDockerSandbox(cdpForwardPort),
 		agent: claudeCode('claude-sonnet-5'),
 		promptFile: './.sandcastle/prompt.md',
 		promptArgs: {
@@ -193,10 +375,10 @@ export function buildImplementRunOptions(input: SandcastleIssueInput) {
 // has no access to the implementer's reasoning, only the diff and the
 // issue. That's what makes it an independent check rather than the
 // implementer grading its own work; see runSandcastle()'s doc comment.
-export function buildReviewRunOptions(input: SandcastleIssueInput) {
+export function buildReviewRunOptions(input: SandcastleIssueInput, cdpForwardPort: number) {
 	return {
 		name: 'review',
-		sandbox: buildDockerSandbox(),
+		sandbox: buildDockerSandbox(cdpForwardPort),
 		agent: claudeCode('claude-sonnet-5'),
 		promptFile: './.sandcastle/review-prompt.md',
 		promptArgs: {
@@ -302,14 +484,32 @@ export async function runSandcastle(input: SandcastleIssueInput) {
 	assertOnIssueBranch(input.issueNumber)
 	ensureContainerCacheDirs()
 
-	const { output: implementOutput } = await run(buildImplementRunOptions(input))
+	const implementBrowser = await startHostBrowser()
+	let implementOutput
+	try {
+		;({ output: implementOutput } = await run(
+			buildImplementRunOptions(input, implementBrowser.forwardPort),
+		))
+	} finally {
+		await implementBrowser.close()
+	}
 	if (!implementOutput.success) {
 		// Nothing was committed cleanly (or /implement itself reported a
 		// blocker) — there's nothing for an independent review to look at yet.
 		return { ...implementOutput, reviewReport: null }
 	}
 
-	const { output: reviewOutput } = await run(buildReviewRunOptions(input))
+	// A fresh Chrome for the review pass, not the implementer's — see
+	// startHostBrowser()'s doc comment: a reused browser could leak
+	// console/localStorage/cookie state from the implement pass into what's
+	// supposed to be an independent check.
+	const reviewBrowser = await startHostBrowser()
+	let reviewOutput
+	try {
+		;({ output: reviewOutput } = await run(buildReviewRunOptions(input, reviewBrowser.forwardPort)))
+	} finally {
+		await reviewBrowser.close()
+	}
 	if (reviewOutput.verdict === 'clean') {
 		return {
 			success: true,
