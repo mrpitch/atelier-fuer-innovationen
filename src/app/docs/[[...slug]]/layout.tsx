@@ -8,6 +8,7 @@ import { Footer } from '@/app/_components/footer'
 
 const docsOptions: DocsLayoutProps = {
 	...baseOptions,
+	githubUrl: 'https://github.com/mrpitch/atelier-fuer-innovationen',
 	tree: source.pageTree,
 	tabs: {
 		transform(option, node) {
