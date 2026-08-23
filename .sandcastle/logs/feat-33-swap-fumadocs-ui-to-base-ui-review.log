@@ -1,0 +1,118 @@
+
+--- Run started: 2026-08-22T17:37:41.411Z ---
+Sandcastle Run
+  Agent: review
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/33-swap-fumadocs-ui-to-base-ui
+Iteration 1/1
+Setting up sandbox
+  CI=true pnpm install --frozen-lockfile
+Setting up sandbox done (0.4s)
+Agent started
+I'll run the code-review skill against the specified fixed point to evaluate this fumadocs-ui → @fumadocs/base-ui swap.
+Bash(git rev-parse origin/epic/28-refactor-ui-base-ui-shadcn HEAD && echo "---LOG---" && git log origin/epic/28-refactor-ui-base-ui-shadcn..HEAD --oneline && echo "---DIFFSTAT---" && git diff origin/epic/28-refactor-ui-base-ui-shadcn...HEAD --stat)
+Bash(ls docs/agents/ 2>/dev/null; find . -maxdepth 2 -iname "CONTRIBUTING.md" -o -maxdepth 2 -iname "CODING_STANDARDS.md" 2>/dev/null | grep -v node_modules; find docs/reference -maxdepth 3 -iname "*.md" 2>/dev/null; cat AGENTS.md 2>/dev/null | head -50)
+Bash(git diff origin/epic/28-refactor-ui-base-ui-shadcn...HEAD -- src/app package.json pnpm-workspace.yaml .gitignore .sandcastle/Dockerfile docs/reference/fumadocs/root-provider.md src/content/docs/components.mdx src/lib/styles/globals.css)
+Bash(grep -rn "fumadocs-ui" --include="*.ts" --include="*.tsx" --include="*.mdx" --include="*.md" --include="*.css" --include="*.json" . 2>/dev/null | grep -v node_modules | grep -v pnpm-lock.yaml)
+Now let's verify whether `@fumadocs/base-ui` actually exports these same subpaths by checking the installed package, and confirm the lockfile/dependency changes are consistent.
+Bash(ls node_modules/@fumadocs/base-ui/ 2>/dev/null; echo "---"; cat node_modules/@fumadocs/base-ui/package.json 2>/dev/null | head -80)
+Bash(grep -oE '"\./[a-z0-9/._-]+"' node_modules/@fumadocs/base-ui/package.json | sort -u | grep -E "provider|mdx|/page\"|layouts/home|layouts/shared|css/")
+Bash(ls node_modules/@fumadocs/base-ui/css/; echo "---peer deps---"; cat node_modules/@fumadocs/base-ui/package.json | grep -A 20 '"peerDependencies"'; echo "---fumadocs-core version---"; cat node_modules/fumadocs-core/package.json | grep '"version"'; echo "---check pnpm build ran previously? check for build artifacts---"; git log -p origin/epic/28-refactor-ui-base-ui-shadcn...HEAD -- package.json | head -60)
+Bash(free -h; nproc; cat /proc/meminfo | head -3)
+Bash(which pnpm && pnpm --version)
+Bash(timeout 280 pnpm build 2>&1 | tail -100)
+Bash(timeout 100 pnpm exec tsc --noEmit 2>&1 | tail -60)
+tsc passes clean. Now let's check the docs pages that reference other integration points (search-route, card-component, toc-item-type) for staleness, and check `src/lib/source.ts` for any fumadocs-core API usage that might've changed.
+Bash(grep -rn "fumadocs-core\|fumadocs-ui\|@fumadocs/base-ui" src/lib/ 2>/dev/null; echo "---"; cat docs/reference/fumadocs/search-route.md 2>/dev/null | head -40)
+This is unaffected — `fumadocs-core/search/server` stays as `fumadocs-core`, correctly untouched. Now let's dispatch the two review sub-agents in parallel with full context.
+Agent(Standards axis code review)
+Bash(git diff origin/epic/28-refactor-ui-base-ui-shadcn...HEAD -- . > /tmp/full.diff; wc -l /tmp/full.diff)
+Bash(cat AGENTS.md 2>/dev/null | head -200)
+Bash(ls docs/reference/fumadocs/ 2>/dev/null; echo ---; ls docs/agents/ 2>/dev/null)
+Bash(git diff origin/epic/28-refactor-ui-base-ui-shadcn...HEAD -- . ':(exclude)pnpm-lock.yaml' > /tmp/diff_nolock.diff; wc -l /tmp/diff_nolock.diff)
+Agent(Spec axis code review)
+Both review sub-agents (Standards and Spec axes) are running in the background. I'll wait for them to complete before aggregating the final report.
+Bash(git diff origin/epic/28-refactor-ui-base-ui-shadcn...HEAD --stat)
+I'll wait for the background agents to complete rather than polling.
+Bash(git diff origin/epic/28-refactor-ui-base-ui-shadcn...HEAD -- src/app/layout.tsx src/app/layout.config.tsx src/app/docs/layout.tsx 'src/app/(home)/layout.tsx' 'src/app/docs/[[...slug]]/page.tsx' src/content/docs/components.mdx src/lib/styles/globals.css docs/reference/fumadocs/root-provider.md)
+Both review sub-agents are running in the background — I'll be notified when they finish, and will aggregate the Standards + Spec findings into the final report at that point.All import path swaps look mechanically correct and match the "identical subpath structure" claim. Let me check package.json diff and confirm the vite/Dockerfile/.gitignore commits' relationship to this issue.
+Bash(git diff origin/epic/28-refactor-ui-base-ui-shadcn...HEAD -- package.json pnpm-workspace.yaml .gitignore .sandcastle/Dockerfile)
+Bash(git show --stat 55a1c76 | head -30)
+Bash(grep -n "fumadocs-ui\|fumadocs_ui" -r /home/agent/workspace/docs 2>/dev/null)
+This confirms everything I need. Now composing the final report.
+
+## SPEC Compliance Review — Issue #33 (fumadocs-ui → @fumadocs/base-ui swap)
+
+**(a) Missing/partial requirements**
+
+- **`docs/agents/diataxis-context.md`** still lists "fumadocs-ui" by name in its tech-stack summary (line 22), while every actual dependency/import was removed. Not a strict AC item, but the swap being "repo-wide" ("Switch the site's headless component primitive library ... as a single, repo-wide package swap") arguably includes this doc reference; it's now stale/inaccurate.
+- **AC: `pnpm build` succeeds** — unverified in this environment. Fact 5: `pnpm build` OOMs (exit 137) on HEAD in the sandbox (1.9GB RAM). The implementer claims (via commit message, not independently reproduced by me) this OOM is pre-existing and not a regression, but that claim rests only on their own assertion, not a verified clean build. This checkbox should be flagged **unverified/unconfirmed**, not confirmed passing.
+- **AC: "Manual smoke check: ... nav, sidebar, **search**, and the sidebar tab icons all render and behave as before"** — search was never actually exercised end-to-end. Fact 6: the implementer's own commit message admits `/api/search` OOM'd during `pnpm dev` compilation, so search functionality against `@fumadocs/base-ui` is **unverified**, despite this being an explicit, named acceptance-criteria item (search is called out by name in the AC bullet). The other three smoke-test surfaces (nav, sidebar, tab icons) were reportedly checked; search was not.
+
+**(b) Scope creep**
+
+- The `.gitignore` (`.sandcastle/.env`), `.sandcastle/Dockerfile` (vite optional dep documentation), and the `vite` `optionalDependencies` entry in `package.json` are from three separate prior commits (bb22b84, 81f8880, b76203a) already merged onto the branch *before* the base-ui swap commit (55a1c76). These address a pre-existing fumadocs-mdx postinstall/Docker issue unrelated to the Radix→Base UI swap. They are not called for by issue #33's "What to build"/AC. Since they predate 55a1c76 and are infrastructure fixes rather than part of this ticket's package swap, they read as scope creep relative to #33 specifically (though plausibly legitimate work items under the parent epic #28). Flag as out-of-scope for #33, not a defect.
+
+**(c) Implemented but unverified/questionable**
+
+- All `fumadocs-ui/...` → `@fumadocs/base-ui/...` import rewrites (root provider, base layout config, docs layout, home layout, catch-all docs page, `globals.css`, `components.mdx`) are mechanically correct and match subpaths confirmed present in the installed package (fact 2). TypeScript compiles clean (fact 4). These pass.
+- The two explicit checkbox ACs above (`pnpm build succeeds`, search smoke-test) are the weak points: they're claimed done in spirit but not actually confirmed working — one blocked by sandbox OOM (possibly pre-existing, possibly not), the other never run at all. Given both are explicitly enumerated checkboxes in the issue, both should be reported as **partial/unverified**, not satisfied.Spec axis review is in. Waiting on the Standards axis sub-agent to finish before aggregating.Confirmed: the ADR is out of scope (predates this diff, not touched here). Now I have everything needed for the report.
+
+## Standards Compliance Review — fumadocs-ui → @fumadocs/base-ui swap
+
+**Scope confirmed:** the diff is exactly what it claims — a mechanical `fumadocs-ui/...` → `@fumadocs/base-ui/...` import rename across 7 source files, a fumadocs-core bump, and unrelated pnpm/Docker/.gitignore housekeeping. No component logic changed.
+
+### Hard violations
+- None found. All renamed imports match `@fumadocs/base-ui`'s actual exported subpaths (verified against `docs/reference/fumadocs/root-provider.md`'s updated guidance), and the one reference doc touched (`root-provider.md`) was updated consistently (description + code block + prose, `src/app/layout.tsx` line 3).
+
+### Judgement-call standards gaps (stale docs, per task's explicit reference-doc check)
+- `docs/reference/fumadocs/custom-tabs.md:3,17,19,20` — still names `fumadocs-ui` four times ("fumadocs-ui now covers natively", "fumadocs-ui's own `Tabs`", `fumadocs-ui/components/tabs`, "current fumadocs-ui (v16)", "current fumadocs-ui docs") as the package to migrate *toward*. Since `fumadocs-ui` was removed from `package.json` entirely in this diff, this reference doc now recommends migrating to a package that no longer exists in the dependency tree — it should point at `@fumadocs/base-ui` instead. This is the exact "reference doc describing now-changed code, not updated" case the task asked to check for.
+- `docs/agents/diataxis-context.md:22` — tech-stack summary still lists `fumadocs-ui` as a key library; this diff removed it as a dependency. Not touched by the diff, so stale by omission (flagged explicitly in the task brief too).
+- `docs/reference/fumadocs/sidebar-tab-colors.md`, `card-component.md`, `search-route.md`, `toc-item-type.md` — checked; these only reference `fumadocs-core/...` import paths (unaffected by the `fumadocs-ui`→`@fumadocs/base-ui` rename, since `fumadocs-core` kept its name and only bumped versions). No inconsistency introduced.
+
+### AGENTS.md Next.js-docs rule
+- Not applicable here — no Next.js API behavior is touched, only import specifiers for a third-party UI package; nothing in the diff required consulting `node_modules/next/dist/docs/`.
+
+### Baseline smells (Fowler ch.3)
+- No new smells introduced. The multi-file touch (`layout.config.tsx`, `layout.tsx`, `docs/layout.tsx`, `docs/page.tsx`, `(home)/layout.tsx`, `globals.css`, `components.mdx`) is Shotgun-Surgery-shaped by line count, but this is the expected, contained blast radius of a declared repo-wide rename per ADR-0001 (`docs/adr/0001-adopt-fumadocs-base-ui.md:21`, "a whole-package swap... not a per-component or mixable choice") — repo's own documented rationale overrides the smell.
+- `pnpm-workspace.yaml` gained a second, unrelated concern (`minimumReleaseAgeExclude` alongside pre-existing `allowBuilds`) — mild Divergent-Change shape, but it's the only place pnpm can carry either setting, so not actionable.
+
+**Files reviewed:** `/home/agent/workspace/docs/reference/fumadocs/{root-provider,custom-tabs,card-component,search-route,toc-item-type,sidebar-tab-colors}.md`, `/home/agent/workspace/docs/agents/diataxis-context.md`, `/home/agent/workspace/AGENTS.md`, `/home/agent/workspace/package.json`, `/home/agent/workspace/src/app/{layout.tsx,layout.config.tsx,(home)/layout.tsx,docs/layout.tsx,docs/[[...slug]]/page.tsx}`, `/home/agent/workspace/src/lib/styles/globals.css`, `/home/agent/workspace/src/content/docs/components.mdx`.Both axes are complete. Here's the aggregated review.
+
+## Standards
+
+**Scope confirmed:** the diff is exactly what it claims — a mechanical `fumadocs-ui/...` → `@fumadocs/base-ui/...` import rename across 7 source files, a fumadocs-core bump, and unrelated pnpm/Docker/.gitignore housekeeping. No component logic changed.
+
+**Hard violations:** None found. All renamed imports match `@fumadocs/base-ui`'s actual exported subpaths (verified against `docs/reference/fumadocs/root-provider.md`'s updated guidance), and the one reference doc touched (`root-provider.md`) was updated consistently (description + code block + prose).
+
+**Judgement-call gaps (stale docs):**
+- `docs/reference/fumadocs/custom-tabs.md:3,17,19,20` — still names `fumadocs-ui` four times as the package to migrate *toward*, but `fumadocs-ui` was removed from `package.json` entirely — the doc now recommends migrating to a package no longer in the dependency tree; should point at `@fumadocs/base-ui` instead.
+- `docs/agents/diataxis-context.md:22` — tech-stack summary still lists `fumadocs-ui` as a key library; not touched by this diff, stale by omission.
+- `sidebar-tab-colors.md`, `card-component.md`, `search-route.md`, `toc-item-type.md` — checked, only reference `fumadocs-core/...` paths, unaffected and consistent.
+
+**Baseline smells:** No new smells introduced. The multi-file touch is Shotgun-Surgery-shaped by line count, but this is the expected, declared blast radius of a repo-wide rename per ADR-0001 — repo's own documented rationale overrides the smell.
+
+## Spec
+
+**Missing/partial requirements:**
+- `docs/agents/diataxis-context.md` still lists "fumadocs-ui" in its tech-stack summary despite the dependency being fully removed — the swap is described as "repo-wide," so this is a stale reference.
+- **AC: `pnpm build` succeeds** — unverified. `pnpm build` OOMs (exit 137) on HEAD in this sandbox (1.9GB RAM, independently reproduced). The implementer's commit message claims this reproduces identically on the pre-swap dependencies too (i.e., pre-existing, not a regression), but that claim rests only on the implementer's own assertion — not independently confirmed under this review's no-checkout constraint. This checkbox should be treated as unconfirmed, not passing.
+- **AC: "Manual smoke check: ... nav, sidebar, search, and the sidebar tab icons all render and behave as before"** — search was never actually exercised end-to-end; the implementer's own commit message admits `/api/search` OOM'd during `pnpm dev` compilation. Search is explicitly named in this acceptance-criteria bullet and is unverified against `@fumadocs/base-ui`, unlike the other three surfaces (nav, sidebar, tab icons), which were reportedly checked.
+
+**Scope creep:** `.gitignore`, `.sandcastle/Dockerfile`, and the `vite` optional dependency are from three separate prior commits already on the branch before the base-ui swap commit, addressing an unrelated fumadocs-mdx postinstall/Docker issue. Not called for by issue #33; plausibly legitimate epic #28 work but out of scope for this specific ticket. Not a defect.
+
+**Implemented correctly:** All import rewrites are mechanically correct and match subpaths confirmed present in the installed `@fumadocs/base-ui@16.15.0` package; `tsc --noEmit` passes clean; peer-dependency versions (fumadocs-core, next, react) line up; local Radix-based component library correctly left untouched; all dependency changes went through pnpm only.
+
+---
+
+**Summary:** Standards axis — 0 hard violations, 2 judgement-call stale-doc nitpicks (worst: `custom-tabs.md` recommending migration to a now-removed package). Spec axis — 2 explicit acceptance-criteria checkboxes (`pnpm build succeeds`, search smoke-test) are unverified rather than confirmed passing, which is the worst issue overall since these are named, checkbox-level criteria in the issue, not just polish.
+
+<result>{"verdict": "issues_found", "findings": "## Standards\n\n**Scope confirmed:** the diff is exactly what it claims — a mechanical `fumadocs-ui/...` → `@fumadocs/base-ui/...` import rename across 7 source files, a fumadocs-core bump, and unrelated pnpm/Docker/.gitignore housekeeping. No component logic changed.\n\n**Hard violations:** None found. All renamed imports match `@fumadocs/base-ui`'s actual exported subpaths (verified against `docs/reference/fumadocs/root-provider.md`'s updated guidance), and the one reference doc touched (`root-provider.md`) was updated consistently (description + code block + prose).\n\n**Judgement-call gaps (stale docs):**\n- `docs/reference/fumadocs/custom-tabs.md:3,17,19,20` — still names `fumadocs-ui` four times as the package to migrate toward, but `fumadocs-ui` was removed from `package.json` entirely — the doc now recommends migrating to a package no longer in the dependency tree; should point at `@fumadocs/base-ui` instead.\n- `docs/agents/diataxis-context.md:22` — tech-stack summary still lists `fumadocs-ui` as a key library; not touched by this diff, stale by omission.\n- `sidebar-tab-colors.md`, `card-component.md`, `search-route.md`, `toc-item-type.md` — checked, only reference `fumadocs-core/...` paths, unaffected and consistent.\n\n**Baseline smells:** No new smells introduced. The multi-file touch is Shotgun-Surgery-shaped by line count, but this is the expected, declared blast radius of a repo-wide rename per ADR-0001 — repo's own documented rationale overrides the smell. `pnpm-workspace.yaml` gained a second, unrelated concern (minimumReleaseAgeExclude alongside allowBuilds) — mild Divergent-Change shape, but it's the only place pnpm can carry either setting.\n\n## Spec\n\n**Missing/partial requirements:**\n- `docs/agents/diataxis-context.md` still lists \"fumadocs-ui\" in its tech-stack summary despite the dependency being fully removed — the swap is described as \"repo-wide,\" so this is a stale reference.\n- **AC: `pnpm build` succeeds** — unverified. `pnpm build` OOMs (exit 137) on HEAD in this sandbox (1.9GB RAM, independently reproduced by this reviewer). The implementer's commit message claims this reproduces identically on the pre-swap dependencies too (pre-existing, not a regression), but that claim rests only on the implementer's own assertion — not independently confirmed under this review's no-checkout constraint. This checkbox should be treated as unconfirmed, not passing.\n- **AC: \"Manual smoke check: ... nav, sidebar, search, and the sidebar tab icons all render and behave as before\"** — search was never actually exercised end-to-end; the implementer's own commit message admits `/api/search` OOM'd during `pnpm dev` compilation. Search is explicitly named in this acceptance-criteria bullet and is unverified against `@fumadocs/base-ui`, unlike the other three surfaces (nav, sidebar, tab icons), which were reportedly checked.\n\n**Scope creep:** `.gitignore`, `.sandcastle/Dockerfile`, and the `vite` optional dependency are from three separate prior commits already on the branch before the base-ui swap commit, addressing an unrelated fumadocs-mdx postinstall/Docker issue. Not called for by issue #33; plausibly legitimate epic #28 work but out of scope for this specific ticket. Not a defect.\n\n**Implemented correctly:** All import rewrites are mechanically correct and match subpaths confirmed present in the installed `@fumadocs/base-ui@16.15.0` package; `tsc --noEmit` passes clean; peer-dependency versions (fumadocs-core, next, react) line up; local Radix-based component library correctly left untouched; all dependency changes went through pnpm only.\n\n**Summary:** Standards axis — 0 hard violations, 2 judgement-call stale-doc nitpicks (worst: custom-tabs.md recommending migration to a now-removed package). Spec axis — 2 explicit acceptance-criteria checkboxes (pnpm build succeeds, search smoke-test) are unverified rather than confirmed passing, the worst issue overall since these are named, checkbox-level criteria in the issue.", "summary": "Reviewed the fumadocs-ui → @fumadocs/base-ui swap (issue #33) via /code-review against origin/epic/28-refactor-ui-base-ui-shadcn...HEAD; the import rewrite itself is correct and clean, but two explicit acceptance-criteria checkboxes (pnpm build succeeding, and the search smoke-test) are unverified rather than confirmed, so issues were found."}</result>
+Agent stopped
+Capturing session
+Collecting commits
+Collecting commits done (0.1s)
+Reached max iterations (1).
+Run complete: reached 1 iteration(s) without completion signal.
+Context window: 62k
