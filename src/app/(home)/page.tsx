@@ -21,7 +21,7 @@ export default function HomePage() {
 				<div className="relative">
 					<HomeHero />
 
-					<div className="mt-24 flex flex-col items-center justify-center">
+					<div className="mt-24 flex flex-col items-stretch justify-center">
 						<Cards>
 							<Link href="/docs">
 								<Card icon={<Rocket />} title="Einführung">
