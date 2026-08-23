@@ -1,11 +1,13 @@
 import type { ReactNode } from 'react'
 import { HomeLayout } from '@fumadocs/base-ui/layouts/home'
 import { baseOptions } from '@/app/layout.config'
+import { Footer } from '@/app/_components/footer'
 
 export default function Layout({ children }: { children: ReactNode }) {
 	return (
 		<HomeLayout {...baseOptions}>
 			<div className="mx-auto mt-12 w-full max-w-5xl">{children}</div>
+			<Footer />
 		</HomeLayout>
 	)
 }
