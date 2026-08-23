@@ -2,6 +2,7 @@
 name: "Tailwind v4 @source directive for fumadocs"
 description: "@source must point at @fumadocs/base-ui dist files so Tailwind v4 generates CSS for fumadocs components — omitting it silently breaks layout in production."
 kind: reference
+type: Reference
 status: current
 last_reviewed: 2026-08-23
 tags: [fumadocs, tailwind, css, build, v4]

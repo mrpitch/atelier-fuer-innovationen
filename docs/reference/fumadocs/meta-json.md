@@ -2,6 +2,7 @@
 name: "meta.json conventions"
 description: "meta.json controls sidebar structure: root:true makes a folder a top-level tab, pages array controls order using bare slugs, ---Label--- adds separators, !slug excludes a page."
 kind: reference
+type: Reference
 status: current
 last_reviewed: 2026-08-23
 tags: [fumadocs, meta, sidebar, navigation, content]

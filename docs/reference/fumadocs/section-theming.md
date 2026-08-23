@@ -2,6 +2,7 @@
 name: "Per-section theming: data-section scoping"
 description: "The Xeniapolis section overrides the full-page palette via data-section='xeniapolis' on the docs layout wrapper — not just the content slot — so chrome (nav, sidebar, footer) re-themes too."
 kind: reference
+type: Reference
 status: current
 last_reviewed: 2026-08-23
 tags: [fumadocs, theming, sections, xeniapolis, css]

@@ -6,7 +6,23 @@ on:
       - main
 
 jobs:
+  check-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      markdown: ${{ steps.filter.outputs.markdown }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            markdown:
+              - '**/*.md'
+              - '**/*.mdx'
+
   validate-okf:
+    needs: check-changes
+    if: needs.check-changes.outputs.markdown == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
