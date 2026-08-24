@@ -3,6 +3,11 @@
   position: relative;
 }
 
+[data-rmiz-content] img {
+  width: auto;
+  max-width: 100%;
+}
+
 [data-rmiz-ghost] {
   pointer-events: none;
   position: absolute;
