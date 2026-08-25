@@ -1,4 +1,4 @@
-import { execFileSync, execSync, spawn } from 'node:child_process'
+import { type ChildProcess, execFileSync, execSync, spawn } from 'node:child_process'
 import { mkdirSync, mkdtempSync, readFileSync, rmSync } from 'node:fs'
 import { connect, createServer } from 'node:net'
 import { tmpdir } from 'node:os'
@@ -165,6 +165,10 @@ export function readFixedPoint(): string {
 // the hostname directly.
 const CHROME_READY_TIMEOUT_MS = 15_000
 
+// How long to wait for Chrome to actually exit after each of SIGTERM and
+// SIGKILL. Only spent on shutdown, and only when Chrome is slow to go.
+const CHROME_EXIT_TIMEOUT_MS = 5_000
+
 interface HostBrowser {
 	forwardPort: number
 	close(): Promise<void>
@@ -220,6 +224,42 @@ function allocatePort(): Promise<number> {
 	})
 }
 
+// kill() only delivers the signal; Chrome keeps writing to its profile
+// directory until it has actually exited. Removing that directory in between
+// races those writes and throws ENOTEMPTY — which, thrown from close()'s
+// finally block, killed a whole run *after* its work was already committed.
+// Wait for the process to be gone before touching the directory, escalating
+// to SIGKILL rather than hanging the run on a Chrome that ignores SIGTERM.
+async function killChromeAndWait(chrome: ChildProcess): Promise<void> {
+	const hasExited = () => chrome.exitCode !== null || chrome.signalCode !== null
+	if (hasExited()) return
+
+	const exited = new Promise<void>((resolve) => chrome.once('exit', () => resolve()))
+	const withinTimeout = () =>
+		Promise.race([exited, new Promise<void>((resolve) => setTimeout(resolve, CHROME_EXIT_TIMEOUT_MS))])
+
+	chrome.kill()
+	await withinTimeout()
+	if (hasExited()) return
+
+	chrome.kill('SIGKILL')
+	await withinTimeout()
+}
+
+// A leftover profile directory is a few megabytes in the OS temp dir, which
+// the OS reaps on its own schedule. A run dying in cleanup is not something
+// the caller can recover from — the work is committed but nothing downstream
+// ever learns it succeeded. Never trade the second failure for the first:
+// retry (rmSync retries ENOTEMPTY and friends natively), then warn and move on.
+function removeUserDataDir(userDataDir: string): void {
+	try {
+		rmSync(userDataDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 })
+	} catch (error) {
+		const reason = error instanceof Error ? error.message : String(error)
+		console.warn(`Warning: could not remove Chrome profile directory ${userDataDir}: ${reason}`)
+	}
+}
+
 async function waitForChromeReady(port: number): Promise<void> {
 	const deadline = Date.now() + CHROME_READY_TIMEOUT_MS
 	while (Date.now() < deadline) {
@@ -264,8 +304,8 @@ async function startHostBrowser(): Promise<HostBrowser> {
 	try {
 		await waitForChromeReady(chromePort)
 	} catch (error) {
-		chrome.kill()
-		rmSync(userDataDir, { recursive: true, force: true })
+		await killChromeAndWait(chrome)
+		removeUserDataDir(userDataDir)
 		throw error
 	}
 
@@ -291,8 +331,8 @@ async function startHostBrowser(): Promise<HostBrowser> {
 			if (closed) return
 			closed = true
 			await new Promise<void>((resolve) => forwarder.close(() => resolve()))
-			chrome.kill()
-			rmSync(userDataDir, { recursive: true, force: true })
+			await killChromeAndWait(chrome)
+			removeUserDataDir(userDataDir)
 			if (activeHostBrowser === hostBrowser) activeHostBrowser = null
 		},
 	}
