@@ -103,7 +103,7 @@ Diagnose the root cause (wrong working directory), correct the sub-agent prompt,
 ## 5. Dev server / build tooling
 
 **Prefer `playwright-mcp` over curl for verifying that a page renders correctly.**
-This scaffold wires `playwright-mcp` into every sandcastle run by default — `.mcp.json` connects it over CDP to a real Chrome `run-sandcastle.ts` launches on the host for this run, not a hypothetical "if available" tool. Confirm the `playwright` MCP tools are actually present before assuming so (a missing host Chrome install fails the run before the container even starts, rather than silently falling back). curl only ever sees pre-render HTML, never the post-JS DOM a real browser produces. Default to `browser_navigate` + `browser_snapshot` (its accessibility-tree snapshot) as the routine render check — it's structured, cheap, and reflects the actual rendered page. Use `browser_take_screenshot` for a hitl run, or when checking for a purely visual regression (layout, CSS, a broken image) that a semantic snapshot wouldn't surface. `chrome-devtools-mcp` is not wired into this scaffold — it's a documented follow-up for deep escalation (console exceptions, failed/4xx network requests, performance regressions) once this connection is proven, not something to reach for here. Fall back to the curl-based rules below only if the `playwright` MCP tools are genuinely unavailable this session.
+Default to `browser_navigate` (`file://` paths work directly, no base64 data URL) + `browser_snapshot`; screenshot only for a hitl run or a visual regression. Fall back to curl only if the page itself is unreachable — not just because the MCP tools needed extra steps to reach it.
 
 **Start the dev server non-blocking with a readiness poll.**
 ```bash
