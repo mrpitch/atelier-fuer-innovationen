@@ -1,0 +1,97 @@
+
+--- Run started: 2026-08-25T17:49:50.432Z ---
+Sandcastle Run
+  Agent: review
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/65-ci-test-suite-ts-shell
+Iteration 1/1
+Setting up sandbox
+  CI=true pnpm install --frozen-lockfile
+Setting up sandbox done (0.4s)
+Agent started
+Bash(cat /home/agent/workspace/.sandcastle/efficiency-rules.md 2>/dev/null; echo "---"; git log --oneline -5 && echo "---diff---" && git diff origin/epic/64-sandcastle-guardrails...HEAD --stat)
+Small diff, as expected. Let me capture it once and then run the code-review skill.
+Bash(git diff origin/epic/64-sandcastle-guardrails...HEAD > /tmp/review.diff && cat /tmp/review.diff)
+Bash(wc -l .github/workflows/main.yml && cat -n .github/workflows/main.yml)
+This matches the repair-context's described deliverable exactly. Now let's run `/code-review` against the fixed point.
+Bash(git rev-parse origin/epic/64-sandcastle-guardrails HEAD 2>&1; echo "---commits---"; git log origin/epic/64-sandcastle-guardrails..HEAD --oneline; echo "---standards files---"; ls /home/agent/workspace | grep -iE 'contributing|standards|agents.md' ; find /home/agent/workspace -maxdepth 2 -iname "AGENTS.md" -o -iname "CONTRIBUTING.md" -o -iname "CODING_STANDARDS.md" 2>/dev/null)
+Bash(wc -l /home/agent/workspace/AGENTS.md; cat -n /home/agent/workspace/AGENTS.md)
+Bash(find /home/agent/workspace/docs -iname "*ci*" -o -iname "*workflow*" 2>/dev/null; wc -l /home/agent/workspace/docs/agents/implementation-workflow.md 2>/dev/null)
+No dedicated CI standards doc beyond AGENTS.md. Now spawning both review sub-agents in parallel.
+Agent(Standards axis review of #65 diff)
+Agent(Spec axis review of #65 diff)
+Both review sub-agents are running in the background. I'll wait for their reports rather than duplicating the diff analysis myself.## Review: `.github/workflows/main.yml` (commit 196ee84)
+
+**Documented standards:** None apply. The only documented standards in this repo (issue-tracker, triage-labels, domain docs, implementation-workflow) govern agent/docs processes, not CI/CD YAML. No hard violations to report.
+
+**Baseline smells (judgement calls):**
+
+1. **Duplicated Code** — the new `test` job repeats the exact three-step boilerplate (`actions/checkout@v4` → `pnpm/action-setup@v2` → `pnpm install`) that already appears verbatim in `validate-okf` and `deploy`. This is now the third occurrence of the identical sequence in one 68-line file:
+```yaml
++  test:
++    runs-on: ubuntu-latest
++    steps:
++      - name: Checkout
++        uses: actions/checkout@v4
++      - uses: pnpm/action-setup@v2
++      - name: Install modules
++        run: pnpm install
++      - name: Run tests
++        run: pnpm test
+```
+   A reusable composite action or `workflow_call` for "checkout + pnpm setup + install" would remove this repetition, though GitHub Actions' lack of lightweight local composition makes some duplication here a common, tolerated tradeoff.
+
+2. **Minor asymmetry (not a named smell, but worth flagging):** the new `test` job has no `if` guard, so it runs on both `push` and `pull_request`, while `deploy` now explicitly gates on `if: github.event_name == 'push'`. The intent (decouple tests from the markdown-paths filter) is met, but `test` isn't wired via `needs:` into `deploy`, so a failing test suite still doesn't block deployment — a pre-existing gap (validate-okf/check-changes were never gating `deploy` either) that this change doesn't introduce but also doesn't close, despite the stated purpose of strengthening the test gate.
+
+**Not flagged as smells:**
+- Removal of the `Run tests` step from `validate-okf` (lines 33–34 of diff) is a clean, single-purpose move, not Divergent Change — it's one coherent behavioral change (decouple testing from the markdown-path filter) expressed across a few lines of one file.
+- Adding `pull_request:` and the `deploy` `if:` guard are small, targeted, non-duplicative edits — no Shotgun Surgery; everything stays in one file for one reason.
+- No Feature Envy, Primitive Obsession, Data Clumps, Repeated Switches, Message Chains, Middle Man, Refused Bequest, Speculative Generality, or Mysterious Name concerns apply meaningfully to this YAML-only diff.Standards review is in. Waiting on the Spec axis sub-agent before aggregating.## Review Findings
+
+**Diff summary**: Added `pull_request:` trigger, added an unconditional top-level `test` job (checkout → pnpm install → `pnpm test`), removed the `pnpm test` step from the `validate-okf` job, and added `if: github.event_name == 'push'` to `deploy`.
+
+### (a) Missing/partial requirements
+None of the acceptance criteria are missing structurally:
+- "A pull request touching only TypeScript files runs the test suite" / "shell files does the same" — satisfied: `test` has no `needs`/`if`, so it runs on every `pull_request` and `push` regardless of which files changed.
+- "The test job no longer depends on the markdown paths filter for its trigger" — satisfied: `test` job is independent of `check-changes`.
+- "Markdown/MDX-only changes still run the OKF frontmatter validation they run today" — satisfied: `validate-okf` still gated by `needs.check-changes.outputs.markdown == 'true'`, unchanged except the `pnpm test` step was removed from it (now redundant since `test` runs separately).
+
+### (b) Scope creep
+> "A change that touches only TypeScript or shell files runs the test suite in CI" — the issue never mentions the `deploy` job.
+
+The diff adds `if: github.event_name == 'push'` to `deploy`, which is not requested anywhere in the spec. This is arguably a *necessary* correction rather than pure creep — before this diff, `deploy` had no trigger guard at all, relying implicitly on the fact that only `push` events existed. Once `pull_request:` was added as a trigger, an unguarded `deploy` job would fire on every PR open/synchronize, attempting an S3/CloudFront deploy (and exposing `AWS_S3_SECRET_ACCESS_KEY`/`AWS_CF_DISTRIBUTION_ID` to PR context) — a serious regression. So while out-of-spec, it's a required side effect of the change and appears correctly done (guard restores prior push-to-main-only behavior; confirmed no double-deploy risk since `pull_request` default types opened/synchronize/reopened never include a merge-to-main `push`).
+
+### (c) Implemented but questionable
+- `deploy` still has no `needs:` on `test` (or `check-changes`/`validate-okf`). This is pre-existing (not introduced by this diff) but is now more conspicuous: on a push to `main`, a failing `pnpm test` in the new `test` job does **not** block `deploy` — it will still build and ship. The issue's stated motivation is "a failing test fails the check," which is true for the PR status check, but the deploy gate itself remains unguarded by test results. Not explicitly required by the spec, but worth flagging as a gap adjacent to this change's intent.
+- `pull_request:` has no `types:` (defaults to opened/synchronize/reopened — fine) and no `branches:` filter, so `test`/`check-changes` now run for PRs targeting any base branch, not just `main`. Not called out as wrong by the spec, but a minor unstated scope widening.## Standards
+
+**Documented standards:** None apply — AGENTS.md documents agent/process conventions (issue tracker, triage labels, domain docs, implementation workflow), not CI/CD YAML style. No hard violations.
+
+**Baseline smells (judgement calls only):**
+
+1. **Duplicated Code** — the new `test` job repeats the exact checkout → pnpm-setup → install boilerplate already present in `validate-okf` and `deploy` (now three occurrences in one 68-line file). A composite action or `workflow_call` could dedupe this, though some repetition is a common, tolerated GitHub Actions tradeoff.
+2. **Minor asymmetry (not a named smell)** — `test` has no `if` guard (runs on both `push`/`pull_request`) while `deploy` now explicitly gates on `push`. Intent is met; not a defect.
+
+Nothing flagged for Feature Envy, Primitive Obsession, Data Clumps, Repeated Switches, Message Chains, Middle Man, Refused Bequest, Speculative Generality, or Mysterious Name.
+
+## Spec
+
+**(a) Missing/partial requirements:** None. All four checkable acceptance criteria are satisfied — TS-only and shell-only PRs both run `test` (no `needs`/`if` gating it), `validate-okf` still runs on markdown/MDX via the unchanged `check-changes` filter, and `test` no longer depends on that filter. (The 5th criterion, verification against a real PR, is explicitly out of scope for this sandbox per the repair context.)
+
+**(b) Scope creep:** Adding `if: github.event_name == 'push'` to `deploy` isn't asked for in the issue, but it's a necessary consequence of adding `pull_request:` as a trigger — without it, `deploy` would fire on every PR, running `pnpm build` and attempting an S3/CloudFront deploy with AWS secrets exposed to PR context. Correctly implemented, not a defect.
+
+**(c) Implemented but questionable:** `deploy` still has no `needs: test`, so a failing test on a push to `main` doesn't block deployment — the check fails but the deploy proceeds anyway. This is pre-existing behavior (the old `validate-okf`-embedded test step didn't gate `deploy` either) and not something #65's acceptance criteria asked for, so it's not a regression introduced by this diff — worth a maintainer's awareness, not a blocking finding here. Also noted: `pull_request:` has no `branches:` filter, a minor unstated scope widening, not called out as wrong by the spec.
+
+---
+
+**Summary:** Standards axis — 2 findings, both judgement-call smells (duplicated setup boilerplate; no hard violations). Spec axis — 0 missing/wrong requirements, 1 justified/necessary scope addition (deploy push-guard), 1 pre-existing gap noted for awareness (deploy not gated on test result). Nothing on either axis rises above a nitpick; the committed diff matches the repair-context's described deliverable exactly.
+
+<result>{"verdict": "clean", "findings": "", "summary": "Reviewed .github/workflows/main.yml diff (commit 196ee84) against #65's acceptance criteria via /code-review's Standards+Spec axes; both axes surfaced only judgement-call-level nits (duplicated job boilerplate, deploy not gated on test results — pre-existing), no hard violations, verdict clean."}</result>
+Agent stopped
+Capturing session
+Collecting commits
+Collecting commits done (0.0s)
+Reached max iterations (1).
+Run complete: reached 1 iteration(s) without completion signal.
+Context window: 74k
