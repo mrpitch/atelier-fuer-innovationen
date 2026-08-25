@@ -1,0 +1,175 @@
+
+--- Run started: 2026-08-22T16:31:30.161Z ---
+Sandcastle Run
+  Agent: implement
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/32-okf-frontmatter
+Iteration 1/1
+Setting up sandbox
+  CI=true pnpm install --frozen-lockfile
+Setting up sandbox done (1.2s)
+Agent started
+Bash(git status && git log --oneline -5 && echo "---TREE---" && find . -path ./node_modules -prune -o -type f \( -name "*.md" -o -name "*.mdx" \) -print | sort)
+Bash(cat /home/agent/.claude/projects/-home-agent-workspace/837c15cd-d045-4e3b-8d29-9eee8ff0f681/tool-results/bu53qhyfv.txt | sed -n '1,400p')
+Bash(find ./docs -type f \( -name "*.md" -o -name "*.mdx" \) | sort)
+Bash(find ./src/content/docs -type f \( -name "*.md" -o -name "*.mdx" \) | sort)
+That's 51 files under `src/content/docs`. Let me look at a handful of examples across different subtypes to see existing frontmatter, plus check the docs-discovery script's parsing approach and check for a top-level README.
+Bash(grep -ril "okf\|open knowledge format" /home/agent/workspace --include="*.md" --include="*.mdx" --include="*.ts" --include="*.json" 2>/dev/null | grep -v node_modules)
+WebFetch(https://raw.githubusercontent.com/GoogleCloudPlatform/knowledge-catalog/main/okf/README.md)
+WebFetch(https://raw.githubusercontent.com/GoogleCloudPlatform/knowledge-catalog/main/okf/SPEC.md)
+Bash(find /home/agent/workspace -path '*/docs-discovery/*' -not -path '*/node_modules/*')
+Bash(cat package.json)
+Bash(find /home/agent/workspace -maxdepth 2 -iname "*test*" -not -path "*/node_modules/*"; find /home/agent/workspace -iname "vitest.config*" -o -iname "jest.config*" 2>/dev/null | grep -v node_modules; find /home/agent/workspace -iname "*.test.ts" -not -path "*/node_modules/*"; cat /home/agent/workspace/tsconfig.json; echo ---; cat /home/agent/workspace/eslint.config.* 2>/dev/null; ls /home/agent/workspace)
+Bash(node --version; npx tsx --version 2>&1 | head -5)
+Bash(ls -la /home/agent/workspace/scripts; echo ---; find /home/agent/workspace/scripts -type f | xargs -I{} sh -c 'echo ==={}===; wc -l {}')
+Bash(cat /home/agent/workspace/scripts/package.json; echo ---; find /home/agent/workspace -iname "generate-index*" -not -path "*/node_modules/*"; echo ---; cat /home/agent/workspace/docs/index.md; echo ---; cat /home/agent/workspace/docs/README.md)
+Bash(for f in docs/reference/fumadocs/custom-tabs.md docs/reference/fumadocs/root-provider.md docs/reference/fumadocs/search-route.md docs/reference/fumadocs/sidebar-tab-colors.md docs/reference/fumadocs/toc-item-type.md; do echo "=== $f ==="; sed -n '1,10p' "$f"; done)
+Bash(for f in inszenierung kontexte potenziale viertel-der-annaeherung viertel-der-fuerung wertschoepfung zukunft; do echo "=== $f ==="; sed -n '1,6p' "src/content/docs/xeniapolis/$f/index.mdx"; done)
+All confirmed as index/Overview pages. Now let me check the remaining atelier files I haven't seen (teil-2 variants, chapter subpages, guide-2/konzept-2 for teil-2) — likely same shape as teil-1 equivalents. Let me batch-check remaining unseen files quickly for any anomalies.
+Bash(for f in atelier/teil-2/index.mdx atelier/teil-1/seite-2.mdx atelier/teil-1/seite-3.mdx atelier/teil-1/seite-4.mdx atelier/teil-2/seite-1.mdx atelier/teil-2/guides/guide-1.mdx atelier/teil-2/guides/guide-2.mdx atelier/teil-2/konzepte/konzept-1.mdx atelier/teil-2/konzepte/konzept-2.mdx atelier/teil-1/guides/guide-2.mdx atelier/teil-1/konzepte/konzept-1.mdx atelier/story-example-1/chapter-1/index.mdx atelier/story-example-1/chapter-1/another-page-1.mdx atelier/story-example-2/index.mdx atelier/story-example-2/chapter-1/index.mdx; do echo "=== $f ==="; sed -n '1,5p' "src/content/docs/$f"; done)
+All consistent placeholder frontmatter with only `title`/`description`(/`icon`). Now I have a complete map. Let me write the plan and start implementing: first the validation script + tests (TDD), then apply frontmatter across all files, then docs, then CI + package.json, then docs of vocab mapping.
+Bash(cat /home/agent/workspace/AGENTS.md | head -100)
+Bash(find /home/agent/workspace/.claude -maxdepth 2; echo ---; find /home/agent/workspace/.agents -maxdepth 2; echo ---; find /home/agent/workspace/.sandcastle -maxdepth 2)
+Bash(ls /home/agent/workspace/out 2>/dev/null | head -3; ls -la /home/agent/workspace | grep -E '\.source|\.next'; find /home/agent/workspace -maxdepth 1 -iname "README.md")
+Good, those build dirs exist and must be skipped. Now let's write the validation script with TDD: first the test file, then the implementation.
+Bash(mkdir -p /tmp/okf_check && echo ok)
+Now let me run this test file to confirm it fails (red) since the implementation doesn't exist yet.
+Bash(npx tsx --test scripts/validate-okf.test.ts 2>&1 | tail -40)
+Confirmed red. Now implement `scripts/validate-okf.ts`.Now let's run the tests.
+Bash(npx tsx --test scripts/validate-okf.test.ts 2>&1 | tail -60)
+All 13 tests pass. Now let's check against the real repo tree (expect failures since content doesn't have `type` yet — that's expected until I apply frontmatter).
+Bash(npx tsx scripts/validate-okf.ts . 2>&1 | head -100)
+Bash(node /tmp/apply-okf.mjs)
+All applied as expected, matching my classification exactly. Let me spot-check a few results and remove the temp script.
+Bash(rm /tmp/apply-okf.mjs
+sed -n '1,10p' /home/agent/workspace/docs/adr/0001-adopt-fumadocs-base-ui.md
+echo ===
+sed -n '1,10p' /home/agent/workspace/docs/agents/domain.md
+echo ===
+sed -n '1,8p' /home/agent/workspace/src/content/docs/atelier/index.mdx
+echo ===
+sed -n '1,8p' /home/agent/workspace/src/content/docs/atelier/story-example-1/chapter-1/index.mdx
+echo ===
+sed -n '1,8p' /home/agent/workspace/src/content/docs/xeniapolis/besuch-in-der-wissensstadt.mdx)
+Now let's exempt AGENTS.md/CLAUDE.md in the validator and run the full check.
+Bash(npx tsx --test scripts/validate-okf.test.ts 2>&1 | tail -25 && echo "=== full repo check ===" && npx tsx scripts/validate-okf.ts . 2>&1)
+All 14 unit tests pass, and the live-repo integration check now exits 0. Now let's wire up `package.json`, the CI job, and write the mapping documentation.
+Bash(npx tsx scripts/validate-okf.ts . && echo "--- tsc ---" && pnpm exec tsc --noEmit 2>&1 | tail -60)
+Bash(npx tsx --test scripts/validate-okf.test.ts 2>&1 | tail -25)
+Good, still passes with tsx. Now let's re-run the full check command.
+Bash(pnpm exec tsc --noEmit 2>&1 | tail -40)
+tsc is clean. Now eslint.
+Bash(pnpm exec eslint . 2>&1 | tail -100)
+Bash(git status --short)
+Good, matches expectations. Now let's run the code-review skill against origin/main to review this work-in-progress diff.
+Bash(git rev-parse origin/main && git --no-pager diff origin/main --stat -- . ':(exclude).claude/settings.json' ':(exclude).claude/settings.local.json' | tail -20)
+Good, diff resolves and is non-empty (69 files, 181 insertions). Let's spawn the two review sub-agents in parallel.
+Agent(Standards review of OKF frontmatter diff)
+Bash(git --no-pager diff origin/main -- . ':(exclude).claude/settings.json' ':(exclude).claude/settings.local.json' > /tmp/full.diff; wc -l /tmp/full.diff)
+Bash(ls /home/agent/workspace/docs/reference/fumadocs/ 2>/dev/null)
+Bash(sed -n '1,400p' /tmp/full.diff | grep -n "^diff --git" )
+Bash(grep -n "^diff --git" /tmp/full.diff)
+Bash(git status --porcelain=v1 -uall | head -100)
+Agent(Spec review of OKF frontmatter diff)
+Bash(git --no-pager diff origin/main -- . ':(exclude).claude/settings.json' ':(exclude).claude/settings.local.json' > /tmp/diff.txt; wc -l /tmp/diff.txt)
+Bash(sed -n '1,25p' /tmp/full.diff)
+Bash(sed -n '232,244p' /tmp/full.diff)
+Bash(sed -n '47,100p' /tmp/full.diff)
+Bash(grep -n "^diff --git" /tmp/diff.txt)
+Bash(grep -rn '"test"' /home/agent/workspace/package.json; grep -rn "node:test\|node --test" /home/agent/workspace/package.json /home/agent/workspace/.github/workflows/main.yml)
+Bash(sed -n '100,232p' /tmp/full.diff)
+Bash(sed -n '23,47p' /tmp/full.diff)
+Bash(grep -n "^diff\|^+type:\|^+status:" /tmp/full.diff | sed -n '1,400p')
+Bash(find docs -name "*.md" | sort && echo "---README---" && find . -iname "README.md" -not -path "*/node_modules/*" | sort && echo "---run validate---" && pnpm validate:okf 2>&1 | tail -30)
+Bash(sed -n '244,270p' /tmp/full.diff)
+Bash(sed -n '1,40p' .github/workflows/main.yml)
+Bash(node --experimental-strip-types --test scripts/validate-okf.test.ts 2>&1 | tail -40 || true)
+Bash(npx tsx --test scripts/validate-okf.test.ts 2>&1 | tail -50)
+Bash(sed -n '1,80p' /home/agent/workspace/.claude/skills/docs-discovery/scripts/discover.ts)
+Bash(grep -n -i "gate\|ci\|workflow\|block" /home/agent/workspace/docs/agents/implementation-workflow.md | head -40)
+Bash(ls /home/agent/workspace/docs/agents/)
+Bash(find /home/agent/workspace/.claude /home/agent/workspace/.agents -iname "*.md" -o -iname "*.mdx" 2>/dev/null | grep -v "/skills/" )
+Bash(find /home/agent/workspace/.agents /home/agent/workspace/.sandcastle -maxdepth 3 2>/dev/null)
+Bash(grep -n "README" /tmp/diff.txt)
+Bash(grep -n "docs/index.md" /tmp/diff.txt)
+Let's verify the new `pnpm test` script works, and re-run the check command.
+Bash(pnpm test 2>&1 | tail -30)
+All tests run via `pnpm test`. Now let's re-run the full check command and validate:okf once more.
+Bash(pnpm exec tsc --noEmit 2>&1 | tail -30 && echo "---eslint---" && pnpm exec eslint . 2>&1 | tail -30 && echo "---validate:okf---" && pnpm validate:okf 2>&1 | tail -10)
+This all looks good. Now let's commit the work.
+Bash(git add \
+  .github/workflows/main.yml \
+  docs/adr/0001-adopt-fumadocs-base-ui.md \
+  docs/adr/0002-per-section-theming.md \
+  docs/agents/domain.md \
+  docs/agents/implementation-workflow.md \
+  docs/agents/issue-tracker.md \
+  docs/agents/triage-labels.md \
+  docs/explanation/about-section-theming.md \
+  docs/reference/fumadocs/card-component.md \
+  docs/reference/fumadocs/custom-tabs.md \
+  docs/reference/fumadocs/root-provider.md \
+  docs/reference/fumadocs/search-route.md \
+  docs/reference/fumadocs/sidebar-tab-colors.md \
+  docs/reference/fumadocs/toc-item-type.md \
+  docs/reference/glossary.md \
+  package.json \
+  scripts/validate-okf.ts \
+  scripts/validate-okf.test.ts \
+  src/content/docs
+git status --short)
+`.claude/settings.json` and `.claude/settings.local.json` are correctly left unstaged/untracked (pre-existing, unrelated). Now let's commit.
+Bash(git commit -m "$(cat <<'EOF'
+feat(docs): adopt OKF v0.2 frontmatter across Markdown/MDX content
+
+Layer a single, machine-legible OKF `type` field additively on top of the
+two frontmatter conventions already in the repo, so agents can classify
+and rank content before it stops being Lorem-ipsum placeholder text:
+
+- docs/**: `type` derived from the existing Diataxis `kind` field
+  (tutorial->Tutorial, how-to->How-To Guide, reference->Reference,
+  explanation->Explanation, adr->ADR); docs/agents/*.md convention docs
+  (previously frontmatter-less) gain `type: Agent Instructions`.
+- src/content/docs/**: `type` (Overview/Concept/Guide/Story/Article/Legal
+  Notice/Reference, by folder convention) plus OKF's own `status: draft`
+  vocabulary, added net-new alongside Fumadocs' title/description/icon.
+- Exempt README.md (any depth), docs/index.md and
+  docs/agents/diataxis-context.md (generated/reserved), everything under
+  .claude/skills/, .agents/skills/, .sandcastle/ (tool-owned frontmatter
+  contracts), and build/vendor output. AGENTS.md/CLAUDE.md are exempted
+  too, on the same "don't touch tool-loaded frontmatter" basis as
+  SKILL.md — they're read verbatim as runtime agent instructions, unlike
+  docs/agents/*.md which is only ever read via docs-discovery tooling.
+  This isn't spelled out in the issue and is worth a second look.
+- scripts/validate-okf.ts is the single seam that defines and enforces
+  the rule, covered by scripts/validate-okf.test.ts (Node's built-in
+  node:test — no new dependency) exercising every pass/fail/exemption
+  case; wired into `pnpm test`, `pnpm validate:okf`, and a new CI job
+  kept separate from the deploy job.
+- kind->type and site `type` vocabulary tables documented once in
+  docs/agents/domain.md.
+
+Closes #32
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+EOF
+)"
+git log --oneline -3)
+Bash(pnpm exec tsc --noEmit 2>&1 | tail -10 && pnpm exec eslint . 2>&1 | tail -10 && pnpm test 2>&1 | tail -20 && pnpm validate:okf 2>&1 | tail -5 && git status --short)
+Everything is clean and committed; only the pre-existing unrelated `.claude/settings.json`/`.claude/settings.local.json` changes remain uncommitted, as intended.
+
+## Summary
+
+Implemented issue #32: added OKF v0.2 `type` frontmatter across all 65 non-exempt Markdown/MDX files under `docs/**` and `src/content/docs/**`, derived mechanically from existing `kind` (Diataxis) or a documented folder-path vocabulary (Fumadocs site content), plus `status: draft` on site content. Built `scripts/validate-okf.ts` as the single conformance seam with a `node:test`-based unit test suite (14 tests, no new dependency, reusing `docs-discovery`'s hand-rolled frontmatter-parsing approach), wired into new `pnpm test`/`pnpm validate:okf` scripts and a separate CI job. Documented the `kind→type` and site-content `type` vocabulary tables in `docs/agents/domain.md`. `pnpm exec tsc --noEmit`, `pnpm exec eslint .`, `pnpm test`, and `pnpm validate:okf` all pass clean against the live repo. A two-axis code review (Standards + Spec) surfaced one real gap — the new test file wasn't wired into any run path — which I fixed by adding `pnpm test` and a CI step; the remaining minor duplication with `discover.ts` was left alone since touching that shared skill file is explicitly out of scope. Work is committed on `feat/32-okf-frontmatter`.
+
+One judgment call worth a human's attention: I exempted root `AGENTS.md`/`CLAUDE.md` from the `type` requirement (documented in code and in `domain.md`), reasoning they're loaded verbatim as runtime agent instructions like `SKILL.md`, unlike `docs/agents/*.md` which only get read via `docs-discovery` tooling. The issue never explicitly addresses these two files either way, so this is a reasonable but not spec-mandated interpretation — flagged in the commit message for review.
+
+<result>{"success": true, "summary": "Implemented OKF v0.2 frontmatter adoption across docs/** and src/content/docs/** (65 files), built scripts/validate-okf.ts + scripts/validate-okf.test.ts (node:test, 14 passing tests, no new deps), wired pnpm test/validate:okf and a new CI job, and documented the kind->type and site-content type vocabularies in docs/agents/domain.md. tsc, eslint, tests, and validate:okf all pass clean. Code review (Standards + Spec axes) surfaced one gap (test file not wired into any run path), which was fixed. Work is committed to feat/32-okf-frontmatter.", "blockers": null}</result>
+Agent stopped
+Capturing session
+Collecting commits
+Collecting commits done (0.0s)
+Reached max iterations (1).
+Run complete: reached 1 iteration(s) without completion signal.
+Context window: 169k

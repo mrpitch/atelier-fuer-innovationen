@@ -1,0 +1,133 @@
+
+--- Run started: 2026-08-22T16:43:13.378Z ---
+Sandcastle Run
+  Agent: review
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/32-okf-frontmatter
+Iteration 1/1
+Setting up sandbox
+  CI=true pnpm install --frozen-lockfile
+Setting up sandbox done (0.8s)
+Agent started
+I'll invoke the code-review skill against the fixed point to review this OKF frontmatter adoption work.
+Bash(git rev-parse origin/main && echo "---" && git log origin/main..HEAD --oneline && echo "---DIFFSTAT---" && git diff origin/main...HEAD --stat)
+Bash(find . -maxdepth 2 -iname "CONTRIBUTING*" -o -iname "CODING_STANDARDS*" 2>/dev/null | grep -v node_modules; echo "---AGENTS---"; cat AGENTS.md 2>/dev/null | head -100)
+Bash(echo "---domain.md diff---"; git diff origin/main...HEAD -- docs/agents/domain.md; echo "---validate-okf.ts---"; cat scripts/validate-okf.ts)
+Bash(npx tsx scripts/validate-okf.ts . 2>&1 | head -100)
+Bash(echo "---CLAUDE.md---"; head -5 CLAUDE.md; echo "---AGENTS.md head---"; head -3 AGENTS.md; echo "---git log for these files---"; git log --oneline -3 -- CLAUDE.md AGENTS.md; echo "---diff test file---"; cat scripts/validate-okf.test.ts)
+Bash(for f in docs/adr/0001-adopt-fumadocs-base-ui.md docs/reference/glossary.md docs/reference/fumadocs/card-component.md docs/explanation/about-section-theming.md docs/agents/issue-tracker.md docs/agents/triage-labels.md docs/agents/implementation-workflow.md; do echo "=== $f ==="; git diff origin/main...HEAD -- "$f"; done)
+Looks correct. Now let's check that all files in `docs/**` and `src/content/docs/**` were actually covered — nothing missed — and check README/index files were correctly left untouched, plus check package.json and CI workflow diffs.
+Bash(echo "---package.json diff---"; git diff origin/main...HEAD -- package.json; echo "---workflow diff---"; git diff origin/main...HEAD -- .github/workflows/main.yml)
+Bash(cat .github/workflows/main.yml)
+Bash(git show cd1286b2 -- .github/workflows/main.yml)
+Bash(find . -maxdepth 3 -iname "*.md" | grep -iv node_modules | xargs grep -l -i "standard\|convention" 2>/dev/null | grep -v node_modules | head -20; echo "---"; ls docs/reference/ 2>/dev/null; echo "---eslint/prettier---"; ls -la | grep -iE "eslint|prettier|biome")
+Bash(cat .prettierrc; echo "---eslint---"; cat eslint.config.mjs)
+These are tooling-enforced (prettier/eslint), so I'll note them but instruct sub-agents to skip anything tooling covers. Now let's launch the two review sub-agents in parallel.
+Agent(Standards axis review of OKF frontmatter diff)
+Bash(git log origin/main..HEAD --oneline && echo "---FILES---" && git diff origin/main...HEAD --stat)
+Bash(git diff origin/main...HEAD -- docs/agents/domain.md)
+Bash(git diff origin/main...HEAD -- scripts/validate-okf.ts)
+Bash(git diff origin/main...HEAD -- scripts/validate-okf.test.ts)
+Bash(git diff origin/main...HEAD -- package.json .github/workflows/main.yml)
+Bash(git diff origin/main...HEAD -- docs/adr/0001-adopt-fumadocs-base-ui.md docs/adr/0002-per-section-theming.md docs/agents/implementation-workflow.md docs/agents/issue-tracker.md docs/agents/triage-labels.md docs/explanation/about-section-theming.md docs/reference/fumadocs/card-component.md docs/reference/fumadocs/custom-tabs.md docs/reference/fumadocs/root-provider.md docs/reference/fumadocs/search-route.md docs/reference/fumadocs/sidebar-tab-colors.md docs/reference/fumadocs/toc-item-type.md docs/reference/glossary.md)
+Bash(git diff origin/main...HEAD -- src/content/docs/ | grep -E "^\+\+\+|^\+" | grep -v "^+++" )
+Agent(Spec axis review of OKF frontmatter diff)
+Both review agents are running in the background — I'll wait for them to complete before aggregating.
+Bash(git diff origin/main...HEAD --stat)
+Bash(find docs src/content/docs -name '*.md' -o -name '*.mdx' | sort)
+Bash(git diff origin/main...HEAD -- scripts/validate-okf.ts)
+Bash(git diff origin/main...HEAD -- docs/agents/domain.md)
+Both sub-agents are running in the background; I'll wait for their completion notifications before aggregating the report.
+Bash(git diff origin/main...HEAD -- package.json .github/workflows/main.yml)
+Bash(git diff origin/main...HEAD -- docs/adr/0001-adopt-fumadocs-base-ui.md docs/reference/glossary.md docs/agents/implementation-workflow.md docs/agents/issue-tracker.md docs/agents/triage-labels.md)
+Bash(git diff origin/main...HEAD -- src/content/docs/index.mdx src/content/docs/components.mdx src/content/docs/impressum.mdx src/content/docs/atelier/index.mdx src/content/docs/atelier/story-example-1/chapter-1/index.mdx src/content/docs/atelier/teil-1/konzepte/konzept-1.mdx src/content/docs/atelier/teil-1/guides/guide-1.mdx src/content/docs/atelier/teil-1/seite-1.mdx src/content/docs/xeniapolis/besuch-in-der-wissensstadt.mdx)
+Bash(git diff origin/main...HEAD -- docs/reference/fumadocs/ docs/explanation/about-section-theming.md docs/adr/0002-per-section-theming.md)
+Bash(grep -B3 'kind:' docs/reference/fumadocs/*.md docs/explanation/about-section-theming.md docs/adr/0002-per-section-theming.md | grep -E 'kind:|type:|--')
+Bash(for f in $(git diff origin/main...HEAD --name-only -- 'src/content/docs/**/*.mdx'); do t=$(git show HEAD:"$f" | grep -m1 '^type:'); echo "$f -> $t"; done)
+Bash(npx tsx scripts/validate-okf.ts . ; echo "EXIT:$?")
+Bash(npx tsx --test scripts/*.test.ts 2>&1 | tail -30)
+Both pass. Now let me check the "reuse docs-discovery's YAML parsing approach" requirement and check .claude/skills/docs-discovery/scripts/discover.ts for comparison, plus check package.json's `deploy` job dependency and workflow trigger conditions.
+Bash(cat /home/agent/workspace/.claude/skills/docs-discovery/scripts/discover.ts 2>/dev/null | head -60)
+Bash(cat /home/agent/workspace/.github/workflows/main.yml)
+Bash(grep -n '"devDependencies"\|@types/node\|tsx' /home/agent/workspace/package.json)
+Bash(head -5 /home/agent/workspace/AGENTS.md /home/agent/workspace/CLAUDE.md 2>/dev/null; echo "---diff check---"; git diff origin/main...HEAD -- AGENTS.md CLAUDE.md)
+## Review Findings
+
+**(a) Missing/partial requirements**
+
+None found. Cross-checking `find docs src/content/docs -name '*.md' -o -name '*.mdx'` against the diffstat: every non-exempt file was touched; the only untouched files are exactly the spec's exemptions (5× `README.md`, `docs/index.md`, `docs/agents/diataxis-context.md`). `pnpm validate:okf` and `pnpm test` both pass (14/14 tests, exit 0) — the stated acceptance test holds.
+
+**(b) Scope creep beyond the spec**
+
+1. **`AGENTS.md`/`CLAUDE.md` exemption** — confirmed present in `scripts/validate-okf.ts`'s `EXEMPT_FILES`, in `scripts/validate-okf.test.ts` ("root AGENTS.md and CLAUDE.md are exempt"), and documented in `docs/agents/domain.md` ("`AGENTS.md`/`CLAUDE.md`, `.claude/skills/**`..."). The spec's exemption list only says: *"any `README.md` at any depth, `docs/index.md`, `docs/agents/diataxis-context.md` ... everything under `.claude/skills/`, `.agents/skills/`, `.sandcastle/`, plus build/vendor output."* AGENTS.md/CLAUDE.md are nowhere in that list. This is undocumented-by-the-spec scope creep in the exemption surface — but it is *not* a doc/code mismatch, since domain.md, the validator, and the tests all agree with each other. Neither file carries a `type` field or any frontmatter, so without this exemption they'd fail validation.
+2. **CI job runs `pnpm test`** — spec says the new job should do *"install + validate"* only. The implemented `validate-okf` job in `.github/workflows/main.yml` adds a `pnpm test` step before `pnpm validate:okf`, and package.json gains a new general-purpose `"test"` script not mentioned in the spec (spec only asks for `"validate:okf"`). Reasonable engineering (tests needed a runner), but it's an addition beyond the literal spec text.
+
+**(c) Implemented-but-wrong**
+
+None found. Spot-checks of `kind`→`type` mapping (`adr→ADR`, `reference→Reference`, `explanation→Explanation` in `docs/adr/0001`, `0002`, `docs/reference/glossary.md`, `docs/reference/fumadocs/*.md`, `docs/explanation/about-section-theming.md`) all match the spec table exactly. `docs/agents/*.md` all correctly get bare `type: Agent Instructions`. Site-content `type` assignments across all 50 `.mdx` files match the documented vocabulary precisely, including the precedence rule (story-example `index.mdx` files correctly get `Story`, not `Overview`, matching domain.md's explicit ordering note). The validator's frontmatter parser deliberately mirrors `.claude/skills/docs-discovery/scripts/discover.ts`'s line-based `---`/`key: value` approach (same delimiter/quote-stripping logic), satisfying the "reuse rather than new library" testing decision.
+
+Files reviewed: `/home/agent/workspace/scripts/validate-okf.ts`, `/home/agent/workspace/scripts/validate-okf.test.ts`, `/home/agent/workspace/docs/agents/domain.md`, `/home/agent/workspace/.github/workflows/main.yml`, `/home/agent/workspace/package.json`.Spec review is done; waiting on the Standards review to finish before aggregating.# Review: OKF frontmatter adoption (commit 8074516f)
+
+## Hard violations (documented standards)
+
+**None found.** I cross-checked the ~65 mechanical frontmatter edits against `docs/agents/domain.md`'s two tables:
+
+- `docs/**` files: every `kind`→`type` pair matches the table exactly, and `type` is placed one line below `kind` in every case (e.g. `docs/adr/0001-adopt-fumadocs-base-ui.md`: `kind: adr` / `type: ADR`; `docs/reference/glossary.md`: `kind: reference` / `type: Reference`). `docs/agents/*.md` (including `domain.md` itself) correctly gets `type: Agent Instructions` with no `kind`, matching the documented exception.
+- `src/content/docs/**`: I walked all 53 changed files against the path-pattern table (story-example → `Story`, `konzepte/*` → `Concept`, `guides/*` → `Guide`, `index.mdx` → `Overview`, `impressum.mdx` → `Legal Notice`, `components.mdx` → `Reference`, else `Article`) including the documented precedence edge case (`story-example-1/chapter-1/index.mdx` → `Story`, not `Overview`). Every single one matches.
+- `AGENTS.md`/`CLAUDE.md` remain untouched, consistent with the exemption list in both `domain.md` and `validate-okf.ts`.
+
+This is a fully internally-consistent diff — no mismatches between the documented mapping and the applied values.
+
+## Judgement-call smells
+
+**Duplicated Code** — `.github/workflows/main.yml`: the new `validate-okf` job repeats the checkout/`pnpm/action-setup@v2`/`pnpm install` steps verbatim from the existing `deploy` job:
+```yaml
+- name: Checkout
+  uses: actions/checkout@v4
+- uses: pnpm/action-setup@v2
+- name: Install modules
+  run: pnpm install
+```
+Pre-existing pattern in this file, but the new job is a second instance of the same shape — a reusable composite action/step group would remove the duplication.
+
+**Primitive Obsession (gap)** — `validate-okf.ts`'s `checkFile` only checks `type` is present and non-empty:
+```ts
+const type = readField(frontmatter, 'type')
+if (!type) return { file: relPath, reason: 'missing or empty required `type` field' }
+```
+`domain.md` documents a specific, closed vocabulary per `kind`/path (`Tutorial`, `Story`, `Concept`, …), but the validator treats `type` as an arbitrary non-empty string — a typo or wrong-but-nonempty value (e.g. `type: story` or `type: Blah`) would pass CI silently. The comment calling this script "the single place this rule is defined and enforced" slightly overstates what's enforced (presence, not conformance).
+
+**Minor style inconsistency** — same file imports `argv` from `node:process` but the `isMain` check uses global `process.argv[1]` directly instead of the destructured binding — small internal inconsistency, no functional impact.
+
+Files reviewed: `/home/agent/workspace/docs/agents/domain.md`, `/home/agent/workspace/scripts/validate-okf.ts`, `/home/agent/workspace/scripts/validate-okf.test.ts`, `/home/agent/workspace/.github/workflows/main.yml`, `/home/agent/workspace/package.json`, plus all 65 frontmatter-only diffs under `docs/**` and `src/content/docs/**`.## Standards
+
+**Hard violations:** None. All ~65 mechanical frontmatter edits were cross-checked against `docs/agents/domain.md`'s `kind`→`type` mapping and site-content vocabulary tables — every value matches exactly, including the documented precedence edge case (story-example `index.mdx` → `Story`, not `Overview`).
+
+**Judgement-call smells:**
+- *Duplicated Code* — the new `validate-okf` CI job repeats the checkout/`pnpm/action-setup@v2`/`pnpm install` steps verbatim from the existing `deploy` job. Pre-existing pattern in the file; a composite action would remove the duplication but isn't required.
+- *Primitive Obsession (gap)* — `validate-okf.ts` only checks `type` is present/non-empty, not that it matches the documented closed vocabulary, so a typo'd or wrong `type` value would pass CI silently. The script's framing as "the single place this rule is... enforced" slightly overstates what's checked (presence, not conformance) — reasonable scope choice given the spec's own bar ("non-empty `type` field" is OKF's only hard requirement).
+- Minor: `argv` is destructured from `node:process` but `isMain` uses `process.argv[1]` directly instead.
+
+## Spec
+
+**(a) Missing/partial:** None. Every non-exempt `.md`/`.mdx` file was touched; untouched files are exactly the spec's exemptions. `pnpm validate:okf` and `pnpm test` both pass against the live tree, satisfying the stated acceptance test.
+
+**(b) Scope creep:**
+1. `AGENTS.md`/`CLAUDE.md` are exempted in `validate-okf.ts`'s `EXEMPT_FILES`, in the test suite, and in `domain.md` — but the spec's exemption list (README.md, `docs/index.md`, `docs/agents/diataxis-context.md`, `.claude/skills/**`, `.agents/skills/**`, `.sandcastle/**`, vendor dirs) never mentions them. Internally consistent across code/tests/docs, and defensible by the same "tool-owned/runtime-loaded frontmatter" logic the spec applies to `SKILL.md`, but it's an exemption surface the spec didn't ask for.
+2. The CI job runs `pnpm test` before `pnpm validate:okf`, and `package.json` gains a new general-purpose `"test"` script — the spec only specified `"validate:okf"` and "install + validate" for the CI job. Necessary to actually run the new test file, so reasonable engineering rather than unrelated scope.
+
+**(c) Implemented-but-wrong:** None. `kind`→`type` mapping, site-content vocabulary, exemption behavior, and the docs-discovery-derived parsing approach all match the spec precisely.
+
+## Summary
+
+Standards: 0 hard violations, 3 judgement-call smells (worst: CI step duplication). Spec: 0 missing requirements, 2 scope-creep items (worst: undocumented AGENTS.md/CLAUDE.md exemption), 0 wrong implementations. Both items are reasonable, self-consistent judgement calls rather than defects — nothing here rises to a blocking finding.
+
+<result>{"verdict": "clean", "findings": "", "summary": "Reviewed the OKF v0.2 frontmatter rollout (origin/main...HEAD, commit 8074516f) via /code-review's Standards+Spec axes; found only judgement-call-level observations (CI step duplication, validator checks type presence but not vocabulary conformance, an undocumented-but-internally-consistent AGENTS.md/CLAUDE.md exemption) and no hard violations, so the verdict is clean."}</result>
+Agent stopped
+Capturing session
+Collecting commits
+Collecting commits done (0.0s)
+Reached max iterations (1).
+Run complete: reached 1 iteration(s) without completion signal.
+Context window: 76k
