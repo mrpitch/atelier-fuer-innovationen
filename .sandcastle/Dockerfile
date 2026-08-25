@@ -34,6 +34,21 @@ RUN curl -fsSL https://claude.ai/install.sh | bash
 
 ENV PATH="/home/agent/.local/bin:$PATH"
 
+# Agent configuration baked in at Claude Code's user-level config paths
+# (~/.claude/...), never at anything under /home/agent/workspace: the head
+# branch strategy bind-mounts the host's checked-out worktree over that path
+# (see run-sandcastle.ts), which would shadow anything COPYed there with
+# whatever branch happens to be checked out. Landing it under the home
+# directory instead survives that mount and reaches the agent regardless of
+# branch. User-level config merges with — rather than replaces — this repo's
+# own project-level CLAUDE.md / .claude/settings.json, so this is additive,
+# not a substitute for either. Placed after the install step above (which
+# only writes to ~/.claude/downloads — confirmed by reading install.sh) so
+# there's no ordering question about which one would win if that ever
+# changed.
+COPY --chown=${AGENT_UID}:${AGENT_GID} .sandcastle/image-config/CLAUDE.md /home/agent/.claude/CLAUDE.md
+COPY --chown=${AGENT_UID}:${AGENT_GID} .sandcastle/image-config/settings.json /home/agent/.claude/settings.json
+
 # In head-branch sandbox mode, sandcastle bind-mounts the host's already
 # checked-out git worktree at /home/agent/workspace, overriding whatever is
 # copied in below. The COPY + install here still matter: they bake
