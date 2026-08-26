@@ -18,9 +18,21 @@ The issue tracker should have been provided to you. If `docs/agents/issue-tracke
 
 Whatever the user said is the fixed point (a commit SHA, branch name, tag, `main`, `HEAD~5`, etc.). If they didn't specify one, ask for it.
 
-Capture the diff command once: `git diff <fixed-point>...HEAD` (three-dot, so the comparison is against the merge-base). Also note the list of commits via `git log <fixed-point>..HEAD --oneline`.
+Confirm the fixed point resolves (`git rev-parse <fixed-point>`) — a bad ref should fail here, not inside two parallel sub-agents.
 
-Before going further, confirm the fixed point resolves (`git rev-parse <fixed-point>`) and the diff is non-empty. A bad ref or empty diff should fail here, not inside two parallel sub-agents.
+Then capture the diff **once**, to a file — never a command for sub-agents to run themselves:
+
+```bash
+git diff <fixed-point>...HEAD > /tmp/code-review.diff   # three-dot: against the merge-base
+git diff --stat <fixed-point>...HEAD                     # short — hand this output inline, not the diff itself
+wc -l /tmp/code-review.diff
+```
+
+If `wc -l` comes back `0`, stop and report an empty diff — that should fail here, not inside two parallel sub-agents.
+
+Also note the list of commits via `git log <fixed-point>..HEAD --oneline`.
+
+Both sub-agents get the diff **file path**, the **diffstat output**, and the **commit list** from this step — never the `git diff` command itself. A sub-agent handed a command runs it as its first tool call instead of reading what it was given; that's the failure this step exists to prevent.
 
 ### 2. Identify the spec source
 
@@ -33,39 +45,25 @@ Look for the originating spec, in this order:
 
 ### 3. Identify the standards sources
 
-Anything in the repo that documents how code should be written, such as `CODING_STANDARDS.md` or `CONTRIBUTING.md`.
+Check these paths — don't go hunting through configuration files beyond them:
 
-On top of whatever the repo documents, the Standards axis always carries the **smell baseline** below: a fixed set of Fowler code smells (_Refactoring_, ch.3) that applies even when a repo documents nothing. Two rules bind it:
+- `AGENTS.md` (repo root)
+- `docs/adr/**` — architectural decision records
+- `docs/reference/**`, excluding `glossary.md` (that's domain vocabulary, not coding convention) — coding standards and conventions, written by `/discover-standards`
 
-- **The repo overrides.** A documented repo standard always wins; where it endorses something the baseline would flag, suppress the smell.
-- **Always a judgement call.** Each smell is a labelled heuristic ("possible Feature Envy"), never a hard violation. Like any standard here, skip anything tooling already enforces.
-
-Each smell reads *what it is* → *how to fix*; match it against the diff:
-
-- **Mysterious Name**: a function, variable, or type whose name doesn't reveal what it does or holds. → rename it; if no honest name comes, the design's murky.
-- **Duplicated Code**: the same logic shape appears in more than one hunk or file in the change. → extract the shared shape, call it from both.
-- **Feature Envy**: a method that reaches into another object's data more than its own. → move the method onto the data it envies.
-- **Data Clumps**: the same few fields or params keep travelling together (a type wanting to be born). → bundle them into one type, pass that.
-- **Primitive Obsession**: a primitive or string standing in for a domain concept that deserves its own type. → give the concept its own small type.
-- **Repeated Switches**: the same `switch`/`if`-cascade on the same type recurs across the change. → replace with polymorphism, or one map both sites share.
-- **Shotgun Surgery**: one logical change forces scattered edits across many files in the diff. → gather what changes together into one module.
-- **Divergent Change**: one file or module is edited for several unrelated reasons. → split so each module changes for one reason.
-- **Speculative Generality**: abstraction, parameters, or hooks added for needs the spec doesn't have. → delete it; inline back until a real need shows.
-- **Message Chains**: long `a.b().c().d()` navigation the caller shouldn't depend on. → hide the walk behind one method on the first object.
-- **Middle Man**: a class or function that mostly just delegates onward. → cut it, call the real target direct.
-- **Refused Bequest**: a subclass or implementer that ignores or overrides most of what it inherits. → drop the inheritance, use composition.
+On top of whatever those contain, the Standards axis always carries the **smell baseline**: a fixed set of Fowler code smells (_Refactoring_, ch.3) that applies even when none of the above documents anything. It lives in `SMELLS.md` next to this file — hand sub-agents its **path**, not its contents pasted inline.
 
 ### 4. Spawn both sub-agents in parallel
 
 **Standards sub-agent prompt** should include:
 
-- The full diff command and commit list.
-- The list of standards-source files you found in step 3, **plus the smell baseline from step 3** pasted in full (the sub-agent has no other access to it).
+- The diff file path, diffstat output, and commit list from step 1.
+- The list of standards-source paths you found in step 3, plus the **path** to `SMELLS.md` (the sub-agent reads both itself; do not paste their contents into the prompt).
 - The brief: "Report, per file/hunk where relevant, (a) every place the diff violates a documented standard: cite the standard (file + the rule); and (b) any baseline smell you spot: name it and quote the hunk. Distinguish hard violations from judgement calls: documented-standard breaches can be hard, but baseline smells are always judgement calls, and a documented repo standard overrides the baseline. Skip anything tooling enforces. Under 400 words."
 
 **Spec sub-agent prompt** should include:
 
-- The diff command and commit list.
+- The diff file path, diffstat output, and commit list from step 1.
 - The path or fetched contents of the spec.
 - The brief: "Report: (a) requirements the spec asked for that are missing or partial; (b) behaviour in the diff that wasn't asked for (scope creep); (c) requirements that look implemented but where the implementation looks wrong. Quote the spec line for each finding. Under 400 words."
 
