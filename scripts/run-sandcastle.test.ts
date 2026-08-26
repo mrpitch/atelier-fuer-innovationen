@@ -1,7 +1,13 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import { buildImplementRunOptions, buildReviewRunOptions } from './run-sandcastle'
+import { buildImplementRunOptions, buildReviewRunOptions, ensureContainerCacheDirs } from './run-sandcastle'
+
+// docker() refuses to build a sandbox whose mount host paths don't exist, and
+// the container caches are gitignored — so on a clean checkout these tests
+// fail on a missing directory rather than on anything they mean to assert.
+// runSandcastle() calls this for the same reason before it builds a sandbox.
+ensureContainerCacheDirs()
 
 const input = {
 	issueNumber: '67',
