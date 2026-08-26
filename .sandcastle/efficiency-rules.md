@@ -64,9 +64,6 @@ Running `eslint .` without scoping picks up `.sandcastle/container-cache` and re
 `grep -A3 '"./components"' node_modules/pkg/package.json` over
 `node -e "console.log(JSON.stringify(require('./node_modules/pkg/package.json').exports))"`.
 
-**Always filter `ps aux` immediately.**
-`ps aux | grep target-process | grep -v grep` — never unfiltered `ps aux`.
-
 **Never `pnpm add` the same package twice without diagnosing the block.**
 If `pnpm add pkg` is permission-blocked, edit `package.json` directly and run the allowlisted `pnpm install` instead.
 
@@ -75,19 +72,14 @@ If `pnpm add pkg` is permission-blocked, edit `package.json` directly and run th
 
 ## 3. Verification strategy
 
-**Never re-run a check that already passed without an intervening code change.**
-If `tsc --noEmit` just returned exit 0, do not run it again before your next edit.
+**Never re-run a read-only check without an intervening code change.**
+Covers liveness probes (`grep -q "Ready" ...`), `tsc --noEmit`, `eslint`, `git diff`,
+and filesystem searches (`grep`/`find`) — any command whose output can't have
+changed since the last time you ran it. If `tsc --noEmit` just returned exit 0,
+do not run it again before your next edit.
 
-**Document the OOM once; never reproduce it.**
-`pnpm build` OOM-kills at the 1.9GB sandbox ceiling — documented in commit `dd40d3b`.
-Do not: re-run to confirm, run with `NODE_OPTIONS`, or `git stash/pop/install` to "verify pre-existing."
-Reference the prior documentation. One build run per feature session is the maximum.
-
-**After a mid-session build attempt, clear `.next` before the next `tsc --noEmit`.**
-`rm -rf .next` — even an OOM-killed build contaminates TypeScript's incremental cache.
-
-**If `pnpm exec tsc` prints "Already up to date," fall back once to the binary directly.**
-`./node_modules/.bin/tsc --noEmit` — but only once; do not alternate between both forms.
+**After a build attempt, clear `.next` before the next `tsc --noEmit`.**
+`rm -rf .next/*` — a build's incremental cache can leave `tsc` in a stale state.
 
 ## 4. Sub-agent / multi-agent coordination
 
@@ -136,8 +128,8 @@ Bumping to 3418, 3419, etc. creates orphaned processes, splits logs, and obscure
 
 **Prefer `next start` over `next dev` for smoke tests.**
 `next dev` triggers JIT compilation on every page hit and fails under memory pressure.
-If the goal is verifying HTTP status codes and static markup, `next start` is more stable.
-If the build OOM-kills (see R14), `next dev` is the fallback — plan for its instability.
+If the goal is verifying HTTP status codes and static markup, `next start` (after a
+`pnpm build`) is more stable.
 
 ## 6. Review-specific rules
 
