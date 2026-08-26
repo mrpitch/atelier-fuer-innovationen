@@ -67,3 +67,18 @@ test('assertGuardrailsPresent throws naming the missing artifact', () => {
 		rmSync(dir, { recursive: true, force: true })
 	}
 })
+
+test('assertGuardrailsPresent names the epic branch, not trunk, when base-branch.txt records one', () => {
+	const dir = mkdtempSync(join(tmpdir(), 'sandcastle-guardrails-missing-subissue-'))
+	try {
+		const [, ...presentArtifacts] = GUARDRAIL_ARTIFACTS
+		for (const artifact of presentArtifacts) {
+			writeArtifact(dir, artifact)
+		}
+		writeArtifact(dir, '.sandcastle/base-branch.txt')
+		writeFileSync(join(dir, '.sandcastle', 'base-branch.txt'), 'origin/epic/64-sandcastle-guardrails\n')
+		assert.throws(() => assertGuardrailsPresent(dir), /rebase onto origin\/epic\/64-sandcastle-guardrails/)
+	} finally {
+		rmSync(dir, { recursive: true, force: true })
+	}
+})

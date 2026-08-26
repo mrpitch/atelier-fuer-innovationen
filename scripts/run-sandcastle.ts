@@ -116,7 +116,8 @@ export interface SandcastleIssueInput {
 	fixedPoint: string
 }
 
-const BASE_BRANCH_FILE = join(process.cwd(), '.sandcastle', 'base-branch.txt')
+const BASE_BRANCH_FILE_RELATIVE_PATH = join('.sandcastle', 'base-branch.txt')
+const BASE_BRANCH_FILE = join(process.cwd(), BASE_BRANCH_FILE_RELATIVE_PATH)
 
 // implement-epic step 3 writes this immediately before invoking
 // sandbox_command, so /implement's review step inside the sandbox has a
@@ -480,9 +481,22 @@ export const GUARDRAIL_ARTIFACTS = ['.sandcastle/efficiency-rules.md', 'AGENTS.m
 export function assertGuardrailsPresent(baseDir: string = process.cwd()) {
 	const missing = GUARDRAIL_ARTIFACTS.filter((path) => !existsSync(join(baseDir, path)))
 	if (missing.length > 0) {
+		// implement-epic writes the fixed point — origin/<base_branch>, i.e.
+		// origin/<trunk> for a standalone issue or origin/epic/<epic-N>-<slug>
+		// for a sub-issue — to this file before invoking the sandbox (see
+		// readFixedPoint()). Naming it here, when it's available, avoids
+		// telling a sub-issue branch to rebase onto trunk directly, which
+		// would detach it from sibling sub-issues already merged into the
+		// epic branch.
+		let rebaseTarget = 'its base branch (trunk for a standalone issue, the epic branch for a sub-issue)'
+		try {
+			rebaseTarget = readFileSync(join(baseDir, BASE_BRANCH_FILE_RELATIVE_PATH), 'utf8').trim()
+		} catch {
+			// Fall back to the generic description above.
+		}
 		throw new Error(
 			`Missing guardrail artifact(s) in the checked-out tree: ${missing.join(', ')}. ` +
-				'This branch was likely cut before they landed on trunk — rebase onto trunk ' +
+				`This branch was likely cut before they landed upstream — rebase onto ${rebaseTarget} ` +
 				'before retrying.',
 		)
 	}
