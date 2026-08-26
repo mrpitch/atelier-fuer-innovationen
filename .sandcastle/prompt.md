@@ -21,9 +21,13 @@ afterwards.
 
 {{ISSUE_BODY}}
 
-## Before starting
+## Efficiency rules
 
-Read `.sandcastle/efficiency-rules.md` and apply its rules for the duration of this session.
+Apply these for the duration of this session. Templated in host-side from
+trunk — not read from this branch's own working tree, so they reach you
+even if this branch's copy of the file is stale, edited, or missing:
+
+{{EFFICIENCY_RULES}}
 
 ## How to work
 

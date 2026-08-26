@@ -3,6 +3,16 @@
 Derived from post-mortem analysis of feat-33 through feat-37 sessions.
 Apply these for the duration of every sandcastle run.
 
+**Editing this file?** `scripts/run-sandcastle.ts` templates this file's
+text straight into the implement/review prompts host-side, reading it from
+trunk (`origin/HEAD`) rather than from whatever branch the sandbox run
+checked out — see `readEfficiencyRulesFromTrunk()`. That means an edit here
+only reaches sandcastle runs once it has merged to trunk: the branch that
+makes the edit cannot see its own change through the prompt path, so you
+can't verify a rule-wording change by sandboxing the very branch that
+contains it. Verify by other means (a dry-run diff against trunk, or a
+sandcastle run on a *different*, already-merged branch) instead.
+
 ## 1. Context hygiene
 
 **Never read your own log file.**
