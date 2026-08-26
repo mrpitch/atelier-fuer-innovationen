@@ -350,10 +350,19 @@ async function shutdownActiveBrowserAndExit(): Promise<void> {
 process.once('SIGINT', () => void shutdownActiveBrowserAndExit())
 process.once('SIGTERM', () => void shutdownActiveBrowserAndExit())
 
+type SandcastleRole = 'implement' | 'review'
+
 // Fresh docker() sandbox config per call — buildImplementRunOptions() and
 // buildReviewRunOptions() each get their own, rather than sharing one
 // object, in case sandcastle mutates it internally.
-function buildDockerSandbox(cdpForwardPort: number) {
+//
+// SANDCASTLE_SANDBOXED and SANDCASTLE_ROLE mark the container as such for
+// whatever runs inside it — nothing reads them yet, but they're the gating
+// mechanism for any future rule that must apply inside a sandbox run and
+// never to an interactive host session (e.g. a project-level config copy
+// gated on SANDCASTLE_SANDBOXED), and for anything that needs to tell the
+// implement and review passes apart.
+function buildDockerSandbox(cdpForwardPort: number, role: SandcastleRole) {
 	return docker({
 		mounts: [
 			{ hostPath: CONTAINER_NODE_MODULES_CACHE, sandboxPath: 'node_modules' },
@@ -365,6 +374,8 @@ function buildDockerSandbox(cdpForwardPort: number) {
 			// Read by .sandcastle/mcp-playwright-connect.sh to build its
 			// --cdp-endpoint after resolving host.docker.internal to an IP.
 			SANDCASTLE_CDP_PORT: String(cdpForwardPort),
+			SANDCASTLE_SANDBOXED: '1',
+			SANDCASTLE_ROLE: role,
 		},
 	})
 }
@@ -385,7 +396,7 @@ const installHook = {
 export function buildImplementRunOptions(input: SandcastleIssueInput, cdpForwardPort: number) {
 	return {
 		name: 'implement',
-		sandbox: buildDockerSandbox(cdpForwardPort),
+		sandbox: buildDockerSandbox(cdpForwardPort, 'implement'),
 		agent: claudeCode('claude-sonnet-5'),
 		promptFile: './.sandcastle/prompt.md',
 		promptArgs: {
@@ -418,7 +429,7 @@ export function buildImplementRunOptions(input: SandcastleIssueInput, cdpForward
 export function buildReviewRunOptions(input: SandcastleIssueInput, cdpForwardPort: number) {
 	return {
 		name: 'review',
-		sandbox: buildDockerSandbox(cdpForwardPort),
+		sandbox: buildDockerSandbox(cdpForwardPort, 'review'),
 		agent: claudeCode('claude-sonnet-5'),
 		promptFile: './.sandcastle/review-prompt.md',
 		promptArgs: {
@@ -498,7 +509,12 @@ ${report}`
 
 // docker()'s bind-mount provider requires each mounted hostPath to already
 // exist before container creation.
-function ensureContainerCacheDirs() {
+// Exported for the test: docker() validates that every mount's host path
+// already exists, so anything constructing a sandbox — runSandcastle() below,
+// or a test calling buildImplementRunOptions() directly — has to run this
+// first. These directories are gitignored, so a clean checkout (CI, a fresh
+// clone) genuinely does not have them.
+export function ensureContainerCacheDirs() {
 	mkdirSync(CONTAINER_NODE_MODULES_CACHE, { recursive: true })
 	mkdirSync(CONTAINER_NEXT_CACHE, { recursive: true })
 }
