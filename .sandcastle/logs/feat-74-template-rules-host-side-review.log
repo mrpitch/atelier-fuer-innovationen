@@ -1,0 +1,135 @@
+
+--- Run started: 2026-08-26T19:40:48.234Z ---
+Sandcastle Run
+  Agent: review
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/74-template-rules-host-side
+Failed to resolve prompt: Prompt argument "{{EFFICIENCY_RULES}}" has no matching value in promptArgs
+
+--- Run started: 2026-08-26T19:51:56.884Z ---
+Sandcastle Run
+  Agent: review
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/74-template-rules-host-side
+Iteration 1/1
+Git worktree operation failed: Provider 'docker' create failed: Image 'sandcastle:workspace' not found locally. Build it first with 'sandcastle docker build-image'.
+
+--- Run started: 2026-08-26T19:53:19.536Z ---
+Sandcastle Run
+  Agent: review
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/74-template-rules-host-side
+Iteration 1/1
+Setting up sandbox
+  CI=true pnpm install --frozen-lockfile
+Setting up sandbox done (0.4s)
+Agent started
+I'll start by checking the current repo state and loading the code-review skill.
+Bash(git status && echo --- && git log --oneline -5 && echo --- && git diff origin/epic/64-sandcastle-guardrails...HEAD --stat)
+Bash(git rev-parse origin/epic/64-sandcastle-guardrails 2>&1
+git diff origin/epic/64-sandcastle-guardrails...HEAD > /tmp/code-review.diff
+wc -l /tmp/code-review.diff
+git log origin/epic/64-sandcastle-guardrails..HEAD --oneline
+echo "--- standards sources ---"
+ls docs/adr 2>/dev/null
+ls docs/reference 2>/dev/null
+ls AGENTS.md
+ls .claude/skills/code-review/SMELLS.md)
+Bash(git diff --stat origin/epic/64-sandcastle-guardrails...HEAD)
+Now spawning the two review sub-agents in parallel.
+Agent(Standards axis review of diff)
+Bash(echo "--- ADR dir ---"; ls -la /home/agent/workspace/docs/adr 2>/dev/null; echo "--- reference dir ---"; ls -la /home/agent/workspace/docs/reference 2>/dev/null)
+Bash(ls /home/agent/workspace/docs/reference/fumadocs)
+Agent(Spec axis review of diff)
+Both review sub-agents (Standards and Spec) are running in the background. I'll wait for their reports rather than duplicating their analysis.
+Bash(sleep 1)
+Waiting for both sub-agent reports now.
+Bash(wc -l /home/agent/workspace/.sandcastle/logs/feat-74-template-rules-host-side-implement.log 2>/dev/null; echo "---"; grep -n -i "transcript\|first.prompt\|EFFICIENCY_RULES\|promptArgs" /home/agent/workspace/.sandcastle/logs/feat-74-template-rules-host-side-implement.log 2>/dev/null | head -50)
+Bash(true)
+I'll stop issuing filler commands and just wait for the two sub-agent notifications to arrive.
+Bash(find /home/agent/workspace -maxdepth 1 -iname "CONTRIBUTING*" -o -maxdepth 1 -iname "STYLE*"; find /home/agent/workspace/docs -maxdepth 2 -type d)
+## Spec review — issue #74
+
+**(a) Missing/partial requirements**
+
+None are missing outright. All ACs are addressed in the diff:
+- "Remove the 'before starting, read the rules file' line" — done in both `prompt.md` and `review-prompt.md` (diff lines 30-38, 50-58).
+- "Template the rules into the prompt host-side, read from trunk" — done via `readEfficiencyRulesFromTrunk()`.
+- "A run started from a branch whose tree lacks the rules file still receives the rules" — covered by a hermetic git-repo test (`readEfficiencyRulesFromTrunk reads trunk content even when the checked-out branch lacks the file`) and by dropping `.sandcastle/efficiency-rules.md` from `GUARDRAIL_ARTIFACTS` (previously it would have hard-failed exactly this scenario — this was a real regression the implementer caught and fixed as a follow-up within this same diff, per `run-sandcastle.ts` lines 239→256).
+
+**(b) Scope creep**
+
+None found. The `GUARDRAIL_ARTIFACTS` list change (removing the rules file) is in-scope — required, not extra — since keeping it would defeat the "branch missing the file still works" AC.
+
+**(c) Implemented-but-questionable**
+
+- `readEfficiencyRulesFromTrunk` applies `.trim()` to the whole file, not just the trailing newline `git show` appends — strips leading whitespace too if any existed. Low risk (files start with a heading) but broader than the stated intent.
+
+**Trunk-sourcing check** — confirmed correct: `resolveTrunkRef` uses `git rev-parse --abbrev-ref origin/HEAD` and `readEfficiencyRulesFromTrunk` reads via `git show ${trunkRef}:.sandcastle/efficiency-rules.md` (lines 182-208) — genuinely a `git show` against trunk, never a filesystem/working-tree read. This is exactly what the AC requires.
+
+**Trade-off documentation** — satisfied. Written at the top of `.sandcastle/efficiency-rules.md` (diff lines 9-17), explicitly telling a rule editor their edit won't reach sandcastle runs until merged to trunk, and suggesting alternate verification (dry-run diff, or sandboxing an already-merged branch).
+
+**Regression check (the specific ask)** — confirmed present and correct for **both** run builders: `buildImplementRunOptions` sets `EFFICIENCY_RULES: input.efficiencyRules` (line 218) and `buildReviewRunOptions` sets the identical field (line 226). Both pull from the same `SandcastleIssueInput.efficiencyRules`, populated once in `runSandcastleForIssue` (line 264). The crash this fixes is not reproducible against current code — verified by two new tests (`the implement/review run templates the efficiency rules text into the prompt args`).
+
+**"Verified against transcript, not template" AC** — not verifiable from the diff itself (unit tests only exercise `promptArgs`/`readEfficiencyRulesFromTrunk`, not a live session transcript). The implement log (`.sandcastle/logs/feat-74-template-rules-host-side-implement.log`) shows the implementer explicitly flagged this as unmet in the commit message, then a later review pass in the same log closed it by invoking the real `sandcastle` `run()` with `buildReviewRunOptions()` output (passed prompt resolution, failed later only on unrelated Docker-unavailability) plus citing that session's own first prompt as a live transcript. This is process evidence outside the diff, not something the diff proves on its own.Spec axis review is in. Waiting on the Standards axis review before aggregating.
+Bash(true)
+No CONTRIBUTING/STYLE file. The ADR and reference docs are scoped to the Fumadocs/theming domain and don't cover `.sandcastle/` or `scripts/` conventions, so they yield no applicable rules for this diff.
+
+## Standards review
+
+**Documented-standard sources checked:** AGENTS.md (agent-skill pointers only, nothing on TS/testing/doc conventions), `docs/adr/*` (fumadocs-base-ui, per-section theming — unrelated domain), `docs/reference/*` excl. glossary (fumadocs component docs — unrelated domain). None of these define coding, testing, or `.sandcastle/`-prompt conventions that this diff touches, so I found **no hard violations** of a documented repo standard.
+
+## Baseline smells (SMELLS.md — judgement calls only)
+
+**Duplicated Code** — `.sandcastle/prompt.md` and `.sandcastle/review-prompt.md` (lines 30-38 and 50-58 of the diff) add byte-for-byte identical prose:
+```
+## Efficiency rules
+
+Apply these for the duration of this session. Templated in host-side from
+trunk — not read from this branch's own working tree, so they reach you
+even if this branch's copy of the file is stale, edited, or missing:
+
+{{EFFICIENCY_RULES}}
+```
+Same heading, same explanatory paragraph, same placeholder, copy-pasted into both templates. A shared include/partial (or a constant string interpolated by `run-sandcastle.ts` at both call sites) would remove the duplication. Judgement call — for two small static templates with no include mechanism visible in this codebase, this may be an acceptable/deliberate trade-off rather than worth fixing.
+
+**Comment-to-code ratio / possible over-explanation** — not a named Fowler smell, so not reported as one, but worth noting only as color: `readEfficiencyRulesFromTrunk`'s block comment (diff lines 186-202) is long relative to the 6-line function. Not flagged as a smell per SMELLS.md's fixed list, and the content is genuinely load-bearing (explains a non-obvious trunk-vs-branch trade-off), so no action suggested.
+
+No other smells (Feature Envy, Data Clumps, Primitive Obsession, Repeated Switches, Shotgun Surgery, Divergent Change, Speculative Generality, Message Chains, Middle Man, Refused Bequest, Mysterious Name) were observed — `resolveTrunkRef`/`readEfficiencyRulesFromTrunk` are small, single-purpose, and well-named; `GUARDRAIL_ARTIFACTS` shrinking and the new tests are proportionate to the change.
+Bash(exit 0)
+## Standards
+
+**Documented-standard sources checked:** AGENTS.md, `docs/adr/*`, `docs/reference/*` (excl. glossary) — all scoped to the Fumadocs/theming domain and define no conventions for `.sandcastle/` or `scripts/`. **No hard violations** found.
+
+**Baseline smells (SMELLS.md — judgement calls only):**
+- **Duplicated Code** — `.sandcastle/prompt.md` and `.sandcastle/review-prompt.md` add byte-for-byte identical prose (the `## Efficiency rules` block with the `{{EFFICIENCY_RULES}}` placeholder). A shared include or a constant interpolated at both call sites in `run-sandcastle.ts` would remove the duplication. Judgement call — no include mechanism exists in this codebase for two small static templates, so this may be a deliberate/acceptable trade-off.
+- No other smells observed; `resolveTrunkRef`/`readEfficiencyRulesFromTrunk` are small, single-purpose, well-named; test additions are proportionate.
+
+## Spec
+
+All acceptance criteria are addressed:
+- Both templates' "read the rules file" line removed.
+- Rules templated host-side via `readEfficiencyRulesFromTrunk`, sourced with `git show ${trunkRef}:.sandcastle/efficiency-rules.md` — confirmed genuinely trunk-read, never working-tree.
+- A branch missing the rules file still gets them: covered by a hermetic test, and by dropping `.sandcastle/efficiency-rules.md` from `GUARDRAIL_ARTIFACTS` (previously would have hard-failed this exact scenario — a real regression the implementer caught and fixed within this diff).
+- Trade-off is documented at the top of `.sandcastle/efficiency-rules.md`, explicitly telling a rule editor their edit won't reach runs until merged to trunk.
+- The previously-reported crash (`{{EFFICIENCY_RULES}}` missing from review promptArgs) is fixed correctly for both builders — `buildImplementRunOptions` and `buildReviewRunOptions` both set `EFFICIENCY_RULES: input.efficiencyRules`, backed by two new tests.
+
+Minor items, neither blocking:
+- **(c)** `readEfficiencyRulesFromTrunk` calls `.trim()` on the whole file rather than just the trailing newline `git show` appends — stripping leading whitespace too if any existed. Low risk given the file starts with a heading.
+- **Transcript-verification AC** ("verified against the first-prompt payload... not by reading the template") isn't something the diff itself can prove — it's process evidence. The implement log shows this was initially flagged unmet, then closed in a later pass by invoking real `run()` with `buildReviewRunOptions()` output and citing that session's live first prompt. This is legitimate but sits outside the diff, not a defect in it.
+
+No missing requirements, no scope creep.
+
+**Summary:** Standards axis — 0 hard violations, 1 judgement-call smell (duplicated template prose). Spec axis — 0 missing/wrong requirements, 2 minor notes (an over-broad `.trim()`, and a process-only AC not provable from the diff). Nothing rises above nitpick level on either axis.
+
+<result>{"verdict": "clean", "findings": "", "summary": "Reviewed the #74 diff (origin/epic/64-sandcastle-guardrails...HEAD, 5 files) via /code-review's Standards and Spec axes; both passed with only judgement-call-level nitpicks (duplicated template prose, a slightly-broad .trim()) — verdict clean."}</result>
+Agent stopped
+Capturing session
+Collecting commits
+Collecting commits done (0.0s)
+Reached max iterations (1).
+Run complete: reached 1 iteration(s) without completion signal.
+Context window: 73k
