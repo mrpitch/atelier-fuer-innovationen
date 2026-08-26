@@ -1,0 +1,227 @@
+
+--- Run started: 2026-08-26T18:37:48.889Z ---
+Sandcastle Run
+  Agent: implement
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/73-fail-loudly-missing-guardrails
+Iteration 1/1
+Setting up sandbox
+  CI=true pnpm install --frozen-lockfile
+Setting up sandbox done (0.5s)
+Agent started
+Bash(cat /home/agent/workspace/.sandcastle/efficiency-rules.md)
+Bash(wc -l /home/agent/workspace/.agents/skills/implement/SKILL.md)
+Bash(git log --oneline -20 && echo --- && git status && echo --- && find .sandcastle -maxdepth 2 -type f | sort)
+Bash(find . -path ./node_modules -prune -o -type f \( -iname "*sandcastle*" -o -iname "*runner*" \) -print 2>/dev/null | grep -v node_modules | grep -v "\.sandcastle/logs" | sort)
+Bash(wc -l scripts/run-sandcastle.ts scripts/run-sandcastle.test.ts docs/agents/implementation-workflow.md 2>/dev/null; echo ---; find .agents/skills -iname "*implement-epic*" -o -iname "*epic*" | sort)
+Now let's look at the actual sandbox runner script and the implement-epic skill.
+Bash(git log --all --oneline | grep -i guardrail; echo ---; git log --oneline epic/64-sandcastle-guardrails 2>/dev/null | head -30; echo ---REMOTE---; git log --oneline origin/epic/64-sandcastle-guardrails 2>/dev/null | head -40)
+Bash(git show --stat 97992be | head -30; echo ---; git show --stat 32e6296 | head -30; echo ---; git show --stat 85a79b1 | head -20)
+Bash(wc -l /home/agent/workspace/.sandcastle/spike-70-enforcement-findings.md)
+Bash(grep -rn "root cause" /home/agent/workspace --include=*.md 2>/dev/null | grep -v node_modules; echo ---; grep -rln "guardrail" /home/agent/workspace --include=*.md 2>/dev/null | grep -v node_modules)
+Bash(grep -n '"test"\|"scripts"' -A 15 /home/agent/workspace/package.json | head -25)
+Bash(wc -l /home/agent/workspace/.agents/skills/implement-epic/SKILL.md)
+Now let's write the host-side guardrail check. First, let me look at the current imports and existing patterns more closely to match style.Now add the guardrail artifact list and assertion function, right after `assertOnIssueBranch`:Now wire it into `runSandcastle()` and `runSandcastleForIssue()`:Now let's check that `join` is already imported (it is, used elsewhere) and verify the full diff so far:
+Bash(git diff --stat scripts/run-sandcastle.ts)
+Now let's write unit tests for both present and absent cases.I need to create parent directories for artifacts like `.sandcastle/efficiency-rules.md`. Let me fix that with a small helper.Now let's run the test suite and typecheck/lint.
+Bash(timeout 120 pnpm test 2>&1 | tail -60)
+All tests pass. Now let's typecheck and lint.
+Bash(timeout 120 pnpm exec tsc --noEmit; echo "TSC_EXIT=$?")
+Bash(ls -la /home/agent/workspace/.sandcastle/container-cache 2>/dev/null; find /home/agent/workspace -maxdepth 1 -iname "eslint*")
+Bash(grep -n "ignore" /home/agent/workspace/eslint.config.mjs)
+Bash(timeout 120 pnpm exec eslint 'scripts/**/*.ts'; echo "EXIT=$?")
+Bash(timeout 120 pnpm exec eslint . 2>&1 | tail -5; echo "EXIT=${PIPESTATUS[0]}")
+Now let's document the rebase step in the epic workflow's own instructions.
+Bash(grep -n "trunk" /home/agent/workspace/.agents/skills/implement-epic/SKILL.md)
+Good, `<trunk>` is the established placeholder. Now let's insert the rebase step before the "Write the fixed point" line:
+Bash(head -6 /home/agent/workspace/.agents/skills/code-review/SKILL.md)
+Bash(wc -l /home/agent/workspace/.agents/skills/code-review/SKILL.md)
+Bash(git rev-parse origin/epic/64-sandcastle-guardrails && git diff origin/epic/64-sandcastle-guardrails...HEAD > /tmp/code-review.diff && git diff --stat origin/epic/64-sandcastle-guardrails...HEAD && echo --- && wc -l /tmp/code-review.diff && echo --- && git log origin/epic/64-sandcastle-guardrails..HEAD --oneline)
+Bash(git diff origin/epic/64-sandcastle-guardrails > /tmp/code-review.diff && git diff --stat origin/epic/64-sandcastle-guardrails && echo --- && wc -l /tmp/code-review.diff)
+Now let's identify standards sources and spawn the two review sub-agents in parallel.
+Bash(ls /home/agent/workspace/docs/adr 2>/dev/null | head; echo ---; ls /home/agent/workspace/docs/reference 2>/dev/null; echo ---; ls /home/agent/workspace/.agents/skills/code-review/ 2>/dev/null; echo ---; test -f /home/agent/workspace/docs/agents/issue-tracker.md && echo exists)
+Agent(Standards-axis review of guardrail-check diff)
+Bash(cat /home/agent/workspace/AGENTS.md; echo "----ADR----"; ls /home/agent/workspace/docs/adr 2>/dev/null; echo "----REF----"; find /home/agent/workspace/docs/reference -type f 2>/dev/null)
+Bash(grep -il "sandcastle\|guardrail\|sandbox" /home/agent/workspace/docs/adr/*.md /home/agent/workspace/docs/reference/*.md /home/agent/workspace/docs/reference/fumadocs/*.md 2>/dev/null)
+Agent(Spec-axis review of guardrail-check diff)
+Both review sub-agents are running in parallel — Standards axis and Spec axis. I'll wait for both to report back before proceeding to commit.
+Bash(grep -n "hand-back procedure\|gate_report\|step 1\|step 2" /home/agent/workspace/.agents/skills/implement-epic/SKILL.md | head -50)
+## Standards-axis review
+
+**Documented-standard check:** `AGENTS.md`, `docs/adr/**`, and `docs/reference/**` (excl. glossary) contain no rules that reference sandcastle, guardrails, sandbox invocation, error-message conventions, or test-file structure. No file in this diff touches Diataxis docs, ADRs, or the reference tree either. **No hard violations found against the documented standards.**
+
+**Baseline-smell check (`.agents/skills/code-review/SMELLS.md`), judgement calls only:**
+
+1. **Duplicated Code** — `scripts/run-sandcastle.ts:127,137`. `assertGuardrailsPresent()` is called identically in both `runSandcastle()` and `runSandcastleForIssue()`, mirroring the existing `assertOnIssueBranch()` duplication one line above each call. This is the same shape the prior author already justified inline ("self-guarding for callers that build the input themselves... duplicate check is one `git rev-parse`") and the new call carries its own justifying comment ("fail before the gh round-trip below, not just before the container"). Since the repo already endorses this exact duplication pattern for the sibling guard, and SMELLS.md says a documented/endorsed pattern suppresses the flag, I'd call this non-blocking — noting it only because a stricter reviewer could reasonably want it collapsed into one "preflight checks" call site.
+
+2. **Minor test-quality nit** (not a named Fowler smell, but worth flagging) — `scripts/run-sandcastle.test.ts:79`:
+   ```ts
+   assert.throws(() => assertGuardrailsPresent(dir), new RegExp(missingArtifact.replace('.', '\\.')))
+   ```
+   `.replace('.', '\\.')` (no `/g`) only escapes the *first* `.`. For `.sandcastle/efficiency-rules.md` the leading `.` gets escaped but the `.` before `md` doesn't — leaving an unescaped `.` in the pattern (which still happens to match the literal char, so the test doesn't currently give a false negative, but the intent — "match this literal filename" — isn't what's written). Harmless today, but fragile if the artifact list grows filenames with more dots. Judgement call, not a blocker.
+
+No Feature Envy, Data Clumps, Primitive Obsession, Repeated Switches, Shotgun Surgery, Divergent Change, Speculative Generality, Message Chains, Middle Man, or Refused Bequest observed — `GUARDRAIL_ARTIFACTS` is a simple, appropriately-scoped constant, the `baseDir` default param exists solely for testability (not speculative), and the SKILL.md addition is cohesive with the guard it documents.Standards review is clean (no hard violations, just minor nits). Let me fix the regex escape nit while waiting for the Spec review, since it's cheap and correct.Now let's wait for the Spec-axis review.
+Bash(grep -n "rebase\|epic-N\|trunk" /home/agent/workspace/.agents/skills/implement-epic/SKILL.md | head -80)
+Bash(grep -n "hand-back procedure\|^### \|^## " -A3 /home/agent/workspace/.agents/skills/implement-epic/SKILL.md | grep -n "hand-back" )
+Bash(grep -n "hand-back procedure" /home/agent/workspace/.agents/skills/implement-epic/SKILL.md)
+## Spec review — issue #73
+
+**(c) Implementation that looks wrong**
+
+The SKILL.md rebase step (`.agents/skills/implement-epic/SKILL.md` lines 123-127) unconditionally does:
+```
+git fetch origin <trunk>
+git rebase origin/<trunk>
+```
+regardless of whether `<N>` is a standalone issue or an epic sub-issue. But the doc's own step-3 preamble (line 111) explicitly splits fixed points by case: *"use `origin/epic/<epic-N>-<slug>` for an epic sub-issue, `origin/<trunk>` for a standalone issue"* — because a sub-issue's feature branch is cut from, and PR's back into, the **epic branch** (step 2: `base_branch=epic/<epic-N>-<slug>`; step 4: PR targets `epic/<epic-N>-<slug>`), not trunk. Line 158 confirms step 3 (which now includes this rebase) is meant to "apply identically" to both cases — yet rebasing an epic sub-issue's branch directly onto trunk detaches it from the epic branch's own commits (any earlier merged sub-issues), corrupts the fixed point the sandbox is about to read from `.sandcastle/base-branch.txt` (still set to the epic branch per line 111, but now diffed against a history that no longer contains it), and risks reintroducing conflicts/duplicate commits when the PR later merges into the epic branch. The spec's AC — *"rebases the feature branch onto trunk before invoking the sandbox"* — is followed to the letter, but the letter conflicts with this repo's own two-tier epic model that the rest of the same document maintains. This is exactly the kind of silent-corruption failure mode the epic (#64) is trying to eliminate, just relocated to the epic-branch case.
+
+**(a) Missing/partial**
+
+Everything else in the AC list is present: host-side `assertGuardrailsPresent()` runs before `ensureContainerCacheDirs()`/`startHostBrowser()`/`run()` in both `runSandcastle()` and `runSandcastleForIssue()` (`scripts/run-sandcastle.ts` lines 560-563, 613-622), the thrown message names the missing artifact(s), and both present/absent cases are unit-tested (`scripts/run-sandcastle.test.ts`). One minor partial: AC says *"verified by the fact that no container is started on the failure path"* — there's no test actually asserting this ordering end-to-end (e.g. that `runSandcastle` never reaches `ensureContainerCacheDirs`/`run()` when guardrails are missing); it's only true by inspection of call order, not locked in by a test.
+
+**(b) Scope creep**
+
+None found — `assertGuardrailsPresent()` is called in two places, but that mirrors the pre-existing `assertOnIssueBranch()` duplication pattern and is explained in an inline comment, not unrequested behavior.
+Agent idle for 1 minute
+The Spec review surfaced a real defect: rebasing an epic sub-issue's branch directly onto trunk (rather than the epic branch it's actually based on) would detach it from sibling sub-issues already merged into the epic branch, corrupting the fixed point. Let me fix this using the doc's own `base_branch` variable, which already resolves correctly for both cases.
+Bash(timeout 60 pnpm test 2>&1 | tail -15)
+All 18 tests still pass. Let me re-check typecheck/lint scoped, and view the final SKILL.md section for coherence.
+Bash(timeout 60 pnpm exec tsc --noEmit && timeout 60 pnpm exec eslint 'scripts/**/*.ts'; echo "EXIT=$?")
+This reads coherently and the base_branch value matches the fixed-point convention already established in this doc. This addresses the Spec reviewer's finding cleanly without contradicting the epic-branch model elsewhere in the file.
+
+Now let's finalize the diff and commit.
+Bash(git status --short && echo --- && git diff --stat origin/epic/64-sandcastle-guardrails)
+Bash(git add scripts/run-sandcastle.ts scripts/run-sandcastle.test.ts .agents/skills/implement-epic/SKILL.md && git status --short)
+Bash(git commit -m "$(cat <<'EOF'
+feat(#73): fail loudly when a branch is missing the guardrails
+
+Sandcastle bind-mounts the feature branch's worktree, so guardrail
+delivery has always depended on branch ancestry rather than wall-clock: a
+branch cut before a guardrail file landed upstream bind-mounts a tree that
+never saw it, runs unguarded with no signal, and can even delete the
+guardrail on merge if the diffstat goes unnoticed.
+
+Two halves:
+
+- scripts/run-sandcastle.ts: assertGuardrailsPresent() checks a fixed list
+  of guardrail artifacts (.sandcastle/efficiency-rules.md, AGENTS.md,
+  CLAUDE.md — the ones still delivered by bind-mount rather than baked
+  into the image per #67) exist in the checked-out tree, and throws
+  naming whatever's missing. Wired into both runSandcastle() and
+  runSandcastleForIssue(), before any container/browser/gh work, mirroring
+  assertOnIssueBranch()'s existing dual-check pattern.
+
+- .agents/skills/implement-epic/SKILL.md: documents rebasing the feature
+  branch onto its base_branch (trunk for a standalone issue, the epic
+  branch for a sub-issue — never trunk directly for a sub-issue, which
+  would detach it from sibling sub-issues already merged into the epic
+  branch) before invoking the sandbox, so a branch cut before a guardrail
+  edit landed upstream picks it up. A rebase conflict aborts and hands off
+  via the hand-back procedure rather than resolving unattended.
+
+Reviewed against origin/epic/64-sandcastle-guardrails via two independent
+sub-agents (Standards, Spec). Standards came back clean. Spec caught a
+real defect in an earlier draft — rebasing sub-issue branches onto trunk
+directly rather than the epic branch — fixed by rebasing onto base_branch
+instead.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+EOF
+)")
+Bash(git status --short && git log --oneline -1)
+Committed cleanly. Work is done: implemented, tested, typechecked, linted, reviewed by two independent sub-agents against the fixed point (one real defect found and fixed), and committed.
+
+<result>{"success": true, "summary": "Implemented issue #73 in two halves. (1) scripts/run-sandcastle.ts: added GUARDRAIL_ARTIFACTS (.sandcastle/efficiency-rules.md, AGENTS.md, CLAUDE.md — the guardrail content still delivered by bind-mount rather than baked into the image per #67) and assertGuardrailsPresent(), a host-side sync check called in both runSandcastle() and runSandcastleForIssue() before any container/browser/gh work, throwing a message naming whatever's missing. Added two unit tests (present/absent cases) in scripts/run-sandcastle.test.ts using temp directories. (2) .agents/skills/implement-epic/SKILL.md: documented rebasing the feature branch onto its base_branch before invoking sandbox_command, with rebase conflicts aborting and routing to the hand-back procedure instead of being resolved unattended. tsc --noEmit and eslint (scoped to scripts/**/*.ts, since eslint . picks up the gitignored .sandcastle/container-cache and produces thousands of pre-existing false positives, per efficiency-rules.md) both pass clean; the full test suite (18 tests) passes. Reviewed the uncommitted diff against origin/epic/64-sandcastle-guardrails via two independent parallel sub-agents (Standards, Spec). Standards came back clean (only minor non-blocking nits, one of which — an unescaped regex dot in a test — I fixed). Spec caught a real defect: my first draft rebased epic sub-issue branches onto trunk directly, which would detach them from sibling sub-issues already merged into the epic branch and corrupt the fixed point. Fixed by rebasing onto base_branch (trunk for standalone issues, the epic branch for sub-issues) instead, matching the doc's own existing fixed-point convention. Committed as 32221de.", "blockers": null}</result>
+Agent stopped
+Capturing session
+Collecting commits
+Collecting commits done (0.1s)
+Reached max iterations (1).
+Run complete: reached 1 iteration(s) without completion signal.
+Context window: 150k
+
+--- Run started: 2026-08-26T19:02:23.763Z ---
+Sandcastle Run
+  Agent: implement
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/73-fail-loudly-missing-guardrails
+Iteration 1/1
+Setting up sandbox
+  CI=true pnpm install --frozen-lockfile
+Setting up sandbox done (0.5s)
+Agent started
+Bash(git log --oneline -5 && git status && git show --stat HEAD)
+Bash(grep -n "assertGuardrailsPresent\|rebase onto trunk\|base_branch\|trunk" scripts/run-sandcastle.ts)
+Bash(grep -n "base_branch\|baseBranch\|runSandcastle\b\|runSandcastleForIssue\|function runSandcastle" scripts/run-sandcastle.ts | head -50)
+Bash(grep -n -B2 -A10 "rebase" .agents/skills/implement-epic/SKILL.md)
+Bash(grep -n "base-branch" scripts/run-sandcastle.ts scripts/run-sandcastle.test.ts .agents/skills/implement-epic/SKILL.md)
+Now let me fix the error message to be context-aware, using the base-branch file when available.
+Bash(grep -n "assertGuardrailsPresent\|base-branch" scripts/run-sandcastle.test.ts)
+I'll add a test case covering the context-aware rebase target (when base-branch.txt is present).Now run the checks.
+Bash(timeout 120 pnpm exec tsc --noEmit && timeout 120 pnpm exec eslint . ; echo "EXIT=$?")
+Bash(tail -80 /home/agent/.claude/projects/-home-agent-workspace/fe81b509-29e2-4e75-b586-c96ffe0b6ee4/tool-results/bkd4jbb4v.txt)
+Bash(timeout 120 pnpm exec eslint 'scripts/**/*.ts'; echo "EXIT=$?")
+Clean on the actual source. Now run the unit tests for this file specifically.
+Bash(timeout 60 pnpm exec tsx --test scripts/run-sandcastle.test.ts 2>&1 | tail -60)
+All tests pass, tsc is clean. Now let's re-run the code-review skill against the fixed point to confirm both axes are clean.
+Bash(git diff origin/epic/64-sandcastle-guardrails --stat)
+Bash(git diff origin/epic/64-sandcastle-guardrails > /tmp/review.diff && wc -l /tmp/review.diff)
+Bash(git rev-parse origin/epic/64-sandcastle-guardrails && git diff --stat origin/epic/64-sandcastle-guardrails && git log origin/epic/64-sandcastle-guardrails..HEAD --oneline && ls docs/adr 2>/dev/null; ls docs/reference 2>/dev/null)
+Bash(ls /home/agent/workspace/.claude/skills/code-review/)
+Now spawning both review sub-agents in parallel.
+Agent(Standards review of guardrail fail-loudly diff)
+Bash(ls /home/agent/workspace/docs/adr/ 2>/dev/null; echo "---"; ls /home/agent/workspace/docs/reference/ 2>/dev/null)
+Agent(Spec review of guardrail fail-loudly diff)
+Bash(find /home/agent/workspace/docs/reference/fumadocs -type f | head -50)
+Bash(find /home/agent/workspace/.agents/skills/implement-epic -type f; echo ---; find /home/agent/workspace/.sandcastle -maxdepth 2 -type f)
+Bash(cat /home/agent/workspace/.sandcastle/base-branch.txt; echo "---efficiency-rules---"; cat /home/agent/workspace/.sandcastle/efficiency-rules.md)
+Bash(grep -n "readFixedPoint\|base-branch.txt\|assertOnIssueBranch" /home/agent/workspace/scripts/run-sandcastle.ts | head -30)
+Bash(git log --oneline -5 && echo --- && grep -rn "base-branch.txt" --include=*.md --include=*.ts . 2>/dev/null)
+Bash(sed -n '100,160p' /home/agent/workspace/.agents/skills/implement-epic/SKILL.md)
+Bash(git log -p -1 --follow -- .agents/skills/implement-epic/SKILL.md | grep -n "base-branch.txt\|fixed point" | head -30
+echo ---
+git show 2835092:.agents/skills/implement-epic/SKILL.md 2>/dev/null | grep -n "base-branch.txt\|fixed point" | head -30)
+Bash(sed -n '1,40p;440,500p;560,640p' /home/agent/workspace/scripts/run-sandcastle.ts)
+Bash(grep -n "readFixedPoint\|BASE_BRANCH_FILE" /home/agent/workspace/scripts/run-sandcastle.ts)
+Both reviews converge on one real finding: the `base-branch.txt` file actually stores the fixed point with an `origin/` prefix (e.g. `origin/epic/64-sandcastle-guardrails`), but my test fixture used an unprefixed value — so the test doesn't model production content shape. Let me fix that, and tidy the minor path-duplication smell while I'm there.Now update the test fixture to use a realistic `origin/`-prefixed value:Also update the test title to match, since it no longer says "not trunk" verbatim but should still convey the intent — let's check it still reads fine.
+Bash(grep -n "names the epic branch" -A2 scripts/run-sandcastle.test.ts)
+That title still holds. Now re-run tsc, scoped eslint, and the tests.
+Bash(timeout 120 pnpm exec tsc --noEmit && timeout 120 pnpm exec eslint 'scripts/**/*.ts' && timeout 60 pnpm exec tsx --test scripts/run-sandcastle.test.ts 2>&1 | tail -30)
+All green. Both review axes came back with no blocking defects (Standards found only judgement-call smells, Spec confirmed all acceptance criteria met and the previously-found defect resolved). Now let's commit.
+Bash(git diff --stat && git log -1 --format=%B)
+Bash(git add scripts/run-sandcastle.ts scripts/run-sandcastle.test.ts && git status)
+Bash(git commit -m "$(cat <<'EOF'
+fix(#73): name the actual base branch in the guardrail-missing error, not trunk
+
+A prior independent review found assertGuardrailsPresent()'s thrown error
+told every branch to "rebase onto trunk," which is wrong for an epic
+sub-issue branch — it should rebase onto the epic branch instead, per the
+same-commit SKILL.md docs. Fix: read .sandcastle/base-branch.txt (the fixed
+point implement-epic writes there before invoking the sandbox) and name
+that value in the error; fall back to a generic dual-case description only
+when the file isn't present (e.g. a manual/non-implement-epic invocation).
+
+Re-reviewed the full diff against origin/epic/64-sandcastle-guardrails via
+two independent sub-agents (Standards, Spec). Both came back with no
+blocking defects. They did surface that the new test's fixture for
+base-branch.txt used a bare branch name, while the file in practice holds
+the fixed point with an origin/ prefix (origin/epic/<epic-N>-<slug> or
+origin/<trunk>) — updated the fixture to match, and pulled the relative
+path into a shared constant to stop it being spelled out twice.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+EOF
+)"
+git status)
+Committed. All work is complete: the defect from the previous review round is fixed, verified, and the full `/implement` review (Standards + Spec) came back clean on both axes.
+Bash(git log --oneline -3)
+<result>{"success": true, "summary": "Fixed the hard defect from the previous review round: assertGuardrailsPresent() in scripts/run-sandcastle.ts no longer hardcodes 'rebase onto trunk' — it now best-effort reads .sandcastle/base-branch.txt (the fixed point implement-epic writes there before invoking the sandbox) and names the actual base branch (e.g. origin/epic/64-sandcastle-guardrails for a sub-issue) in the thrown error, falling back to a generic trunk-or-epic-branch description when that file isn't present. Added/adjusted unit tests to cover this, including fixing a fixture that didn't match the file's real origin/-prefixed content shape (caught by the re-run review). tsc --noEmit and eslint scoped to scripts/**/*.ts are clean, all 5 unit tests pass. Re-ran the full /implement review (Standards + Spec sub-agents, both axes) against origin/epic/64-sandcastle-guardrails — Standards came back with only judgement-call smells (no hard violations), Spec confirmed all acceptance criteria are met and the previously-found defect is resolved. Committed as c7be1c1 on top of 32221de.", "blockers": null}</result>
+Agent stopped
+Capturing session
+Collecting commits
+Collecting commits done (0.1s)
+Reached max iterations (1).
+Run complete: reached 1 iteration(s) without completion signal.
+Context window: 99k

@@ -120,6 +120,21 @@ The rules for doing the work are the same either way — understand the task, pl
 
 The label is the authorization: sandbox the implementation without asking.
 
+**Rebase the feature branch onto `<base_branch>` before invoking the sandbox** — the sandbox bind-mounts whatever this branch currently has checked out, so a branch cut before a guardrail file (`.sandcastle/efficiency-rules.md`, `AGENTS.md`, `CLAUDE.md`) landed upstream would otherwise run unguarded, or worse, merge back and delete that guardrail on merge. `<base_branch>` is the same value step 2 used to create this branch — `<trunk>` for a standalone issue, `epic/<epic-N>-<slug>` for a sub-issue — never rebase a sub-issue's branch onto trunk directly: that would detach it from sibling sub-issues already merged into the epic branch, corrupting the very fixed point this step is meant to protect:
+
+```bash
+git fetch origin <base_branch>
+git rebase origin/<base_branch>
+```
+
+**If the rebase conflicts, abort it and hand back to a human instead of resolving it unattended:**
+
+```bash
+git rebase --abort
+```
+
+Run the **hand-back procedure**'s step 2 directly — skip step 1's repair pass, since there is no implementation attempt yet to repair — with `gate_report` = "Rebase onto `<base_branch>` conflicted before the sandbox could run; resolve manually and re-run." Re-invoking the sandbox on a repair pass (hand-back procedure, step 1) repeats this rebase too, since `<base_branch>` may have moved again since the first attempt.
+
 Write the fixed point to a well-known path before invoking the sandbox — a literal path keeps `sandbox_command`'s own invocation unchanged (see below); an inlined value would not:
 
 ```bash

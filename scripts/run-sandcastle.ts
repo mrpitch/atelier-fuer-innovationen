@@ -1,5 +1,5 @@
 import { type ChildProcess, execFileSync, execSync, spawn } from 'node:child_process'
-import { mkdirSync, mkdtempSync, readFileSync, rmSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync } from 'node:fs'
 import { connect, createServer } from 'node:net'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -116,7 +116,8 @@ export interface SandcastleIssueInput {
 	fixedPoint: string
 }
 
-const BASE_BRANCH_FILE = join(process.cwd(), '.sandcastle', 'base-branch.txt')
+const BASE_BRANCH_FILE_RELATIVE_PATH = join('.sandcastle', 'base-branch.txt')
+const BASE_BRANCH_FILE = join(process.cwd(), BASE_BRANCH_FILE_RELATIVE_PATH)
 
 // implement-epic step 3 writes this immediately before invoking
 // sandbox_command, so /implement's review step inside the sandbox has a
@@ -467,6 +468,40 @@ export function assertOnIssueBranch(issueNumber: string) {
 	}
 }
 
+// The guardrails that still reach an agent by bind-mount rather than by the
+// image (see #67's split: CLAUDE.md/settings.json are baked into the image,
+// content-empty on purpose — anything with actual rules still lives here,
+// in the branch). A branch cut before one of these landed on trunk bind-
+// mounts a tree that never saw it, and would silently run unguarded — or
+// worse, merge back and delete the rule from trunk. Checking for these
+// host-side, before the container starts, turns that into a loud failure
+// instead of a silent no-op.
+export const GUARDRAIL_ARTIFACTS = ['.sandcastle/efficiency-rules.md', 'AGENTS.md', 'CLAUDE.md']
+
+export function assertGuardrailsPresent(baseDir: string = process.cwd()) {
+	const missing = GUARDRAIL_ARTIFACTS.filter((path) => !existsSync(join(baseDir, path)))
+	if (missing.length > 0) {
+		// implement-epic writes the fixed point — origin/<base_branch>, i.e.
+		// origin/<trunk> for a standalone issue or origin/epic/<epic-N>-<slug>
+		// for a sub-issue — to this file before invoking the sandbox (see
+		// readFixedPoint()). Naming it here, when it's available, avoids
+		// telling a sub-issue branch to rebase onto trunk directly, which
+		// would detach it from sibling sub-issues already merged into the
+		// epic branch.
+		let rebaseTarget = 'its base branch (trunk for a standalone issue, the epic branch for a sub-issue)'
+		try {
+			rebaseTarget = readFileSync(join(baseDir, BASE_BRANCH_FILE_RELATIVE_PATH), 'utf8').trim()
+		} catch {
+			// Fall back to the generic description above.
+		}
+		throw new Error(
+			`Missing guardrail artifact(s) in the checked-out tree: ${missing.join(', ')}. ` +
+				`This branch was likely cut before they landed upstream — rebase onto ${rebaseTarget} ` +
+				'before retrying.',
+		)
+	}
+}
+
 // The wrapper fetches the issue itself instead of taking the title and body as
 // argv. Claude Code's Bash permission check matches an allowlist rule by
 // statically parsing the command; a call whose arguments come from `$(gh issue
@@ -538,6 +573,7 @@ export function ensureContainerCacheDirs() {
 // unattended.
 export async function runSandcastle(input: SandcastleIssueInput) {
 	assertOnIssueBranch(input.issueNumber)
+	assertGuardrailsPresent()
 	ensureContainerCacheDirs()
 
 	const implementBrowser = await startHostBrowser()
@@ -594,6 +630,9 @@ export async function runSandcastleForIssue(args: SandcastleCliArgs) {
 	// self-guarding for callers that build the input themselves. The duplicate
 	// check is one `git rev-parse`.
 	assertOnIssueBranch(args.issueNumber)
+	// Same reasoning as assertOnIssueBranch above: fail before the gh
+	// round-trip below, not just before the container.
+	assertGuardrailsPresent()
 	const { issueTitle, issueBody } = fetchIssue(args.issueNumber)
 	const fixedPoint = readFixedPoint()
 	return runSandcastle({

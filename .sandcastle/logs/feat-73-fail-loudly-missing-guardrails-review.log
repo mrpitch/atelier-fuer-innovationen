@@ -1,0 +1,154 @@
+
+--- Run started: 2026-08-26T18:48:51.975Z ---
+Sandcastle Run
+  Agent: review
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/73-fail-loudly-missing-guardrails
+Iteration 1/1
+Setting up sandbox
+  CI=true pnpm install --frozen-lockfile
+Setting up sandbox done (0.5s)
+Agent started
+Bash(git rev-parse origin/epic/64-sandcastle-guardrails && git rev-parse HEAD)
+Bash(git diff origin/epic/64-sandcastle-guardrails...HEAD > /tmp/code-review.diff
+git diff --stat origin/epic/64-sandcastle-guardrails...HEAD
+wc -l /tmp/code-review.diff
+echo "---commits---"
+git log origin/epic/64-sandcastle-guardrails..HEAD --oneline)
+Now let's identify spec and standards sources, then spawn the two review sub-agents in parallel.
+Bash(ls docs/adr 2>/dev/null; echo "---"; ls docs/reference 2>/dev/null; echo "---"; ls docs/agents 2>/dev/null; echo "---SMELLS---"; ls /home/agent/workspace/.claude/skills/code-review/SMELLS.md)
+Agent(Standards axis review of diff)
+Bash(ls /home/agent/workspace/docs/adr/ /home/agent/workspace/docs/reference/ 2>&1)
+Agent(Spec axis review of diff)
+Both review sub-agents (Standards and Spec) are running in the background. I'll wait for their reports rather than duplicating their analysis.Background review agents are running; I'll wait for their completion notifications before aggregating the final report.
+Bash(ls .sandcastle/ 2>&1; echo ---; test -f .sandcastle/efficiency-rules.md && echo "efficiency-rules.md exists" || echo "efficiency-rules.md MISSING"; test -f AGENTS.md && echo "AGENTS.md exists" || echo "AGENTS.md MISSING"; test -f CLAUDE.md && echo "CLAUDE.md exists" || echo "CLAUDE.md MISSING")
+## Standards Review — scripts/run-sandcastle.ts, run-sandcastle.test.ts, SKILL.md
+
+**Documented standards (AGENTS.md, ADRs, docs/reference/):** No violations found. AGENTS.md only points at skill docs (issue tracker, triage labels, domain docs, implementation workflow) and carries no coding-style rules; the two ADRs (fumadocs/base-ui adoption, per-section theming) and docs/reference/README.md govern doc-site UI and reference-doc formatting, neither of which this diff touches. Nothing here overrides the smell baseline for this change.
+
+**Baseline smells (judgement calls):**
+
+- **Possible Divergent Change** — `scripts/run-sandcastle.ts` already owns several unrelated reasons to change (Chrome/CDP lifecycle, container-cache bootstrapping, branch-drift assertion, CLI parsing) and this diff adds a fourth: guardrail-artifact verification. Each new "fail loudly before X" safety check is reasonable in isolation, but the file is accumulating orthogonal concerns:
+  ```ts
+  export function assertOnIssueBranch(issueNumber: string) { ... }
+  export const GUARDRAIL_ARTIFACTS = [...]
+  export function assertGuardrailsPresent(baseDir: string = process.cwd()) { ... }
+  ```
+  Not a hard violation — just worth watching if more pre-flight checks get bolted on here.
+
+- **Duplicated Code — suppressed, not a violation.** `assertGuardrailsPresent()` is called at both `runSandcastle()` (line 562) and `runSandcastleForIssue()` (line 621), each with its own explanatory comment. This exactly mirrors the pre-existing `assertOnIssueBranch()` double-call pattern one line above each site, with the same "fail before the round-trip" rationale already established in the codebase. Per the baseline's own rule, an endorsed existing repo pattern suppresses the smell.
+
+**Non-smell accuracy issue worth flagging to the author (not a named smell, but a real defect a reviewer should catch):** the thrown error text is universally worded —
+```ts
+'This branch was likely cut before they landed on trunk — rebase onto trunk before retrying.'
+```
+— but the SKILL.md instructions this feature exists to backstop explicitly say the rebase target is `<base_branch>`, which is **not always trunk**:
+> "`<base_branch>` is the same value step 2 used to create this branch — `<trunk>` for a standalone issue, `epic/<epic-N>-<slug>` for a sub-issue"
+
+For an epic sub-issue, the runtime error will tell a human to rebase onto trunk when the correct target is the epic branch — doing so would, per SKILL.md's own warning two lines later, "detach it from sibling sub-issues already merged into the epic branch." Worth a quick fix (say "rebase onto the branch this was cut from" instead of naming trunk specifically).
+
+No other test/implementation defects or additional standard breaches identified; test coverage for `assertGuardrailsPresent` (present/missing cases) is adequate and follows the existing test file's style.Standards review is in; waiting on the Spec axis review before aggregating.Waiting for the Spec review sub-agent's completion notification.
+Agent idle for 1 minute
+Agent idle for 2 minutes
+Agent idle for 3 minutes
+Agent idle for 4 minutes
+Agent idle for 5 minutes
+Agent idle for 6 minutes
+Agent idle for 7 minutes
+Agent idle for 8 minutes
+Agent idle for 9 minutes
+Agent idle for 10 minutes
+Agent stopped
+Capturing session
+Collecting commits
+Collecting commits done (0.1s)
+Reached max iterations (1).
+Run complete: reached 1 iteration(s) without completion signal.
+Context window: 71k
+
+--- Run started: 2026-08-26T19:00:55.841Z ---
+Sandcastle Run
+  Agent: review
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/73-fail-loudly-missing-guardrails
+Iteration 1/1
+Setting up sandbox
+  CI=true pnpm install --frozen-lockfile
+Setting up sandbox done (0.4s)
+Resuming session
+Agent started
+<result>{"verdict": "issues_found", "findings": "## Standards\n\nDocumented standards (AGENTS.md, ADRs, docs/reference/): No violations found. AGENTS.md only points at skill docs (issue tracker, triage labels, domain docs, implementation workflow) and carries no coding-style rules; the two ADRs (fumadocs/base-ui adoption, per-section theming) and docs/reference/README.md govern doc-site UI and reference-doc formatting, neither of which this diff touches.\n\nBaseline smells (judgement calls, not blocking):\n- Possible Divergent Change — scripts/run-sandcastle.ts already owns several unrelated reasons to change (Chrome/CDP lifecycle, container-cache bootstrapping, branch-drift assertion, CLI parsing) and this diff adds a fourth reason (guardrail-artifact verification: `assertGuardrailsPresent`, `GUARDRAIL_ARTIFACTS`). Reasonable in isolation; just worth watching if more pre-flight checks get bolted on.\n- Duplicated Code — suppressed, not a violation. `assertGuardrailsPresent()` is called at both `runSandcastle()` and `runSandcastleForIssue()`, each with its own comment, mirroring the pre-existing `assertOnIssueBranch()` double-call pattern already established in the codebase. An endorsed existing repo pattern suppresses this smell per the baseline's own rule.\n\nHard/real defect flagged by the Standards sub-agent (this is the one a maintainer would want fixed before merge): the thrown error text is worded generically as 'This branch was likely cut before they landed on trunk — rebase onto trunk before retrying,' but the same commit's own SKILL.md documents that the rebase target is `<base_branch>`, which is 'trunk for a standalone issue, `epic/<epic-N>-<slug>` for a sub-issue' — and warns that rebasing a sub-issue branch onto trunk instead of the epic branch would 'detach it from sibling sub-issues already merged into the epic branch.' For an epic sub-issue, this new failure message would tell a human to rebase onto the wrong target, i.e. onto exactly the thing SKILL.md warns against two lines later. No other test/implementation defects or additional standard breaches were found; test coverage for `assertGuardrailsPresent` (present/missing cases) looked adequate and matched the existing test file's style.\n\n## Spec\n\nNOTE: The Spec-axis sub-agent run failed due to a background-process/infrastructure interruption (its host process exited mid-run) before it returned a report, and no retry could be completed within this review's turn budget. This axis is therefore INCOMPLETE — a maintainer should not treat this review as having verified the Spec axis (acceptance-criteria coverage, container-not-created ordering, epic-workflow rebase documentation, rebase-conflict-surfaces-to-human) at all. Independently, the Standards sub-agent's finding above is also spec-relevant: the issue's third acceptance criterion requires the assertion to abort 'with a clear message naming what is missing,' and while the missing-artifact naming itself is fine, the accompanying rebase guidance is actively wrong for the epic-workflow half of this same issue (which mandates rebasing sub-issue branches onto the epic branch, not trunk) — this could point a human at the wrong branch during exactly the failure path #73 exists to guard.", "summary": "Reviewed origin/epic/64-sandcastle-guardrails...HEAD for issue #73; Standards axis completed and found a real defect (guardrail-missing error message tells sub-issue branches to rebase onto trunk, contradicting the same commit's SKILL.md epic-branch rebase target), while the Spec axis sub-agent failed to complete due to an infrastructure interruption, so verdict is issues_found with the Spec axis flagged as unverified rather than clean."}</result>
+Agent stopped
+Capturing session
+Collecting commits
+Collecting commits done (0.1s)
+Reached max iterations (1).
+Run complete: reached 1 iteration(s) without completion signal.
+Context window: 72k
+
+--- Run started: 2026-08-26T19:09:02.648Z ---
+Sandcastle Run
+  Agent: review
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/73-fail-loudly-missing-guardrails
+Iteration 1/1
+Setting up sandbox
+  CI=true pnpm install --frozen-lockfile
+Setting up sandbox done (0.4s)
+Agent started
+Now let me invoke the code-review skill against the fixed point.
+Bash(git rev-parse origin/epic/64-sandcastle-guardrails...HEAD 2>&1 | head -5; echo "---"; git rev-parse origin/epic/64-sandcastle-guardrails 2>&1)
+Bash(git diff origin/epic/64-sandcastle-guardrails...HEAD > /tmp/code-review.diff
+git diff --stat origin/epic/64-sandcastle-guardrails...HEAD
+echo "---LINES---"
+wc -l /tmp/code-review.diff
+echo "---COMMITS---"
+git log origin/epic/64-sandcastle-guardrails..HEAD --oneline)
+Diff captured (178 lines, 3 files). Now let me identify the spec and standards sources.
+Bash(cat docs/agents/issue-tracker.md 2>&1 | head -30)
+The task prompt already includes the full issue #73 body — I'll use that as the spec source directly rather than calling `gh` (no credentials, and the rules prohibit `gh` commands anyway). Now checking standards sources.
+Bash(ls docs/adr/ 2>&1; echo "---"; ls docs/reference/ 2>&1; echo "---AGENTS---"; wc -l AGENTS.md; echo "---SMELLS---"; ls .claude/skills/code-review/SMELLS.md 2>&1 || find . -name "SMELLS.md" -not -path "*/node_modules/*" 2>/dev/null)
+Bash(wc -l docs/reference/README.md; cat docs/reference/README.md)
+Not relevant to sandcastle scripting standards (docs-organization guidance, not code conventions). Now spawning both sub-agents in parallel.
+Agent(Standards axis code review)
+Bash(ls /home/agent/workspace/docs/adr/ 2>/dev/null; echo "---"; ls /home/agent/workspace/docs/reference/ 2>/dev/null)
+Agent(Spec axis code review)
+Bash(cat /home/agent/workspace/docs/reference/README.md 2>/dev/null; echo "---ADR---"; sed -n '1,30p' /home/agent/workspace/docs/adr/0001-adopt-fumadocs-base-ui.md 2>/dev/null; echo "---fumadocs dir---"; ls /home/agent/workspace/docs/reference/fumadocs/ 2>/dev/null)
+Bash(grep -rn "base-branch\|BASE_BRANCH\|GUARDRAIL" /home/agent/workspace/docs/ /home/agent/workspace/.agents/ 2>/dev/null | grep -v "\.git/")
+Bash(grep -n "template\|sync\|run-sandcastle" /home/agent/workspace/.agents/skills/setup-my-skills/SKILL.md 2>/dev/null | head -50)
+Bash(ls -la /home/agent/workspace/.claude/ 2>/dev/null; echo "---"; find /home/agent/workspace -maxdepth 1 -name "Dockerfile" -o -path "*/.sandcastle/Dockerfile" 2>/dev/null; echo "---dockerfile grep CLAUDE---"; grep -n "CLAUDE.md\|settings.json\|COPY\|ONBOARD" /home/agent/workspace/.sandcastle/Dockerfile 2>/dev/null)
+## Standards
+
+**Hard violations:** None. No documented repo standard (AGENTS.md, docs/adr/**, docs/reference/**) is breached by this diff — the ADR and reference docs cover fumadocs theming and doc-authoring, unrelated to this change.
+
+**Baseline smells (judgement calls only):**
+1. **Duplicated Code** — the three new tests in `scripts/run-sandcastle.test.ts` each repeat the same mkdtemp/try/finally temp-dir lifecycle shape; a small `withTempDir` helper could remove the repetition.
+2. **Duplicated Code** — "read an optional file, trim it, fall back on failure" appears twice in `scripts/run-sandcastle.ts` (pre-existing `readFixedPoint()` vs. new `assertGuardrailsPresent()`), with different failure behavior each time.
+
+Not flagged: the duplicate `assertGuardrailsPresent()` call sites and the verbose rationale comments both match pre-existing, deliberate patterns already in this file.
+
+## Spec
+
+**Prior-round fix verification:** Confirmed correct and complete. `assertGuardrailsPresent()` now reads `.sandcastle/base-branch.txt` and interpolates the actual base branch into the error message (falling back to a generic trunk/epic-branch description only if that file is absent) — no longer hardcodes "trunk." A dedicated test exercises this.
+
+**(a) Missing/partial requirements:** None. All six acceptance criteria verified against current code: assertion aborts naming missing artifacts before any container/docker construction (checked call order in both `runSandcastle` and `runSandcastleForIssue`); present-guardrails path proceeds unchanged with test coverage; host-side/pre-container ordering confirmed; present/absent unit tests exist (plus a third for the base-branch-naming edge case); SKILL.md documents the rebase onto `<base_branch>`; rebase conflict path uses `git rebase --abort` + hand-back to the human, with no silent auto-resolution flags.
+
+**(b) Scope creep:** None — the `BASE_BRANCH_FILE_RELATIVE_PATH` extraction is a minor supporting refactor, not additive behavior.
+
+**(c) Implemented-but-wrong:** None.
+
+## Summary
+
+Standards: 0 hard findings, 2 judgement-call smells (both minor duplication, neither blocking). Spec: 0 findings — all acceptance criteria met, including confirmed correction of the prior review's hard defect.
+
+<result>{"verdict": "clean", "findings": "", "summary": "Reviewed origin/epic/64-sandcastle-guardrails...HEAD (commits 32221de, c7be1c1) for issue #73 across Standards and Spec axes; verdict clean — the prior hard defect (hardcoded 'trunk' in the error message) is confirmed fixed, all six acceptance criteria are met, and only two non-blocking duplication smells were noted."}</result>
+Agent stopped
+Capturing session
+Collecting commits
+Collecting commits done (0.1s)
+Reached max iterations (1).
+Run complete: reached 1 iteration(s) without completion signal.
+Context window: 72k
