@@ -114,6 +114,7 @@ export interface SandcastleIssueInput {
 	issueTitle: string
 	issueBody: string
 	fixedPoint: string
+	efficiencyRules: string
 }
 
 const BASE_BRANCH_FILE_RELATIVE_PATH = join('.sandcastle', 'base-branch.txt')
@@ -134,6 +135,41 @@ export function readFixedPoint(): string {
 			`Expected ${BASE_BRANCH_FILE} to exist — implement-epic writes it right before invoking sandbox_command. Run this script through implement-epic, not standalone.`,
 		)
 	}
+}
+
+const EFFICIENCY_RULES_RELATIVE_PATH = join('.sandcastle', 'efficiency-rules.md')
+
+// The repo's default branch, resolved through the one local ref that isn't
+// this script's own choice: `git clone`/`git remote set-head` set
+// origin/HEAD to whatever the remote actually considers default, so this
+// keeps working even if that branch is ever renamed — no hardcoded "main".
+function resolveTrunkRef(baseDir: string): string {
+	return execSync('git rev-parse --abbrev-ref origin/HEAD', { cwd: baseDir, encoding: 'utf8' }).trim()
+}
+
+// #74: the prompt used to tell the agent to go read this file itself — both
+// recorded feat-59 sessions read it in full as their very first tool call
+// and still violated it a handful of calls later, so the pointer wasn't a
+// delivery problem worth re-wording, it was a delivery mechanism worth
+// removing. This templates the rules text straight into the prompt instead.
+//
+// Reading through trunk (not FIXED_POINT, which for an epic sub-issue is
+// the epic branch — see GUARDRAIL_ARTIFACTS below) is deliberate: it's the
+// one source that never depends on which branch, or which epic, the run
+// started from. Reading via `git show` rather than the filesystem is
+// equally deliberate: the working tree is whatever the head branch strategy
+// bind-mounted into the container, so a filesystem read here would
+// silently reintroduce the exact ancestry-dependence this function exists
+// to remove — including the case where the checked-out branch's tree is
+// missing the file outright. The trade-off this creates — a branch can't
+// exercise its own edits to this file through the prompt path, only after
+// they land on trunk — is documented at the top of the file itself.
+export function readEfficiencyRulesFromTrunk(baseDir: string = process.cwd()): string {
+	const trunkRef = resolveTrunkRef(baseDir)
+	return execSync(`git show ${trunkRef}:${EFFICIENCY_RULES_RELATIVE_PATH}`, {
+		cwd: baseDir,
+		encoding: 'utf8',
+	}).trim()
 }
 
 // --- Host Chrome for Playwright MCP -----------------------------------
@@ -405,6 +441,7 @@ export function buildImplementRunOptions(input: SandcastleIssueInput, cdpForward
 			ISSUE_TITLE: input.issueTitle,
 			ISSUE_BODY: input.issueBody,
 			FIXED_POINT: input.fixedPoint,
+			EFFICIENCY_RULES: input.efficiencyRules,
 			// TARGET_BRANCH is a sandcastle built-in for the head branch
 			// strategy — it's auto-derived from whatever's actually checked
 			// out and passing it here throws. assertOnIssueBranch() below
@@ -438,6 +475,7 @@ export function buildReviewRunOptions(input: SandcastleIssueInput, cdpForwardPor
 			ISSUE_TITLE: input.issueTitle,
 			ISSUE_BODY: input.issueBody,
 			FIXED_POINT: input.fixedPoint,
+			EFFICIENCY_RULES: input.efficiencyRules,
 		},
 		maxIterations: MAX_ITERATIONS,
 		output: Output.object({ tag: 'result', schema: reviewResultSchema, maxRetries: 1 }),
@@ -471,12 +509,23 @@ export function assertOnIssueBranch(issueNumber: string) {
 // The guardrails that still reach an agent by bind-mount rather than by the
 // image (see #67's split: CLAUDE.md/settings.json are baked into the image,
 // content-empty on purpose — anything with actual rules still lives here,
-// in the branch). A branch cut before one of these landed on trunk bind-
-// mounts a tree that never saw it, and would silently run unguarded — or
-// worse, merge back and delete the rule from trunk. Checking for these
-// host-side, before the container starts, turns that into a loud failure
-// instead of a silent no-op.
-export const GUARDRAIL_ARTIFACTS = ['.sandcastle/efficiency-rules.md', 'AGENTS.md', 'CLAUDE.md']
+// in the branch) or by host-side templating. A branch cut before one of
+// these landed on trunk bind-mounts a tree that never saw it, and would
+// silently run unguarded — or worse, merge back and delete the rule from
+// trunk. Checking for these host-side, before the container starts, turns
+// that into a loud failure instead of a silent no-op.
+//
+// `.sandcastle/efficiency-rules.md` deliberately isn't in this list (#74):
+// its content now reaches the prompt via readEfficiencyRulesFromTrunk(),
+// read from trunk regardless of what the checked-out branch's tree has —
+// that's the whole point of templating it host-side instead of bind-
+// mounting it. Requiring it to exist in the branch tree here would defeat
+// that AC (a branch whose tree lacks the file must still get the rules)
+// by hard-failing before the trunk read ever runs. CLAUDE.md still points
+// at this file by path for an agent that wants the long-form detail behind
+// a rule (see CLAUDE.md's own text) — a branch missing it degrades that
+// one optional lookup, not delivery of the rules themselves.
+export const GUARDRAIL_ARTIFACTS = ['AGENTS.md', 'CLAUDE.md']
 
 export function assertGuardrailsPresent(baseDir: string = process.cwd()) {
 	const missing = GUARDRAIL_ARTIFACTS.filter((path) => !existsSync(join(baseDir, path)))
@@ -640,6 +689,7 @@ export async function runSandcastleForIssue(args: SandcastleCliArgs) {
 		issueTitle,
 		fixedPoint,
 		issueBody: buildIssueBody(issueBody, args.repairContextPath),
+		efficiencyRules: readEfficiencyRulesFromTrunk(),
 	})
 }
 
