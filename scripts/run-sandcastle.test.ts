@@ -1,7 +1,16 @@
 import assert from 'node:assert/strict'
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { dirname, join } from 'node:path'
 import { test } from 'node:test'
 
-import { buildImplementRunOptions, buildReviewRunOptions, ensureContainerCacheDirs } from './run-sandcastle'
+import {
+	assertGuardrailsPresent,
+	buildImplementRunOptions,
+	buildReviewRunOptions,
+	ensureContainerCacheDirs,
+	GUARDRAIL_ARTIFACTS,
+} from './run-sandcastle'
 
 // docker() refuses to build a sandbox whose mount host paths don't exist, and
 // the container caches are gitignored — so on a clean checkout these tests
@@ -26,4 +35,35 @@ test('the review run is marked sandboxed with the review role', () => {
 	const options = buildReviewRunOptions(input, 12345)
 	assert.equal(options.sandbox.env.SANDCASTLE_SANDBOXED, '1')
 	assert.equal(options.sandbox.env.SANDCASTLE_ROLE, 'review')
+})
+
+function writeArtifact(dir: string, artifact: string) {
+	const path = join(dir, artifact)
+	mkdirSync(dirname(path), { recursive: true })
+	writeFileSync(path, '')
+}
+
+test('assertGuardrailsPresent does not throw when every guardrail artifact exists', () => {
+	const dir = mkdtempSync(join(tmpdir(), 'sandcastle-guardrails-present-'))
+	try {
+		for (const artifact of GUARDRAIL_ARTIFACTS) {
+			writeArtifact(dir, artifact)
+		}
+		assert.doesNotThrow(() => assertGuardrailsPresent(dir))
+	} finally {
+		rmSync(dir, { recursive: true, force: true })
+	}
+})
+
+test('assertGuardrailsPresent throws naming the missing artifact', () => {
+	const dir = mkdtempSync(join(tmpdir(), 'sandcastle-guardrails-missing-'))
+	try {
+		const [missingArtifact, ...presentArtifacts] = GUARDRAIL_ARTIFACTS
+		for (const artifact of presentArtifacts) {
+			writeArtifact(dir, artifact)
+		}
+		assert.throws(() => assertGuardrailsPresent(dir), new RegExp(missingArtifact.replace(/\./g, '\\.')))
+	} finally {
+		rmSync(dir, { recursive: true, force: true })
+	}
 })
