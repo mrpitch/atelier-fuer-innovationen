@@ -54,13 +54,21 @@ const DISTRICT_SLUGS: Record<string, string> = {
 // than a computed path. Some already-migrated MDX files aggregate several
 // source pages into one (each ## heading below matches one source page's
 // <title>), the same pattern as the viertelN.html tour consolidation.
+//
+// ann/kurzueb1.html-kurzueb5.html were previously aggregated into one
+// kurzuebersicht.mdx; #98 split that file into five ordered sibling pages
+// (one per stop, sequenced via annaeherung/meta.json) so each source page now
+// gets its own target below. ann/umgeb1.html has no numbered siblings of its
+// own, so it is listed here rather than getting a regex branch like besuchN
+// and viertelN below.
 const VERIFIED_TARGETS: Record<string, string> = {
 	'/mar/marstart.html': 'src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx',
-	'/ann/kurzueb1.html': 'src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx',
-	'/ann/kurzueb2.html': 'src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx',
-	'/ann/kurzueb3.html': 'src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx',
-	'/ann/kurzueb4.html': 'src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx',
-	'/ann/kurzueb5.html': 'src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx',
+	'/ann/kurzueb1.html': 'src/content/docs/xeniapolis/annaeherung/staetten-der-begegnung.mdx',
+	'/ann/kurzueb2.html': 'src/content/docs/xeniapolis/annaeherung/kondratieffs-zyklen.mdx',
+	'/ann/kurzueb3.html': 'src/content/docs/xeniapolis/annaeherung/aufbruch-zum-kontinent-der-loesungen.mdx',
+	'/ann/kurzueb4.html': 'src/content/docs/xeniapolis/annaeherung/ateliers-fuer-innovatoren.mdx',
+	'/ann/kurzueb5.html': 'src/content/docs/xeniapolis/annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx',
+	'/ann/umgeb1.html': 'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
 	'/kon/ewelt2.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
 	'/kon/ewelt2a.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
 	'/kon/ewelt2b.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
@@ -216,9 +224,16 @@ export function computeTargetPath(pathname: string): { targetPath: string; notes
 	if (isDistrictPath) {
 		if (/^viertel\d+\.html?$/.test(file)) {
 			return {
-				targetPath: 'src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx',
+				targetPath: 'src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx',
 				notes:
 					'Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page.',
+			}
+		}
+		if (/^besuch\d+\.html?$/.test(file)) {
+			return {
+				targetPath: 'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
+				notes:
+					'Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page.',
 			}
 		}
 		if (district === 'zen') {
@@ -357,8 +372,8 @@ ${records.length} source URLs found, grouped below by their first path segment (
 
 - Each of the 8 Stadtviertel maps to its existing (or, for Märkte, not-yet-created) \`src/content/docs/xeniapolis/<slug>/\` folder; a district's \`<code>start.html\` is that folder's \`index.mdx\`.
 - **Zentrum** (\`zen/\`) is not one of the 8 Stadtviertel (see \`docs/reference/glossary.md\`), so it gets its own \`xeniapolis/zentrum/\` folder rather than living inside the Stadtviertel convention.
-- The numbered \`viertelN.html\` tour is duplicated verbatim inside every district folder on the source site; all copies point at the single already-migrated \`die-stadtviertel-der-wissensstadt.mdx\` overview.
-- Some already-migrated MDX files aggregate several source pages into one (each \`##\` heading matches one source page's \`<title>\`): \`ann/kurzueb1.html\`–\`kurzueb5.html\` → \`kurzuebersicht.mdx\`; \`kon/ewelt2.html\`, \`ewelt2a.html\`–\`ewelt2h.html\` → \`konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx\`.
+- The numbered \`viertelN.html\` and \`besuchN.html\` tours are each duplicated verbatim inside every district folder on the source site; all copies of a tour point at that tour's single already-migrated overview page — \`annaeherung/die-stadtviertel-der-wissensstadt.mdx\` and \`annaeherung/besuch-in-der-wissensstadt.mdx\` respectively (the latter also absorbs \`ann/umgeb1.html\`, the Umgebung tour's closing stop).
+- Some already-migrated MDX files aggregate several source pages into one (each \`##\` heading matches one source page's \`<title>\`): \`kon/ewelt2.html\`, \`ewelt2a.html\`–\`ewelt2h.html\` → \`konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx\`. \`ann/kurzueb1.html\`–\`kurzueb5.html\` used to follow the same pattern but were split in #98 into five ordered sibling pages (\`annaeherung/staetten-der-begegnung.mdx\` through \`annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx\`), sequenced via \`annaeherung/meta.json\` so Fumadocs prev/next provides the walk.
 - Frame/menu chrome, the site's root frameset, and the shared \`baustelle.html\` placeholder have no target path — they're navigation/placeholder artifacts, not content.
 - \`telepol/\` and \`~mib/\` are a separate, older "Telepolis" exhibition embedded in the same site, outside the Stadtviertel/Zentrum structure; they're flagged \`needs manual triage\` rather than assigned a path.
 - A handful of nested URLs (e.g. \`kon/zen/zenstart.html\`) are broken/duplicate relative links already present on the source site — also flagged \`needs manual triage\`.

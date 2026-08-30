@@ -111,11 +111,29 @@ test('computeTargetPath maps a generic district content page by filename', () =>
 test('computeTargetPath consolidates every viertelN.html copy onto the shared overview page', () => {
 	assert.equal(
 		computeTargetPath('/ann/viertel3.html').targetPath,
-		'src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx',
+		'src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx',
 	)
 	assert.equal(
 		computeTargetPath('/pot/viertel3.html').targetPath,
-		'src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx',
+		'src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx',
+	)
+})
+
+test('computeTargetPath consolidates every besuchN.html copy onto the shared overview page', () => {
+	assert.equal(
+		computeTargetPath('/ann/besuch3.html').targetPath,
+		'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
+	)
+	assert.equal(
+		computeTargetPath('/pot/besuch3.html').targetPath,
+		'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
+	)
+})
+
+test('computeTargetPath uses the verified content match for ann/umgeb1.html', () => {
+	assert.equal(
+		computeTargetPath('/ann/umgeb1.html').targetPath,
+		'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
 	)
 })
 
@@ -138,11 +156,22 @@ test('computeTargetPath maps zen/impress.html to the docs-root impressum.mdx, no
 	assert.equal(notes.includes('only one Impressum'), true)
 })
 
-test('computeTargetPath maps the kurzueb and ewelt2 page sequences onto their aggregated MDX files', () => {
+test('computeTargetPath maps each kurzueb page to its own split sibling page', () => {
+	assert.equal(
+		computeTargetPath('/ann/kurzueb1.html').targetPath,
+		'src/content/docs/xeniapolis/annaeherung/staetten-der-begegnung.mdx',
+	)
 	assert.equal(
 		computeTargetPath('/ann/kurzueb3.html').targetPath,
-		'src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx',
+		'src/content/docs/xeniapolis/annaeherung/aufbruch-zum-kontinent-der-loesungen.mdx',
 	)
+	assert.equal(
+		computeTargetPath('/ann/kurzueb5.html').targetPath,
+		'src/content/docs/xeniapolis/annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx',
+	)
+})
+
+test('computeTargetPath maps the ewelt2 page sequence onto its aggregated MDX file', () => {
 	assert.equal(
 		computeTargetPath('/kon/ewelt2f.html').targetPath,
 		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
