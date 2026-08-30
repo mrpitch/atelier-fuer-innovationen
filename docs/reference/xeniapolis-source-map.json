@@ -1,0 +1,3862 @@
+[
+  {
+    "url": "https://xeniapolis.de/",
+    "httpStatus": 200,
+    "title": "Willkommen bei Xenia",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Site root frameset — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/~mib/agora/agorazuxenia.htm",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/~mib/agora/azuxenia.htm",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/~mib/agora/azxenia.htm",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/ann_frame.html",
+    "httpStatus": 200,
+    "title": "Viertel der Annäherung",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/ann_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu2/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu2/annbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/ann/annstart.html",
+    "httpStatus": 200,
+    "title": "Annäherung: Was ist und bietet Xenia?",
+    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/index.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/annbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ann/besuch1.html",
+    "httpStatus": 200,
+    "title": "Besuch im Zentrum: Viertel der Annäherung",
+    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch1.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_modell/ann_mo.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ann/besuch2.html",
+    "httpStatus": 200,
+    "title": "Besuch im Zentrum: Viertel der Märkte und Kooperation",
+    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch2.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_modell/mar_mo.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ann/besuch3.html",
+    "httpStatus": 200,
+    "title": "Besuch im Zentrum: Viertel der Kontexte",
+    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch3.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_modell/kon_mo.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ann/besuch4.html",
+    "httpStatus": 200,
+    "title": "Besuch im Zentrum: Viertel der Inszenierung",
+    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch4.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_modell/ins_mo.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ann/besuch5.html",
+    "httpStatus": 200,
+    "title": "Besuch im Zentrum: Viertel der Zukunft",
+    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch5.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_modell/zuk_mo.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ann/besuch6.html",
+    "httpStatus": 200,
+    "title": "Besuch im Zentrum: Viertel der Wertschöpfung",
+    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch6.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_modell/wer_mo.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ann/besuch7.html",
+    "httpStatus": 200,
+    "title": "Besuch im Zentrum: Viertel der Potentiale",
+    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch7.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_modell/pot_mo.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ann/besuch8.html",
+    "httpStatus": 200,
+    "title": "Besuch im Zentrum: Viertel der Führung",
+    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch8.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_modell/fue_mo.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ann/besuch9.html",
+    "httpStatus": 200,
+    "title": "Besuch im Zentrum: Überblick",
+    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch9.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_modell/alles_mo.gif",
+      "https://xeniapolis.de/gifs/b_modell/kon_mokl.gif",
+      "https://xeniapolis.de/gifs/b_modell/ins_mokl.gif",
+      "https://xeniapolis.de/gifs/b_modell/zuk_mokl.gif",
+      "https://xeniapolis.de/gifs/b_modell/mar_mokl.gif",
+      "https://xeniapolis.de/gifs/b_modell/zen_mokl.gif",
+      "https://xeniapolis.de/gifs/b_modell/wer_mokl.gif",
+      "https://xeniapolis.de/gifs/b_modell/ann_mokl.gif",
+      "https://xeniapolis.de/gifs/b_modell/fue_mokl.gif",
+      "https://xeniapolis.de/gifs/b_modell/pot_mokl.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ann/kurzueb1.html",
+    "httpStatus": 200,
+    "title": "Eine erste Annäherung: Stätten der Begegnung",
+    "targetPath": "src/content/docs/xeniapolis/kurzuebersicht.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_allg/ansichkl.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/ann/kurzueb2.html",
+    "httpStatus": 200,
+    "title": "Standard Annäherung. Vorlage",
+    "targetPath": "src/content/docs/xeniapolis/kurzuebersicht.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_allg/kondrat2.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/ann/kurzueb3.html",
+    "httpStatus": 200,
+    "title": "Erste Annäherung: Aufbruch zum Kontinent der Lösungen",
+    "targetPath": "src/content/docs/xeniapolis/kurzuebersicht.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_allg/blaues.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/ann/kurzueb4.html",
+    "httpStatus": 200,
+    "title": "Eine erste Annäherung: Ateliers für Innovatoren",
+    "targetPath": "src/content/docs/xeniapolis/kurzuebersicht.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_allg/atelier.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/ann/kurzueb5.html",
+    "httpStatus": 200,
+    "title": "Eine erste Ann&auml,herung: Netzwerk der Wissensstädte",
+    "targetPath": "src/content/docs/xeniapolis/kurzuebersicht.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_allg/umland.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/ann/umgeb1.html",
+    "httpStatus": 200,
+    "title": "Besuch in der Umgebung: Überblick",
+    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/umgeb1.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_allg/umland.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ann/viertel0.html",
+    "httpStatus": 200,
+    "title": "Die Stadtviertel: Das Zentrum",
+    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_stteil/zenkl.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
+  },
+  {
+    "url": "https://xeniapolis.de/ann/viertel1.html",
+    "httpStatus": 200,
+    "title": "Die Stadtviertel: Viertel der Annäherung",
+    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/annbild.gif",
+      "https://xeniapolis.de/gifs/b_stteil/annkl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/anngr.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
+  },
+  {
+    "url": "https://xeniapolis.de/ann/viertel2.html",
+    "httpStatus": 200,
+    "title": "Die Stadtviertel: Viertel der Märkte und Kooperation",
+    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/marbild.gif",
+      "https://xeniapolis.de/gifs/b_stteil/markl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/margr.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
+  },
+  {
+    "url": "https://xeniapolis.de/ann/viertel3.html",
+    "httpStatus": 200,
+    "title": "Die Stadtviertel: Viertel der Kontexte",
+    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/konbild.gif",
+      "https://xeniapolis.de/gifs/b_stteil/konkl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/kongr.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
+  },
+  {
+    "url": "https://xeniapolis.de/ann/viertel4.html",
+    "httpStatus": 200,
+    "title": "Die Stadtviertel: Viertel der Inszenierung",
+    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/insbild.gif",
+      "https://xeniapolis.de/gifs/b_stteil/inskl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/insgr.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
+  },
+  {
+    "url": "https://xeniapolis.de/ann/viertel5.html",
+    "httpStatus": 200,
+    "title": "Die Stadtviertel: Viertel derZukunft",
+    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/zukbild.gif",
+      "https://xeniapolis.de/gifs/b_stteil/zukkl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/zukgr.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
+  },
+  {
+    "url": "https://xeniapolis.de/ann/viertel6.html",
+    "httpStatus": 200,
+    "title": "Die Stadtviertel: Viertel der Wertschöpfung",
+    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/werbild.gif",
+      "https://xeniapolis.de/gifs/b_stteil/werkl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/wergr.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
+  },
+  {
+    "url": "https://xeniapolis.de/ann/viertel7.html",
+    "httpStatus": 200,
+    "title": "Die Stadtviertel: Viertel der Potentiale",
+    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/potbild.gif",
+      "https://xeniapolis.de/gifs/b_stteil/potkl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/potgr.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
+  },
+  {
+    "url": "https://xeniapolis.de/ann/viertel8.html",
+    "httpStatus": 200,
+    "title": "Die Stadtviertel: Viertel der Führung",
+    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/fuebild.gif",
+      "https://xeniapolis.de/gifs/b_stteil/fuekl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/fuegr.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
+  },
+  {
+    "url": "https://xeniapolis.de/ann/viertel9.html",
+    "httpStatus": 200,
+    "title": "Die Stadtviertel: Überblick",
+    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_stteil/stplan.gif",
+      "https://xeniapolis.de/gifs/b_stteil/konkl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/inskl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/zukkl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/markl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/zenkl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/werkl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/annkl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/fuekl.gif",
+      "https://xeniapolis.de/gifs/b_stteil/potkl.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
+  },
+  {
+    "url": "https://xeniapolis.de/baustelle.html",
+    "httpStatus": 200,
+    "title": "Xenia-Gästebuch",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/baustell.gif"
+    ],
+    "underConstruction": true,
+    "notes": "Shared \"under construction\" placeholder — no content to migrate."
+  },
+  {
+    "url": "https://xeniapolis.de/fue_frame.html",
+    "httpStatus": 200,
+    "title": "Viertel der Führung",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/fue_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu2/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu2/fuehbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/fue/fuestart.html",
+    "httpStatus": 200,
+    "title": "Führung: XENIA-Thema \"Netzwerk der Innovatoren\"",
+    "targetPath": "src/content/docs/xeniapolis/fuehrung/index.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/fuebild.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/fue/netzw0.html",
+    "httpStatus": 200,
+    "title": "Xenia-Partner im Netzwerk für Innovatoren",
+    "targetPath": "src/content/docs/xeniapolis/fuehrung/netzw0.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/index.html",
+    "httpStatus": 200,
+    "title": "Willkommen bei Xenia",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Site root frameset — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/ins_frame.html",
+    "httpStatus": 200,
+    "title": "Viertel der Inszenierung",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/ins_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu2/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu2/insbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz0.html",
+    "httpStatus": 200,
+    "title": "Veröffentlichungen",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz0.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/ball.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz01.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Städte erleben Wissen gewinnen",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz01.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz02.html",
+    "httpStatus": 200,
+    "title": "Impressionen zum Leitbild",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz02.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz03.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Über Datenautobahnen spricht man nicht",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz03.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz04.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Wandel der Innovationskultur",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz04.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz05.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Metropolen der Informationsgesellschaft",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz05.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz06.html",
+    "httpStatus": 200,
+    "title": "Technologiemanagement in der Informationsindustrie",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz06.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz08.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Der große Basar",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz08.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz09.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Die Stadt des Wissens als Stätte der Begegnung:",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz09.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz10.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Die Wiederbelebung der Polis mit den Städten des Wissens als Stätten der Begegnung.",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz10.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz11.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Die Polis als Leitbild für den Wandel der Innovationskultur",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz11.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz13.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Technologiemanagement in der Informationsindustrie",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz13.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz14.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Wieviel Umweltschutz braucht die Wirtschaft",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz14.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz15.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Wiederbelebung der Polis zum gemeinsamen Diskurs.",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz15.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz17.html",
+    "httpStatus": 200,
+    "title": "Technologiemanagement in der Informationsindustrie",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz17.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz18.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Verantwortung im Umgang mit Technologie",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz18.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz19.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Gefragt sind Visionen, keine Ideologien",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz19.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz20.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Vom Nutzen der Zukunftsforschung",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz20.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/baustell.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz21.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Mehr als Informationsgesellschaft",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz21.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/baustell.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz23.html",
+    "httpStatus": 200,
+    "title": "Technologiemanagement in der Informationsindustrie",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz23.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz24.html",
+    "httpStatus": 200,
+    "title": "Wiederbelebung der Polis zum gemeinsamen Diskurs.",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz24.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz25.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Information als Wertschöpfungsfaktor ...",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz25.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstz26.html",
+    "httpStatus": 200,
+    "title": "Technologiemanagement in der Informationsindustrie",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz26.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstzb1.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Der Strategische Abakus",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstzb1.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstzb2.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Der Informationsmarkt",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstzb2.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/aufstze5.html",
+    "httpStatus": 200,
+    "title": "Aufsätze: Cities of Knowledge",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstze5.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/cebit0.html",
+    "httpStatus": 200,
+    "title": "Xenia auf der CeBIT '95",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/cebit0.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_photos/totale.gif",
+      "https://xeniapolis.de/gifs/b_icons/ball.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/cebit1.html",
+    "httpStatus": 200,
+    "title": "Xenia auf der Cebit '95: Die Ausstellung",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/cebit1.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_allg/ansichkl.gif",
+      "https://xeniapolis.de/gifs/b_photos/zyklspd.gif",
+      "https://xeniapolis.de/gifs/b_allg/atelier.gif",
+      "https://xeniapolis.de/gifs/b_photos/wartespd.gif",
+      "https://xeniapolis.de/gifs/b_allg/zeichen1.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/cebit2.html",
+    "httpStatus": 200,
+    "title": "Xenia auf der Cebit '95:Impressionen",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/cebit2.mdx",
+    "assets": [
+      "https://xeniapolis.de/telepol/mrbilder/stud.gif",
+      "https://xeniapolis.de/telepol/mrbilder/alt.gif",
+      "https://xeniapolis.de/telepol/mrbilder/suss.gif",
+      "https://xeniapolis.de/telepol/mrbilder/rutt.gif",
+      "https://xeniapolis.de/telepol/mrbilder/engel.gif",
+      "https://xeniapolis.de/telepol/mrbilder/halle15.gif",
+      "https://xeniapolis.de/telepol/mrbilder/chi.gif",
+      "https://xeniapolis.de/telepol/mrbilder/publi.gif",
+      "https://xeniapolis.de/telepol/mrbilder/braes.gif",
+      "https://xeniapolis.de/telepol/mrbilder/schr.gif",
+      "https://xeniapolis.de/telepol/mrbilder/bartels.gif",
+      "https://xeniapolis.de/telepol/mrbilder/kinder.gif",
+      "https://xeniapolis.de/telepol/mrbilder/voeng.gif",
+      "https://xeniapolis.de/telepol/mrbilder/mkette.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/cebit3.html",
+    "httpStatus": 200,
+    "title": "Xenia auf der Cebit '95: Reaktionen der Presse",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/cebit3.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_cbit95/neupres.gif",
+      "https://xeniapolis.de/gifs/b_cbit95/leipzig.gif",
+      "https://xeniapolis.de/gifs/b_cbit95/berlin.gif",
+      "https://xeniapolis.de/gifs/b_cbit95/neupr_kl.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/cebit4.html",
+    "httpStatus": 200,
+    "title": "Xenia auf der Cebit '95:Das Goldene Buch der Stadt Xenia",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/cebit4.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_cbit95/buch.gif",
+      "https://xeniapolis.de/gifs/b_cbit95/buchrena.gif",
+      "https://xeniapolis.de/gifs/b_cbit95/buchrita.gif",
+      "https://xeniapolis.de/gifs/b_cbit95/buchchin.gif",
+      "https://xeniapolis.de/gifs/b_cbit95/buchfry.gif",
+      "https://xeniapolis.de/gifs/b_cbit95/buchhall.gif",
+      "https://xeniapolis.de/gifs/b_cbit95/buchhoff.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/cebit5.html",
+    "httpStatus": 200,
+    "title": "Xenia auf der Cebit '95: Beilage zum Informationsblatt ZFE aktuell",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/cebit5.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_allg/atelier.gif",
+      "https://xeniapolis.de/gifs/b_person/suss1.gif",
+      "https://xeniapolis.de/gifs/b_allg/ansichkl.gif",
+      "https://xeniapolis.de/gifs/b_person/leonha1.gif",
+      "https://xeniapolis.de/gifs/b_person/rutt1.gif",
+      "https://xeniapolis.de/gifs/b_allg/bausta1.gif",
+      "https://xeniapolis.de/gifs/b_person/braess1.gif",
+      "https://xeniapolis.de/gifs/b_person/schmidt.gif",
+      "https://xeniapolis.de/gifs/b_person/alt1.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/impression",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/impression.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/insstart.html",
+    "httpStatus": 200,
+    "title": "Inszenierung: Präsentationen von Xenia und Medienspiegel",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/index.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/insbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/meilen0.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Meilensteine",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/meilen0.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/radio0.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Radio und Fernsehen",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/radio0.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/ball.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/telepol0.html",
+    "httpStatus": 200,
+    "title": "Xenia in Telepolis",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/telepol0.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/web0.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Internet",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/web0.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/ball.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun0.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Zeitungen",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun0.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/ball.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun01.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Tempo 1/1991",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun01.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun02.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Manager Magazin 3/91",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun02.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun03.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Manager Magazin 4/93",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun03.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun04.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: James E. Liebig",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun04.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun05.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Hannoversche Allgemeine 21.2.94",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun05.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun06.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Süddeutsche Zeitung, 25.2.94",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun06.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun07a.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: SNI in NRW 1/95",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun07a.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun08.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Handelsblatt, Beilage Karriere, Februar 1995",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun08.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun09.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Hannoversche Allgemeine, 11.3.1995",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun09.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun10.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Hannoversche Allgemeine, 11.3.1995",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun10.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun11.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Neue Presse, 15.3.95",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun11.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_allg/blaues.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun12.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Neue Presse, 15.3.95",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun12.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun13.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Neue Presse, 8.4.1995",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun13.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun15.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Screen Multimedia 1/96",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun15.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_allg/atelier.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun18.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: DER SPIEGEL 20/1996",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun18.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_zeitun/spiegel1.gif",
+      "https://xeniapolis.de/gifs/b_zeitun/spiegel2.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun19.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: DER SPIEGEL 20/1996",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun19.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun20.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Zeitungen",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun20.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun21.html",
+    "httpStatus": 200,
+    "title": "Zeitungen: Münchner Merkur",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun21.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_zeitun/merkur.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun22.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Wiener Kurier 9.7.1996",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun22.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun23.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Badische Zeitung, 1996 Nr.145/3",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun23.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun24.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: Kleine Zeitung 1.11.1996",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun24.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/ins/zeitun25.html",
+    "httpStatus": 200,
+    "title": "Medienspiegel: SZ 16/17.11.1996",
+    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun25.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon_frame.html",
+    "httpStatus": 200,
+    "title": "Viertel der Kontexte",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu2/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu2/konbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ann/annstart.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt1.html",
+    "httpStatus": 200,
+    "title": "1: Einstimmung zur Zukunftsgestaltung",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/annbild.gif",
+      "https://xeniapolis.de/gifs/b_64er/ewann.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt1a.html",
+    "httpStatus": 200,
+    "title": "1.1: Wandel der Beschäftigungsstruktur",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1a.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/1_1-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt1b.html",
+    "httpStatus": 200,
+    "title": "1.2: Das informationale Babylon",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1b.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/1_2-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt1c.html",
+    "httpStatus": 200,
+    "title": "1.3: Beschützte Weisheit - Geordnetes Staatswesen",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1c.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/1_3-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt1d.html",
+    "httpStatus": 200,
+    "title": "1.4: Die Mission des Hl. Franziskus",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1d.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/1_4-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt1e.html",
+    "httpStatus": 200,
+    "title": "1.5: Unternehmerische Engagements im visionären Vorfeld",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1e.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/1_5-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt1f.html",
+    "httpStatus": 200,
+    "title": "1.6: Xenia, Stadt des Wissens und Stätte der Begegnung",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1f.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/1_6-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt1g.html",
+    "httpStatus": 200,
+    "title": "1.7: Potentiale einer Stadt des Wissens nutzen!",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1g.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/1_7-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt1h.html",
+    "httpStatus": 200,
+    "title": "1.8: Das Vor-Bild: Der Erfinderunternehmer",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1h.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/1_8-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt2.html",
+    "httpStatus": 200,
+    "title": "2: Konstellationen beim Übergang zur Informationsgesellschaft",
+    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/marbild.gif",
+      "https://xeniapolis.de/gifs/b_64er/ewmar.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt2a.html",
+    "httpStatus": 200,
+    "title": "2.1: Spektrum von Gütern und Leistungen in der gesellschaftlichen Entwicklung",
+    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/2_1-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt2b.html",
+    "httpStatus": 200,
+    "title": "2.2: Innovative Durchbrüche für komparative Vorteile",
+    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/2_2-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt2c.html",
+    "httpStatus": 200,
+    "title": "2.3: \"Eine Welt\" und ihre Probleme",
+    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/2_3-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt2d.html",
+    "httpStatus": 200,
+    "title": "2.4: Der Wandel der Gesellschaft im Zeitalter der Industrialisierung",
+    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/2_4-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt2e.html",
+    "httpStatus": 200,
+    "title": "2.5: Kondratieff-Zyklen: Analyse und Projektion",
+    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/2_5-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt2f.html",
+    "httpStatus": 200,
+    "title": "2.6: Die Schichten der wirtschaftlichen Entwicklung",
+    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/2_6-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt2g.html",
+    "httpStatus": 200,
+    "title": "2.7: Antriebskräfte der Gestaltung und verschüttete Quellen",
+    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/2_7-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt2h.html",
+    "httpStatus": 200,
+    "title": "2.8: Das Team, das wie ein Erfinderunternehmer handelt",
+    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/2_8-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt3.html",
+    "httpStatus": 200,
+    "title": "3: Eine Welt im Wandel",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/konbild.gif",
+      "https://xeniapolis.de/gifs/b_64er/ewkon.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt3a.html",
+    "httpStatus": 200,
+    "title": "3.1: Das SATORI-Konzept",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3a.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/3_1-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt3b.html",
+    "httpStatus": 200,
+    "title": "3.2: \"Eine Welt\" der Probleme und Revolutionen",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3b.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/3_2-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt3c.html",
+    "httpStatus": 200,
+    "title": "3.3: Die Gestaltungsfelder der Problemlösungsgesellschaft",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3c.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/3_3-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt3d.html",
+    "httpStatus": 200,
+    "title": "3.4: Aufbruch zum Kontinent der Lösungen",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3d.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/3_4-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt3e.html",
+    "httpStatus": 200,
+    "title": "3.5: Die erste globale Revolution",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3e.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/3_5-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt3f.html",
+    "httpStatus": 200,
+    "title": "3.6: Megatrends der Erfordernisse",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3f.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/3_6-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt3g.html",
+    "httpStatus": 200,
+    "title": "3.7: \"Gedanken\"",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3g.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/3_7-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt3h.html",
+    "httpStatus": 200,
+    "title": "3.8: Eine programmatische Skizzierung",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3h.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/3_8-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt4.html",
+    "httpStatus": 200,
+    "title": "4: Die Wiederbelebung der Polis",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/insbild.gif",
+      "https://xeniapolis.de/gifs/b_64er/ewins.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt4a.html",
+    "httpStatus": 200,
+    "title": "4.1: Lebensqualität, Skala der Bedürfnisse und der Bedürfnisbefriedigung",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4a.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/4_1-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt4b.html",
+    "httpStatus": 200,
+    "title": "4.2: \"Städte\": Potentiale und Probleme",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4b.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/4_2-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt4c.html",
+    "httpStatus": 200,
+    "title": "4.3: Die Wiederbelebung der Polis",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4c.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/4_3-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt4d.html",
+    "httpStatus": 200,
+    "title": "4.4: Xenia, Platz der Zukunft",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4d.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/4_4-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt4e.html",
+    "httpStatus": 200,
+    "title": "4.5: Visionen - Innovationen - Paradigmen",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4e.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/4_5-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt4f.html",
+    "httpStatus": 200,
+    "title": "4.6: Gedankenkreise für eine \"heiße, kreative Mischung\"",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4f.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/4_6-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt4g.html",
+    "httpStatus": 0,
+    "title": "",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4g.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt4h.html",
+    "httpStatus": 200,
+    "title": "4.8: \"Eine Welt\" kommt in Bewegung",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4h.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/4_8-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt5.html",
+    "httpStatus": 200,
+    "title": "5: Wandel: Chaos und Chance",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/zukbild.gif",
+      "https://xeniapolis.de/gifs/b_64er/ewzuk.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt5a.html",
+    "httpStatus": 200,
+    "title": "5.1: Das Individuum in der Gemeinschaft",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5a.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/5_1-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt5b.html",
+    "httpStatus": 200,
+    "title": "5.2: Verantwortungsstrategien - Ausprägungen und Wirkungen",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5b.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/5_2-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt5c.html",
+    "httpStatus": 200,
+    "title": "5.3: Bifurkationen bei alternativen Weltmodellen",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5c.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/5_3-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt5d.html",
+    "httpStatus": 200,
+    "title": "5.4: Der Weg ist das Ziel!",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5d.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/5_4-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt5e.html",
+    "httpStatus": 200,
+    "title": "5.5: Xenia - Stadtplan der modernen Viertel",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5e.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/5_5-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt5f.html",
+    "httpStatus": 200,
+    "title": "5.6: Gestaltungsfelder und Leitvorhaben",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5f.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/5_6-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt5g.html",
+    "httpStatus": 200,
+    "title": "5.7: Kontextwissen und Faktenwissen",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5g.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/5_7-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt5h.html",
+    "httpStatus": 200,
+    "title": "5.8: Das XENIA-Konzept",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5h.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/5_8-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt6.html",
+    "httpStatus": 200,
+    "title": "6: XENIA-System und Atelier für Innovatoren",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/werbild.gif",
+      "https://xeniapolis.de/gifs/b_64er/ewwer.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt6a.html",
+    "httpStatus": 200,
+    "title": "6.1: XENIA-System im Überblick",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6a.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/6_1-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt6b.html",
+    "httpStatus": 200,
+    "title": "6.2: Wissensrepräsentation in urbanem Ambiente",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6b.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/6_2-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt6c.html",
+    "httpStatus": 200,
+    "title": "6.3: Kontext und Fokus als komplementäre Regulatoren",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6c.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/6_3-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt6d.html",
+    "httpStatus": 200,
+    "title": "6.4: Die thematisch-methodische Inszenierung",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6d.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/6_4-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt6e.html",
+    "httpStatus": 200,
+    "title": "6.5: Das Fokusthema",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6e.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/6_5-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt6f.html",
+    "httpStatus": 200,
+    "title": "6.6: Der innovative Support",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6f.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/6_6-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt6g.html",
+    "httpStatus": 200,
+    "title": "6.7: Mehrfach weiterverwendbare Wissensbausteine",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6g.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/6_7-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt6h.html",
+    "httpStatus": 200,
+    "title": "6.8: Das Netzwerk für Innovatoren",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6h.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/6_8-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt7.html",
+    "httpStatus": 200,
+    "title": "7: Xenia, selbst eine fundamentale Innovation",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/potbild.gif",
+      "https://xeniapolis.de/gifs/b_64er/ewpot.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt7a.html",
+    "httpStatus": 200,
+    "title": "7.1: Das XENIA-Konzept - vorbereitete Komplexe",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7a.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/7_1-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt7b.html",
+    "httpStatus": 200,
+    "title": "7.2: Handlungsszenario: Wissensstädte und/oder Datenautobahnen",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7b.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/7_2-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt7c.html",
+    "httpStatus": 200,
+    "title": "7.3: Kontextszenario: Die Leerstelle",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7c.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/7_3-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt7d.html",
+    "httpStatus": 200,
+    "title": "7.4: Das Leitbild: Entstehung und Perspektiven der Erweiterung",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7d.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/7_4-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt7e.html",
+    "httpStatus": 200,
+    "title": "7.5: Das Applikationenszenario",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7e.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/7_5-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt7f.html",
+    "httpStatus": 200,
+    "title": "7.6: Das Portfolio für Innovationen",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7f.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/7_6-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt7g.html",
+    "httpStatus": 200,
+    "title": "7.7: Das Potentialeportfolio",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7g.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/7_7-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt7h.html",
+    "httpStatus": 200,
+    "title": "7.8: Das unternehmerische Programm",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7h.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/7_8-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt8.html",
+    "httpStatus": 200,
+    "title": "8: Perspektiven für ein Netzwerk",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/fuebild.gif",
+      "https://xeniapolis.de/gifs/b_64er/ewfue.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt8a.html",
+    "httpStatus": 200,
+    "title": "8.1: Innovative Herausforderungen aus Sicht der Führung",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8a.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/8_1-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt8b.html",
+    "httpStatus": 200,
+    "title": "8.2: EXPO 2000 - mehr Markttransparenz für Innovationen",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8b.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/8_2-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt8c.html",
+    "httpStatus": 200,
+    "title": "8.3: Kybernetischer Ansatz zur Systembeherrschung",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8c.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/8_3-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt8d.html",
+    "httpStatus": 200,
+    "title": "8.4: Xenia, Festival Futur",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8d.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/8_4-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt8e.html",
+    "httpStatus": 200,
+    "title": "8.5: Wege zur Informationsgesellschaft",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8e.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/8_5-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt8f.html",
+    "httpStatus": 200,
+    "title": "8.6: Makro-Gestaltungspotentiale des Wandels",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8f.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/8_6-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt8g.html",
+    "httpStatus": 200,
+    "title": "8.7: \"Halb voll oder halb leer\"",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8g.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/8_7-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ewelt8h.html",
+    "httpStatus": 200,
+    "title": "8.8: Unternehmerische Perspektiven mit Xenia",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8h.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/8_8-s.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/fue/fuestart.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/ins/insstart.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon/konstart.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon1_frame.html",
+    "httpStatus": 200,
+    "title": "Einstimmung zur Zukunftsgestaltung",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon1_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu3/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu3/konbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon2_frame.html",
+    "httpStatus": 200,
+    "title": "Konstellationen",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon2_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu3/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu3/konbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon3_frame.html",
+    "httpStatus": 200,
+    "title": "\"Eine Welt\" im Wandel",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon3_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu3/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu3/konbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon4_frame.html",
+    "httpStatus": 200,
+    "title": "Die Wiederbelebung der Polis",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon4_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu3/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu3/konbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon5_frame.html",
+    "httpStatus": 200,
+    "title": "Wandel: Chaos und Chance",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon5_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu3/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu3/konbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon6_frame.html",
+    "httpStatus": 200,
+    "title": "XENIA-System und Atelier für Innovatoren",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon6_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu3/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu3/konbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon7_frame.html",
+    "httpStatus": 200,
+    "title": "Xenia, selbst eine fundamentale Innovation",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon7_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu3/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu3/konbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon8_frame.html",
+    "httpStatus": 200,
+    "title": "Perspektiven für ein Netzwerk",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/kon8_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu3/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu3/konbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/konstart.html",
+    "httpStatus": 200,
+    "title": "Kontexte: XENIA-Thema: \"Eine Welt für morgen\"",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/index.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/konbild.gif",
+      "https://xeniapolis.de/gifs/b_64er/ewtotal.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/kon/mar/marstart.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/pot/potstart.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/wer/werstart.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/zen/zenstart.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/kon/zuk/zukstart.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/mar_frame.html",
+    "httpStatus": 200,
+    "title": "Viertel der Märkte und Begegnungen",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/mar_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu2/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu2/marbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/mar/marstart.html",
+    "httpStatus": 200,
+    "title": "Märkte und Kooperation: Ideen, Kontakte, Begegnung",
+    "targetPath": "src/content/docs/xeniapolis/idee-kontakt-begegnungen.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/marbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/menu1.html",
+    "httpStatus": 200,
+    "title": "Menubar",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu1/menu1_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_11.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_1.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_21.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_2.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_31.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_3.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_41.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_4.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_51.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_5.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_61.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_6.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_71.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_7.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_81.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_8.gif",
+      "https://xeniapolis.de/gifs/b_menu1/menu_0.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/pot_frame.html",
+    "httpStatus": 200,
+    "title": "Viertel der Potentiale",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/pot_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu2/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu2/potbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/pot/inh0.html",
+    "httpStatus": 200,
+    "title": "Inhaltsverzeichnis",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/inh0.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/lit0.html",
+    "httpStatus": 200,
+    "title": "Literaturverzeichnis",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/lit0.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk01.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: Innovationsmanagement",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk01.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk02.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: Kondratieff's Zyklen",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk02.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk03.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: Technologien",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk03.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/baustell.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk04.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: Methodik",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk04.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk05.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: Lebensqualität",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk05.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/baustell.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk06.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: Urbanität",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk06.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk07.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: Wagnis-Ideen",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk07.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk08.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: Gesellschaft",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk08.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk09.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: Polis",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk09.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk10.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: Lernen",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk10.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk11.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: Gruppe",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk11.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/baustell.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk12.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: Leitbild",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk12.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk13.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: Ateliers für Innovatoren",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk13.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk14.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: Fokus und Kontext",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk14.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk15.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: SATORI",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk15.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk16.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: SATORI",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk16.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/msk17.html",
+    "httpStatus": 200,
+    "title": "MOSAIK: SATORI",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/msk17.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/pot/potstart.html",
+    "httpStatus": 200,
+    "title": "Potentiale: Xenia-Kollektion MOSAIK",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/index.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/potbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/1.htm",
+    "httpStatus": 200,
+    "title": "Xenia- Wissenarchitekturen P. 1",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/wissenbi/bild01.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/10.htm",
+    "httpStatus": 200,
+    "title": "Xenia- Wissensarchitekturen P. 10",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/wissenbi/bild10.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/11.htm",
+    "httpStatus": 200,
+    "title": "Xenia- Wissensarchitektur P. 11",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/wissenbi/bild11.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/12.htm",
+    "httpStatus": 200,
+    "title": "Xenia- Wissensarchitektur P. 12",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/wissenbi/bild12.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/2.htm",
+    "httpStatus": 200,
+    "title": "Xenia- Wissenarchitekturen P. 2",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/wissenbi/bild02.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/3.htm",
+    "httpStatus": 200,
+    "title": "Xenia- Wissensarchitektur P. 3",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/wissenbi/bild03.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/4.htm",
+    "httpStatus": 200,
+    "title": "Xenia- Wissensarchitektur P. 4",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/wissenbi/bild04.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/5.htm",
+    "httpStatus": 200,
+    "title": "Xenia- Wissensarchitekturen P. 5",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/wissenbi/bild05.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/6.htm",
+    "httpStatus": 200,
+    "title": "Xenia- Wissensarchitekturen P. 6",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/wissenbi/bild06.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/7.htm",
+    "httpStatus": 200,
+    "title": "Xenia- Wissensarchitekturen P. 7",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/wissenbi/bild07.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/8.htm",
+    "httpStatus": 200,
+    "title": "Xenia- Wissensarchitekturen P. 8",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/wissenbi/bild08.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/9.htm",
+    "httpStatus": 200,
+    "title": "Xenia- Wissensarchitekturen P. 9",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/wissenbi/bild09.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/ann.htm",
+    "httpStatus": 200,
+    "title": "Xeniapolis: Annäherung",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/xeniabi/ann.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/atelier.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Atelier",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/xeniabi/atelier.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/atelier.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/buch.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Gästebuch",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/fue.htm",
+    "httpStatus": 200,
+    "title": "Xeniapolis: Führung",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/xeniabi/fue.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/history.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Projekte",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/innovato.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Netzwerk der Innovatoren",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/innovato.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/ins.htm",
+    "httpStatus": 200,
+    "title": "Xeniapolis: Inszenierung",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/kon.htm",
+    "httpStatus": 200,
+    "title": "Xeniapolis: Kontext",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/koo.htm",
+    "httpStatus": 200,
+    "title": "Xeniapolis: Kooperation",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/xeniabi/kon.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/kulturen.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Kulturen des Wissens",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/haus.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/bilder/himmel.gif",
+      "https://xeniapolis.de/telepol/bilder/karte.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/kulturen.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/leitbild.htm",
+    "httpStatus": 200,
+    "title": "Xenia: die Wiederbelebung der Polis",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/bilder/blaues.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/leitbild.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/messe.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Messerückblick 1",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/mrbilder/totale.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/mr10.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Messerückblick 10",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/mrbilder/braes.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/mr11.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Messerückblick 11",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/mrbilder/schr.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/mr12.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Messerückblick 12",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/mrbilder/bartels.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/mr13.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Messerückblick 13",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/mrbilder/kinder.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/mr14.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Messerückblick 14",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/mrbilder/voeng.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/mr15.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Messerückblick 15",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/mrbilder/mkette.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/mr2.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Messerückblick 2",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/mrbilder/stud.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/mr3.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Messerückblick 3",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/mrbilder/alt.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/mr4.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Messerückblick 4",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/mrbilder/suss.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/mr5.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Messerückblick 5",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/mrbilder/rutt.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/mr6.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Messerückblick 6",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/mrbilder/engel.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/mr7.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Messerückblick 7",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/mrbilder/halle15.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/mr8.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Messerückblick 8",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/mrbilder/chi.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/mr9.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Messerückblick 9",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/mrbilder/publi.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/netzwerk.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Das Netzwerk der Städte des Wissens",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/umland.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/netzwerk.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/partner.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Kooperationspartner",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/publikat.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Publikationen",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/publikationen.htm",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/res.htm",
+    "httpStatus": 200,
+    "title": "Xeniapolis: Ressourcen",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/xeniabi/methoden.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/schwer1.htm",
+    "httpStatus": 200,
+    "title": "XENIA-Themenschwerpunkt 1",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/schwer2.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Themenschwerpunkt 2",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/schwer3.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Themenschwerpunkt 3",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/schwer4.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Themenschwerpunkt 4",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/schwer5.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Themenschwerpunkt 5",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/schwer6.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Themenschwerpunkt 6",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/schwer7.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Themenschwerpunkt 7",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/schwer8.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Themenschwerpunkt 8",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/schwer9.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Themenschwerpunkt 9",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/schwerpu.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Themenschwerpunkte",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/bilder/themen.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/schwerpu.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/skizze.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Eine programmatische Skizzierung",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/bilder/kondrat.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/Stadtv/annb.htm",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/Stadtv/fueb.htm",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/Stadtv/koob.htm",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/Stadtv/resb.htm",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/Stadtv/werb.htm",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/Stadtv/zenb.htm",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/wer.htm",
+    "httpStatus": 200,
+    "title": "Xeniapolis: Wertschöpfung",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/xeniabi/wer.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/wissens.htm",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/wissensa.htm",
+    "httpStatus": 200,
+    "title": "Xenia: Informationen",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/bilder/wissensa.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/wissensa.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/wissenss.htm",
+    "httpStatus": 200,
+    "title": "XENIA, Wissensstadt am Wege zur Informationsgesellschaft",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/xeniabi/planxeni.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/wissenss.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/wissensstadt.htm",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/xenia.htm",
+    "httpStatus": 200,
+    "title": "Willkommen bei Xenia",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/xenialog.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/xeniaiueb.htm",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/xeniaueb.htm",
+    "httpStatus": 200,
+    "title": "Xenia Übersicht",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/uebersic.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/xeniaueb.html",
+    "httpStatus": 404,
+    "title": "404 - Not Found",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/zen.htm",
+    "httpStatus": 200,
+    "title": "Xeniapolis:Zentrum",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif",
+      "https://xeniapolis.de/telepol/xeniabi/zen.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/telepol/zuk.htm",
+    "httpStatus": 200,
+    "title": "Xeniapolis: Zukunft",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/telepol/bilder/hintergr.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonan.gif",
+      "https://xeniapolis.de/telepol/bilder/buttonau.gif"
+    ],
+    "underConstruction": false,
+    "notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+  },
+  {
+    "url": "https://xeniapolis.de/wer_frame.html",
+    "httpStatus": 200,
+    "title": "Viertel der Wertschöpfung",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/wer_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu2/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu2/werbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/wer/arbeit0.html",
+    "httpStatus": 200,
+    "title": "Das Projekt: Aktuelle Arbeiten",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/arbeit0.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/gesch0.html",
+    "httpStatus": 200,
+    "title": "Das Projekt: Projektgeschichte",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/gesch0.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/idee0.html",
+    "httpStatus": 200,
+    "title": "Das Projekt: Zur Idee",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/idee0.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/palfred.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Partner",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/palfred.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_sonst/ansatl.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/pallcad.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Partner",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/pallcad.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_stteil/stplan.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/parch.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Partner",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/parch.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_sonst/arch5.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/parno.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Partner",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/parno.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_person/braes.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/parthur.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Partner",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/parthur.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_allg/zeichen1.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/pegloff.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Partner",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/pegloff.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_sonst/1modell.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/pfrank.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Partner",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/pfrank.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewpot.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/pgabi.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Partner",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/pgabi.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_allg/blaues.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/plan0.html",
+    "httpStatus": 200,
+    "title": "Das Projekt: Wie geht es weiter?",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/plan0.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/pmath.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Partner",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/pmath.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/pmedinst.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Partner",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/pmedinst.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_sonst/teleplog.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/pmicha.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Partner",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/pmicha.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_person/totale.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/pscanl.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Partner",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/pscanl.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/walex.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Alexander Volkmann",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/walex.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_person/alex.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/wcaro.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Carolin Lasse",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/wcaro.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_person/caro.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/werist0.html",
+    "httpStatus": 200,
+    "title": "Das Projekt: Wer ist Xenia?",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/werist0.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/werstart.html",
+    "httpStatus": 200,
+    "title": "Wertschöpfung: Das Projekt Xenia",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/index.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/werbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/wflo.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Florian Berwig",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/wflo.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_person/flo.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/wfrei.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Brigitte Freytag-Schönwalde",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/wfrei.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_person/freitag.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/wmagn.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Magnus Volkmann",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/wmagn.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_person/magnus.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/wrein.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Rainer Michelis",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/wrein.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_person/reiner.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/wsusa.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Susann Ritter",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/wsusa.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_person/suse.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/wthl.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Thomas Lauxmann",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/wthl.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_person/thl.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/wudo.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Udo Fleckenstein",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/wudo.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_person/udo.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/wuli.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Uli Preiser",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/wuli.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_person/uli.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/wer/wvolk.html",
+    "httpStatus": 200,
+    "title": "Wer ist Xenia? Helmut Volkmann",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/wvolk.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_person/volkmann.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  },
+  {
+    "url": "https://xeniapolis.de/zen/impress.html",
+    "httpStatus": 200,
+    "title": "Impressum",
+    "targetPath": "src/content/docs/xeniapolis/impressum.mdx",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Filename aligned with the impressum.mdx OKF type-mapping convention (see docs/agents/domain.md)."
+  },
+  {
+    "url": "https://xeniapolis.de/zen/zenstart.html",
+    "httpStatus": 200,
+    "title": "Willkommen bei Xenia",
+    "targetPath": "src/content/docs/xeniapolis/besuch-in-der-wissensstadt.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/platz.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
+  },
+  {
+    "url": "https://xeniapolis.de/zuk_frame.html",
+    "httpStatus": 200,
+    "title": "Viertel der Zukunft",
+    "targetPath": "",
+    "assets": [],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/zuk_menu.html",
+    "httpStatus": 200,
+    "title": "Menu",
+    "targetPath": "",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_menu2/menu2_bckrd.gif",
+      "https://xeniapolis.de/gifs/b_menu2/zukbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
+  },
+  {
+    "url": "https://xeniapolis.de/zuk/zukstart.html",
+    "httpStatus": 200,
+    "title": "Zukunft: XENIA-Thema \"Futursysteme\"",
+    "targetPath": "src/content/docs/xeniapolis/zukunft/index.mdx",
+    "assets": [
+      "https://xeniapolis.de/gifs/b_icons/zukbild.gif"
+    ],
+    "underConstruction": false,
+    "notes": ""
+  }
+]
