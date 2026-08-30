@@ -119,15 +119,23 @@ test('computeTargetPath consolidates every viertelN.html copy onto the shared ov
 	)
 })
 
-test('computeTargetPath uses the verified content match for mar/marstart.html and zen/zenstart.html', () => {
+test('computeTargetPath uses the verified content match for mar/marstart.html', () => {
 	assert.equal(
 		computeTargetPath('/mar/marstart.html').targetPath,
 		'src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx',
 	)
-	assert.equal(
-		computeTargetPath('/zen/zenstart.html').targetPath,
-		'src/content/docs/xeniapolis/besuch-in-der-wissensstadt.mdx',
-	)
+})
+
+test('computeTargetPath maps zen/zenstart.html to the Zentrum welcome hub, not the Stadtviertel-tour page it merely links to', () => {
+	const { targetPath, notes } = computeTargetPath('/zen/zenstart.html')
+	assert.equal(targetPath, 'src/content/docs/xeniapolis/index.mdx')
+	assert.equal(notes.includes('navigation chrome'), true)
+})
+
+test('computeTargetPath maps zen/impress.html to the docs-root impressum.mdx, not a nested xeniapolis/ path', () => {
+	const { targetPath, notes } = computeTargetPath('/zen/impress.html')
+	assert.equal(targetPath, 'src/content/docs/impressum.mdx')
+	assert.equal(notes.includes('only one Impressum'), true)
 })
 
 test('computeTargetPath maps the kurzueb and ewelt2 page sequences onto their aggregated MDX files', () => {

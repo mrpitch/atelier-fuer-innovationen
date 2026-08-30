@@ -3811,21 +3811,21 @@
     "url": "https://xeniapolis.de/zen/impress.html",
     "httpStatus": 200,
     "title": "Impressum",
-    "targetPath": "src/content/docs/xeniapolis/impressum.mdx",
+    "targetPath": "src/content/docs/impressum.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": "Filename aligned with the impressum.mdx OKF type-mapping convention (see docs/agents/domain.md)."
+    "notes": "There is only one Impressum site-wide, so it lives at the docs root rather than nested under xeniapolis/ (see src/content/docs/meta.json)."
   },
   {
     "url": "https://xeniapolis.de/zen/zenstart.html",
     "httpStatus": 200,
     "title": "Willkommen bei Xenia",
-    "targetPath": "src/content/docs/xeniapolis/besuch-in-der-wissensstadt.mdx",
+    "targetPath": "src/content/docs/xeniapolis/index.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/platz.gif"
     ],
     "underConstruction": false,
-    "notes": "Content matches an already-migrated page (verified by comparing text)."
+    "notes": "Pure navigation chrome (image map + copyright footer), no unique prose. The Zentrum's welcome role is fulfilled by index.mdx, whose \"Was ist/bietet Xenia\" text is verbatim-sourced from and verified against ann/annstart.html."
   },
   {
     "url": "https://xeniapolis.de/zuk_frame.html",

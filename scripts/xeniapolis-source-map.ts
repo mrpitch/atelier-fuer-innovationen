@@ -56,7 +56,6 @@ const DISTRICT_SLUGS: Record<string, string> = {
 // <title>), the same pattern as the viertelN.html tour consolidation.
 const VERIFIED_TARGETS: Record<string, string> = {
 	'/mar/marstart.html': 'src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx',
-	'/zen/zenstart.html': 'src/content/docs/xeniapolis/besuch-in-der-wissensstadt.mdx',
 	'/ann/kurzueb1.html': 'src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx',
 	'/ann/kurzueb2.html': 'src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx',
 	'/ann/kurzueb3.html': 'src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx',
@@ -199,8 +198,15 @@ export function computeTargetPath(pathname: string): { targetPath: string; notes
 	}
 	if (file === 'impress.html' && segments[0] === 'zen') {
 		return {
-			targetPath: 'src/content/docs/xeniapolis/impressum.mdx',
-			notes: 'Filename aligned with the impressum.mdx OKF type-mapping convention (see docs/agents/domain.md).',
+			targetPath: 'src/content/docs/impressum.mdx',
+			notes: 'There is only one Impressum site-wide, so it lives at the docs root rather than nested under xeniapolis/ (see src/content/docs/meta.json).',
+		}
+	}
+	if (file === 'zenstart.html' && segments[0] === 'zen') {
+		return {
+			targetPath: 'src/content/docs/xeniapolis/index.mdx',
+			notes:
+				"Pure navigation chrome (image map + copyright footer), no unique prose. The Zentrum's welcome role is fulfilled by index.mdx, whose \"Was ist/bietet Xenia\" text is verbatim-sourced from and verified against ann/annstart.html.",
 		}
 	}
 
