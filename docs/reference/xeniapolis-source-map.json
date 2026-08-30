@@ -71,95 +71,95 @@
     "url": "https://xeniapolis.de/ann/besuch1.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Annäherung",
-    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch1.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/ann_mo.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
   },
   {
     "url": "https://xeniapolis.de/ann/besuch2.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Märkte und Kooperation",
-    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch2.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/mar_mo.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
   },
   {
     "url": "https://xeniapolis.de/ann/besuch3.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Kontexte",
-    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch3.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/kon_mo.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
   },
   {
     "url": "https://xeniapolis.de/ann/besuch4.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Inszenierung",
-    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch4.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/ins_mo.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
   },
   {
     "url": "https://xeniapolis.de/ann/besuch5.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Zukunft",
-    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch5.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/zuk_mo.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
   },
   {
     "url": "https://xeniapolis.de/ann/besuch6.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Wertschöpfung",
-    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch6.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/wer_mo.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
   },
   {
     "url": "https://xeniapolis.de/ann/besuch7.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Potentiale",
-    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch7.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/pot_mo.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
   },
   {
     "url": "https://xeniapolis.de/ann/besuch8.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Führung",
-    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch8.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/fue_mo.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
   },
   {
     "url": "https://xeniapolis.de/ann/besuch9.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Überblick",
-    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch9.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/alles_mo.gif",
       "https://xeniapolis.de/gifs/b_modell/kon_mokl.gif",
@@ -173,13 +173,13 @@
       "https://xeniapolis.de/gifs/b_modell/pot_mokl.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
   },
   {
     "url": "https://xeniapolis.de/ann/kurzueb1.html",
     "httpStatus": 200,
     "title": "Eine erste Annäherung: Stätten der Begegnung",
-    "targetPath": "src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/staetten-der-begegnung.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/ansichkl.gif"
     ],
@@ -190,7 +190,7 @@
     "url": "https://xeniapolis.de/ann/kurzueb2.html",
     "httpStatus": 200,
     "title": "Standard Annäherung. Vorlage",
-    "targetPath": "src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/kondratieffs-zyklen.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/kondrat2.gif"
     ],
@@ -201,7 +201,7 @@
     "url": "https://xeniapolis.de/ann/kurzueb3.html",
     "httpStatus": 200,
     "title": "Erste Annäherung: Aufbruch zum Kontinent der Lösungen",
-    "targetPath": "src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/aufbruch-zum-kontinent-der-loesungen.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/blaues.gif"
     ],
@@ -212,7 +212,7 @@
     "url": "https://xeniapolis.de/ann/kurzueb4.html",
     "httpStatus": 200,
     "title": "Eine erste Annäherung: Ateliers für Innovatoren",
-    "targetPath": "src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/ateliers-fuer-innovatoren.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/atelier.gif"
     ],
@@ -223,7 +223,7 @@
     "url": "https://xeniapolis.de/ann/kurzueb5.html",
     "httpStatus": 200,
     "title": "Eine erste Ann&auml,herung: Netzwerk der Wissensstädte",
-    "targetPath": "src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/umland.gif"
     ],
@@ -234,18 +234,18 @@
     "url": "https://xeniapolis.de/ann/umgeb1.html",
     "httpStatus": 200,
     "title": "Besuch in der Umgebung: Überblick",
-    "targetPath": "src/content/docs/xeniapolis/annaeherung/umgeb1.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/umland.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/ann/viertel0.html",
     "httpStatus": 200,
     "title": "Die Stadtviertel: Das Zentrum",
-    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_stteil/zenkl.gif"
     ],
@@ -256,7 +256,7 @@
     "url": "https://xeniapolis.de/ann/viertel1.html",
     "httpStatus": 200,
     "title": "Die Stadtviertel: Viertel der Annäherung",
-    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/annbild.gif",
       "https://xeniapolis.de/gifs/b_stteil/annkl.gif",
@@ -269,7 +269,7 @@
     "url": "https://xeniapolis.de/ann/viertel2.html",
     "httpStatus": 200,
     "title": "Die Stadtviertel: Viertel der Märkte und Kooperation",
-    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/marbild.gif",
       "https://xeniapolis.de/gifs/b_stteil/markl.gif",
@@ -282,7 +282,7 @@
     "url": "https://xeniapolis.de/ann/viertel3.html",
     "httpStatus": 200,
     "title": "Die Stadtviertel: Viertel der Kontexte",
-    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/konbild.gif",
       "https://xeniapolis.de/gifs/b_stteil/konkl.gif",
@@ -295,7 +295,7 @@
     "url": "https://xeniapolis.de/ann/viertel4.html",
     "httpStatus": 200,
     "title": "Die Stadtviertel: Viertel der Inszenierung",
-    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/insbild.gif",
       "https://xeniapolis.de/gifs/b_stteil/inskl.gif",
@@ -308,7 +308,7 @@
     "url": "https://xeniapolis.de/ann/viertel5.html",
     "httpStatus": 200,
     "title": "Die Stadtviertel: Viertel derZukunft",
-    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/zukbild.gif",
       "https://xeniapolis.de/gifs/b_stteil/zukkl.gif",
@@ -321,7 +321,7 @@
     "url": "https://xeniapolis.de/ann/viertel6.html",
     "httpStatus": 200,
     "title": "Die Stadtviertel: Viertel der Wertschöpfung",
-    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/werbild.gif",
       "https://xeniapolis.de/gifs/b_stteil/werkl.gif",
@@ -334,7 +334,7 @@
     "url": "https://xeniapolis.de/ann/viertel7.html",
     "httpStatus": 200,
     "title": "Die Stadtviertel: Viertel der Potentiale",
-    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/potbild.gif",
       "https://xeniapolis.de/gifs/b_stteil/potkl.gif",
@@ -347,7 +347,7 @@
     "url": "https://xeniapolis.de/ann/viertel8.html",
     "httpStatus": 200,
     "title": "Die Stadtviertel: Viertel der Führung",
-    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/fuebild.gif",
       "https://xeniapolis.de/gifs/b_stteil/fuekl.gif",
@@ -360,7 +360,7 @@
     "url": "https://xeniapolis.de/ann/viertel9.html",
     "httpStatus": 200,
     "title": "Die Stadtviertel: Überblick",
-    "targetPath": "src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_stteil/stplan.gif",
       "https://xeniapolis.de/gifs/b_stteil/konkl.gif",
@@ -1517,10 +1517,13 @@
   },
   {
     "url": "https://xeniapolis.de/kon/ewelt4g.html",
-    "httpStatus": 0,
-    "title": "",
+    "httpStatus": 200,
+    "title": "4.7: Potential-Defizit-Balance-Rechnung",
     "targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4g.mdx",
-    "assets": [],
+    "assets": [
+      "https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
+      "https://xeniapolis.de/gifs/b_64er/4_7-s.gif"
+    ],
     "underConstruction": false,
     "notes": ""
   },
