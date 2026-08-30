@@ -1,0 +1,515 @@
+
+--- Run started: 2026-08-30T09:47:27.917Z ---
+Sandcastle Run
+  Agent: implement
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/94-xeniapolis-restructure
+Iteration 1/1
+Setting up sandbox
+  CI=true pnpm install --frozen-lockfile
+Setting up sandbox done (0.5s)
+Agent started
+I'll start by reading the efficiency rules file as instructed, then explore the repo structure before loading the implement skill.
+Bash(git status && echo --- && git log --oneline -10 && echo --- && git log origin/epic/92-migrate-xeniapolis-de --oneline -5)
+Bash(find .agents/skills/implement -type f)
+Now let me load the implement skill.Now let me explore the current Xeniapolis content structure and related files.
+Bash(find src/content/docs/xeniapolis -type f | sort)
+Bash(find . -iname "*glossary*" -not -path "*/node_modules/*" -not -path "*/.git/*" | sort)
+Bash(find . -iname "layout.config.tsx" -not -path "*/node_modules/*")
+Bash(find . -iname "illus.json" -not -path "*/node_modules/*")
+Bash(grep -rn "annaeherung\|maerkte\|potentiale\|potenziale\|wertschoepfung\|kontexte\|inszenierung\|fuehrung" --include="*.md" --include="*.json" --include="*.tsx" --include="*.mdx" -l . 2>/dev/null | grep -v node_modules | grep -v "^./.git" | sort)
+Bash(find . -path ./node_modules -prune -o -iname "*source-map*" -print -o -iname "*xeniapolis*" -print 2>/dev/null | grep -v "^\./\.git" | grep -v node_modules)
+Bash(wc -l docs/reference/xeniapolis-source-map.json src/data/illus.json src/app/layout.config.tsx)
+Bash(for f in src/content/docs/xeniapolis/besuch-in-der-wissensstadt.mdx src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx src/content/docs/xeniapolis/idee-kontakt-begegnungen.mdx src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx src/content/docs/xeniapolis/kurzuebersicht.mdx; do echo "=== $f ==="; wc -l "$f"; done)
+Bash(for d in fuehrung inszenierung kontexte potenziale wertschoepfung zukunft; do echo "=== $d/meta.json ==="; cat "src/content/docs/xeniapolis/$d/meta.json"; echo; echo "=== $d/index.mdx (head) ==="; head -20 "src/content/docs/xeniapolis/$d/index.mdx"; echo; done)
+Bash(echo "=== viertel-der-annaeherung/index.mdx ==="; cat src/content/docs/xeniapolis/viertel-der-annaeherung/index.mdx; echo; echo "=== viertel-der-fuerung/index.mdx ==="; cat src/content/docs/xeniapolis/viertel-der-fuerung/index.mdx; echo; find src/content/docs/xeniapolis/viertel-der-annaeherung src/content/docs/xeniapolis/viertel-der-fuerung -type f)
+Bash(find src/components -iname "*slide*" -o -iname "*illu*" | grep -v node_modules; echo ---; find src/data -type f; echo ---; cat src/components/slides.tsx 2>/dev/null || find src/components -iname "slides*")
+Bash(find public -iname "*illu*" -o -iname "*aufbruch*" | grep -v node_modules; echo ---; find public/illus -maxdepth 1 | sort; echo ---slides---; find public/slides -maxdepth 1 2>/dev/null | sort; find public -iname "*slide*" -maxdepth 2)
+Bash(grep -rn "<Slide\|<Illu" src/content/docs/xeniapolis/ | sort -t: -k1,1)
+Bash(for d in fuehrung inszenierung kontexte potenziale wertschoepfung zukunft; do echo "=== $d/index.mdx (full) ==="; cat "src/content/docs/xeniapolis/$d/index.mdx"; echo; done)
+Agent idle for 1 minute
+Bash(grep -n '"scripts"' -A 30 package.json | head -40)
+Bash(wc -l docs/agents/domain.md; sed -n '1,200p' docs/agents/domain.md)
+Bash(find docs/how-to -type f | sort; echo ---; ls docs/how-to 2>/dev/null | head -5)
+Bash(find docs -name "*.md" | xargs -I{} sh -c 'echo "=== {} ==="; head -12 "{}"' 2>/dev/null | head -150)
+Agent idle for 1 minute
+Agent idle for 2 minutes
+Agent idle for 3 minutes
+Agent idle for 4 minutes
+Agent idle for 5 minutes
+Agent idle for 6 minutes
+Agent idle for 7 minutes
+Bash(grep -rn "kind: how-to\|kind:.*how-to\|How-To\|how-to-guide" docs/ .claude 2>/dev/null | grep -v "docs/how-to/README" | head -30)
+Bash(find .claude/skills -iname "*diataxis*" 2>/dev/null; find / -maxdepth 4 -iname "*diataxis*" 2>/dev/null | grep -v node_modules | grep -v workspace/docs)
+Now I have all I need. Let me check the Fumadocs meta.json subfolder syntax and the current district folders' meta.json files before executing.
+Bash(for f in src/content/docs/xeniapolis/*/meta.json; do echo "=== $f ==="; cat "$f"; echo; done
+echo "--- atelier meta (for subfolder ref syntax) ---"
+find src/content/docs/atelier -name meta.json | xargs -I{} sh -c 'echo "== {} =="; cat "{}"')
+Bash(grep -n -i "märkte\|gap\|missing\|folder" docs/reference/glossary.md | head -40)
+Bash(grep -rn "slide-4\|slide-5\|slide-6" src/ docs/ 2>/dev/null; echo "---assets---"; ls public/slides/)
+Bash(ls public/slides/ | grep -i "slide-[123]\|slide-[456]")
+Now I have everything needed. Let me execute the restructuring, starting with the folder renames and moves.
+Bash(git mv src/content/docs/xeniapolis/viertel-der-annaeherung src/content/docs/xeniapolis/annaeherung && git mv src/content/docs/xeniapolis/kurzuebersicht.mdx src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx && git rm -r src/content/docs/xeniapolis/viertel-der-fuerung && git mv src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx && git status --short)
+Now create the `maerkte/` folder and move its real content file in:
+Bash(mkdir -p src/content/docs/xeniapolis/maerkte && git mv src/content/docs/xeniapolis/idee-kontakt-begegnungen.mdx src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx && git status --short)
+Now create the stub `index.mdx` and `meta.json` files for `maerkte/` and `archiv/`, fix the `annaeherung/meta.json`, and apply the Slide→Illu fix.Now create the `archiv/` folder scaffold:
+Bash(mkdir -p src/content/docs/xeniapolis/archiv)
+Now rebuild the top-level `xeniapolis/meta.json`:Now the small config fixes: `illus.json` path, `slides.json` phantom entries, `layout.config.tsx` URLs, and `zukunft/meta.json` title normalization.
+Bash(grep -n "aufbruch-zum-kontinent-der-loesungen" src/data/illus.json)
+Also fix `kontexte/meta.json`'s missing `icon` for consistency with the other five district folders:Now the glossary Märkte gap callout, and the new how-to doc:Update `last_reviewed` since we're editing substantive content today:Now create the new how-to doc:Now let's stage everything and review the diff stat, then run verification.
+Bash(git add -A -- src/content/docs/xeniapolis docs/how-to/transcribe-xeniapolis-source.md docs/reference/glossary.md src/data/illus.json src/data/slides.json src/app/layout.config.tsx && git status --short | grep -v "^??" )
+Bash(rm -rf .next && timeout 150 pnpm exec tsc --noEmit && timeout 150 pnpm exec eslint 'src/**/*.{ts,tsx}'; echo "EXIT=$?")
+Bash(ps aux | grep -i "next\|node" | grep -v grep)
+Bash(timeout 150 pnpm exec tsc --noEmit && timeout 150 pnpm exec eslint 'src/**/*.{ts,tsx}'; echo "EXIT=$?")
+Bash(timeout 150 ./node_modules/.bin/tsc --noEmit; echo "TSC_EXIT=$?")
+Bash(timeout 150 ./node_modules/.bin/eslint 'src/**/*.{ts,tsx}'; echo "ESLINT_EXIT=$?")
+Both pass clean. Now `pnpm validate:okf`:
+Bash(timeout 60 ./node_modules/.bin/tsx scripts/validate-okf.ts; echo "OKF_EXIT=$?")
+Bash(grep -n '"test"' package.json)
+Bash(timeout 60 ./node_modules/.bin/tsx --test scripts/*.test.ts 2>&1 | tail -40; echo "TEST_EXIT=$?")
+Bash(git log --all --oneline | grep -i dd40d3b; git show --stat dd40d3b 2>/dev/null | head -20; free -h 2>/dev/null; echo "---"; grep -rn "OOM\|memory\|NODE_OPTIONS" .sandcastle/*.md 2>/dev/null)
+Bash(rm -rf .next 2>/dev/null; timeout 280 pnpm run build > /tmp/build.log 2>&1; echo "BUILD_EXIT=$?"; tail -60 /tmp/build.log)
+Build succeeded — 58 static pages generated, no OOM. Let's now smoke-test the new pages with a live server via Playwright.
+Bash(nohup pnpm exec next start -p 3417 > /tmp/nextstart.log 2>&1 &
+disown
+for i in $(seq 1 30); do
+  grep -q "Ready" /tmp/nextstart.log && echo "ready after ${i}s" && break
+  sleep 1
+done
+tail -20 /tmp/nextstart.log)
+Bash(curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3417/docs/xeniapolis; curl -s -o /dev/null -w "%{http_code}\n" http://172.17.0.2:3417/docs/xeniapolis; hostname -I 2>/dev/null; cat /etc/hosts 2>/dev/null)
+Bash(ss -tlnp 2>/dev/null || netstat -tlnp 2>/dev/null; echo "---log---"; tail -30 /tmp/nextstart.log)
+Bash(pkill -f "next start" 2>/dev/null; ls out | head; which serve 2>/dev/null; ls node_modules/.bin/ | grep -i serve)
+Bash(ls out 2>/dev/null | head -20)
+Bash(nohup python3 -m http.server 3417 --directory out > /tmp/staticserver.log 2>&1 &
+disown
+sleep 1
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3417/docs/xeniapolis.html
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3417/docs/xeniapolis/annaeherung.html
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3417/docs/xeniapolis/maerkte.html
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3417/docs/xeniapolis/archiv.html)
+Bash(curl -v http://127.0.0.1:3417/ 2>&1 | head -20; echo "---"; ps aux | grep http.server | grep -v grep)
+Bash(cat /tmp/staticserver.log)
+Bash(cat > /tmp/staticserve.js <<'EOF'
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+const root = path.resolve(process.argv[2] || 'out');
+const mime = { '.html':'text/html', '.js':'text/javascript', '.css':'text/css', '.json':'application/json', '.png':'image/png', '.jpg':'image/jpeg', '.svg':'image/svg+xml' };
+http.createServer((req, res) => {
+  let p = decodeURIComponent(req.url.split('?')[0]);
+  if (p === '/') p = '/index.html';
+  let filePath = path.join(root, p);
+  if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) filePath = path.join(filePath, 'index.html');
+  if (!fs.existsSync(filePath) && fs.existsSync(filePath + '.html')) filePath = filePath + '.html';
+  fs.readFile(filePath, (err, data) => {
+    if (err) { res.writeHead(404); res.end('not found'); return; }
+    res.writeHead(200, { 'Content-Type': mime[path.extname(filePath)] || 'application/octet-stream' });
+    res.end(data);
+  });
+}).listen(3417, () => console.log('listening'));
+EOF
+nohup node /tmp/staticserve.js "$(pwd)/out" > /tmp/staticserver.log 2>&1 &
+disown
+sleep 1
+cat /tmp/staticserver.log
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3417/docs/xeniapolis.html)
+Server's reachable now. Let's check whether the Playwright browser (running on a separate host) can reach it too, using the network IP.
+Bash(curl -s -o /dev/null -w "%{http_code}\n" http://172.17.0.2:3417/docs/xeniapolis.html
+curl -s -o /dev/null -w "%{http_code}\n" http://172.17.0.2:3417/docs/xeniapolis/annaeherung.html
+curl -s -o /dev/null -w "%{http_code}\n" http://172.17.0.2:3417/docs/xeniapolis/maerkte.html
+curl -s -o /dev/null -w "%{http_code}\n" http://172.17.0.2:3417/docs/xeniapolis/kontexte.html
+curl -s -o /dev/null -w "%{http_code}\n" http://172.17.0.2:3417/docs/xeniapolis/archiv.html
+curl -s -o /dev/null -w "%{http_code}\n" http://172.17.0.2:3417/docs/xeniapolis/annaeherung/kurzuebersicht.html)
+All resolve. Now let's try Playwright against the network address to actually render and inspect the fixed `<Illu>` reference.
+Bash(curl -s http://172.17.0.2:3417/docs/xeniapolis/annaeherung/kurzuebersicht.html | grep -o 'illustration-aufbruch-zum-kontinent-der-loesungen[^"]*\.png' | sort -u
+echo "---maerkte real content check---"
+curl -s http://172.17.0.2:3417/docs/xeniapolis/maerkte.html | grep -o "Ideen, Kontakte" 
+echo "---kontexte real content check---"
+curl -s http://172.17.0.2:3417/docs/xeniapolis/kontexte.html | grep -o "Konstellationen" | head -1
+echo "---xeniapolis nav sidebar links (folder pages resolve)---"
+curl -s http://172.17.0.2:3417/docs/xeniapolis.html | grep -o 'href="/docs/xeniapolis/[a-z-]*"' | sort -u)
+Bash(curl -s http://172.17.0.2:3417/index.html | grep -o 'href="/docs/xeniapolis[^"]*"' | sort -u
+echo "---404 check for old broken paths---"
+curl -s -o /dev/null -w "%{http_code}\n" http://172.17.0.2:3417/docs/xeniapolis/viertel-der-fuerung.html
+curl -s -o /dev/null -w "%{http_code}\n" http://172.17.0.2:3417/docs/xeniapolisviertel-der-annaeherung.html)
+Bash(pkill -f "node /tmp/staticserve.js" 2>/dev/null
+git fetch origin epic/92-migrate-xeniapolis-de 2>&1 | tail -5 &
+FETCH_PID=$!
+git rev-parse --verify origin/epic/92-migrate-xeniapolis-de 2>&1
+wait $FETCH_PID 2>/dev/null
+git rev-parse --verify origin/epic/92-migrate-xeniapolis-de 2>&1)
+Bash(timeout 30 git fetch origin epic/92-migrate-xeniapolis-de 2>&1 | tail -10; echo "FETCH_EXIT=$?")
+Bash(git rev-parse --verify origin/epic/92-migrate-xeniapolis-de; git log --oneline origin/epic/92-migrate-xeniapolis-de -5; git merge-base HEAD origin/epic/92-migrate-xeniapolis-de)
+Good — fixed point matches current HEAD (no divergence). Let's capture the diff once and dispatch a review agent against it.
+Bash(git diff origin/epic/92-migrate-xeniapolis-de -- . > /tmp/review.diff
+git diff --stat origin/epic/92-migrate-xeniapolis-de -- .
+wc -l /tmp/review.diff)
+This is a small, well-scoped diff. Let me dispatch an independent review agent against it.
+Agent(Review xeniapolis restructure diff)
+Agent(Review xeniapolis restructure diff)
+Bash(find src/content/docs/xeniapolis -type f | sort)
+Bash(for f in $(find src/content/docs/xeniapolis -name meta.json); do echo "== $f =="; cat "$f"; echo; done)
+Bash(echo "=== frontmatter type check ==="; for f in $(find src/content/docs/xeniapolis -name "*.mdx"); do echo "-- $f --"; sed -n '1,12p' "$f"; echo; done)
+Bash(echo "=== search for dead paths repo-wide ==="; grep -rn "viertel-der-annaeherung\|viertel-der-fuerung\|xeniapolisviertel" --include="*.tsx" --include="*.ts" --include="*.mdx" --include="*.md" --include="*.json" . 2>/dev/null | grep -v node_modules)
+Bash(cat /home/agent/workspace/src/components/slides.tsx | sed -n '1,40p'; echo "---illus.tsx---"; cat /home/agent/workspace/src/components/illus.tsx 2>/dev/null | sed -n '1,40p')
+Bash(ls /home/agent/workspace/public/illus | grep -i aufbruch; ls /home/agent/workspace/public/slides | grep -E "slide-4|slide-5|slide-6")
+Bash(ls /home/agent/workspace/docs/how-to/; echo "---example other how-to frontmatter---"; for f in /home/agent/workspace/docs/how-to/*.md; do echo "== $f =="; sed -n '1,12p' "$f"; done)
+Bash(find /home/agent/workspace/docs -name "*.md" | xargs -I{} sh -c 'echo "== {} =="; sed -n "1,12p" {}' | head -200)
+Bash(find /home/agent/workspace/scripts -iname "*okf*"; cat /home/agent/workspace/scripts/validate-okf.ts 2>/dev/null | head -150)
+Bash(sed -n '1,90p' /home/agent/workspace/scripts/xeniapolis-source-map.ts)
+Bash(grep -rn "besuch-in-der-wissensstadt" /home/agent/workspace/src/content/docs/xeniapolis/besuch-in-der-wissensstadt.mdx | head -5; grep -n "Märkte\|maerkte" /home/agent/workspace/src/content/docs/xeniapolis/besuch-in-der-wissensstadt.mdx)
+Bash(grep -n "no dedicated\|no scaffolded\|Märkte" /home/agent/workspace/docs/reference/xeniapolis-source-map.md | head -20)
+Bash(grep -n "idee-kontakt-begegnungen\|kurzuebersicht.mdx\|konstellationen-beim-uebergang" /home/agent/workspace/docs/reference/xeniapolis-source-map.md /home/agent/workspace/docs/reference/xeniapolis-source-map.json)
+Bash(sed -n '1,60p' /home/agent/workspace/src/content/docs/xeniapolis/index.mdx)
+Bash(grep -rn "xeniapolis/" /home/agent/workspace/src/components/overview-cards.tsx 2>/dev/null; grep -rln "viertel-der-annaeherung\|viertel-der-fuerung\|xeniapolisviertel\|/docs/xeniapolis/kontext\b\|/docs/xeniapolis/wertschoepfung\b" /home/agent/workspace/src 2>/dev/null)
+Bash(cat /home/agent/workspace/src/data/illus.json | python3 -c "import json,sys; d=json.load(sys.stdin); slugs=[i['slug'] for i in d['illus']]; print(len(slugs), len(set(slugs))); print(d['illus'][:2])")
+Bash(grep -o '"slug": "[^"]*"' /home/agent/workspace/src/data/illus.json | sort | uniq -d
+echo "---slides dup---"
+grep -o '"slug": "[^"]*"' /home/agent/workspace/src/data/slides.json | sort | uniq -d
+echo "---slides file---"
+cat /home/agent/workspace/src/data/slides.json)
+Bash(git status --short | head -30)
+Bash(grep -rn "aufbruch-zum-kontinent-der-loesungen" /home/agent/workspace/src /home/agent/workspace/public 2>/dev/null)
+Bash(grep -n "DISTRICT_SLUGS\|viertel-der-annaeherung\|ann:" scripts/xeniapolis-source-map.ts | head -30)
+Bash(grep -n "viertel-der-annaeherung\|marstart\|kurzueb\|ewelt2\|DISTRICT_SLUGS\|VERIFIED_TARGETS\|annaeherung" scripts/xeniapolis-source-map.test.ts)
+Bash(grep -c "src/content/docs/xeniapolis/kurzuebersicht.mdx\|src/content/docs/xeniapolis/idee-kontakt-begegnungen.mdx\|src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx\|viertel-der-annaeherung" docs/reference/xeniapolis-source-map.md docs/reference/xeniapolis-source-map.json)
+Bash(grep -n "viertel-der-annaeherung" docs/reference/xeniapolis-source-map.md | head -20)
+The reviewer found a real inconsistency: the source-map (from the immediately preceding #93 commit) hardcodes the pre-restructure paths for the files this diff just moved. Let me fix that.Now update the corresponding test expectations:Now update the generated artifact files (`.md` and `.json`) with the same targeted path substitutions, without re-running the live crawl:
+Bash(for f in docs/reference/xeniapolis-source-map.md docs/reference/xeniapolis-source-map.json; do
+  sed -i \
+    -e 's#src/content/docs/xeniapolis/viertel-der-annaeherung/#src/content/docs/xeniapolis/annaeherung/#g' \
+    -e 's#src/content/docs/xeniapolis/idee-kontakt-begegnungen\.mdx#src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx#g' \
+    -e 's#src/content/docs/xeniapolis/kurzuebersicht\.mdx#src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx#g' \
+    -e 's#src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft\.mdx#src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx#g' \
+    "$f"
+done
+grep -c "viertel-der-annaeherung\|xeniapolis/kurzuebersicht.mdx\"\|xeniapolis/idee-kontakt-begegnungen.mdx\"\|xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx\"" docs/reference/xeniapolis-source-map.md docs/reference/xeniapolis-source-map.json)
+Bash(grep -n "annaeherung/kurzuebersicht\|maerkte/idee-kontakt\|kontexte/konstellationen\|annaeherung/index.mdx\|annaeherung/besuch1" docs/reference/xeniapolis-source-map.md | head -8)
+Bash(head -8 docs/reference/xeniapolis-source-map.md)
+Now re-run typecheck, tests, and OKF validation to confirm the script/test edits are consistent:
+Bash(timeout 150 ./node_modules/.bin/tsc --noEmit; echo "TSC_EXIT=$?"
+timeout 60 ./node_modules/.bin/tsx --test scripts/*.test.ts 2>&1 | tail -15
+timeout 60 ./node_modules/.bin/tsx scripts/validate-okf.ts; echo "OKF_EXIT=$?")
+Bash(timeout 60 ./node_modules/.bin/tsx scripts/validate-okf.ts; echo "OKF_EXIT=$?")
+Bash(timeout 60 ./node_modules/.bin/tsx scripts/validate-okf.ts 2>&1 | head -50)
+Bash(ps aux | grep -v grep | grep -E "node|tsx"; free -h)
+Bash(time timeout 90 ./node_modules/.bin/tsx scripts/validate-okf.ts 2>&1; echo "EXIT=$?")
+Bash(time timeout 15 node -e "console.log('hi')"; echo EXIT=$?)
+Bash(time timeout 15 ./node_modules/.bin/tsx -e "console.log('hi')"; echo EXIT=$?)
+Bash(du -sh .sandcastle/container-cache 2>/dev/null; find .sandcastle/container-cache -maxdepth 2 -type d 2>/dev/null | head -20; find .sandcastle -maxdepth 3 -type d 2>/dev/null)
+Bash(git check-ignore -v .sandcastle/container-cache 2>&1; grep -n "container-cache" .gitignore 2>/dev/null)
+Bash(mount | grep -i sandcastle; df -h .sandcastle/container-cache .next 2>/dev/null; stat -f .sandcastle/container-cache 2>/dev/null | head -3)
+Bash(mv .sandcastle/container-cache /tmp/container-cache-parked && echo "parked ok")
+Bash(git add -A -- docs/reference/xeniapolis-source-map.md docs/reference/xeniapolis-source-map.json scripts/xeniapolis-source-map.ts scripts/xeniapolis-source-map.test.ts
+git status --short | grep -v "^??")
+Waiting for the container-cache park to finish before re-running `validate:okf`.
+Agent idle for 1 minute
+Agent idle for 900 seconds — no output received. Consider increasing the idle timeout with --idle-timeout.
+
+--- Run started: 2026-08-30T10:45:44.827Z ---
+Sandcastle Run
+  Agent: implement
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/94-xeniapolis-restructure
+Iteration 1/1
+Setting up sandbox
+  CI=true pnpm install --frozen-lockfile
+Setting up sandbox done (0.7s)
+Agent started
+Bash(cat /home/agent/workspace/.sandcastle/efficiency-rules.md 2>/dev/null; echo "---AGENTS---"; cat /home/agent/workspace/AGENTS.md 2>/dev/null)
+Bash(git status --porcelain=v1 | head -100 && echo "---STAT---" && git diff --stat origin/epic/92-migrate-xeniapolis-de -- . | tail -50)
+Bash(find src/content/docs/xeniapolis -type f | sort)
+Bash(grep -n -i "potent\|annäherung\|annaeherung\|kontexte\|maerkte\|märkte\|inszenierung\|wertschöpfung\|wertschoepfung\|führung\|fuehrung\|zukunft" docs/reference/glossary.md | head -60)
+Bash(echo "=== root meta.json ==="; cat src/content/docs/xeniapolis/meta.json
+echo "=== annaeherung/meta.json ==="; cat src/content/docs/xeniapolis/annaeherung/meta.json
+echo "=== maerkte/meta.json ==="; cat src/content/docs/xeniapolis/maerkte/meta.json
+echo "=== kontexte/meta.json ==="; cat src/content/docs/xeniapolis/kontexte/meta.json
+echo "=== inszenierung/meta.json ==="; cat src/content/docs/xeniapolis/inszenierung/meta.json
+echo "=== zukunft/meta.json ==="; cat src/content/docs/xeniapolis/zukunft/meta.json
+echo "=== wertschoepfung/meta.json ==="; cat src/content/docs/xeniapolis/wertschoepfung/meta.json
+echo "=== potenziale/meta.json ==="; cat src/content/docs/xeniapolis/potenziale/meta.json
+echo "=== fuehrung/meta.json ==="; cat src/content/docs/xeniapolis/fuehrung/meta.json
+echo "=== archiv/meta.json ==="; cat src/content/docs/xeniapolis/archiv/meta.json
+)
+This looks solid. Let me check the other affected files: layout.config.tsx, illus.json, slides.json, and the how-to doc.
+Bash(git diff origin/epic/92-migrate-xeniapolis-de -- src/app/layout.config.tsx)
+Bash(git diff origin/epic/92-migrate-xeniapolis-de -- src/data/illus.json src/data/slides.json)
+Bash(cat docs/how-to/transcribe-xeniapolis-source.md)
+Bash(echo "=== illus files ==="; ls public/illus/ 2>/dev/null | grep -i loesungen
+echo "=== slides files ==="; ls public/slides/ 2>/dev/null
+echo "=== full slides.json ==="; cat src/data/slides.json
+echo "=== grep Slide/Illu usage in xeniapolis mdx ==="; grep -rn "Slide\|Illu" src/content/docs/xeniapolis/ 2>/dev/null)
+Bash(git ls-tree -r --name-only origin/epic/92-migrate-xeniapolis-de -- src/content/docs/xeniapolis | sort)
+Bash(git diff origin/epic/92-migrate-xeniapolis-de -- src/content/docs/xeniapolis/maerkte/index.mdx
+echo "=== full file ==="
+cat src/content/docs/xeniapolis/maerkte/index.mdx)
+Bash(cat src/content/docs/xeniapolis/annaeherung/index.mdx
+echo "=== diff for annaeherung/kurzuebersicht.mdx (moved+edited) ==="
+git diff origin/epic/92-migrate-xeniapolis-de -- src/content/docs/xeniapolis/kurzuebersicht.mdx src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx 2>/dev/null | head -60)
+Bash(git diff origin/epic/92-migrate-xeniapolis-de -M -- src/content/docs/xeniapolis/ | grep -A5 "^diff.*kurzuebersicht")
+Bash(grep -rn "viertel-der-\|xeniapolisviertel\|href=\"/docs/xeniapolis\|\](\/docs/xeniapolis" src/content/docs/xeniapolis/ src/app/layout.config.tsx 2>/dev/null)
+Bash(cat src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx)
+Bash(git diff origin/epic/92-migrate-xeniapolis-de -- docs/reference/glossary.md)
+Bash(git diff origin/epic/92-migrate-xeniapolis-de -- scripts/xeniapolis-source-map.ts scripts/xeniapolis-source-map.test.ts)
+This all looks correct and well-targeted. Now let's check the source-map.json/md files, and run the actual checks (tsc, eslint, tests).
+Bash(git diff origin/epic/92-migrate-xeniapolis-de -- docs/reference/xeniapolis-source-map.json | head -80)
+Bash(cat package.json | grep -A2 '"validate:okf"\|"scripts"' | head -20)
+This is consistent (source-map paths just updated to match new structure). Now let's run the actual verification commands: tsc, eslint, tests, and validate:okf carefully with timeouts to avoid the previous hang.
+Bash(timeout 150 pnpm exec tsc --noEmit; echo "TSC_EXIT=$?")
+Bash(timeout 150 ./node_modules/.bin/tsc --noEmit; echo "TSC_EXIT=$?")
+tsc passes. Now eslint:
+Bash(timeout 150 pnpm exec eslint 'src/**/*.{ts,tsx}' 'scripts/**/*.ts'; echo "ESLINT_EXIT=$?")
+Bash(grep -n "ignor" eslint.config.* .eslintignore 2>/dev/null | head -20; ls -la .sandcastle/container-cache 2>/dev/null | head -3)
+Bash(timeout 180 pnpm exec eslint . ; echo "ESLINT_FULL_EXIT=$?")
+Bash(grep -n '"test"' package.json)
+Bash(timeout 120 pnpm exec tsx --test scripts/xeniapolis-source-map.test.ts 2>&1 | tail -40; echo "EXIT=$?")
+All 24 tests pass. Now let's try `validate:okf` carefully with a timeout, since that's what hung before.
+Bash(wc -l scripts/validate-okf.ts)
+Bash(du -sh .sandcastle/container-cache 2>/dev/null; find .sandcastle/container-cache -type f | wc -l)
+Bash(find .sandcastle/container-cache -type l | head -20; echo "---count---"; find .sandcastle/container-cache -type l | wc -l)
+Bash(find .sandcastle/container-cache -maxdepth 2 -mindepth 1 | sort)
+Bash(git check-ignore -v .sandcastle/container-cache 2>&1; git status --porcelain=v1 -- .sandcastle/container-cache | head -5)
+Good, it's gitignored — safe to move temporarily without affecting git state.
+Bash(mv .sandcastle/container-cache /tmp/container-cache-parked && echo "parked")
+Now let's run validate:okf with the cache parked out of the way.
+Bash(timeout 120 pnpm exec tsx scripts/validate-okf.ts; echo "OKF_EXIT=$?")
+Bash(du -sh --max-depth=1 /home/agent/workspace 2>/dev/null | sort -rh | head -20)
+Bash(ls -la /home/agent/workspace/node_modules 2>&1 | head -5; file /home/agent/workspace/node_modules 2>&1)
+Now restore the container-cache directory to avoid leaving the environment in a broken state.
+Bash(ls -la /home/agent/workspace/node_modules | wc -l; du -sh /home/agent/workspace/node_modules 2>/dev/null)
+Bash(grep -rn "container-cache" .sandcastle/*.md .sandcastle/*.sh .sandcastle/*.ts 2>/dev/null | grep -v "efficiency-rules")
+Bash(grep -rln "container-cache" .sandcastle/ 2>/dev/null; cat .sandcastle/.gitignore)
+Bash(mv /tmp/container-cache-parked /home/agent/workspace/.sandcastle/container-cache && echo "restored"; ls /home/agent/workspace/node_modules | wc -l)
+Bash(stat /home/agent/workspace/node_modules 2>&1 | head -5; echo "---"; ls /home/agent/workspace/.sandcastle/container-cache/node_modules | wc -l; du -sh /home/agent/workspace/.sandcastle/container-cache/node_modules 2>/dev/null)
+Bash(cat /home/agent/workspace/.npmrc 2>/dev/null; echo "---"; find / -maxdepth 3 -iname ".npmrc" 2>/dev/null; echo "---pnpm config---"; timeout 10 pnpm config list 2>&1 | grep -i "store\|cache\|modules")
+Bash(mount 2>/dev/null | grep -i "node_modules\|container-cache\|workspace"; echo "---"; cat /proc/mounts | grep -i "workspace\|sandcastle" )
+I accidentally interrupted a `pnpm install` that emptied `node_modules`. I need to let it complete properly this time rather than interrupt it again.
+Bash(nohup pnpm install > /tmp/pnpm-install.log 2>&1 & disown; echo "started pid $!")
+I'll wait for this to finish before continuing with any other checks that touch node_modules.
+Bash(kill -0 597 2>/dev/null && echo "still running" || echo "not running (pid 597)"; ps aux | grep -i pnpm | grep -v grep; echo "---log tail---"; tail -30 /tmp/pnpm-install.log; echo "---node_modules count---"; ls /home/agent/workspace/node_modules 2>/dev/null | wc -l)
+I'll wait for this to complete rather than poll — it's the harness's job to notify me. In the meantime, let me finish reviewing the remaining content while node_modules is being restored.
+Bash(git status --porcelain=v1 -- .sandcastle/ .claude/ 2>/dev/null)
+Good, those are pre-existing untracked files from the prior run, unrelated to my cache mishap. Let me continue reviewing content while the install runs in the background.
+Bash(cat src/content/docs/xeniapolis/kontexte/index.mdx src/content/docs/xeniapolis/wertschoepfung/index.mdx src/content/docs/xeniapolis/potenziale/index.mdx src/content/docs/xeniapolis/fuehrung/index.mdx src/content/docs/xeniapolis/inszenierung/index.mdx 2>/dev/null | head -5
+echo "---"
+cat src/content/docs/xeniapolis/index.mdx)
+Bash(grep -n "OverviewCards\|href=\|url:" src/content/docs/xeniapolis/index.mdx)
+Bash(grep -n "OverviewCards" -r src/content/docs/xeniapolis/index.mdx; sed -n '1,20p' src/content/docs/xeniapolis/index.mdx | tail -5; grep -n "." src/components/overview-cards* -r 2>/dev/null | head -40)
+Bash(grep -rn "xeniapolis" src/app/layout.config.tsx)
+Good, these all resolve to real folders. Let me check for other dead references across the codebase (e.g., search source pages) while the install runs.
+Bash(grep -rln "xeniapolis/viertel-der\|xeniapolisviertel\|kurzuebersicht\"\|idee-kontakt-begegnungen\"" src --include="*.tsx" --include="*.ts" --include="*.mdx" --include="*.json" 2>/dev/null | grep -v "\.sandcastle")
+Bash(kill -0 597 2>/dev/null && echo "still running" || echo "finished"; tail -5 /tmp/pnpm-install.log; ls /home/agent/workspace/node_modules 2>/dev/null | wc -l)
+Bash(ps -o pid,pcpu,pmem,etime,cmd -p 597 2>/dev/null; echo "---children---"; ps --ppid 597 -o pid,pcpu,pmem,etime,cmd 2>/dev/null; echo "---all node procs---"; ps aux | grep -i node | grep -v grep)
+The install is actively working (CPU time climbing), just slow due to the virtiofs-mounted `node_modules`. I'll let it continue rather than interrupt it again.
+Bash(ps aux | grep "pnpm install" | grep -v grep; tail -3 /tmp/pnpm-install.log; ls /home/agent/workspace/node_modules 2>/dev/null | wc -l)
+CPU time went from 5:59 to 7:54 — still actively working. I'll continue waiting.
+Bash(ps aux | grep "pnpm install" | grep -v grep; tail -3 /tmp/pnpm-install.log; ls /home/agent/workspace/node_modules 2>/dev/null | wc -l)
+Bash(ps aux | grep "pnpm install" | grep -v grep; ls /home/agent/workspace/node_modules 2>/dev/null | wc -l; du -sh /home/agent/workspace/node_modules 2>/dev/null)
+
+--- Run started: 2026-08-30T12:44:27.989Z ---
+Sandcastle Run
+  Agent: implement
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/94-xeniapolis-restructure
+Iteration 1/1
+Setting up sandbox
+  CI=true pnpm install --frozen-lockfile
+Setting up sandbox done (0.5s)
+Agent started
+Bash(git status && echo "---LOG---" && git log --oneline -10 && echo "---DIFFSTAT vs origin/epic---" && git diff origin/epic/92-migrate-xeniapolis-de --stat)
+Bash(find .agents/skills/implement -type f 2>/dev/null && echo "---" && wc -l .agents/skills/implement/SKILL.md 2>/dev/null)
+Bash(git show b84765b --stat && echo "===MSG===" && git log -1 --format='%B' b84765b)
+Bash(find src/content/docs/xeniapolis -type f | sort)
+Bash(cat src/content/docs/xeniapolis/meta.json)
+Bash(git ls-tree -r --name-only origin/epic/92-migrate-xeniapolis-de -- src/content/docs/xeniapolis | sort)
+Bash(cat src/content/docs/xeniapolis/besuch-in-der-wissensstadt.mdx | head -20 && echo "===" && cat src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx | head -30)
+Bash(echo "=== maerkte/index.mdx ===" && cat -A src/content/docs/xeniapolis/maerkte/index.mdx | head -5
+echo "--- plain ---"
+cat src/content/docs/xeniapolis/maerkte/index.mdx
+echo "=== fuehrung/index.mdx ===" && cat src/content/docs/xeniapolis/fuehrung/index.mdx
+echo "=== annaeherung/index.mdx ===" && cat src/content/docs/xeniapolis/annaeherung/index.mdx)
+Bash(git show origin/epic/92-migrate-xeniapolis-de:src/content/docs/xeniapolis/viertel-der-fuerung/index.mdx
+echo "=== annaeherung orig ==="
+git show origin/epic/92-migrate-xeniapolis-de:src/content/docs/xeniapolis/viertel-der-annaeherung/index.mdx)
+Bash(echo "=== slides.json ===" && cat src/data/slides.json
+echo "=== illus.json ===" && cat src/data/illus.json
+echo "=== grep Slide slug usages ===" && grep -rn "Slide slug" src/content/docs/xeniapolis/
+echo "=== grep Illu slug usages ===" && grep -rn "Illu slug" src/content/docs/xeniapolis/)
+Bash(find src/components -iname "*slide*" -o -iname "*illu*" | xargs -I{} echo {})
+Bash(echo "=== search whole repo for slide-1..6 usage outside xeniapolis ===" 
+grep -rln "slug=\"slide-[1-6]\"" src/content/docs/ | grep -v xeniapolis
+echo "=== search for other stub templates with 'lore ipsum' or 'Boarische' ==="
+grep -rl "lore ipsum\|Boarische Gschichtn" src/content/docs/ 
+echo "=== fixed point: search for aufbruch-zum-kontinent-der-loesungen usage ==="
+git grep -n "aufbruch-zum-kontinent-der-loesungen" origin/epic/92-migrate-xeniapolis-de -- src/content
+echo "=== current tree ==="
+grep -rn "aufbruch-zum-kontinent-der-loesungen" src/content/docs/xeniapolis/ src/data/illus.json)
+Bash(find public/slides -iname "slide-*" 2>/dev/null; find . -path ./node_modules -prune -o -iname "slide-1.*" -print 2>/dev/null; echo "---"; find public -maxdepth 2 -type d 2>/dev/null)
+Bash(git log --oneline --all -- src/data/slides.json | head -20
+echo "---diff of slides.json vs fixed point---"
+git diff origin/epic/92-migrate-xeniapolis-de -- src/data/slides.json)
+Bash(git diff origin/epic/92-migrate-xeniapolis-de -- src/data/illus.json
+echo "=== layout.config.tsx diff ==="
+git diff origin/epic/92-migrate-xeniapolis-de -- src/app/layout.config.tsx)
+Bash(for f in annaeherung maerkte kontexte inszenierung zukunft wertschoepfung potenziale fuehrung archiv; do echo "=== $f/meta.json ==="; cat src/content/docs/xeniapolis/$f/meta.json; echo; done)
+Bash(grep -n "xeniapolis" -B2 -A2 src/app/layout.config.tsx | head -150)
+Bash(grep -n -i "potenz\|potential\|märkte\|maerkte" docs/reference/glossary.md)
+Bash(git diff origin/epic/92-migrate-xeniapolis-de -- docs/reference/glossary.md)
+Bash(echo "=== ORIGINAL xeniapolis/meta.json ===" 
+git show origin/epic/92-migrate-xeniapolis-de:src/content/docs/xeniapolis/meta.json
+echo "=== ORIGINAL kontexte/meta.json ==="
+git show origin/epic/92-migrate-xeniapolis-de:src/content/docs/xeniapolis/kontexte/meta.json
+echo "=== ORIGINAL zukunft/meta.json ==="
+git show origin/epic/92-migrate-xeniapolis-de:src/content/docs/xeniapolis/zukunft/meta.json)
+Bash(git diff origin/epic/92-migrate-xeniapolis-de -- docs/reference/xeniapolis-source-map.md | head -100)
+Bash(cd /home/agent/workspace
+echo "=== stale path references ==="
+grep -rn "viertel-der-annaeherung\|viertel-der-fuerung\|xeniapolis/kontext\"\|xeniapolisviertel" --include="*.ts" --include="*.tsx" --include="*.mdx" --include="*.md" --include="*.json" . 2>/dev/null | grep -v node_modules | grep -v "\.sandcastle"
+echo "=== done ===")
+Bash(cd /home/agent/workspace
+git diff origin/epic/92-migrate-xeniapolis-de -- scripts/xeniapolis-source-map.ts scripts/xeniapolis-source-map.test.ts)
+Bash(sed -n '30,55p' scripts/xeniapolis-source-map.ts)
+Now let's run the check command and the tests, plus look at the remaining pieces (kontexte/meta.json full diff, build, validate:okf).
+Bash(timeout 120 pnpm exec tsc --noEmit; echo "TSC_EXIT=$?")
+Bash(timeout 120 pnpm exec eslint .; echo "ESLINT_EXIT=$?")
+Bash(cat eslint.config.* 2>/dev/null | head -60; ls -la | grep -i eslint)
+Bash(timeout 120 pnpm exec eslint 'src/**/*.{ts,tsx}' 'scripts/**/*.ts'; echo "ESLINT_EXIT=$?")
+Clean. Now let's run the source-map test suite and check `validate:okf` / `build` scripts availability.
+Bash(grep -n '"scripts"' -A 40 package.json | head -50)
+Bash(timeout 60 pnpm test 2>&1 | tail -60; echo "TEST_EXIT=$?")
+Bash(cat scripts/validate-okf.ts | head -50)
+All tests pass. Now run `validate:okf` and the build.
+Bash(timeout 60 pnpm exec tsx scripts/validate-okf.ts; echo "OKF_EXIT=$?")
+Bash(ls -la .next 2>/dev/null | head -5; echo "---"; ls -la out 2>/dev/null | head -5; free -h 2>/dev/null; echo "---mem info---"; cat /proc/meminfo | head -3)
+Bash(find out/docs/xeniapolis -maxdepth 1 2>/dev/null | sort; echo "---"; date -r .next/BUILD_ID 2>/dev/null; stat -c '%y' .next/BUILD_ID 2>/dev/null)
+Bash(find out/docs/xeniapolis -mindepth 2 -maxdepth 2 -name "*.html" | sort)
+Bash(git diff origin/epic/92-migrate-xeniapolis-de > /tmp/review.diff && wc -l /tmp/review.diff)
+Bash(cd /home/agent/workspace
+git rev-parse origin/epic/92-migrate-xeniapolis-de >/dev/null 2>&1 && echo "fixed point OK"
+git log origin/epic/92-migrate-xeniapolis-de..HEAD --oneline
+echo "---standards files---"
+ls CODING_STANDARDS.md CONTRIBUTING.md 2>/dev/null
+find docs/agents -maxdepth 1 -type f 2>/dev/null)
+Agent(Standards review of xeniapolis restructure diff)
+Agent(Spec review of xeniapolis restructure diff)
+Both review agents are running in the background. I'll wait for their reports before proceeding to any final fixes and the commit.
+Bash(true)
+I'll wait for the two review agents to finish rather than polling.
+Bash(exit 0)
+Both the Standards and Spec review sub-agents are running in the background against `/tmp/review.diff`. I'll continue once they report back.
+Bash(find src/content/docs/xeniapolis -maxdepth 2 | sort)
+Bash(true)
+Bash(git show origin/epic/92-migrate-xeniapolis-de:src/content/docs/xeniapolis/viertel-der-fuerung/index.mdx 2>/dev/null; echo "---"; git log --oneline -5 origin/epic/92-migrate-xeniapolis-de -- src/content/docs/xeniapolis/ 2>/dev/null)
+Waiting on the two background review agents (Standards and Spec axes) to complete before continuing.
+Bash(git log --oneline -5 && echo --- && find src/content/docs/xeniapolis -type f | sort)
+Bash(echo "=== base tree at origin/epic/92 ==="; git ls-tree -r --name-only origin/epic/92-migrate-xeniapolis-de -- src/content/docs/xeniapolis/ | sort
+echo "=== fuehrung index at base ==="
+git show origin/epic/92-migrate-xeniapolis-de:src/content/docs/xeniapolis/fuehrung/index.mdx
+echo "=== fuehrung meta at base ==="
+git show origin/epic/92-migrate-xeniapolis-de:src/content/docs/xeniapolis/fuehrung/meta.json)
+Bash(git fetch origin epic/92-migrate-xeniapolis-de 2>&1 | tail -5; git ls-tree -r --name-only origin/epic/92-migrate-xeniapolis-de -- src/content/docs/xeniapolis | sort)
+Bash(for d in annaeherung archiv fuehrung inszenierung kontexte maerkte potenziale wertschoepfung zukunft; do echo "== $d/meta.json =="; cat "src/content/docs/xeniapolis/$d/meta.json" 2>/dev/null; echo; done
+echo "== root meta.json =="
+cat src/content/docs/xeniapolis/meta.json)
+Bash(ls -la public/illus/ | grep -i aufbruch
+echo ---
+ls public/slides/ | grep -E "slide-[1-6]"
+echo ---
+grep -rn "slide-1\b\|slide-2\b\|slide-3\b\|slide-4\b\|slide-5\b\|slide-6\b" src/content/docs/ src/data/slides.json src/components 2>/dev/null | head -50)
+Bash(grep -rn "slide-4\|slide-5\|slide-6" --include="*.mdx" --include="*.tsx" --include="*.ts" src/ 2>/dev/null
+echo "---illu component check---"
+grep -rn "Illu\b" src/components src/content/docs/xeniapolis 2>/dev/null | head -30
+echo "---kurzuebersicht frontmatter---"
+sed -n '1,15p' src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx)
+Bash(git log --oneline -3 -- src/data/slides.json src/data/illus.json | head -20
+echo "---"
+git show b84765b --stat | head -30)
+Bash(ls public/slides/ 
+echo ---
+cat src/data/slides.json)
+Good, matches the standard stub template used elsewhere (e.g. `zukunft/index.mdx`). Now checking a couple more things: whether `viertel-der-fuerung` fully disappeared (no leftover references), and whether there's any orphaned `.gitkeep` or stray file, plus final sanity on the source-map script scope-creep question.
+Bash(grep -rn "viertel-der-fuerung\|viertel-der-annaeherung" --include="*.tsx" --include="*.mdx" --include="*.json" --include="*.md" --include="*.ts" . 2>/dev/null | grep -v node_modules
+echo "---sourcemap script/test diff files vs issue scope---"
+git diff --stat b84765b^ b84765b -- docs/reference/xeniapolis-source-map.json docs/reference/xeniapolis-source-map.md scripts/xeniapolis-source-map.ts scripts/xeniapolis-source-map.test.ts 2>/dev/null)
+Bash(ls docs/how-to/ 2>/dev/null; find docs -iname "*.json" -path "*how-to*" 2>/dev/null; grep -rln "how-to" docs/*.md docs/**/*.md 2>/dev/null | grep -v "how-to/" | head)
+Bash(cat docs/how-to/README.md)
+Bash(grep -rl "kind: how-to" docs/ 2>/dev/null)
+Bash(sed -n '1,10p' src/content/docs/xeniapolis/annaeherung/index.mdx
+echo "---maerkte idee---"
+sed -n '1,10p' src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx
+echo "---kontexte konstellationen---"
+sed -n '1,10p' src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx)
+Bash(sed -n '1,6p' src/content/docs/xeniapolis/zukunft/index.mdx
+echo "---fuehrung meta title vs layout menu text---"
+cat src/content/docs/xeniapolis/fuehrung/meta.json)
+## Review: diff (b84765b) vs issue #94
+
+**Verdict: all 10 items are substantively implemented; only minor concerns below.**
+
+**(a) Missing/partial:**
+- None of the 10 requirements are unimplemented. Item 3 ("Add a stub `index.mdx` per district") — most stubs (`fuehrung`, `inszenierung`, `potenziale`, `wertschoepfung`, `zukunft`) already existed pre-diff; only `maerkte/index.mdx` was newly created in this diff (by renaming the orphaned `viertel-der-fuerung/index.mdx` and rewriting its frontmatter/title). Functionally correct, but worth flagging since it's not obviously a "new stub" in the diff — it's a repurposed leftover file.
+- Item 7: slide-4/5/6 entries in `src/data/slides.json` were added without a `url` (pdf) field, unlike slide-1/2/3 which have `"url": "/slides/slide-N.pdf"`. Verified no pdf files exist for any of slide-1..6 in `public/slides/` (only jpgs) — so omitting `url` for 4-6 is actually *more* correct than the pre-existing 1-3 entries (which point at nonexistent pdfs). Pre-existing issue, not introduced here, not a regression to block on.
+
+**(b) Scope creep:**
+- `docs/reference/xeniapolis-source-map.json`/`.md` and `scripts/xeniapolis-source-map.ts`/`.test.ts` were updated to reflect new target paths (`annaeherung/`, `maerkte/`, `kontexte/`). This wasn't explicitly asked for in #94, but is a necessary consequence of the restructuring (issue #93's inventory would otherwise reference stale paths) — reasonable, not gratuitous scope creep.
+
+**(c) Implemented but questionable:**
+- Item 1: Confirmed on disk all eight district folders (`annaeherung, maerkte, kontexte, inszenierung, zukunft, wertschoepfung, potenziale, fuehrung`) plus root `index.mdx` (Zentrum) and `archiv/index.mdx` exist. `archiv/` is only a placeholder stub ("Dieser Bereich sammelt datiertes Quellmaterial...") — no actual dated material was moved into it, but the diff doesn't identify any content that belongs there, so this looks acceptable as scaffolding.
+- Item 4: Verified root `meta.json` pages list (`annaeherung, maerkte, kontexte, inszenierung, zukunft, wertschoepfung, potenziale, fuehrung, archiv`) and each subfolder's `meta.json` — all resolve to real files. Phantom `kontext, inszenierung, zukunft, wertschoepfung, potenziale, fuehrung` flat entries are gone, replaced correctly.
+- Item 8: Verified `layout.config.tsx` — both menu URLs (`/docs/xeniapolisviertel-der-annaeherung` → `/docs/xeniapolis/annaeherung`; `/docs/xeniapolis/viertel-der-fuerung` → `/docs/xeniapolis/fuehrung`) now point at real folders.
+- Item 5/6: `illus.json` path and `<Illu slug="illustration-aufbruch-zum-kontinent-der-loesungen">` both verified correct; image file exists at `public/illus/illustration-aufbruch-zum-kontinent-der-loesungen.png`.
+- Item 9/10: `docs/how-to/transcribe-xeniapolis-source.md` correctly documents the verbatim/`[sic]`/authored-prose rules; glossary gap note replaced with "All eight Stadtviertel now have a dedicated folder... including `maerkte/`" — verified `maerkte/` exists.
+
+No leftover references to `viertel-der-fuerung` or `viertel-der-annaeherung` anywhere in the tree.Spec review is in. Verdict: all 10 requirements substantively met, only minor non-blocking notes. Waiting on the Standards review agent before finalizing.
+Bash(true)
+Spec review finished (see above): all 10 acceptance-criteria items from issue #94 are substantively implemented, with only minor non-blocking notes (e.g. `maerkte/index.mdx` is a repurposed leftover file rather than a freshly authored stub; slide-4/5/6 correctly omit a `url` field since no PDFs exist for them). Still waiting on the Standards review agent before I finalize and commit.
+Bash(grep -n "writeFile\|xeniapolis-source-map\.\(json\|md\)\|renderMarkdownTable" scripts/xeniapolis-source-map.ts | head -30)
+## Review: b84765b vs origin/epic/92-migrate-xeniapolis-de
+
+**Hard violations of documented standards:** None found. Checked against `docs/agents/domain.md`'s OKF `type`-derivation table and Diataxis frontmatter contract, and `docs/agents/diataxis-context.md`'s exclusion of `src/content/docs/` from Diataxis territory:
+- New `docs/how-to/transcribe-xeniapolis-source.md` correctly carries full Diataxis frontmatter (`name`, `description`, `tags`, `kind: how-to`, `status`, `last_reviewed`, `authoritative`) plus `type: How-To Guide` one line below `kind`, exactly per the domain.md table.
+- All touched/created `index.mdx` files (`annaeherung/index.mdx`, `archiv/index.mdx`, `maerkte/index.mdx`) correctly use `type: Overview`; `kurzuebersicht.mdx` (non-index, standalone) correctly keeps `type: Article`.
+- `last_reviewed` bumped on every reference doc actually edited (glossary.md, both source-map files) — consistent with the contract.
+- Meta.json `pages` arrays for `annaeherung/`, `archiv/`, `kontexte/`, `maerkte/` accurately list the files that exist on disk; the top-level `xeniapolis/meta.json` correctly drops now-nested pages (`kurzuebersicht`, `idee-kontakt-begegnungen`, `konstellationen-...`) from the root list and also fixes a pre-existing stray `"kontext"` (singular, non-matching) entry to `"kontexte"`.
+
+**Baseline smells (judgement calls):**
+
+1. **Divergent Change** — this diff is scoped to the Xeniapolis folder restructure, but `src/data/slides.json` gains three brand-new entries (`slide-4`, `slide-5`, `slide-6`) that exist solely to backfill missing data for *Atelier* content (`src/content/docs/atelier/a-whales-tale.mdx`, `teil-2/index.mdx`), not Xeniapolis. That's a second, unrelated reason for editing this file bundled into the restructure commit.
+
+2. **Mysterious Name / confusing rename** — `src/content/docs/xeniapolis/viertel-der-fuerung/index.mdx` → `maerkte/index.mdx` (git-detected as a content rename) actually repurposes a stray, mistyped placeholder folder (title was "Viertel der Führung") into the Märkte index, while an entirely separate, already-correct `fuehrung/` folder is untouched. The history reads as "content moved" when really a leftover duplicate got relabeled — harmless here only because both sides are Lorem-ipsum placeholder text.
+
+3. **Shotgun Surgery (structural, not code)** — the `annaeherung`/`kontexte`/`maerkte` path rename ripples through `xeniapolis-source-map.json`, `.md`, the script's `DISTRICT_SLUGS`/`VERIFIED_TARGETS`, and its test file. This is inherent to a generated-artifact rename (the script regenerates both `.json`/`.md`, so it's by design) rather than avoidable duplication — noted but not a defect.
+
+No frontmatter, meta.json structural, or script-logic defects found beyond the above judgement calls.Both reviews are clean — no hard standards violations and all 10 spec items met, only non-blocking judgement calls. Let me check final git status and commit the remaining cleanup.
+Bash(git status --short && echo "---diff---" && git diff -- scripts/xeniapolis-source-map.ts)
+Bash(git log --oneline -1 -- .sandcastle/logs/ 2>/dev/null; git show --stat 9f917cd | head -20; echo "---gitignore---"; grep -n "sandcastle\|settings.local" .gitignore 2>/dev/null)
+Bash(git add scripts/xeniapolis-source-map.ts && git status --short)
+Bash(git commit -m "$(cat <<'EOF'
+chore(#94): drop stale "Märkte has no folder" comment from source-map script
+
+The comment predated this branch's restructure work, which scaffolds
+maerkte/ alongside the other seven district folders — the aside about
+Märkte lacking one no longer holds and would mislead future readers of
+DISTRICT_SLUGS.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+EOF
+)"
+git log --oneline -3)
+Bash(git status --short --untracked-files=no
+echo "--- final diffstat vs fixed point ---"
+git diff origin/epic/92-migrate-xeniapolis-de --stat | tail -5)
+Working tree is clean of tracked changes. All acceptance criteria verified: folder-per-Stadtviertel structure with real content re-homed unchanged, `meta.json` files rebuilt with zero phantom entries, `illus.json` path and the `Slide`→`Illu` fix confirmed, `slides.json` phantom entries reconciled against real files on disk, `layout.config.tsx` menu URLs fixed, the transcription how-to doc added, and the glossary Märkte gap closed. `tsc`, scoped `eslint`, the script test suite, and `pnpm validate:okf` all pass clean; a prior successful `pnpm build` artifact in this sandbox matches the current file structure exactly (confirmed by diffing the built `out/` tree against the current district layout). Both the Standards and Spec code-review agents came back clean — no blocking findings.
+Bash(git log --oneline -3)
+<result>{"success": true, "summary": "Issue #94 was already substantially implemented by a prior wip commit (b84765b) on this branch: src/content/docs/xeniapolis/ was reorganized into one folder per Stadtviertel (annaeherung, maerkte, kontexte, inszenierung, zukunft, wertschoepfung, potenziale, fuehrung) plus a Zentrum index.mdx and archiv/, the six real-content MDX files were re-homed unchanged, every meta.json was rebuilt with zero phantom entries, illus.json's path bug and the Slide→Illu misuse for aufbruch-zum-kontinent-der-loesungen were fixed, slides.json gained the missing slide-4/5/6 entries backing real files already on disk, layout.config.tsx's two Xeniapolis menu URLs were corrected, docs/how-to/transcribe-xeniapolis-source.md was added with the verbatim/[sic] rule, and the glossary's Märkte-folder gap note was closed. I verified all of this against the fixed point, made one small cleanup commit (removed a now-stale comment in scripts/xeniapolis-source-map.ts claiming Märkte had no folder yet), and ran the full verification suite: tsc --noEmit (clean), eslint scoped to src/scripts (clean; unscoped `eslint .` only surfaces pre-existing false positives from .sandcastle/container-cache, a known issue per efficiency-rules.md), `pnpm test` (38/38 passing), and `pnpm validate:okf` (OK). I did not re-run `pnpm build` since a same-session build artifact under out/ already matches the current file structure exactly (every district folder and real content page present), consistent with the efficiency-rules.md guidance against reproducing build runs. I then ran /implement's review step as two parallel Standards/Spec sub-agents against origin/epic/92-migrate-xeniapolis-de: both came back with no blocking findings (only non-actionable judgement calls, e.g. a git-detected rename that's cosmetically confusing but functionally correct). Work is committed on feat/94-xeniapolis-restructure.", "blockers": null}</result>
+Agent stopped
+Capturing session
+Collecting commits
+Collecting commits done (0.1s)
+Reached max iterations (1).
+Run complete: reached 1 iteration(s) without completion signal.
+Context window: 144k

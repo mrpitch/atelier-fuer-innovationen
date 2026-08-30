@@ -1,0 +1,488 @@
+
+--- Run started: 2026-08-29T15:46:58.677Z ---
+Sandcastle Run
+  Agent: implement
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/93-xeniapolis-source-map
+Iteration 1/1
+Setting up sandbox
+  CI=true pnpm install --frozen-lockfile
+Setting up sandbox done (0.6s)
+Agent started
+I'll start by reading the required efficiency rules file, then explore the repo structure before running /implement.
+Bash(git status && git log --oneline -5 && git log --oneline origin/epic/92-migrate-xeniapolis-de -5 2>&1 | head -20)
+Bash(git log --oneline origin/epic/92-migrate-xeniapolis-de..HEAD 2>&1 | head -20; echo "---"; git merge-base HEAD origin/epic/92-migrate-xeniapolis-de; echo "---diffstat---"; git diff origin/epic/92-migrate-xeniapolis-de --stat 2>&1 | tail -20)
+Bash(ls /home/agent/workspace; echo "---"; find /home/agent/workspace -maxdepth 2 -iname "*xenia*" -o -iname "*xeniapolis*" 2>/dev/null; echo "---docs---"; find /home/agent/workspace/docs -maxdepth 3 2>/dev/null)
+Bash(find /home/agent/workspace -iname "*frame.html" -o -iname "*menu.html" 2>/dev/null | grep -v node_modules | head -50)
+Bash(grep -ril "xeniapolis" /home/agent/workspace --include="*.md" --include="*.json" --include="*.ts" --include="*.tsx" --include="*.mdx" 2>/dev/null | grep -v node_modules | head -50)
+Bash(find /home/agent/workspace/src/content/docs/xeniapolis -maxdepth 3 2>/dev/null)
+Bash(timeout 15 curl -s -o /dev/null -w "%{http_code}\n" https://xeniapolis.de/ 2>&1; echo "---"; timeout 15 curl -sIL https://xeniapolis.de/ 2>&1 | head -30)
+Good, network access works. Let me check the site structure and existing scripts conventions before planning the crawl.
+Bash(timeout 15 curl -s https://xeniapolis.de/ 2>&1)
+Bash(ls /home/agent/workspace/scripts; echo "---"; find /home/agent/workspace/scripts -maxdepth 1 -iname "*validate*")
+Bash(cat /home/agent/workspace/scripts/package.json 2>/dev/null; echo "---root package.json scripts---"; grep -A 30 '"scripts"' /home/agent/workspace/package.json)
+Bash(git log --oneline --all | grep -i -E "xenia|migrat" | head -30)
+Bash(cat /home/agent/workspace/docs/reference/README.md)
+Bash(timeout 15 curl -s https://xeniapolis.de/menu1.html 2>&1)
+Bash(timeout 15 curl -s https://xeniapolis.de/ann_frame.html 2>&1)
+Bash(timeout 15 curl -s https://xeniapolis.de/ann/annstart.html 2>&1 | head -100)
+Bash(cat /home/agent/workspace/src/content/docs/xeniapolis/meta.json; echo "---index---"; cat /home/agent/workspace/src/content/docs/xeniapolis/index.mdx | head -30)
+Bash(for d in inszenierung potenziale wertschoepfung viertel-der-annaeherung zukunft kontexte fuehrung viertel-der-fuerung; do echo "=== $d ==="; cat "/home/agent/workspace/src/content/docs/xeniapolis/$d/meta.json" 2>/dev/null; head -15 "/home/agent/workspace/src/content/docs/xeniapolis/$d/index.mdx" 2>/dev/null; echo; done)
+Bash(timeout 15 curl -s https://xeniapolis.de/ann_menu.html 2>&1)
+Bash(timeout 15 curl -s https://xeniapolis.de/ann/ann1.html 2>&1 | head -60; echo "=== try baustelle ==="; timeout 15 curl -s -o /dev/null -w "%{http_code}\n" https://xeniapolis.de/baustelle.html)
+Bash(timeout 15 curl -s https://xeniapolis.de/baustelle.html 2>&1; echo "=== viertel1 ==="; timeout 15 curl -s https://xeniapolis.de/ann/viertel1.html 2>&1 | head -40)
+Bash(timeout 15 curl -s https://xeniapolis.de/ann/annstart.html 2>&1 | grep -oE '<a[^>]+href="[^"]+"' )
+Bash(timeout 15 curl -s https://xeniapolis.de/mar_frame.html; echo "=== marstart ==="; timeout 15 curl -s https://xeniapolis.de/mar/marstart.html | head -30)
+Bash(for f in kurzuebersicht besuch-in-der-wissensstadt die-stadtviertel-der-wissensstadt idee-kontakt-begegnungen konstellationen-beim-uebergang-zur-nformationsgesellschaft; do echo "=== $f ==="; head -20 "/home/agent/workspace/src/content/docs/xeniapolis/$f.mdx"; echo; done)
+Bash(node --version; grep -A5 '"engines"' /home/agent/workspace/package.json; grep '"tsx"\|"typescript"' /home/agent/workspace/package.json)
+Let me do a quick exploratory crawl first to understand the full scope of the site before writing the committed script.
+Bash(cat > /tmp/explore-crawl.mjs << 'EOF'
+const ORIGIN = 'https://xeniapolis.de'
+const seen = new Set()
+const queue = ['/']
+const pages = []
+const assetsSet = new Set()
+const externals = new Set()
+
+function resolve(base, href) {
+  try { return new URL(href, base).toString() } catch { return null }
+}
+
+function extractHrefs(html) {
+  const out = []
+  const re = /(?:href|src)\s*=\s*["']([^"']+)["']/gi
+  let m
+  while ((m = re.exec(html))) out.push(m[1])
+  return out
+}
+
+let count = 0
+while (queue.length && count < 500) {
+  const url = queue.shift()
+  if (seen.has(url)) continue
+  seen.add(url)
+  count++
+  let res
+  try {
+    res = await fetch(url, { redirect: 'follow' })
+  } catch (e) {
+    pages.push({ url, status: 'ERR:' + e.message })
+    continue
+  }
+  const status = res.status
+  const ct = res.headers.get('content-type') || ''
+  if (!ct.includes('text/html')) {
+    pages.push({ url, status, ct, skipBody: true })
+    continue
+  }
+  const html = await res.text()
+  const titleMatch = html.match(/<title>([^<]*)<\/title>/i)
+  pages.push({ url, status, title: titleMatch ? titleMatch[1] : null })
+  const refs = extractHrefs(html)
+  for (const href of refs) {
+    if (/^(javascript:|mailto:|#)/i.test(href)) continue
+    const abs = resolve(url, href)
+    if (!abs) continue
+    const u = new URL(abs)
+    if (u.hostname !== 'xeniapolis.de') { externals.add(abs); continue }
+    const clean = abs.split('#')[0]
+    if (/\.(html?|php)$/i.test(u.pathname) || u.pathname.endsWith('/')) {
+      if (!seen.has(clean)) queue.push(clean)
+    } else {
+      assetsSet.add(clean)
+    }
+  }
+}
+
+console.log('TOTAL_PAGES', pages.length)
+console.log('TOTAL_ASSETS', assetsSet.size)
+console.log('TOTAL_EXTERNAL', externals.size)
+console.log('---STATUSES---')
+const statusCounts = {}
+for (const p of pages) statusCounts[p.status] = (statusCounts[p.status]||0)+1
+console.log(JSON.stringify(statusCounts))
+console.log('---SAMPLE PAGES---')
+console.log(pages.slice(0,20).map(p=>p.url+' ['+p.status+'] '+(p.title||'')).join('\n'))
+EOF
+timeout 100 node /tmp/explore-crawl.mjs 2>&1 | tail -60)
+Bash(sed -i "s|const queue = \['/'\]|const queue = ['https://xeniapolis.de/']|" /tmp/explore-crawl.mjs
+timeout 120 node /tmp/explore-crawl.mjs 2>&1 | tail -80)
+Bash(cat >> /tmp/explore-crawl.mjs << 'EOF'
+console.log('---404s---')
+console.log(pages.filter(p=>p.status===404).map(p=>p.url).join('\n'))
+console.log('---EXTERNALS---')
+console.log([...externals].join('\n'))
+console.log('---NON-HTML CONTENT TYPES SAMPLE---')
+console.log(pages.filter(p=>p.skipBody).slice(0,10).map(p=>p.url+' '+p.ct).join('\n'))
+EOF
+timeout 120 node /tmp/explore-crawl.mjs 2>&1 | sed -n '/---404s---/,$p')
+Bash(timeout 15 curl -s https://xeniapolis.de/zen/zenstart.html | grep -io '<map\|usemap\|<area' | sort -u
+echo "---check background attr---"
+timeout 15 curl -s https://xeniapolis.de/menu1.html | grep -io 'background=' 
+echo "---asset extensions seen---"
+cat >> /tmp/explore-crawl.mjs << 'EOF'
+console.log('---ASSET EXT SAMPLE---')
+const exts = {}
+for (const a of assetsSet) {
+  const m = a.match(/\.([a-z0-9]+)$/i)
+  const ext = m ? m[1].toLowerCase() : '(none)'
+  exts[ext] = (exts[ext]||0)+1
+}
+console.log(JSON.stringify(exts))
+EOF
+timeout 120 node /tmp/explore-crawl.mjs 2>&1 | sed -n '/---ASSET EXT SAMPLE---/,$p')
+Bash(cat >> /tmp/explore-crawl.mjs << 'EOF'
+console.log('---NONE-EXT ASSETS---')
+for (const a of assetsSet) if (!/\.[a-z0-9]+$/i.test(a)) console.log(a)
+EOF
+timeout 120 node /tmp/explore-crawl.mjs 2>&1 | sed -n '/---NONE-EXT ASSETS---/,$p')
+Bash(timeout 15 curl -s -o /dev/null -w "%{http_code}\n" https://xeniapolis.de/ins/impression; echo "---search source---"; timeout 15 curl -s https://xeniapolis.de/ins/insstart.html | grep -o 'impression[^"'"'"']*' | head -5)
+Bash(cat >> /tmp/explore-crawl.mjs << 'EOF'
+console.log('---ALL PAGE URLS---')
+console.log(pages.map(p=>p.url).sort().join('\n'))
+EOF
+timeout 120 node /tmp/explore-crawl.mjs 2>&1 | sed -n '/---ALL PAGE URLS---/,$p' | tail -n +2 > /tmp/all-pages.txt
+wc -l /tmp/all-pages.txt
+sed -n '1,60p' /tmp/all-pages.txt)
+Bash(sed -n '60,180p' /tmp/all-pages.txt)
+Bash(sed -n '180,341p' /tmp/all-pages.txt)
+Bash(timeout 15 curl -sI https://xeniapolis.de/ann/annstart.html | grep -i content-type
+timeout 15 curl -sI https://xeniapolis.de/telepol/1.htm | grep -i content-type
+timeout 15 curl -sI https://xeniapolis.de/menu1.html | grep -i content-type)
+Bash(cat > /tmp/decode-test.mjs << 'EOF'
+const res = await fetch('https://xeniapolis.de/ann/annstart.html')
+const buf = await res.arrayBuffer()
+const latin1 = new TextDecoder('iso-8859-1').decode(buf)
+const m = latin1.match(/<TITLE>([^<]*)<\/TITLE>/i)
+console.log('latin1 title:', m && m[1])
+EOF
+timeout 15 node /tmp/decode-test.mjs)
+Good — decoding as Latin-1 gives clean text, and remaining `&auml;`-style entities just need HTML entity decoding. Now I'll write the committed script with pure, testable functions plus the CLI crawl driver.
+Bash(grep -n '"validate:okf"\|"test"' /home/agent/workspace/package.json)
+Agent idle for 1 minute
+Now let's write unit tests for the pure functions before running the real crawl.Now let's run the tests and typecheck.
+Bash(timeout 60 pnpm exec tsx --test scripts/xeniapolis-source-map.test.ts 2>&1 | tail -100)
+All 22 tests pass. Now let's typecheck and lint this file before running the real crawl.
+Bash(timeout 120 pnpm exec tsc --noEmit 2>&1 | tail -60; echo "EXIT=$?")
+Bash(timeout 120 pnpm exec eslint scripts/xeniapolis-source-map.ts scripts/xeniapolis-source-map.test.ts 2>&1 | tail -100; echo "EXIT=$?")
+Clean. Now let's run the real crawl against xeniapolis.de to generate the data files.
+Bash(timeout 200 pnpm exec tsx scripts/xeniapolis-source-map.ts 2>&1 | tail -40)
+341 records written. Let me inspect the output quality before finalizing.
+Bash(wc -l /home/agent/workspace/docs/reference/xeniapolis-source-map.json /home/agent/workspace/docs/reference/xeniapolis-source-map.md
+echo "---frontmatter+intro---"
+head -30 /home/agent/workspace/docs/reference/xeniapolis-source-map.md)
+Bash(sed -n '30,70p' /home/agent/workspace/docs/reference/xeniapolis-source-map.md)
+Bash(grep -o '"url": "[^"]*"' /home/agent/workspace/docs/reference/xeniapolis-source-map.json | grep -iE 'kurzueb|stadtvier|konstell' | sort -u
+echo "---404 sample---"
+python3 -c "
+import json
+data = json.load(open('/home/agent/workspace/docs/reference/xeniapolis-source-map.json'))
+non200 = [r for r in data if r['httpStatus'] != 200]
+print(len(non200))
+for r in non200[:5]:
+    print(r['url'], r['httpStatus'], repr(r['notes']))
+"
+)
+Bash(node -e "
+const data = require('/home/agent/workspace/docs/reference/xeniapolis-source-map.json')
+const non200 = data.filter(r => r.httpStatus !== 200)
+console.log('non200 count:', non200.length)
+for (const r of non200.slice(0,10)) console.log(r.url, r.httpStatus, '|', r.notes)
+console.log('---under construction---')
+console.log(data.filter(r => r.underConstruction).map(r=>r.url))
+console.log('---total assets across all pages---')
+console.log(new Set(data.flatMap(r=>r.assets)).size)
+console.log('---duplicate url check---')
+console.log('unique urls:', new Set(data.map(r=>r.url)).size, 'total records:', data.length)
+"
+)
+Agent idle for 1 minute
+Agent idle for 2 minutes
+Bash(timeout 20 node -e "
+fetch('https://xeniapolis.de/ann/kurzueb1.html').then(async r => {
+  const buf = await r.arrayBuffer()
+  const html = new TextDecoder('iso-8859-1').decode(buf)
+  console.log(html.replace(/<[^>]+>/g, ' ').replace(/\s+/g,' ').trim().slice(0, 400))
+})
+"
+)
+Bash(wc -l /home/agent/workspace/src/content/docs/xeniapolis/kurzuebersicht.mdx; sed -n '1,15p' /home/agent/workspace/src/content/docs/xeniapolis/kurzuebersicht.mdx)
+Bash(timeout 30 node -e "
+const urls = ['https://xeniapolis.de/ann/kurzueb2.html','https://xeniapolis.de/ann/kurzueb3.html','https://xeniapolis.de/ann/kurzueb4.html','https://xeniapolis.de/ann/kurzueb5.html']
+Promise.all(urls.map(u => fetch(u).then(async r => {
+  const buf = await r.arrayBuffer()
+  const html = new TextDecoder('iso-8859-1').decode(buf)
+  const text = html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim()
+  console.log(u, '=>', text.slice(0,150))
+}))).then(()=>{})
+"
+)
+Bash(grep -iE 'kondratieff|kontinent|ateliers für innovat|netzwerk der wissensst' /home/agent/workspace/src/content/docs/xeniapolis/kurzuebersicht.mdx)
+Bash(wc -l /home/agent/workspace/src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx; sed -n '1,20p' /home/agent/workspace/src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx)
+Bash(grep -o '"title": "[^"]*"' /home/agent/workspace/docs/reference/xeniapolis-source-map.json | sort -u | grep -iE 'konstell|spektrum|trapez|guter|leistung|gesellschaft')
+Bash(node -e "
+const data = require('/home/agent/workspace/docs/reference/xeniapolis-source-map.json')
+const wanted = ['Konstellationen beim Übergang zur Informationsgesellschaft','Spektrum von Gütern und Leistungen']
+for (const r of data) {
+  if (wanted.some(w => r.title.includes(w)) || /^2(\.\d+)?:/.test(r.title)) console.log(r.url, '|', r.title)
+}
+"
+)
+Bash(grep -c '^##' /home/agent/workspace/src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx
+grep '^##' /home/agent/workspace/src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx)
+Confirmed: 8 sections match `ewelt2a` through `ewelt2h` exactly, with `ewelt2.html` as the intro/overview page. Both aggregate matches are solid — I'll add them to the script's consolidation logic, following the same pattern already used for the `viertelN.html` tour.Now update the intro doc text and add a test for the new mappings.Now re-run tests, regenerate the deliverable files, and run the checks.
+Bash(timeout 60 pnpm exec tsx --test scripts/xeniapolis-source-map.test.ts 2>&1 | tail -20)
+All 23 tests pass. Now regenerate the deliverable files with the live crawl.
+Bash(timeout 180 pnpm exec tsx scripts/xeniapolis-source-map.ts)
+Good, still 341 records. Now run type-check, lint, and OKF validation.
+Bash(timeout 120 pnpm exec tsc --noEmit; echo "TSC_EXIT=$?")
+Bash(timeout 120 pnpm exec eslint 'scripts/**/*.ts'; echo "ESLINT_SCOPED_EXIT=$?")
+Bash(timeout 180 pnpm exec eslint . 2>&1 | tail -60; echo "ESLINT_FULL_EXIT=${PIPESTATUS[0]}")
+Full unscoped `eslint .` passes with 0 errors (one pre-existing unrelated warning). Now validate OKF frontmatter.
+Bash(timeout 60 pnpm validate:okf 2>&1 | tail -40; echo "OKF_EXIT=${PIPESTATUS[0]}")
+Bash(timeout 180 pnpm validate:okf 2>&1 | tail -60; echo "OKF_EXIT=${PIPESTATUS[0]}")
+`pnpm validate:okf` passes — `docs/reference/xeniapolis-source-map.md` is OKF-conformant. Now let me check `git status`/`diff --stat` against the fixed point before invoking code review.
+Bash(git status --short && echo "---DIFFSTAT---" && git diff --stat origin/epic/92-migrate-xeniapolis-de -- scripts/xeniapolis-source-map.ts scripts/xeniapolis-source-map.test.ts docs/reference/xeniapolis-source-map.json docs/reference/xeniapolis-source-map.md)
+Bash(git add scripts/xeniapolis-source-map.ts scripts/xeniapolis-source-map.test.ts docs/reference/xeniapolis-source-map.json docs/reference/xeniapolis-source-map.md
+git diff --stat --cached origin/epic/92-migrate-xeniapolis-de
+echo "---"
+git diff --cached origin/epic/92-migrate-xeniapolis-de > /tmp/review.diff
+wc -l /tmp/review.diff)
+Now invoke the code-review skill against the fixed point, per the `/implement` workflow requirement.
+Bash(git rev-parse origin/epic/92-migrate-xeniapolis-de && echo "OK-RESOLVES"
+ls /home/agent/workspace/*.md 2>/dev/null
+find /home/agent/workspace -maxdepth 2 -iname "CONTRIBUTING*" -o -maxdepth 2 -iname "CODING_STANDARDS*" 2>/dev/null
+wc -l /tmp/review.diff)
+Agent(Standards-axis review of source map diff)
+Bash(grep -n "^diff --git" /tmp/review.diff)
+Agent(Spec-axis review of source map diff)
+Bash(wc -l /tmp/review.diff && ls -la /home/agent/workspace/src/content/docs/xeniapolis/ 2>&1)
+Bash(cat /home/agent/workspace/docs/reference/glossary.md 2>&1 | head -100)
+Bash(find src/content/docs/xeniapolis -maxdepth 2 | sort)
+Bash(git status --short scripts/ docs/reference/ 2>&1 | head -30; echo ---; ls -la scripts/ 2>&1)
+Bash(echo "=== tabs check (xeniapolis-source-map.ts) ===" && awk '{print}' scripts/xeniapolis-source-map.ts | sed -n '1,20p' | cat -A | head -30
+echo "=== semicolons ==="
+grep -n ';$' scripts/xeniapolis-source-map.ts scripts/xeniapolis-source-map.test.ts | head -20
+echo "=== double quotes usage (non-string-literal-content) ==="
+grep -n '"' scripts/xeniapolis-source-map.ts | head -40)
+Bash(grep -n '^diff --git' /tmp/review.diff)
+Bash(grep -c '"targetPath"' /tmp/review.diff; grep -o '"targetPath": "[^"]*"' /tmp/review.diff | sed -E 's#.*docs/xeniapolis/([^/]+)/.*#\1#' | sort -u)
+Bash(grep -n 'maerkte\|zentrum\|Zentrum' /tmp/review.diff | grep -i targetpath -A0 -B0 | head -50
+echo "---all targetPath unique dirs including maerkte/zentrum---"
+grep -o '"targetPath": "src/content/docs/xeniapolis/[a-z-]*/' /tmp/review.diff | sort -u
+echo "--- search for maerkte anywhere ---"
+grep -n 'maerkte' /tmp/review.diff | head -20)
+Bash(grep -n '"underConstruction": true' /tmp/review.diff | wc -l
+echo "---"
+grep -n '"underConstruction": true' -B6 /tmp/review.diff | grep '"url"' 
+echo "--- duplicate url check ---"
+grep -o '"url": "[^"]*"' /tmp/review.diff | sort | uniq -d
+echo "--- total url count vs unique ---"
+grep -c '"url":' /tmp/review.diff)
+Bash(sed -n '1,3862p' /tmp/review.diff > /tmp/json_part.diff
+grep -in 'baustelle\|vorbereitung\|construction\|in arbeit\|demnächst\|coming soon' /tmp/json_part.diff)
+Bash(grep -o '"url": "[^"]*"' /tmp/json_part.diff | wc -l
+grep -o '"title": "[^"]*"' /tmp/json_part.diff | sort | uniq -c | sort -rn | head -20)
+Bash(grep -n "assert\." scripts/xeniapolis-source-map.test.ts | sed -n '1,60p'
+echo "---counts---"
+grep -c "assert.equal" scripts/xeniapolis-source-map.test.ts
+grep -c "assert.deepEqual" scripts/xeniapolis-source-map.test.ts
+grep -c "assert.match" scripts/xeniapolis-source-map.test.ts)
+Bash(grep -nP '^\t* {2,}\S' scripts/xeniapolis-source-map.ts scripts/xeniapolis-source-map.test.ts | head -20
+echo "---mixed check done---"
+grep -nP '^\t*  ' scripts/xeniapolis-source-map.ts | head
+grep -c $'\t' scripts/xeniapolis-source-map.ts
+wc -l scripts/xeniapolis-source-map.ts scripts/xeniapolis-source-map.test.ts)
+Bash(sed -n '3863,4297p' /tmp/review.diff > /tmp/md_part.diff
+grep -c '^+| https' /tmp/md_part.diff
+echo "---frontmatter---"
+sed -n '1,40p' /tmp/md_part.diff)
+Bash(grep -n "^import\|process\." scripts/xeniapolis-source-map.ts
+echo "---validate-okf imports---"
+grep -n "^import" scripts/validate-okf.ts)
+Bash(grep -n '"url": "https://xeniapolis.de/mar/' /tmp/json_part.diff -A6 | head -80)
+Bash(grep -n 'telepol\|~mib' /tmp/json_part.diff | grep '"url"' | wc -l
+grep -n '"url": "https://xeniapolis.de/telepol' /tmp/json_part.diff -A6 | head -40)
+Bash(grep -o '"url": "https://xeniapolis.de/[a-z]*/[a-z0-9_.]*/[^"]*"' /tmp/json_part.diff | grep -v telepol | grep -v '~mib' | sort -u)
+Bash(grep -n '"url": "https://xeniapolis.de/zen/' /tmp/json_part.diff -A6 | head -100)
+Bash(cd /tmp && sed -n '7,3862p' json_part.diff | sed 's/^+//' > source-map-extracted.json
+python3 -c "
+import json
+with open('source-map-extracted.json') as f:
+    data = json.load(f)
+print('total records', len(data))
+keys_set = set()
+for r in data:
+    keys_set.add(tuple(sorted(r.keys())))
+print('distinct key-sets:', keys_set)
+urls = [r['url'] for r in data]
+print('unique urls:', len(set(urls)), 'total:', len(urls))
+import collections
+c = collections.Counter(r['httpStatus'] for r in data)
+print(c)
+"
+)
+Bash(cd /tmp && node -e "
+const data = require('./source-map-extracted.json');
+console.log('total records', data.length);
+const keysets = new Set(data.map(r => JSON.stringify(Object.keys(r).sort())));
+console.log('distinct key-sets:', [...keysets]);
+const urls = data.map(r => r.url);
+console.log('unique urls:', new Set(urls).size, 'total:', urls.length);
+const statusCounts = {};
+for (const r of data) statusCounts[r.httpStatus] = (statusCounts[r.httpStatus]||0)+1;
+console.log(statusCounts);
+const missingFields = data.filter(r => !('url' in r) || !('httpStatus' in r) || !('title' in r) || !('targetPath' in r) || !('assets' in r) || !('underConstruction' in r) || !('notes' in r));
+console.log('missing field records:', missingFields.length);
+"
+)
+Bash(grep -o '"url": "[^"]*menu[^"]*"' /tmp/json_part.diff | sort -u
+echo "---"
+grep -n "impressum.mdx OKF type-mapping\|impress.html" /home/agent/workspace/docs/agents/domain.md 2>&1 | head -20
+find /home/agent/workspace/docs -iname "domain.md")
+Bash(grep -o '"url": "[^"]*"' /tmp/json_part.diff | grep -iE 'frame|_menu' | sort -u | head -30)
+Bash(grep -n -i 'impressum\|type-mapping\|OKF type' /home/agent/workspace/docs/agents/domain.md | head -20)
+Bash(grep -n '"httpStatus": 404' -A6 /tmp/json_part.diff | head -40)
+Bash(find /home/agent/workspace/src/content/docs/xeniapolis -iname '*zentrum*' -o -iname '*zen*'
+echo "---all dirs---"
+find /home/agent/workspace/src/content/docs/xeniapolis -maxdepth 1 -type d)
+Bash(timeout 90 node -e "
+const ORIGIN = 'https://xeniapolis.de'
+const ASSET_EXT = new Set(['gif','jpg','jpeg','png','bmp','ico','wav','mid','midi','class','css','js','swf','mov','avi'])
+const visited = new Set()
+const queue = [ORIGIN + '/']
+const unknownExts = new Set()
+const noExtNonSlash = new Set()
+
+async function fetchHtml(url) {
+  try {
+    const res = await fetch(url, { redirect: 'follow' })
+    const ct = res.headers.get('content-type') || ''
+    if (!ct.toLowerCase().includes('html')) return null
+    const buf = await res.arrayBuffer()
+    return new TextDecoder('iso-8859-1').decode(buf)
+  } catch { return null }
+}
+
+while (queue.length) {
+  const url = queue.shift()
+  if (visited.has(url)) continue
+  visited.add(url)
+  const html = await fetchHtml(url)
+  if (!html) continue
+  const re = /(?:href|src|background)\s*=\s*[\"']([^\"']*)[\"']/gi
+  let m
+  while ((m = re.exec(html))) {
+    const raw = m[1].trim()
+    if (!raw || raw.startsWith('#')) continue
+    if (/^(javascript|mailto|tel):/i.test(raw)) continue
+    if (/[<>]|%3c|%3e/i.test(raw)) continue
+    let resolved
+    try { resolved = new URL(raw, url) } catch { continue }
+    if (resolved.hostname !== 'xeniapolis.de') continue
+    resolved.hash = ''
+    const extMatch = resolved.pathname.match(/\.([a-z0-9]+)\$/i)
+    if (extMatch) {
+      const ext = extMatch[1].toLowerCase()
+      if (!/^html?$|^php$/i.test(ext) && !ASSET_EXT.has(ext)) unknownExts.add(ext + ' -> ' + resolved.pathname)
+    } else if (!resolved.pathname.endsWith('/')) {
+      noExtNonSlash.add(resolved.pathname)
+    }
+    const u = resolved.toString()
+    if (!visited.has(u) && (/\.html?\$|\.php\$/i.test(resolved.pathname) || resolved.pathname.endsWith('/'))) queue.push(u)
+  }
+}
+console.log('visited pages:', visited.size)
+console.log('unknown extensions:', [...unknownExts])
+console.log('no-extension non-slash paths:', [...noExtNonSlash])
+"
+)
+Bash(timeout 20 node -e "
+fetch('https://xeniapolis.de/ins/impression').then(async r => {
+  console.log('status:', r.status, 'content-type:', r.headers.get('content-type'))
+})
+"
+)
+Now fix the `process` import style and add the `assert.equal`-style / segment-dedup fixes from the standards review.
+Bash(grep -n "isMain\|argv\|stdout\|stderr\|exit(" /home/agent/workspace/scripts/validate-okf.ts)
+Bash(grep -n "process.stdout.write" /home/agent/workspace/scripts/xeniapolis-source-map.ts)
+Now the segment-duplication cleanup (`computeTargetPath` vs `districtOf`) and the `assert.match` → `assert.equal` conversions in the test file.
+Bash(grep -n "segments\|districtOf" /home/agent/workspace/scripts/xeniapolis-source-map.ts)
+Now convert `assert.match` calls in the test file to `assert.equal(regex.test(...), true)` to match the sibling test file's exact convention.
+Bash(grep -n "assert.match" /home/agent/workspace/scripts/xeniapolis-source-map.test.ts)
+Now add a test covering the `/ins/impression`-style extensionless dead-link fix, then re-run everything.Now re-run tests, regenerate the deliverables, and re-run the full check suite.
+Bash(timeout 60 pnpm exec tsx --test scripts/xeniapolis-source-map.test.ts 2>&1 | tail -15)
+All 24 tests pass. Now regenerate the deliverable files with the fixed crawler.
+Bash(timeout 180 pnpm exec tsx scripts/xeniapolis-source-map.ts)
+342 records now (the previously-dropped `ins/impression` 404 is captured). Let's spot-check it.
+Bash(node -e "
+const data = require('/home/agent/workspace/docs/reference/xeniapolis-source-map.json')
+console.log('total:', data.length, 'unique urls:', new Set(data.map(r=>r.url)).size)
+console.log(data.find(r => r.url.includes('impression')))
+")
+Bash(node -e "
+const data = require('/home/agent/workspace/docs/reference/xeniapolis-source-map.json')
+const non200 = data.filter(r => r.httpStatus !== 200)
+console.log('non200:', non200.length)
+console.log(non200.filter(r => r.targetPath).map(r => r.url + ' -> ' + r.targetPath))
+")
+Bash(timeout 120 pnpm exec tsc --noEmit; echo "TSC_EXIT=$?"
+timeout 120 pnpm exec eslint 'scripts/**/*.ts'; echo "ESLINT_SCOPED_EXIT=$?")
+Bash(timeout 180 pnpm exec eslint . 2>&1 | tail -20; echo "ESLINT_FULL_EXIT=${PIPESTATUS[0]}"
+timeout 180 pnpm validate:okf 2>&1 | tail -20; echo "OKF_EXIT=${PIPESTATUS[0]}")
+All checks pass. Let me re-stage the updated files and do a final targeted re-review pass to confirm the fixes addressed the findings.
+Bash(git add scripts/xeniapolis-source-map.ts scripts/xeniapolis-source-map.test.ts docs/reference/xeniapolis-source-map.json docs/reference/xeniapolis-source-map.md
+git diff --stat --cached origin/epic/92-migrate-xeniapolis-de
+git diff --cached origin/epic/92-migrate-xeniapolis-de -- scripts/xeniapolis-source-map.ts scripts/xeniapolis-source-map.test.ts | grep -c "^+")
+Bash(git status --short)
+Exactly the four intended files are staged; the sandbox artifacts remain untouched. Now committing.
+Bash(git commit -m "$(cat <<'EOF'
+feat(#93): add xeniapolis.de source map inventory for migration completeness
+
+Adds scripts/xeniapolis-source-map.ts, a re-runnable BFS crawler (following
+the validate-okf.ts script/test convention) that walks xeniapolis.de from its
+root, transitively discovering every frame/menu/start/tour page without
+needing to special-case those patterns as seeds. Generates
+docs/reference/xeniapolis-source-map.{json,md} — 342 records, one per
+reachable source URL — so #92's migration completeness can be checked
+against this inventory instead of asserted.
+
+Each record carries url, httpStatus, title (decoded from the site's actual
+ISO-8859-1 bytes, despite the mismatched utf-8 Content-Type header it serves),
+targetPath, assets[], underConstruction, and notes. Target paths follow the
+existing (if inconsistent) src/content/docs/xeniapolis/<slug>/ folder
+convention; two already-migrated pages were hand-verified by content
+comparison (mar/marstart.html, zen/zenstart.html) and two more turned out to
+be many-to-one aggregates of a numbered page sequence into a single MDX file
+(ann/kurzueb1-5.html -> kurzuebersicht.mdx; kon/ewelt2*.html ->
+konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx, confirmed by
+matching each source page's <title> against a `##` heading in the MDX).
+Pages outside the Stadtviertel/Zentrum structure (telepol/, ~mib/, broken
+nested links) are flagged "needs manual triage" rather than assigned a
+plausible-but-wrong path.
+
+Reviewed against origin/epic/92-migrate-xeniapolis-de via /code-review;
+fixed two spec-axis gaps it found (a dead extensionless link with no
+recognized extension was being silently dropped instead of recorded; now
+anything not a known asset extension is treated as a page so no reachable
+URL vanishes from the inventory) and two standards-axis nits (test
+assertions and process.stdout/argv access now match validate-okf's exact
+style; a duplicated path-segment split was factored into one helper).
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+EOF
+)"
+git status --short)
+Committed cleanly. Only the pre-existing, out-of-scope sandbox artifacts remain untracked, as expected.
+
+<result>
+{"success": true, "summary": "Implemented issue #93: added scripts/xeniapolis-source-map.ts (BFS crawler, TDD with 24 passing unit tests in scripts/xeniapolis-source-map.test.ts) and generated docs/reference/xeniapolis-source-map.{json,md}, a 342-record checked-in inventory of every reachable xeniapolis.de URL with url/httpStatus/title/targetPath/assets/underConstruction/notes per acceptance criteria. Ran /code-review against origin/epic/92-migrate-xeniapolis-de (Standards + Spec axes in parallel); fixed the spec-axis gap it found (extensionless links with unrecognized extensions were silently dropped instead of recorded — now any non-asset-extension reference is treated as a page) and the standards-axis nits (test assertions and process.stdout/argv access now match the validate-okf.ts sibling convention exactly; duplicated path-segment logic factored into one helper). Also resolved an open judgment call from before compaction: verified two more already-migrated MDX files (kurzuebersicht.mdx, konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx) are many-to-one aggregates of numbered source-page sequences and added them as explicit verified targets. tsc --noEmit, scoped eslint, full unscoped `eslint .`, and `pnpm validate:okf` all pass with 0 errors. Work is committed on feat/93-xeniapolis-source-map (commit 7386786); no push/PR/gh actions taken.", "blockers": null}
+</result>
+Agent stopped
+Capturing session
+Collecting commits
+Collecting commits done (0.1s)
+Reached max iterations (1).
+Run complete: reached 1 iteration(s) without completion signal.
+Context window: 125k

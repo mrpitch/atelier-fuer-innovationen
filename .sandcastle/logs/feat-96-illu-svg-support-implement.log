@@ -1,0 +1,418 @@
+
+--- Run started: 2026-08-30T13:35:34.458Z ---
+Sandcastle Run
+  Agent: implement
+  Sandbox: docker
+  Max iterations: 1
+  Branch: feat/96-illu-svg-support
+Iteration 1/1
+Setting up sandbox
+  CI=true pnpm install --frozen-lockfile
+Setting up sandbox done (0.5s)
+Agent started
+Bash(wc -l /home/agent/workspace/.agents/skills/implement/SKILL.md)
+Agent(Explore Illu component and illus.json)
+I'll wait for the exploration agent's report before proceeding.
+Bash(git status && git log --oneline -5)
+Bash(echo "=== find Illu component ===" && find . -iname "*illu*" -not -path "*/node_modules/*" -not -path "*/.git/*" | sort)
+Bash(echo "=== package.json scripts ===" && cat package.json | grep -A 40 '"scripts"')
+Good, clean tree. Waiting for the exploration agent's findings.
+Bash(cat /home/agent/workspace/package.json | grep -A2 '"validate:content"')
+I'll wait for the exploration agent to finish before making a plan.
+Bash(echo "=== validate-content.ts ===" && find /home/agent/workspace/scripts -iname "*validate*")
+Bash(echo waiting)
+Bash(find /home/agent/workspace/src/components -iname "*image-zoom*" -o -iname "*zoom*")
+I'll stop here and wait for the exploration agent's notification before proceeding.
+Bash(true)
+Bash(echo "=== grep next-image-export-optimizer usage ===" && grep -rn "next-image-export-optimizer" /home/agent/workspace/src /home/agent/workspace/next.config* 2>/dev/null
+echo "=== find test files for illu ===" && find /home/agent/workspace -iname "*illu*test*" -o -iname "*test*illu*" 2>/dev/null | grep -v node_modules
+echo "=== find test files generally referencing illu ===" && grep -rln "Illu" /home/agent/workspace/src /home/agent/workspace/scripts /home/agent/workspace/*.test.* 2>/dev/null | grep -v node_modules)
+Bash(find /home/agent/workspace -iname "*.test.*" -not -path "*/node_modules/*" -not -path "*/.next/*" | sort)
+Exploration agent is still running; I'll wait for its completion notification before continuing.
+Bash(echo "=== next.config.mjs ===" && cat /home/agent/workspace/next.config.mjs
+echo
+echo "=== public/illus tree ===" && find /home/agent/workspace/public/illus -maxdepth 2 | sort
+echo
+echo "=== any _source dirs anywhere ===" && find /home/agent/workspace/public -iname "*_source*" -o -iname "*source*" 2>/dev/null | grep -v node_modules)
+Bash(grep -n "illus" /home/agent/workspace/scripts/validate-content.test.ts | head -50)
+Bash(grep -n "Illu" -B2 -A8 /home/agent/workspace/src/content/docs/components.mdx)
+Bash(grep -rn -i "svg" /home/agent/workspace/src /home/agent/workspace/scripts /home/agent/workspace/*.md 2>/dev/null | grep -v node_modules
+echo "---"
+find /home/agent/workspace -iname "*.svg" -not -path "*/node_modules/*" -not -path "*/.next/*" -not -path "*/out/*" | head -20)
+No SVG-related handling exists yet anywhere in the codebase — confirms this is greenfield work. All findings are gathered. Here's the report.
+
+## 1. `<Illu>` component
+
+**File:** `/home/agent/workspace/src/components/illus.tsx` (full file, 55 lines)
+
+```tsx
+import { ImageZoom } from '@/components/image-zoom'
+
+interface IIllu {
+	slug: string
+	name: string
+	image: string
+}
+
+const getIllusData = async () => {
+	try {
+		// Using dynamic import for JSON
+		const illusData = await import('@/data/illus.json')
+		return illusData.illus as IIllu[]
+	} catch (error) {
+		console.error('Error loading illus:', error)
+		return [] as IIllu[]
+	}
+}
+
+const getIllusBySlug = async (slug: string) => {
+	const illus = await getIllusData()
+	return illus.find((illus) => illus.slug === slug)
+}
+
+export const Illus = async () => {
+	const illus = await getIllusData()
+
+	return (
+		<div>
+			{illus.map((illus) => (
+				<div key={illus.name}>{illus.name}</div>
+			))}
+		</div>
+	)
+}
+
+export const Illu = async ({ slug }: { slug: string }) => {
+	const illus = await getIllusBySlug(slug)
+	if (!illus) return null
+
+	return (
+		<div className="mb-8">
+			<ImageZoom
+				src={illus?.image}
+				width={640}
+				height={480}
+				alt={illus?.name}
+			/>
+		</div>
+	)
+}
+```
+
+Note: width/height are hardcoded (640×480) regardless of the actual image's dimensions — `Illu` doesn't consult the JSON entry for dimensions at all. `Illus` (plural, exported but usage not found elsewhere in a grep of content) just lists names, unrelated to rendering.
+
+## 2. `illus.json`
+
+**File:** `/home/agent/workspace/src/data/illus.json` (69 lines, 13 entries)
+
+Shape: `{ "illus": [{ "slug": string, "name": string, "image": string }] }`. Every `image` is a site-absolute path under `/illus/...png` — no width/height/format fields exist in the schema today.
+
+Example entries (lines 3–7, 43–47):
+```json
+{
+    "slug": "illustration-ansicht",
+    "name": "Städte des Wissens als Stätten der Begegnung",
+    "image": "/illus/illustration-ansicht.png"
+},
+...
+{
+    "slug": "modell-inszenierung",
+    "name": "Das Viertel der Inszenierung im Zentrum der Wissensstadt",
+    "image": "/illus/modell-inszenierung.png"
+}
+```
+
+## 3. `next-image-export-optimizer` usage
+
+Illu itself does **not** import `next-image-export-optimizer` directly — it delegates to `ImageZoom`. The actual usage is in `/home/agent/workspace/src/components/image-zoom.tsx`:
+
+```tsx
+import ExportedImage, {
+	type ExportedImageProps,
+} from 'next-image-export-optimizer'
+...
+export type ImageZoomProps = ExportedImageProps & {
+	zoomInProps?: ImgHTMLAttributes<HTMLImageElement>
+	rmiz?: UncontrolledProps
+	alt?: string
+}
+
+export function ImageZoom({ zoomInProps, children, rmiz, alt = '', ...props }: ImageZoomProps) {
+	return (
+		<Zoom zoomMargin={20} wrapElement="span" {...rmiz} zoomImg={zoomInProps}>
+			{children ?? (
+				<ExportedImage
+					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 900px"
+					alt={alt}
+					{...props}
+				/>
+			)}
+		</Zoom>
+	)
+}
+```
+
+`Illu` passes `src`, `width={640}`, `height={480}`, `alt` as `...props`, which land on `<ExportedImage>` via spread (since Illu passes no `children` to `ImageZoom`). Config in `/home/agent/workspace/next.config.mjs` (lines 6–22):
+
+```js
+images: {
+	loader: 'custom',
+	imageSizes: [640, 960, 1280, 1600, 1920],
+	deviceSizes: [640, 960, 1280, 1600, 1920],
+},
+transpilePackages: ['next-image-export-optimizer'],
+env: {
+	nextImageExportOptimizer_imageFolderPath: 'public',
+	nextImageExportOptimizer_exportFolderPath: 'out',
+	nextImageExportOptimizer_quality: '75',
+	nextImageExportOptimizer_storePicturesInWEBP: 'true',
+	nextImageExportOptimizer_exportFolderName: '_optimized',
+	nextImageExportOptimizer_generateAndUseBlurImages: 'true',
+},
+```
+The `build` script (`package.json`) runs `next build && next-image-export-optimizer` to generate the `_optimized` WEBP variants at build time.
+
+## 4. Zoomable wrapper ("ImageZoom")
+
+`/home/agent/workspace/src/components/image-zoom.tsx` (full file, 45 lines, shown above) — wraps `react-medium-image-zoom`'s `Zoom` around an `ExportedImage`, with companion CSS at `/home/agent/workspace/src/components/image-zoom.css` (44 lines) that styles `[data-rmiz-*]` attribute selectors (modal, backdrop, zoom cursor, transitions, reduced-motion). Client component (`'use client'` at top).
+
+## 5. `public/illus/` structure
+
+No `_source` subfolder exists anywhere under `public/` (confirmed via search). Current structure:
+- `public/illus/*.png` — 13 raster originals, kebab-case filenames matching the `slug` field, e.g. `illustration-ansicht.png`, `modell-zentrum.png`.
+- `public/illus/_optimized/*.WEBP` — build-generated variants per original, named `<basename>-opt-<size>.WEBP` for each of the 6 configured sizes (`10, 640, 960, 1280, 1600, 1920`), e.g. `illustration-ansicht-opt-1280.WEBP`. This folder is `next-image-export-optimizer`'s output (`nextImageExportOptimizer_exportFolderName`), i.e. build artifacts, not source-controlled originals. The same tree is mirrored under `/home/agent/workspace/out/illus/`.
+- All 13 illus.json entries have a matching `.png` file present; naming is 1:1 with slug.
+
+## 6. `pnpm validate:content` script
+
+**File:** `/home/agent/workspace/scripts/validate-content.ts` (234 lines). Relevant image-path checks:
+
+- `resolvesUnderPublic(root, assetPath)` (line 65–67): does `existsSync(join(root, 'public', assetPath))` — purely a file-existence check, **no extension/format restriction**.
+- For each `illus.json` entry (lines 184–191):
+```js
+for (const entry of illus) {
+	if (!resolvesUnderPublic(root, entry.image)) {
+		violations.push({
+			file: `${DATA_DIR}/illus.json`,
+			reason: `illus entry "${entry.slug}" image "${entry.image}" does not resolve to a file under public/`,
+		})
+	}
+}
+```
+- Also validates every `<Illu slug="...">` / `<Slide slug="...">` usage in MDX under `src/content/docs` has a matching JSON entry (`checkComponentSlugs`, lines 106–127), and validates relative markdown image/link paths resolve on disk (`checkRelativePaths`, lines 132–162). It does not currently special-case `.svg` vs `.png`/other raster extensions anywhere — the check is extension-agnostic (any file that exists passes).
+
+**Test file:** `/home/agent/workspace/scripts/validate-content.test.ts` — covers: valid tree passes with no violations (lines ~20–45); `<Illu>` slug without matching illus.json entry is a violation (line 55); illus.json image not resolving under `public/` is a violation (line 74); missing `illus.json`/`slides.json` treated as empty dataset (line 213); plus meta.json `pages` and relative-link checks. No test currently exercises SVG-specific paths.
+
+## 7. Tests for the `Illu` component
+
+None found. No test file targets `src/components/illus.tsx` or `image-zoom.tsx` directly (searched `*illu*test*`, `*test*illu*`, and all `.test.*` files — only `scripts/validate-content.test.ts`, `scripts/validate-okf.test.ts`, `scripts/xeniapolis-source-map.test.ts` exist, all under `scripts/`). `validate-content.test.ts` indirectly touches `illus.json` shape (as quoted above) but doesn't render or test the component itself. There's no component-level test harness (e.g. React Testing Library) set up in this repo — `pnpm test` only runs `tsx --test scripts/*.test.ts`.
+
+## 8. `package.json` script definitions
+
+`/home/agent/workspace/package.json`, `scripts` block:
+```json
+"scripts": {
+	"build": "next build && next-image-export-optimizer",
+	"dev": "next dev",
+	"start": "npx serve@latest out",
+	"nuke": "rm -r node_modules; rm -r pnpm-lock.yaml",
+	"postinstall": "fumadocs-mdx",
+	"afk": "tsx --env-file=.sandcastle/.env scripts/run-sandcastle.ts",
+	"test": "tsx --test scripts/*.test.ts",
+	"validate:okf": "tsx scripts/validate-okf.ts",
+	"validate:content": "tsx scripts/validate-content.ts",
+	"sandcastle:build": "DOCKER_BUILDKIT=1 docker build --secret id=npmrc,src=.npmrc --build-arg AGENT_UID=$(id -u) --build-arg AGENT_GID=$(id -g) -t sandcastle:atelier-fuer-innovationen -f .sandcastle/Dockerfile ."
+}
+```
+`validate:content` maps directly to `scripts/validate-content.ts` described in item 6.
+
+## Additional note
+No SVG-related code/config exists anywhere in the repo yet (checked `src/`, `scripts/`, config files, and searched for any `.svg` files under version control) — this confirms the SVG-support work (branch `feat/96-illu-svg-support`) is greenfield against the current PNG-only pipeline (`Illu` → `ImageZoom` → `ExportedImage` from `next-image-export-optimizer`, which processes raster images into WEBP variants — SVGs would need different handling since the optimizer/loader path assumes raster formats).
+Bash(echo "--- eslint config for img ---" && grep -rn "no-img-element\|next/core-web-vitals\|@next/eslint" eslint.config.* .eslintrc* 2>/dev/null | head -30
+echo "--- eslint config file ---"
+ls eslint.config.* .eslintrc* 2>/dev/null
+echo "--- dark mode / theme setup ---"
+grep -rln "next-themes\|dark:" src --include=*.tsx -l | head -20
+echo "--- image-zoom.css content ---"
+cat src/components/image-zoom.css
+echo "--- illus.json full ---"
+cat src/data/illus.json)
+Bash(echo "--- page.client.tsx theme ---"; sed -n '1,60p' "src/app/(home)/page.client.tsx"
+echo "--- globals css search invert/illu ---"
+grep -rn "illu\|invert\|dark:" src/app/global.css src/styles/*.css 2>/dev/null | head -30
+find . -iname "*.css" -not -path "./node_modules/*" -not -path "./.next/*" -not -path "./out/*" | head -20)
+Bash(echo "--- Illu usage in content ---"
+grep -rln "<Illu" src/content 2>/dev/null
+grep -rn "<Illu" src/content/docs/xeniapolis 2>/dev/null | head -20
+echo "--- docs dir tree ---"
+find docs -maxdepth 3 -type f | sort
+echo "--- public/illus listing ---"
+ls -la public/illus/ | head -20)
+Bash(find /home/agent/workspace/node_modules/next-image-export-optimizer -iname "*.d.ts" | xargs -I{} sh -c 'echo ==={}===; cat {}' 2>/dev/null | head -150)
+Bash(find /home/agent/workspace -path "*/node_modules/next-image-export-optimizer*" -iname "*.d.ts" 2>/dev/null
+find / -path "*/node_modules/next-image-export-optimizer*" -iname "*.d.ts" 2>/dev/null | grep -v Permission)
+Bash(grep -n "interface ImageProps\|width\|height\|src" "/home/agent/workspace/node_modules/.pnpm/next@16.3.1_@babel+core@7.29.7_@types+node@22.13.1_react-dom@19.2.8_react@19.2.8__react@19.2.8/node_modules/next/dist/shared/lib/get-img-props.d.ts" 2>/dev/null | head -60
+find /home/agent/workspace/node_modules/.pnpm/next@16.3.1* -iname "image-component.d.ts" -o -iname "get-img-props.d.ts" 2>/dev/null)
+Bash(find /home/agent/workspace/node_modules/.pnpm/react-medium-image-zoom* -iname "*.d.ts" | head -5
+cat /home/agent/workspace/node_modules/.pnpm/react-medium-image-zoom@5.3.0_react-dom@19.2.8_react@19.2.8__react@19.2.8/node_modules/react-medium-image-zoom/dist/index.d.ts 2>/dev/null)
+Now let's add the demo SVG asset, update illus.json, add the `_source/` convention doc, and add a demo showcase in components.mdx.Now the components.mdx demo, and the `public/illus/_source/` convention with documentation.Now the `_source/` convention: a tracked placeholder README in the folder plus a proper how-to doc.
+Bash(grep -n "how-to\|transcribe-xeniapolis" /home/agent/workspace/docs/index.md /home/agent/workspace/docs/how-to/README.md 2>/dev/null)
+Now let's run the checks: typecheck, lint, content validation, and the test suite.
+Bash(timeout 120 pnpm exec tsc --noEmit; echo "TSC_EXIT=$?")
+Bash(timeout 120 ./node_modules/.bin/tsc --noEmit; echo "TSC_EXIT=$?")
+Typecheck passes. Now lint and content validation, and the test suite.
+Bash(timeout 120 pnpm exec eslint 'src/**/*.{ts,tsx}' 'scripts/**/*.ts'; echo "ESLINT_EXIT=$?")
+Bash(timeout 60 pnpm run validate:content; echo "VALIDATE_EXIT=$?"
+echo "---"
+timeout 60 pnpm test; echo "TEST_EXIT=$?")
+Bash(timeout 60 pnpm run validate:okf; echo "OKF_EXIT=$?")
+Good — all checks pass. Now let's verify the rendering in a browser (light and dark mode), per the acceptance criteria, using the dev server and Playwright.
+Bash(nohup pnpm exec next dev -p 3417 > /tmp/nextdev-96.log 2>&1 &
+disown
+for i in $(seq 1 40); do
+  grep -q "Ready" /tmp/nextdev-96.log && echo "ready after ${i}s" && break
+  sleep 1
+done
+grep -i "error" /tmp/nextdev-96.log || true)
+Bash(grep -rn "3417\|localhost\|host.docker\|PORT\|port" /home/agent/workspace/.sandcastle/*.md /home/agent/workspace/.mcp.json 2>/dev/null | grep -v node_modules | head -40)
+Bash(cat /home/agent/workspace/.mcp.json 2>/dev/null
+echo "---"
+find /home/agent/workspace -maxdepth 2 -iname ".mcp.json"
+echo "---running skills---"
+ls /home/agent/workspace/.claude/skills 2>/dev/null
+echo "---run skill---"
+find /home/agent/workspace -path "*skills/run*" 2>/dev/null)
+Bash(cat /home/agent/workspace/.sandcastle/mcp-playwright-connect.sh)
+Bash(grep -n "PORT\|-p \|publish\|3000\|expose" /home/agent/workspace/scripts/run-sandcastle.ts 2>/dev/null | head -40)
+Bash(grep -n "docker run\|'-p'\|\"-p\"\|--publish\|network\|3000\|hostname\|-H " /home/agent/workspace/scripts/run-sandcastle.ts 2>/dev/null | head -60)
+Bash(grep -n "docker\|spawn\|exec(" /home/agent/workspace/scripts/run-sandcastle.ts 2>/dev/null | head -60)
+Bash(grep -n "network\|Network\|host" /home/agent/workspace/scripts/run-sandcastle.ts | head -40
+echo "---lib---"
+find / -path "*@ai-hero/sandcastle*" -iname "*.js" 2>/dev/null | grep -i docker | head -5)
+Bash(grep -n "network\|--publish\|-p \|expose\|port" /home/agent/workspace/node_modules/.pnpm/@ai-hero+sandcastle@0.12.0/node_modules/@ai-hero/sandcastle/dist/sandboxes/docker.js | head -40)
+Bash(grep -n "network\|--publish\|'-p'\|\"-p\"\|expose\|hostNetwork\|--net" /home/agent/workspace/node_modules/.pnpm/@ai-hero+sandcastle@0.12.0/node_modules/@ai-hero/sandcastle/dist/chunk-*.js | head -60)
+Bash(grep -n "cdpForwardPort\|forwardPort\|ports:\|-p \|--publish" /home/agent/workspace/scripts/run-sandcastle.ts)
+Bash(sed -n '1,120p' /home/agent/workspace/node_modules/.pnpm/@ai-hero+sandcastle@0.12.0/node_modules/@ai-hero/sandcastle/dist/chunk-CP3TYXZA.js)
+Bash(hostname -I 2>/dev/null; ip addr show 2>/dev/null | grep -E "inet " | grep -v 127.0.0.1)
+Bash(tail -c 3000 /tmp/nextdev-96.log)
+Bash(curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3417/docs/components
+echo "---svg entry markup---"
+curl -s http://localhost:3417/docs/components | grep -o 'vector-showcase[^"]*\.svg\|data-rmiz[^=]*="[^"]*"\|<img[^>]*vector-showcase[^>]*>' | sort -u | head -20)
+Bash(curl -s http://localhost:3417/docs/components | grep -o '<span data-rmiz[^>]*>[^<]*<[^/]*/\?>*' | head -5
+echo "---count of data-rmiz-content values---"
+curl -s http://localhost:3417/docs/components | grep -o 'data-rmiz-content="[^"]*"' | sort | uniq -c
+echo "---raster img near illustration-ansicht---"
+curl -s http://localhost:3417/docs/components | grep -o '<img[^>]*illustration-ansicht[^>]*>')
+Bash(curl -s -o /dev/null -w "%{http_code} %{content_type}\n" http://localhost:3417/illus/vector-showcase.svg)
+Bash(grep -n "img\b" /home/agent/workspace/src/lib/styles/theme.css /home/agent/workspace/src/lib/styles/globals.css 2>/dev/null)
+Bash(git log --oneline --all | grep -i "dd40d3b" 
+git show --stat dd40d3b 2>&1 | head -20)
+Confirmed legitimate history — skipping `pnpm build` per the documented sandbox OOM constraint. Cleaning up the dev server now.
+Bash(pkill -f "next dev" 2>/dev/null; sleep 1; ps aux | grep "next dev" | grep -v grep; echo done)
+Bash(ps aux | grep "next dev" | grep -v grep; echo done)
+Server is stopped. Now let's review the diff before running the code-review step.
+Bash(git diff --stat origin/epic/92-migrate-xeniapolis-de
+echo "---untracked---"
+git status --porcelain)
+Now running the review step against the fixed point.
+Bash(git rev-parse origin/epic/92-migrate-xeniapolis-de
+echo "---"
+git diff origin/epic/92-migrate-xeniapolis-de --stat
+echo "---"
+git diff origin/epic/92-migrate-xeniapolis-de > /tmp/review-96.diff
+wc -l /tmp/review-96.diff
+ls -la /home/agent/workspace/CODING_STANDARDS.md /home/agent/workspace/CONTRIBUTING.md 2>&1
+find /home/agent/workspace -maxdepth 2 -iname "*standard*" -o -iname "CONTRIBUTING*" 2>/dev/null | grep -v node_modules
+echo "---find discover-standards output---"
+find /home/agent/workspace/docs/reference -type f 2>/dev/null)
+Agent(Standards review of illu SVG diff)
+Agent(Spec review of illu SVG diff)
+Both review sub-agents are running in parallel. I'll wait for their reports before aggregating and committing.
+Bash(true)
+Bash(cat /home/agent/workspace/public/illus/vector-showcase.svg)
+Waiting for both review agents to finish before aggregating results and committing.Reviewed `/tmp/review-96.diff` against the stated repo standards and Fowler smell baseline.
+
+**scripts/validate-content.test.ts**
+No standards violations. The new test mirrors the existing suite's structure (same file/write/assert pattern already used for `.png` and `slides.json` cases), so this is an endorsed pattern being extended consistently — not new Duplicated Code.
+
+**src/components/illus.tsx**
+- eslint-disable comment (line 31 in hunk): `{/* eslint-disable-next-line @next/next/no-img-element -- next-image-export-optimizer only processes raster formats; SVGs render as-is */}`. This satisfies the repo standard — it's scoped to a single line/rule and the `--` explanation gives a real, non-obvious WHY (why the linter's raster-image assumption doesn't hold for SVG). No issue.
+- `illus?.image` / `illus?.name` optional chaining inside the new branch, despite `illus` already being null-narrowed by the `if (!illus) return null` above: this exact pattern already exists verbatim in the untouched code directly below (the pre-existing raster-path `return`). Per instructions, this is the diff extending an existing pattern consistently, not a new smell — not flagged.
+- **Duplicated Code (judgement call)**: the new SVG branch (lines 44-53) duplicates the wrapper structure of the raster branch below it — `<div className="mb-8">`, an `ImageZoom` wrapping an image element, `alt={illus?.name}` — differing only in whether `ImageZoom` receives `src` directly vs. wraps a raw `<img>`, and the width/height props. Quoting the new hunk:
+  ```
+  <div className="mb-8">
+    <ImageZoom src={illus?.image} alt={illus?.name}>
+      <img src={illus?.image} alt={illus?.name} />
+    </ImageZoom>
+  </div>
+  ```
+  vs. the following unchanged block's near-identical `<div className="mb-8"><ImageZoom .../></div>` shell. This is new duplication introduced by the diff (not present before), worth a judgement-call flag — could be collapsed by branching only on the `ImageZoom` children/props rather than the whole return.
+- **Divergent Change (judgement call)**: `Illu` now branches internally on file-format-specific rendering logic (raster vs. vector), giving the single function two independent reasons to change (raster asset handling, vector asset handling). Minor at two branches, but worth noting if more formats get added later.
+
+**src/content/docs/components.mdx** and **src/data/illus.json**
+No new files, no frontmatter changes required, no standards issues. The `illus.json` addition follows the existing entry shape (slug/name/image) with no new data clump introduced beyond the pre-existing schema.
+Bash(ls -la /home/agent/workspace/public/illus/_source/ 2>&1; echo "---"; find /home/agent/workspace/public/illus -maxdepth 1 -type f | head -30; echo "---git-status---"; git status --short public/illus docs/how-to 2>&1)
+Bash(grep -n "svg\|extname\|\.png\|\.jpg\|extension" scripts/validate-content.ts | head -40)
+Bash(find /home/agent/workspace -iname "validate-content*" -not -path "*/node_modules/*")
+Bash(true)
+Waiting for the Spec review agent's report before finalizing.
+Bash(grep -rn "dark:" src/components/illus.tsx src/components/image-zoom.tsx src/components/image-zoom.css 2>/dev/null; echo "---"; grep -rln "illus\|Illu" src --include=*.tsx --include=*.css | xargs grep -ln "dark" 2>/dev/null; echo "---theme search---"; grep -rn "next-themes\|useTheme\|prefers-color-scheme" src/components/illus.tsx src/components/image-zoom.tsx 2>/dev/null)
+## SPEC conformance review — issue #96 (SVG support in `<Illu>`)
+
+**(a) Missing/partial requirements**
+
+None found to be missing. All four ACs are covered:
+- New `.svg` entry (`vector-showcase`) added to `illus.json`/`components.mdx`, rendered by the new branch in `illus.tsx`.
+- Raster branch in `illus.tsx` is untouched (spec: "Raster `<Illu>` behaviour and zoom unchanged") — verified, only the new `if (illus.image.endsWith('.svg'))` block was inserted above it.
+- `public/illus/_source/` convention is documented twice: `public/illus/_source/README.md` and `docs/how-to/recreate-illu-as-svg.md` (spec: "Establish the `public/illus/_source/` ... convention ... as the recreation reference").
+- `pnpm validate:content` covered by a new regression test; `pnpm build` reasoning is out of scope per your note.
+
+On the "renders ... in light and dark mode" wording specifically: I checked for theme-conditional logic near `Illu`/`ImageZoom` (`dark:` classes, `useTheme`, `prefers-color-scheme`) and found none anywhere in the component or its CSS — this matches your grep finding. Since nothing in this diff (or the pre-existing raster path) is theme-conditional, the SSR-HTML + curl verification is not a weaker substitute for a stronger check that would exist otherwise — there is no dark-mode-specific rendering path to miss. I consider the verification level acceptable given the stated sandbox networking constraint; I would not flag it as a gap.
+
+**(b) Scope creep**
+
+None. The new `validate-content.test.ts` case is exactly what AC 4 ("`pnpm validate:content` ... stay green") calls for as a regression guard, not extra. The demo `vector-showcase` entry is the minimal vehicle needed to satisfy AC 1 ("An `.svg` entry ... renders") without requiring an actual real-illustration migration, which the spec doesn't mandate here — reasonable, not creep.
+
+**(c) Looks implemented but questionable**
+
+In `illus.tsx`'s new SVG branch, `<ImageZoom src={illus?.image} alt={illus?.name}>` passes `src`/`alt` that `image-zoom.tsx` (line 36: `children ?? (<ExportedImage ... {...props} />)`) never uses, since `children` (the inline `<img>`) is present — `props`/`alt` are silently dropped. Functionally harmless (the real `<img>` carries correct `src`/`alt`), but it reads as if `ImageZoom`'s own `src`/`alt` control something on this path when they're dead. Doesn't violate an AC line, but worth a comment/cleanup — spec's "still inside the zoomable container" is satisfied regardless.Let's re-verify typecheck/lint after this small cleanup, then commit.
+Bash(timeout 120 ./node_modules/.bin/tsc --noEmit; echo "TSC_EXIT=$?"
+timeout 120 pnpm exec eslint 'src/**/*.{ts,tsx}' 'scripts/**/*.ts'; echo "ESLINT_EXIT=$?")
+Bash(timeout 120 ./node_modules/.bin/tsc --noEmit; echo "TSC_EXIT=$?")
+Good, back to a clean typecheck. Both reviews turned up only minor judgement calls (no hard violations), and I confirmed the one "cleanup" suggestion isn't actually applicable given `ImageZoomProps`' required `alt`/`src` fields. Let's re-run the full check suite once more and commit.
+Bash(timeout 60 pnpm run validate:content
+echo "---"
+timeout 60 pnpm test 2>&1 | tail -15)
+Agent idle for 1 minute
+All green. Committing now.
+Bash(git add src/components/illus.tsx src/data/illus.json src/content/docs/components.mdx scripts/validate-content.test.ts docs/how-to/recreate-illu-as-svg.md public/illus/_source/README.md public/illus/vector-showcase.svg
+git status --porcelain)
+Bash(git commit -m "$(cat <<'EOF'
+feat(#96): add SVG support to the Illu component
+
+next-image-export-optimizer only handles raster formats, so forcing
+width/height onto it for a vector asset would misrepresent the image. When
+an illus.json entry's `image` ends in .svg, <Illu> now renders a plain <img>
+as ImageZoom's children instead of delegating to ExportedImage — still
+inside the same zoomable container, with the raster path untouched.
+
+Also establishes the public/illus/_source/ convention (documented in
+docs/how-to/recreate-illu-as-svg.md) for keeping a raster illustration's
+source-resolution original as the design reference once it's recreated as
+SVG, and adds a demo `vector-showcase` entry (shown in components.mdx)
+covering the new path end to end.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+EOF
+)"
+git status)
+Committed. Work is complete: implementation, verification (typecheck, lint, content validation, test suite all green), review (Standards + Spec axes, no hard violations), and commit are done.
+
+<result>{"success": true, "summary": "Added SVG support to the Illu component (issue #96). `src/components/illus.tsx` now checks if the resolved illus.json `image` ends in `.svg`; if so it renders a plain `<img>` as ImageZoom's children (bypassing next-image-export-optimizer, which only handles raster and would otherwise force meaningless raster width/height onto a vector asset) while staying inside the same zoomable container. The raster path is untouched. Added a demo `vector-showcase` SVG entry to illus.json, shown via `<Illu>` in `components.mdx` to exercise the new path end to end (confirmed via SSR HTML inspection: renders as `<img src=\"/illus/vector-showcase.svg\">` inside the same `data-rmiz` zoom wrapper as raster images, with no dark-mode-specific CSS anywhere in the repo to break parity). Established and documented the `public/illus/_source/` convention (git-tracked home for a raster original once it's recreated as SVG) via `docs/how-to/recreate-illu-as-svg.md` and a README in the new `public/illus/_source/` folder. Added a regression test in `scripts/validate-content.test.ts` locking in that `.svg` illus entries validate the same as any other extension. `tsc --noEmit`, `eslint`, `pnpm validate:content`, and `pnpm test` all pass clean; `pnpm build` was deliberately not run per this repo's documented sandbox OOM constraint (commit dd40d3b). Ran /implement's code-review step (Standards + Spec sub-agents against origin/epic/92-migrate-xeniapolis-de): no hard violations on either axis, only minor judgement calls (slight duplication between the SVG/raster branches, noted but left as-is per project's own no-premature-abstraction guidance; one suggested prop cleanup that turned out to be a type error since ImageZoomProps requires `alt`/`src` even when children are supplied, so reverted). Work is committed on the current branch.", "blockers": null}</result>
+Agent stopped
+Capturing session
+Collecting commits
+Collecting commits done (0.0s)
+Reached max iterations (1).
+Run complete: reached 1 iteration(s) without completion signal.
+Context window: 154k
