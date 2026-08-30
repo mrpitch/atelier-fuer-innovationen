@@ -37,8 +37,7 @@ const ORIGIN = 'https://xeniapolis.de'
 
 // Stadtviertel folder slugs, following the convention already established by
 // src/content/docs/xeniapolis/* (see docs/reference/glossary.md for the
-// canonical district names). "Märkte" has no scaffolded folder yet, so its
-// slug is derived in the same short-German-word style as its five siblings.
+// canonical district names).
 const DISTRICT_SLUGS: Record<string, string> = {
 	ann: 'annaeherung',
 	mar: 'maerkte',
