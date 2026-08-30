@@ -412,8 +412,8 @@ Full per-page asset lists live in `xeniapolis-source-map.json`; this table shows
 
 | URL | Status | Title | Target path | Assets | Under construction | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| https://xeniapolis.de/zen/impress.html | 200 | Impressum | src/content/docs/xeniapolis/impressum.mdx | 0 | no | Filename aligned with the impressum.mdx OKF type-mapping convention (see docs/agents/domain.md). |
-| https://xeniapolis.de/zen/zenstart.html | 200 | Willkommen bei Xenia | src/content/docs/xeniapolis/besuch-in-der-wissensstadt.mdx | 1 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/zen/impress.html | 200 | Impressum | src/content/docs/impressum.mdx | 0 | no | There is only one Impressum site-wide, so it lives at the docs root rather than nested under xeniapolis/ (see src/content/docs/meta.json). |
+| https://xeniapolis.de/zen/zenstart.html | 200 | Willkommen bei Xenia | src/content/docs/xeniapolis/index.mdx | 1 | no | Pure navigation chrome (image map + copyright footer), no unique prose. The Zentrum's welcome role is fulfilled by index.mdx, whose "Was ist/bietet Xenia" text is verbatim-sourced from and verified against ann/annstart.html. |
 
 ## zuk
 
