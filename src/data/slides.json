@@ -3,20 +3,17 @@
         {
             "slug": "slide-1",
             "name": "Slide 1",
-            "image": "/slides/slide-1.jpg",
-            "url": "/slides/slide-1.pdf"
+            "image": "/slides/slide-1.jpg"
         },
         {
             "slug": "slide-2",
             "name": "Slide 2",
-            "image": "/slides/slide-2.jpg",
-            "url": "/slides/slide-2.pdf"
+            "image": "/slides/slide-2.jpg"
         },
         {
             "slug": "slide-3",
             "name": "Slide 3",
-            "image": "/slides/slide-3.jpg",
-            "url": "/slides/slide-3.pdf"
+            "image": "/slides/slide-3.jpg"
         },
         {
             "slug": "slide-4",
