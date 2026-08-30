@@ -60,7 +60,7 @@
     "url": "https://xeniapolis.de/ann/annstart.html",
     "httpStatus": 200,
     "title": "Annäherung: Was ist und bietet Xenia?",
-    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/index.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/index.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/annbild.gif"
     ],
@@ -71,7 +71,7 @@
     "url": "https://xeniapolis.de/ann/besuch1.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Annäherung",
-    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch1.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch1.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/ann_mo.gif"
     ],
@@ -82,7 +82,7 @@
     "url": "https://xeniapolis.de/ann/besuch2.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Märkte und Kooperation",
-    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch2.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch2.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/mar_mo.gif"
     ],
@@ -93,7 +93,7 @@
     "url": "https://xeniapolis.de/ann/besuch3.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Kontexte",
-    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch3.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch3.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/kon_mo.gif"
     ],
@@ -104,7 +104,7 @@
     "url": "https://xeniapolis.de/ann/besuch4.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Inszenierung",
-    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch4.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch4.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/ins_mo.gif"
     ],
@@ -115,7 +115,7 @@
     "url": "https://xeniapolis.de/ann/besuch5.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Zukunft",
-    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch5.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch5.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/zuk_mo.gif"
     ],
@@ -126,7 +126,7 @@
     "url": "https://xeniapolis.de/ann/besuch6.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Wertschöpfung",
-    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch6.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch6.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/wer_mo.gif"
     ],
@@ -137,7 +137,7 @@
     "url": "https://xeniapolis.de/ann/besuch7.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Potentiale",
-    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch7.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch7.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/pot_mo.gif"
     ],
@@ -148,7 +148,7 @@
     "url": "https://xeniapolis.de/ann/besuch8.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Viertel der Führung",
-    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch8.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch8.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/fue_mo.gif"
     ],
@@ -159,7 +159,7 @@
     "url": "https://xeniapolis.de/ann/besuch9.html",
     "httpStatus": 200,
     "title": "Besuch im Zentrum: Überblick",
-    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/besuch9.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/besuch9.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_modell/alles_mo.gif",
       "https://xeniapolis.de/gifs/b_modell/kon_mokl.gif",
@@ -179,7 +179,7 @@
     "url": "https://xeniapolis.de/ann/kurzueb1.html",
     "httpStatus": 200,
     "title": "Eine erste Annäherung: Stätten der Begegnung",
-    "targetPath": "src/content/docs/xeniapolis/kurzuebersicht.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/ansichkl.gif"
     ],
@@ -190,7 +190,7 @@
     "url": "https://xeniapolis.de/ann/kurzueb2.html",
     "httpStatus": 200,
     "title": "Standard Annäherung. Vorlage",
-    "targetPath": "src/content/docs/xeniapolis/kurzuebersicht.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/kondrat2.gif"
     ],
@@ -201,7 +201,7 @@
     "url": "https://xeniapolis.de/ann/kurzueb3.html",
     "httpStatus": 200,
     "title": "Erste Annäherung: Aufbruch zum Kontinent der Lösungen",
-    "targetPath": "src/content/docs/xeniapolis/kurzuebersicht.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/blaues.gif"
     ],
@@ -212,7 +212,7 @@
     "url": "https://xeniapolis.de/ann/kurzueb4.html",
     "httpStatus": 200,
     "title": "Eine erste Annäherung: Ateliers für Innovatoren",
-    "targetPath": "src/content/docs/xeniapolis/kurzuebersicht.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/atelier.gif"
     ],
@@ -223,7 +223,7 @@
     "url": "https://xeniapolis.de/ann/kurzueb5.html",
     "httpStatus": 200,
     "title": "Eine erste Ann&auml,herung: Netzwerk der Wissensstädte",
-    "targetPath": "src/content/docs/xeniapolis/kurzuebersicht.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/umland.gif"
     ],
@@ -234,7 +234,7 @@
     "url": "https://xeniapolis.de/ann/umgeb1.html",
     "httpStatus": 200,
     "title": "Besuch in der Umgebung: Überblick",
-    "targetPath": "src/content/docs/xeniapolis/viertel-der-annaeherung/umgeb1.mdx",
+    "targetPath": "src/content/docs/xeniapolis/annaeherung/umgeb1.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/umland.gif"
     ],
@@ -1219,7 +1219,7 @@
     "url": "https://xeniapolis.de/kon/ewelt2.html",
     "httpStatus": 200,
     "title": "2: Konstellationen beim Übergang zur Informationsgesellschaft",
-    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/marbild.gif",
       "https://xeniapolis.de/gifs/b_64er/ewmar.gif"
@@ -1231,7 +1231,7 @@
     "url": "https://xeniapolis.de/kon/ewelt2a.html",
     "httpStatus": 200,
     "title": "2.1: Spektrum von Gütern und Leistungen in der gesellschaftlichen Entwicklung",
-    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
       "https://xeniapolis.de/gifs/b_64er/2_1-s.gif"
@@ -1243,7 +1243,7 @@
     "url": "https://xeniapolis.de/kon/ewelt2b.html",
     "httpStatus": 200,
     "title": "2.2: Innovative Durchbrüche für komparative Vorteile",
-    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
       "https://xeniapolis.de/gifs/b_64er/2_2-s.gif"
@@ -1255,7 +1255,7 @@
     "url": "https://xeniapolis.de/kon/ewelt2c.html",
     "httpStatus": 200,
     "title": "2.3: \"Eine Welt\" und ihre Probleme",
-    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
       "https://xeniapolis.de/gifs/b_64er/2_3-s.gif"
@@ -1267,7 +1267,7 @@
     "url": "https://xeniapolis.de/kon/ewelt2d.html",
     "httpStatus": 200,
     "title": "2.4: Der Wandel der Gesellschaft im Zeitalter der Industrialisierung",
-    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
       "https://xeniapolis.de/gifs/b_64er/2_4-s.gif"
@@ -1279,7 +1279,7 @@
     "url": "https://xeniapolis.de/kon/ewelt2e.html",
     "httpStatus": 200,
     "title": "2.5: Kondratieff-Zyklen: Analyse und Projektion",
-    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
       "https://xeniapolis.de/gifs/b_64er/2_5-s.gif"
@@ -1291,7 +1291,7 @@
     "url": "https://xeniapolis.de/kon/ewelt2f.html",
     "httpStatus": 200,
     "title": "2.6: Die Schichten der wirtschaftlichen Entwicklung",
-    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
       "https://xeniapolis.de/gifs/b_64er/2_6-s.gif"
@@ -1303,7 +1303,7 @@
     "url": "https://xeniapolis.de/kon/ewelt2g.html",
     "httpStatus": 200,
     "title": "2.7: Antriebskräfte der Gestaltung und verschüttete Quellen",
-    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
       "https://xeniapolis.de/gifs/b_64er/2_7-s.gif"
@@ -1315,7 +1315,7 @@
     "url": "https://xeniapolis.de/kon/ewelt2h.html",
     "httpStatus": 200,
     "title": "2.8: Das Team, das wie ein Erfinderunternehmer handelt",
-    "targetPath": "src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
+    "targetPath": "src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_64er/ewmar_kl.gif",
       "https://xeniapolis.de/gifs/b_64er/2_8-s.gif"
@@ -2245,7 +2245,7 @@
     "url": "https://xeniapolis.de/mar/marstart.html",
     "httpStatus": 200,
     "title": "Märkte und Kooperation: Ideen, Kontakte, Begegnung",
-    "targetPath": "src/content/docs/xeniapolis/idee-kontakt-begegnungen.mdx",
+    "targetPath": "src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/marbild.gif"
     ],

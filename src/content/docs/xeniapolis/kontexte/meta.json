@@ -1,7 +1,9 @@
 {
   "title": "Kontexte",
   "description": "Beschreibung zu Viertel der Kontexte",
+  "icon": "Building2",
   "pages": [
-    "index"
+    "index",
+    "konstellationen-beim-uebergang-zur-nformationsgesellschaft"
   ]
 }

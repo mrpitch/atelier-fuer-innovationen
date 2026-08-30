@@ -37,10 +37,9 @@ const ORIGIN = 'https://xeniapolis.de'
 
 // Stadtviertel folder slugs, following the convention already established by
 // src/content/docs/xeniapolis/* (see docs/reference/glossary.md for the
-// canonical district names). "Märkte" has no scaffolded folder yet, so its
-// slug is derived in the same short-German-word style as its five siblings.
+// canonical district names).
 const DISTRICT_SLUGS: Record<string, string> = {
-	ann: 'viertel-der-annaeherung',
+	ann: 'annaeherung',
 	mar: 'maerkte',
 	kon: 'kontexte',
 	ins: 'inszenierung',
@@ -56,22 +55,22 @@ const DISTRICT_SLUGS: Record<string, string> = {
 // source pages into one (each ## heading below matches one source page's
 // <title>), the same pattern as the viertelN.html tour consolidation.
 const VERIFIED_TARGETS: Record<string, string> = {
-	'/mar/marstart.html': 'src/content/docs/xeniapolis/idee-kontakt-begegnungen.mdx',
+	'/mar/marstart.html': 'src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx',
 	'/zen/zenstart.html': 'src/content/docs/xeniapolis/besuch-in-der-wissensstadt.mdx',
-	'/ann/kurzueb1.html': 'src/content/docs/xeniapolis/kurzuebersicht.mdx',
-	'/ann/kurzueb2.html': 'src/content/docs/xeniapolis/kurzuebersicht.mdx',
-	'/ann/kurzueb3.html': 'src/content/docs/xeniapolis/kurzuebersicht.mdx',
-	'/ann/kurzueb4.html': 'src/content/docs/xeniapolis/kurzuebersicht.mdx',
-	'/ann/kurzueb5.html': 'src/content/docs/xeniapolis/kurzuebersicht.mdx',
-	'/kon/ewelt2.html': 'src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2a.html': 'src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2b.html': 'src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2c.html': 'src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2d.html': 'src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2e.html': 'src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2f.html': 'src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2g.html': 'src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2h.html': 'src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
+	'/ann/kurzueb1.html': 'src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx',
+	'/ann/kurzueb2.html': 'src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx',
+	'/ann/kurzueb3.html': 'src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx',
+	'/ann/kurzueb4.html': 'src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx',
+	'/ann/kurzueb5.html': 'src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx',
+	'/kon/ewelt2.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
+	'/kon/ewelt2a.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
+	'/kon/ewelt2b.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
+	'/kon/ewelt2c.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
+	'/kon/ewelt2d.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
+	'/kon/ewelt2e.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
+	'/kon/ewelt2f.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
+	'/kon/ewelt2g.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
+	'/kon/ewelt2h.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
 }
 
 const NAMED_ENTITIES: Record<string, string> = {

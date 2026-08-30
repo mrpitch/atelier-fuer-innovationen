@@ -1,0 +1,9 @@
+{
+  "title": "Annäherung",
+  "description": "Beschreibung zu Viertel der Annäherung",
+  "icon": "Building2",
+  "pages": [
+    "index",
+    "kurzuebersicht"
+  ]
+}
