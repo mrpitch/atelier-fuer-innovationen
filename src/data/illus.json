@@ -64,6 +64,11 @@
             "slug": "modell-fuehrung",
             "name": "Das Viertel der Führung im Zentrum der Wissensstadt",
             "image": "/illus/modell-fuehrung.png"
+        },
+        {
+            "slug": "vector-showcase",
+            "name": "Vector illustration showcase (SVG)",
+            "image": "/illus/vector-showcase.svg"
         }
     ]
 }
