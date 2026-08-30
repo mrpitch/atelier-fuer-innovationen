@@ -80,6 +80,13 @@ test('an illus.json image that does not resolve under public/ is a violation', (
 	assert.match(violations[0].reason, /missing\.png/)
 })
 
+test('an illus.json entry with an .svg image resolves like any other extension', () => {
+	write('src/data/illus.json', JSON.stringify({ illus: [{ slug: 'a', name: 'A', image: '/illus/a.svg' }] }))
+	write('public/illus/a.svg', '<svg />')
+
+	assert.deepEqual(findContentViolations(root), [])
+})
+
 test('a slides.json image that does not resolve under public/ is a violation', () => {
 	write('src/data/slides.json', JSON.stringify({ slides: [{ slug: 'a', name: 'A', image: '/slides/missing.jpg' }] }))
 
