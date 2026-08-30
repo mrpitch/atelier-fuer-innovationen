@@ -122,7 +122,7 @@ test('computeTargetPath consolidates every viertelN.html copy onto the shared ov
 test('computeTargetPath uses the verified content match for mar/marstart.html and zen/zenstart.html', () => {
 	assert.equal(
 		computeTargetPath('/mar/marstart.html').targetPath,
-		'src/content/docs/xeniapolis/idee-kontakt-begegnungen.mdx',
+		'src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx',
 	)
 	assert.equal(
 		computeTargetPath('/zen/zenstart.html').targetPath,
@@ -133,11 +133,11 @@ test('computeTargetPath uses the verified content match for mar/marstart.html an
 test('computeTargetPath maps the kurzueb and ewelt2 page sequences onto their aggregated MDX files', () => {
 	assert.equal(
 		computeTargetPath('/ann/kurzueb3.html').targetPath,
-		'src/content/docs/xeniapolis/kurzuebersicht.mdx',
+		'src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx',
 	)
 	assert.equal(
 		computeTargetPath('/kon/ewelt2f.html').targetPath,
-		'src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
 	)
 })
 
@@ -191,7 +191,7 @@ test('crawlSite follows links transitively and dedupes repeated URLs', async () 
 	assert.equal(byUrl.get('https://xeniapolis.de/ann_frame.html')!.title, 'Viertel der Annäherung')
 	const annstart = byUrl.get('https://xeniapolis.de/ann/annstart.html')!
 	assert.deepEqual(annstart.assets, ['https://xeniapolis.de/gifs/b_icons/annbild.gif'])
-	assert.equal(annstart.targetPath, 'src/content/docs/xeniapolis/viertel-der-annaeherung/index.mdx')
+	assert.equal(annstart.targetPath, 'src/content/docs/xeniapolis/annaeherung/index.mdx')
 })
 
 test('crawlSite records unreachable pages with their HTTP status and does not crawl past them', async () => {
@@ -219,7 +219,7 @@ test('renderMarkdownTable groups records by district and includes every record o
 			url: 'https://xeniapolis.de/ann/annstart.html',
 			httpStatus: 200,
 			title: 'Annstart',
-			targetPath: 'src/content/docs/xeniapolis/viertel-der-annaeherung/index.mdx',
+			targetPath: 'src/content/docs/xeniapolis/annaeherung/index.mdx',
 			assets: ['https://xeniapolis.de/gifs/a.gif'],
 			underConstruction: false,
 			notes: '',
