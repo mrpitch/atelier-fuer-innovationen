@@ -19,6 +19,21 @@
             "url": "/slides/slide-3.pdf"
         },
         {
+            "slug": "slide-4",
+            "name": "Slide 4",
+            "image": "/slides/slide-4.jpg"
+        },
+        {
+            "slug": "slide-5",
+            "name": "Slide 5",
+            "image": "/slides/slide-5.jpg"
+        },
+        {
+            "slug": "slide-6",
+            "name": "Slide 6",
+            "image": "/slides/slide-6.jpg"
+        },
+        {
             "slug": "virtuelle-stadtstaaten",
             "name": "Virtuelle Stadtstaaten",
             "image": "/slides/virtuelle-stadtstaaten.png",

@@ -5,7 +5,7 @@ tags: [xeniapolis, migration, source-map, inventory]
 kind: reference
 type: Reference
 status: current
-last_reviewed: 2026-08-29
+last_reviewed: 2026-08-30
 authoritative: true
 ---
 
@@ -56,22 +56,22 @@ Full per-page asset lists live in `xeniapolis-source-map.json`; this table shows
 
 | URL | Status | Title | Target path | Assets | Under construction | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| https://xeniapolis.de/ann/annstart.html | 200 | Annäherung: Was ist und bietet Xenia? | src/content/docs/xeniapolis/viertel-der-annaeherung/index.mdx | 1 | no | — |
-| https://xeniapolis.de/ann/besuch1.html | 200 | Besuch im Zentrum: Viertel der Annäherung | src/content/docs/xeniapolis/viertel-der-annaeherung/besuch1.mdx | 1 | no | — |
-| https://xeniapolis.de/ann/besuch2.html | 200 | Besuch im Zentrum: Viertel der Märkte und Kooperation | src/content/docs/xeniapolis/viertel-der-annaeherung/besuch2.mdx | 1 | no | — |
-| https://xeniapolis.de/ann/besuch3.html | 200 | Besuch im Zentrum: Viertel der Kontexte | src/content/docs/xeniapolis/viertel-der-annaeherung/besuch3.mdx | 1 | no | — |
-| https://xeniapolis.de/ann/besuch4.html | 200 | Besuch im Zentrum: Viertel der Inszenierung | src/content/docs/xeniapolis/viertel-der-annaeherung/besuch4.mdx | 1 | no | — |
-| https://xeniapolis.de/ann/besuch5.html | 200 | Besuch im Zentrum: Viertel der Zukunft | src/content/docs/xeniapolis/viertel-der-annaeherung/besuch5.mdx | 1 | no | — |
-| https://xeniapolis.de/ann/besuch6.html | 200 | Besuch im Zentrum: Viertel der Wertschöpfung | src/content/docs/xeniapolis/viertel-der-annaeherung/besuch6.mdx | 1 | no | — |
-| https://xeniapolis.de/ann/besuch7.html | 200 | Besuch im Zentrum: Viertel der Potentiale | src/content/docs/xeniapolis/viertel-der-annaeherung/besuch7.mdx | 1 | no | — |
-| https://xeniapolis.de/ann/besuch8.html | 200 | Besuch im Zentrum: Viertel der Führung | src/content/docs/xeniapolis/viertel-der-annaeherung/besuch8.mdx | 1 | no | — |
-| https://xeniapolis.de/ann/besuch9.html | 200 | Besuch im Zentrum: Überblick | src/content/docs/xeniapolis/viertel-der-annaeherung/besuch9.mdx | 10 | no | — |
-| https://xeniapolis.de/ann/kurzueb1.html | 200 | Eine erste Annäherung: Stätten der Begegnung | src/content/docs/xeniapolis/kurzuebersicht.mdx | 1 | no | Content matches an already-migrated page (verified by comparing text). |
-| https://xeniapolis.de/ann/kurzueb2.html | 200 | Standard Annäherung. Vorlage | src/content/docs/xeniapolis/kurzuebersicht.mdx | 1 | no | Content matches an already-migrated page (verified by comparing text). |
-| https://xeniapolis.de/ann/kurzueb3.html | 200 | Erste Annäherung: Aufbruch zum Kontinent der Lösungen | src/content/docs/xeniapolis/kurzuebersicht.mdx | 1 | no | Content matches an already-migrated page (verified by comparing text). |
-| https://xeniapolis.de/ann/kurzueb4.html | 200 | Eine erste Annäherung: Ateliers für Innovatoren | src/content/docs/xeniapolis/kurzuebersicht.mdx | 1 | no | Content matches an already-migrated page (verified by comparing text). |
-| https://xeniapolis.de/ann/kurzueb5.html | 200 | Eine erste Ann&auml,herung: Netzwerk der Wissensstädte | src/content/docs/xeniapolis/kurzuebersicht.mdx | 1 | no | Content matches an already-migrated page (verified by comparing text). |
-| https://xeniapolis.de/ann/umgeb1.html | 200 | Besuch in der Umgebung: Überblick | src/content/docs/xeniapolis/viertel-der-annaeherung/umgeb1.mdx | 1 | no | — |
+| https://xeniapolis.de/ann/annstart.html | 200 | Annäherung: Was ist und bietet Xenia? | src/content/docs/xeniapolis/annaeherung/index.mdx | 1 | no | — |
+| https://xeniapolis.de/ann/besuch1.html | 200 | Besuch im Zentrum: Viertel der Annäherung | src/content/docs/xeniapolis/annaeherung/besuch1.mdx | 1 | no | — |
+| https://xeniapolis.de/ann/besuch2.html | 200 | Besuch im Zentrum: Viertel der Märkte und Kooperation | src/content/docs/xeniapolis/annaeherung/besuch2.mdx | 1 | no | — |
+| https://xeniapolis.de/ann/besuch3.html | 200 | Besuch im Zentrum: Viertel der Kontexte | src/content/docs/xeniapolis/annaeherung/besuch3.mdx | 1 | no | — |
+| https://xeniapolis.de/ann/besuch4.html | 200 | Besuch im Zentrum: Viertel der Inszenierung | src/content/docs/xeniapolis/annaeherung/besuch4.mdx | 1 | no | — |
+| https://xeniapolis.de/ann/besuch5.html | 200 | Besuch im Zentrum: Viertel der Zukunft | src/content/docs/xeniapolis/annaeherung/besuch5.mdx | 1 | no | — |
+| https://xeniapolis.de/ann/besuch6.html | 200 | Besuch im Zentrum: Viertel der Wertschöpfung | src/content/docs/xeniapolis/annaeherung/besuch6.mdx | 1 | no | — |
+| https://xeniapolis.de/ann/besuch7.html | 200 | Besuch im Zentrum: Viertel der Potentiale | src/content/docs/xeniapolis/annaeherung/besuch7.mdx | 1 | no | — |
+| https://xeniapolis.de/ann/besuch8.html | 200 | Besuch im Zentrum: Viertel der Führung | src/content/docs/xeniapolis/annaeherung/besuch8.mdx | 1 | no | — |
+| https://xeniapolis.de/ann/besuch9.html | 200 | Besuch im Zentrum: Überblick | src/content/docs/xeniapolis/annaeherung/besuch9.mdx | 10 | no | — |
+| https://xeniapolis.de/ann/kurzueb1.html | 200 | Eine erste Annäherung: Stätten der Begegnung | src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx | 1 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/ann/kurzueb2.html | 200 | Standard Annäherung. Vorlage | src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx | 1 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/ann/kurzueb3.html | 200 | Erste Annäherung: Aufbruch zum Kontinent der Lösungen | src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx | 1 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/ann/kurzueb4.html | 200 | Eine erste Annäherung: Ateliers für Innovatoren | src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx | 1 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/ann/kurzueb5.html | 200 | Eine erste Ann&auml,herung: Netzwerk der Wissensstädte | src/content/docs/xeniapolis/annaeherung/kurzuebersicht.mdx | 1 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/ann/umgeb1.html | 200 | Besuch in der Umgebung: Überblick | src/content/docs/xeniapolis/annaeherung/umgeb1.mdx | 1 | no | — |
 | https://xeniapolis.de/ann/viertel0.html | 200 | Die Stadtviertel: Das Zentrum | src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx | 1 | no | Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page. |
 | https://xeniapolis.de/ann/viertel1.html | 200 | Die Stadtviertel: Viertel der Annäherung | src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx | 3 | no | Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page. |
 | https://xeniapolis.de/ann/viertel2.html | 200 | Die Stadtviertel: Viertel der Märkte und Kooperation | src/content/docs/xeniapolis/die-stadtviertel-der-wissensstadt.mdx | 3 | no | Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page. |
@@ -170,15 +170,15 @@ Full per-page asset lists live in `xeniapolis-source-map.json`; this table shows
 | https://xeniapolis.de/kon/ewelt1f.html | 200 | 1.6: Xenia, Stadt des Wissens und Stätte der Begegnung | src/content/docs/xeniapolis/kontexte/ewelt1f.mdx | 2 | no | — |
 | https://xeniapolis.de/kon/ewelt1g.html | 200 | 1.7: Potentiale einer Stadt des Wissens nutzen! | src/content/docs/xeniapolis/kontexte/ewelt1g.mdx | 2 | no | — |
 | https://xeniapolis.de/kon/ewelt1h.html | 200 | 1.8: Das Vor-Bild: Der Erfinderunternehmer | src/content/docs/xeniapolis/kontexte/ewelt1h.mdx | 2 | no | — |
-| https://xeniapolis.de/kon/ewelt2.html | 200 | 2: Konstellationen beim Übergang zur Informationsgesellschaft | src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
-| https://xeniapolis.de/kon/ewelt2a.html | 200 | 2.1: Spektrum von Gütern und Leistungen in der gesellschaftlichen Entwicklung | src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
-| https://xeniapolis.de/kon/ewelt2b.html | 200 | 2.2: Innovative Durchbrüche für komparative Vorteile | src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
-| https://xeniapolis.de/kon/ewelt2c.html | 200 | 2.3: "Eine Welt" und ihre Probleme | src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
-| https://xeniapolis.de/kon/ewelt2d.html | 200 | 2.4: Der Wandel der Gesellschaft im Zeitalter der Industrialisierung | src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
-| https://xeniapolis.de/kon/ewelt2e.html | 200 | 2.5: Kondratieff-Zyklen: Analyse und Projektion | src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
-| https://xeniapolis.de/kon/ewelt2f.html | 200 | 2.6: Die Schichten der wirtschaftlichen Entwicklung | src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
-| https://xeniapolis.de/kon/ewelt2g.html | 200 | 2.7: Antriebskräfte der Gestaltung und verschüttete Quellen | src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
-| https://xeniapolis.de/kon/ewelt2h.html | 200 | 2.8: Das Team, das wie ein Erfinderunternehmer handelt | src/content/docs/xeniapolis/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/kon/ewelt2.html | 200 | 2: Konstellationen beim Übergang zur Informationsgesellschaft | src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/kon/ewelt2a.html | 200 | 2.1: Spektrum von Gütern und Leistungen in der gesellschaftlichen Entwicklung | src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/kon/ewelt2b.html | 200 | 2.2: Innovative Durchbrüche für komparative Vorteile | src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/kon/ewelt2c.html | 200 | 2.3: "Eine Welt" und ihre Probleme | src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/kon/ewelt2d.html | 200 | 2.4: Der Wandel der Gesellschaft im Zeitalter der Industrialisierung | src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/kon/ewelt2e.html | 200 | 2.5: Kondratieff-Zyklen: Analyse und Projektion | src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/kon/ewelt2f.html | 200 | 2.6: Die Schichten der wirtschaftlichen Entwicklung | src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/kon/ewelt2g.html | 200 | 2.7: Antriebskräfte der Gestaltung und verschüttete Quellen | src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/kon/ewelt2h.html | 200 | 2.8: Das Team, das wie ein Erfinderunternehmer handelt | src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx | 2 | no | Content matches an already-migrated page (verified by comparing text). |
 | https://xeniapolis.de/kon/ewelt3.html | 200 | 3: Eine Welt im Wandel | src/content/docs/xeniapolis/kontexte/ewelt3.mdx | 2 | no | — |
 | https://xeniapolis.de/kon/ewelt3a.html | 200 | 3.1: Das SATORI-Konzept | src/content/docs/xeniapolis/kontexte/ewelt3a.mdx | 2 | no | — |
 | https://xeniapolis.de/kon/ewelt3b.html | 200 | 3.2: "Eine Welt" der Probleme und Revolutionen | src/content/docs/xeniapolis/kontexte/ewelt3b.mdx | 2 | no | — |
@@ -263,7 +263,7 @@ Full per-page asset lists live in `xeniapolis-source-map.json`; this table shows
 
 | URL | Status | Title | Target path | Assets | Under construction | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| https://xeniapolis.de/mar/marstart.html | 200 | Märkte und Kooperation: Ideen, Kontakte, Begegnung | src/content/docs/xeniapolis/idee-kontakt-begegnungen.mdx | 1 | no | Content matches an already-migrated page (verified by comparing text). |
+| https://xeniapolis.de/mar/marstart.html | 200 | Märkte und Kooperation: Ideen, Kontakte, Begegnung | src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx | 1 | no | Content matches an already-migrated page (verified by comparing text). |
 
 ## pot
 

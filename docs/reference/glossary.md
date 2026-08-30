@@ -5,7 +5,7 @@ tags: [glossary, domain, xenia, wissensstadt, xeniapolis, concept]
 kind: reference
 type: Reference
 status: current
-last_reviewed: 2026-08-21
+last_reviewed: 2026-08-30
 authoritative: true
 ---
 
@@ -58,7 +58,7 @@ _Avoid_: theme, topic
 | Potenziale               | Methodische Beherrschung der integrativ zu gestaltenden Prozesse von Kommunikation, Information, Wissen, Innovation, Wandel. |
 | Führung                  | Chancen denken lernen!                                                                                                       |
 
-> **Gap:** unlike the other seven, **Märkte** has no dedicated `src/content/docs/xeniapolis/<slug>/` folder yet — it currently exists only as a mention inside `besuch-in-der-wissensstadt.mdx`. Note this if you're about to treat the Stadtviertel list as fully scaffolded.
+All eight Stadtviertel now have a dedicated `src/content/docs/xeniapolis/<slug>/` folder, including `maerkte/`.
 
 ### Societal frame
 
