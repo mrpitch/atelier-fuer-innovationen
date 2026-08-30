@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       markdown: ${{ steps.filter.outputs.markdown }}
+      content: ${{ steps.filter.outputs.content }}
     steps:
       - uses: actions/checkout@v4
       - uses: dorny/paths-filter@v3
@@ -19,6 +20,10 @@ jobs:
             markdown:
               - '**/*.md'
               - '**/*.mdx'
+            content:
+              - 'src/content/docs/**'
+              - 'src/data/**'
+              - 'public/**'
 
   validate-okf:
     needs: check-changes
@@ -35,7 +40,64 @@ jobs:
       - name: Validate OKF frontmatter conformance
         run: pnpm validate:okf
 
+  validate-content:
+    needs: check-changes
+    if: needs.check-changes.outputs.content == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+      - name: Install modules
+        run: pnpm install
+      - name: Run tests
+        run: pnpm test
+      - name: Validate content integrity
+        run: pnpm validate:content
+
+  build-check:
+    needs: check-changes
+    if: needs.check-changes.outputs.content == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+      - name: Install modules
+        run: pnpm install
+      - name: Build and capture output
+        run: pnpm build 2>&1 | tee build.log
+      - name: Fail on known missing-image / unresolved-link warning signatures
+        run: |
+          # Pinned warning strings — each verified against this repo's actual
+          # source rather than guessed:
+          #
+          # "Module not found: Can't resolve"
+          #   Webpack/Next.js's own diagnostic when an import can't be
+          #   resolved. Fumadocs' remarkImage preset (enabled by default; see
+          #   the remarkImageOptions handling in
+          #   fumadocs-core/dist/content/mdx/preset-bundler.js) rewrites every
+          #   relative/absolute MDX image reference into a static `import`, so
+          #   a broken image path in content fails the build with exactly this
+          #   string.
+          #
+          # "Error loading illus:" / "Error loading slides:"
+          #   Literal console.error prefixes in src/components/illus.tsx and
+          #   src/components/slides.tsx, logged when the dynamic import of
+          #   src/data/illus.json or slides.json throws during that async
+          #   server component's render, which Next executes for every page
+          #   during the static export build.
+          PATTERN="Module not found: Can't resolve|Error loading illus:|Error loading slides:"
+          if grep -E "$PATTERN" build.log; then
+            echo "::error::Build produced a missing-image / unresolved-link warning (see above)"
+            exit 1
+          fi
+
   deploy:
+    # Default `if: success()` already treats a skipped dependency (content
+    # unchanged) as passing, so this only blocks deploy when validate-content
+    # or build-check actually ran and failed.
+    needs: [validate-content, build-check]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
