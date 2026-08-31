@@ -462,259 +462,259 @@
     "url": "https://xeniapolis.de/ins/aufstz0.html",
     "httpStatus": 200,
     "title": "Veröffentlichungen",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz0.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/ball.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz01.html",
     "httpStatus": 200,
     "title": "Aufsätze: Städte erleben Wissen gewinnen",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz01.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz02.html",
     "httpStatus": 200,
     "title": "Impressionen zum Leitbild",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz02.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz03.html",
     "httpStatus": 200,
     "title": "Aufsätze: Über Datenautobahnen spricht man nicht",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz03.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz04.html",
     "httpStatus": 200,
     "title": "Aufsätze: Wandel der Innovationskultur",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz04.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz05.html",
     "httpStatus": 200,
     "title": "Aufsätze: Metropolen der Informationsgesellschaft",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz05.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz06.html",
     "httpStatus": 200,
     "title": "Technologiemanagement in der Informationsindustrie",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz06.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz08.html",
     "httpStatus": 200,
     "title": "Aufsätze: Der große Basar",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz08.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz09.html",
     "httpStatus": 200,
     "title": "Aufsätze: Die Stadt des Wissens als Stätte der Begegnung:",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz09.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz10.html",
     "httpStatus": 200,
     "title": "Aufsätze: Die Wiederbelebung der Polis mit den Städten des Wissens als Stätten der Begegnung.",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz10.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz11.html",
     "httpStatus": 200,
     "title": "Aufsätze: Die Polis als Leitbild für den Wandel der Innovationskultur",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz11.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz13.html",
     "httpStatus": 200,
     "title": "Aufsätze: Technologiemanagement in der Informationsindustrie",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz13.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz14.html",
     "httpStatus": 200,
     "title": "Aufsätze: Wieviel Umweltschutz braucht die Wirtschaft",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz14.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz15.html",
     "httpStatus": 200,
     "title": "Aufsätze: Wiederbelebung der Polis zum gemeinsamen Diskurs.",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz15.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz17.html",
     "httpStatus": 200,
     "title": "Technologiemanagement in der Informationsindustrie",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz17.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz18.html",
     "httpStatus": 200,
     "title": "Aufsätze: Verantwortung im Umgang mit Technologie",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz18.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz19.html",
     "httpStatus": 200,
     "title": "Aufsätze: Gefragt sind Visionen, keine Ideologien",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz19.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz20.html",
     "httpStatus": 200,
     "title": "Aufsätze: Vom Nutzen der Zukunftsforschung",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz20.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/baustell.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz21.html",
     "httpStatus": 200,
     "title": "Aufsätze: Mehr als Informationsgesellschaft",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz21.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/baustell.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz23.html",
     "httpStatus": 200,
     "title": "Technologiemanagement in der Informationsindustrie",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz23.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz24.html",
     "httpStatus": 200,
     "title": "Wiederbelebung der Polis zum gemeinsamen Diskurs.",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz24.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz25.html",
     "httpStatus": 200,
     "title": "Aufsätze: Information als Wertschöpfungsfaktor ...",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz25.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz26.html",
     "httpStatus": 200,
     "title": "Technologiemanagement in der Informationsindustrie",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstz26.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstzb1.html",
     "httpStatus": 200,
     "title": "Aufsätze: Der Strategische Abakus",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstzb1.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstzb2.html",
     "httpStatus": 200,
     "title": "Aufsätze: Der Informationsmarkt",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstzb2.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstze5.html",
     "httpStatus": 200,
     "title": "Aufsätze: Cities of Knowledge",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/aufstze5.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/cebit0.html",
     "httpStatus": 200,
     "title": "Xenia auf der CeBIT '95",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/cebit0.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/gifs/b_photos/totale.gif",
       "https://xeniapolis.de/gifs/b_icons/ball.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/cebit1.html",
     "httpStatus": 200,
     "title": "Xenia auf der Cebit '95: Die Ausstellung",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/cebit1.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/ansichkl.gif",
       "https://xeniapolis.de/gifs/b_photos/zyklspd.gif",
@@ -723,13 +723,13 @@
       "https://xeniapolis.de/gifs/b_allg/zeichen1.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/cebit2.html",
     "httpStatus": 200,
     "title": "Xenia auf der Cebit '95:Impressionen",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/cebit2.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/telepol/mrbilder/stud.gif",
       "https://xeniapolis.de/telepol/mrbilder/alt.gif",
@@ -747,13 +747,13 @@
       "https://xeniapolis.de/telepol/mrbilder/mkette.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/cebit3.html",
     "httpStatus": 200,
     "title": "Xenia auf der Cebit '95: Reaktionen der Presse",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/cebit3.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/gifs/b_cbit95/neupres.gif",
       "https://xeniapolis.de/gifs/b_cbit95/leipzig.gif",
@@ -761,13 +761,13 @@
       "https://xeniapolis.de/gifs/b_cbit95/neupr_kl.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/cebit4.html",
     "httpStatus": 200,
     "title": "Xenia auf der Cebit '95:Das Goldene Buch der Stadt Xenia",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/cebit4.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/gifs/b_cbit95/buch.gif",
       "https://xeniapolis.de/gifs/b_cbit95/buchrena.gif",
@@ -778,13 +778,13 @@
       "https://xeniapolis.de/gifs/b_cbit95/buchhoff.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/cebit5.html",
     "httpStatus": 200,
     "title": "Xenia auf der Cebit '95: Beilage zum Informationsblatt ZFE aktuell",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/cebit5.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/atelier.gif",
       "https://xeniapolis.de/gifs/b_person/suss1.gif",
@@ -797,16 +797,16 @@
       "https://xeniapolis.de/gifs/b_person/alt1.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/impression",
     "httpStatus": 404,
     "title": "404 - Not Found",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/impression.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/insstart.html",
@@ -823,259 +823,259 @@
     "url": "https://xeniapolis.de/ins/meilen0.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Meilensteine",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/meilen0.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/radio0.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Radio und Fernsehen",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/radio0.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/ball.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/telepol0.html",
     "httpStatus": 200,
     "title": "Xenia in Telepolis",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/telepol0.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/web0.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Internet",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/web0.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/ball.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun0.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Zeitungen",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun0.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/ball.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun01.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Tempo 1/1991",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun01.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun02.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Manager Magazin 3/91",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun02.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun03.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Manager Magazin 4/93",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun03.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun04.html",
     "httpStatus": 200,
     "title": "Medienspiegel: James E. Liebig",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun04.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun05.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Hannoversche Allgemeine 21.2.94",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun05.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun06.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Süddeutsche Zeitung, 25.2.94",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun06.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun07a.html",
     "httpStatus": 200,
     "title": "Medienspiegel: SNI in NRW 1/95",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun07a.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun08.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Handelsblatt, Beilage Karriere, Februar 1995",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun08.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun09.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Hannoversche Allgemeine, 11.3.1995",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun09.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun10.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Hannoversche Allgemeine, 11.3.1995",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun10.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun11.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Neue Presse, 15.3.95",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun11.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/blaues.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun12.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Neue Presse, 15.3.95",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun12.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun13.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Neue Presse, 8.4.1995",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun13.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun15.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Screen Multimedia 1/96",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun15.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/gifs/b_allg/atelier.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun18.html",
     "httpStatus": 200,
     "title": "Medienspiegel: DER SPIEGEL 20/1996",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun18.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/gifs/b_zeitun/spiegel1.gif",
       "https://xeniapolis.de/gifs/b_zeitun/spiegel2.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun19.html",
     "httpStatus": 200,
     "title": "Medienspiegel: DER SPIEGEL 20/1996",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun19.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun20.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Zeitungen",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun20.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun21.html",
     "httpStatus": 200,
     "title": "Zeitungen: Münchner Merkur",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun21.mdx",
+    "targetPath": "",
     "assets": [
       "https://xeniapolis.de/gifs/b_zeitun/merkur.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun22.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Wiener Kurier 9.7.1996",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun22.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun23.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Badische Zeitung, 1996 Nr.145/3",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun23.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun24.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Kleine Zeitung 1.11.1996",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun24.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun25.html",
     "httpStatus": 200,
     "title": "Medienspiegel: SZ 16/17.11.1996",
-    "targetPath": "src/content/docs/xeniapolis/inszenierung/zeitun25.mdx",
+    "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
   },
   {
     "url": "https://xeniapolis.de/kon_frame.html",
