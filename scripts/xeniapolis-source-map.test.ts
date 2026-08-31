@@ -103,6 +103,23 @@ test('computeTargetPath maps a district start page to that folder\'s index.mdx',
 	assert.equal(notes, '')
 })
 
+test('computeTargetPath defers Inszenierung Medienspiegel and Präsentationen sub-pages to the archive ticket', () => {
+	for (const path of [
+		'/ins/aufstz10.html',
+		'/ins/cebit2.html',
+		'/ins/zeitun01.html',
+		'/ins/meilen0.html',
+		'/ins/radio0.html',
+		'/ins/telepol0.html',
+		'/ins/web0.html',
+		'/ins/impression',
+	]) {
+		const { targetPath, notes } = computeTargetPath(path)
+		assert.equal(targetPath, '', `expected no target path for ${path}`)
+		assert.equal(notes.includes('archive ticket'), true, `expected archive-ticket note for ${path}`)
+	}
+})
+
 test('computeTargetPath maps a generic district content page by filename', () => {
 	const { targetPath } = computeTargetPath('/kon/ewelt1a.html')
 	assert.equal(targetPath, 'src/content/docs/xeniapolis/kontexte/ewelt1a.mdx')
