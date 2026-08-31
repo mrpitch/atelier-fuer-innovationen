@@ -116,7 +116,11 @@ test('computeTargetPath defers Inszenierung Medienspiegel and Präsentationen su
 	]) {
 		const { targetPath, notes } = computeTargetPath(path)
 		assert.equal(targetPath, '', `expected no target path for ${path}`)
-		assert.equal(notes.includes('archive ticket'), true, `expected archive-ticket note for ${path}`)
+		assert.equal(
+			notes,
+			'Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx.',
+			`expected archive-ticket note for ${path}`,
+		)
 	}
 })
 
