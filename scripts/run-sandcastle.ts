@@ -264,7 +264,7 @@ async function startHostBrowser(): Promise<HostBrowser> {
 	try {
 		await waitForChromeReady(chromePort)
 	} catch (error) {
-		chrome.kill()
+		await new Promise<void>((resolve) => { chrome.on('exit', resolve); chrome.kill() })
 		rmSync(userDataDir, { recursive: true, force: true })
 		throw error
 	}
@@ -291,7 +291,7 @@ async function startHostBrowser(): Promise<HostBrowser> {
 			if (closed) return
 			closed = true
 			await new Promise<void>((resolve) => forwarder.close(() => resolve()))
-			chrome.kill()
+			await new Promise<void>((resolve) => { chrome.on('exit', resolve); chrome.kill() })
 			rmSync(userDataDir, { recursive: true, force: true })
 			if (activeHostBrowser === hostBrowser) activeHostBrowser = null
 		},
