@@ -5,7 +5,7 @@ tags: [xeniapolis, migration, source-map, inventory]
 kind: reference
 type: Reference
 status: current
-last_reviewed: 2026-08-30
+last_reviewed: 2026-08-31
 authoritative: true
 ---
 
