@@ -38,43 +38,34 @@ Take the issue number (or URL) from the invocation arguments; ask the user only 
 
 If the issue is not already in your context window, fetch it:
 
-```bash
-gh issue view <N> --json number,title,body,labels
-```
+!`gh issue view <N> --json number,title,body,labels`
 
 Check whether it has sub-issues:
 
-```bash
-sub_issue_count=$(gh api repos/{owner}/{repo}/issues/<N>/sub_issues --jq 'length')
-```
+!`sub_issue_count=$(gh api repos/{owner}/{repo}/issues/<N>/sub_issues --jq 'length')`
 
 `<N>` always denotes the feature issue — the one actually being implemented — for the rest of this workflow:
 
 - **No sub-issues (standalone)** — the fetched issue is the feature issue; `<N>` stays as is.
 - **Has sub-issues (epic)** — the fetched issue is the spec/epic; call its number `<epic-N>` from here on. Find the first unblocked sub-issue and fetch it — that sub-issue is the feature issue, and becomes `<N>` for the rest of the workflow:
-  ```bash
-  # List sub-issue numbers
-  gh api repos/{owner}/{repo}/issues/<epic-N>/sub_issues --jq '.[].number'
+ 
+  **List sub-issue numbers**
+  !`gh api repos/{owner}/{repo}/issues/<epic-N>/sub_issues --jq '.[].number'`
 
-  # For each, check blocked_by count (skip if > 0)
-  gh api repos/{owner}/{repo}/issues/<number> --jq '.issue_dependencies_summary.blocked_by'
-  ```
-  ```bash
-  gh issue view <N> --json number,title,body,labels
-  ```
+  **For each, check blocked_by count (skip if > 0)**
+  !`gh api repos/{owner}/{repo}/issues/<number> --jq '.issue_dependencies_summary.blocked_by'`
+  !`gh issue view <N> --json number,title,body,labels`
 
 ### 2. Create branches and set status
 
-**Branch procedure** — parametrised by `branch_name`, `base_branch`, `issue_number`; both paths below invoke it with their own values. Resolve the repo's trunk once per run: `base_branch = $(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name)`, unless `docs/agents/issue-tracker.md` names a different integration branch.
+**Branch procedure** — parametrised by `branch_name`, `base_branch`, `issue_number`; both paths below invoke it with their own values. Resolve the repo's trunk once per run, unless `docs/agents/issue-tracker.md` names a different integration branch:
+
+!`base_branch=$(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name)`
 
 1. Create the branch — `gh issue develop` resolves the repo node ID and base branch OID itself; Development-sidebar linking is preserved:
-   ```bash
-   gh issue develop <issue_number> --name <branch_name> --base <base_branch>
-   ```
+   !`gh issue develop <issue_number> --name <branch_name> --base <base_branch>`
 2. Check out:
-   ```bash
-   git fetch origin <branch_name> && git checkout <branch_name>
-   ```
+   !`git fetch origin <branch_name> && git checkout <branch_name>`
 
 **Project status** — only if `project_status_command` is configured:
 
@@ -122,15 +113,11 @@ The label is the authorization: sandbox the implementation without asking.
 
 Write the fixed point to a well-known path before invoking the sandbox — a literal path keeps `sandbox_command`'s own invocation unchanged (see below); an inlined value would not:
 
-```bash
-echo "<fixed point>" > .sandcastle/base-branch.txt
-```
+!`echo "<fixed point>" > .sandcastle/base-branch.txt`
 
 Then invoke the configured command, substituting `{issue}` for `<N>` and nothing else:
 
-```bash
-<sandbox_command with {issue}=<N>>
-```
+!`<sandbox_command with {issue}=<N>>`
 
 **Keep this command literal.** Its fixed shape is what lets the Bash permission check match it against an allowlist rule; arguments built from `$(...)` are opaque to that check, so it would prompt a human every run and an afk run could never start unattended.
 
@@ -181,10 +168,8 @@ EOF
 
 When `<N>` is an afk sub-issue of an epic and auto-merge is enabled, the gate is already green by construction if the run reached this step: `/implement` completed cleanly — any failure that survived its repair pass handed the issue back before this step. Whether "completed cleanly" means self-review only or self-review plus an independent check is entirely down to what `sandbox_command` (or the in-session path) treats as `success: true` — this workflow doesn't second-guess that signal, so make sure whatever produces it is a gate you're actually willing to auto-merge on unattended. Squash-merge the PR into the epic branch and sync the local checkout:
 
-```bash
-gh pr merge "$pr_url" --squash --delete-branch
-git checkout epic/<epic-N>-<slug> && git pull origin epic/<epic-N>-<slug>
-```
+!`gh pr merge "$pr_url" --squash --delete-branch`
+!`git checkout epic/<epic-N>-<slug> && git pull origin epic/<epic-N>-<slug>`
 
 If `auto_merge_afk_epic_subissues` is not `true` (including the default), skip this — every PR waits for human review regardless of gate outcome.
 
@@ -208,9 +193,7 @@ Runs once `<N>` — an afk sub-issue of an epic — reaches an outcome, whether 
 
 **Return to the epic branch.** After an auto-merge it is already checked out and pulled (step 4). After a hand-back, check it out now — the hand-back committed the attempted work, so the tree is clean:
 
-```bash
-git checkout epic/<epic-N>-<slug> && git pull origin epic/<epic-N>-<slug>
-```
+!`git checkout epic/<epic-N>-<slug> && git pull origin epic/<epic-N>-<slug>`
 
 Find the next sub-issue exactly as in step 1's epic path: list `<epic-N>`'s sub-issues, skip closed or blocked ones, take the first unblocked.
 
@@ -261,7 +244,8 @@ The issue becomes human work.
      git push -u origin HEAD
    fi
    ```
-2. Swap the label: `gh issue edit <N> --remove-label <afk_label> --add-label <hitl_label>`
+2. Swap the label:
+   !`gh issue edit <N> --remove-label <afk_label> --add-label <hitl_label>`
 3. Comment what was tried and what is blocking it:
    ```bash
    gh issue comment <N> --body "$(cat <<'EOF'
