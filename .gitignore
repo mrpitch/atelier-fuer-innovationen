@@ -30,5 +30,6 @@ yarn-error.log*
 # others
 .env*.local
 .sandcastle/.env
+.sandcastle/container-cache/
 .vercel
 next-env.d.ts

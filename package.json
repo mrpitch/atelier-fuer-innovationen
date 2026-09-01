@@ -9,11 +9,9 @@
 		"start": "npx serve@latest out",
 		"nuke": "rm -r node_modules; rm -r pnpm-lock.yaml",
 		"postinstall": "fumadocs-mdx",
-		"afk": "tsx --env-file=.sandcastle/.env scripts/run-sandcastle.ts",
 		"test": "tsx --test scripts/*.test.ts",
 		"validate:okf": "tsx scripts/validate-okf.ts",
-		"validate:content": "tsx scripts/validate-content.ts",
-		"sandcastle:build": "DOCKER_BUILDKIT=1 docker build --secret id=npmrc,src=.npmrc --build-arg AGENT_UID=$(id -u) --build-arg AGENT_GID=$(id -g) -t sandcastle:atelier-fuer-innovationen -f .sandcastle/Dockerfile ."
+		"validate:content": "tsx scripts/validate-content.ts"
 	},
 	"dependencies": {
 		"@fumadocs/base-ui": "^16.15.0",
@@ -35,8 +33,8 @@
 		"vite": "*"
 	},
 	"devDependencies": {
-		"@ai-hero/sandcastle": "^0.12.0",
 		"@fumadocs/cli": "^1",
+		"@mrpitch/sandcastle": "git+https://github.com/mrpitch/myskills.git",
 		"@playwright/mcp": "^0.0.79",
 		"@tailwindcss/postcss": "^4.3.3",
 		"@types/mdx": "^2.0.13",
