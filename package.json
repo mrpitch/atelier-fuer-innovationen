@@ -11,7 +11,9 @@
 		"postinstall": "fumadocs-mdx",
 		"test": "tsx --test scripts/*.test.ts",
 		"validate:okf": "tsx scripts/validate-okf.ts",
-		"validate:content": "tsx scripts/validate-content.ts"
+		"validate:content": "tsx scripts/validate-content.ts",
+		"afk": "tsx --env-file=.sandcastle/.env scripts/run-sandcastle.ts",
+		"sandcastle:build": "DOCKER_BUILDKIT=1 GITHUB_TOKEN=$(gh auth token) docker build --secret id=github_token,env=GITHUB_TOKEN --build-arg AGENT_UID=$(id -u) --build-arg AGENT_GID=$(id -g) -t sandcastle:atelier-fuer-innovationen -f .sandcastle/Dockerfile ."
 	},
 	"dependencies": {
 		"@fumadocs/base-ui": "^16.15.0",
