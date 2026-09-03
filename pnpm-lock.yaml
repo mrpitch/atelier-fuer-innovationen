@@ -51,15 +51,12 @@ importers:
         specifier: ^3
         version: 3.0.1
     devDependencies:
-      '@ai-hero/sandcastle':
-        specifier: ^0.12.0
-        version: 0.12.0
       '@fumadocs/cli':
         specifier: ^1
         version: 1.4.1
       '@mrpitch/sandcastle':
         specifier: git+https://github.com/mrpitch/myskills.git
-        version: git+https://github.com/mrpitch/myskills.git#d4f40be2512ad765614dc64c45bdd53c1ccd9e93&path:packages/sandcastle
+        version: git+https://github.com/mrpitch/myskills.git#b6b7be192eca2dd86397536404c580ea4c0a099f&path:packages/sandcastle
       '@playwright/mcp':
         specifier: ^0.0.79
         version: 0.0.79
@@ -877,8 +874,8 @@ packages:
   '@mdx-js/mdx@3.1.1':
     resolution: {integrity: sha512-f6ZO2ifpwAQIpzGWaBQT2TXxPv6z3RBzQKpVftEWN78Vl/YweF1uwussDx8ECAXVtr3Rs89fKyG9YlzUs9DyGQ==}
 
-  '@mrpitch/sandcastle@git+https://github.com/mrpitch/myskills.git#d4f40be2512ad765614dc64c45bdd53c1ccd9e93&path:packages/sandcastle':
-    resolution: {commit: d4f40be2512ad765614dc64c45bdd53c1ccd9e93, path: packages/sandcastle, repo: https://github.com/mrpitch/myskills.git, type: git}
+  '@mrpitch/sandcastle@git+https://github.com/mrpitch/myskills.git#b6b7be192eca2dd86397536404c580ea4c0a099f&path:packages/sandcastle':
+    resolution: {commit: b6b7be192eca2dd86397536404c580ea4c0a099f, path: packages/sandcastle, repo: https://github.com/mrpitch/myskills.git, type: git}
     version: 0.1.0
 
   '@napi-rs/wasm-runtime@1.2.3':
@@ -4681,7 +4678,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@mrpitch/sandcastle@git+https://github.com/mrpitch/myskills.git#d4f40be2512ad765614dc64c45bdd53c1ccd9e93&path:packages/sandcastle':
+  '@mrpitch/sandcastle@git+https://github.com/mrpitch/myskills.git#b6b7be192eca2dd86397536404c580ea4c0a099f&path:packages/sandcastle':
     dependencies:
       '@ai-hero/sandcastle': 0.12.0
       zod: 3.25.76
