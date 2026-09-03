@@ -15,7 +15,9 @@
 			"Bash(pnpm sandcastle *)",
 			"Bash(pnpm sandcastle:build *)",
 			"Bash(pnpm install *)",
-			"Bash(./scripts/set-project-status.sh *)"
+			"Bash(./scripts/set-project-status.sh *)",
+			"Bash(echo * > .sandcastle/*)",
+			"Bash(gh pr *)"
 		]
 	}
 }
