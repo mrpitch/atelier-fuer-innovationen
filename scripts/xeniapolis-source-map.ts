@@ -69,15 +69,15 @@ const VERIFIED_TARGETS: Record<string, string> = {
 	'/ann/kurzueb4.html': 'src/content/docs/xeniapolis/annaeherung/ateliers-fuer-innovatoren.mdx',
 	'/ann/kurzueb5.html': 'src/content/docs/xeniapolis/annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx',
 	'/ann/umgeb1.html': 'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
-	'/kon/ewelt2.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2a.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2b.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2c.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2d.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2e.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2f.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2g.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
-	'/kon/ewelt2h.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
+	'/kon/ewelt2.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2a.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2b.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2c.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2d.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2e.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2f.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2g.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2h.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
 }
 
 const NAMED_ENTITIES: Record<string, string> = {
@@ -380,7 +380,7 @@ ${records.length} source URLs found, grouped below by their first path segment (
 - Each of the 8 Stadtviertel maps to its existing (or, for Märkte, not-yet-created) \`src/content/docs/xeniapolis/<slug>/\` folder; a district's \`<code>start.html\` is that folder's \`index.mdx\`.
 - **Zentrum** (\`zen/\`) is not one of the 8 Stadtviertel (see \`docs/reference/glossary.md\`), so it gets its own \`xeniapolis/zentrum/\` folder rather than living inside the Stadtviertel convention.
 - The numbered \`viertelN.html\` and \`besuchN.html\` tours are each duplicated verbatim inside every district folder on the source site; all copies of a tour point at that tour's single already-migrated overview page — \`annaeherung/die-stadtviertel-der-wissensstadt.mdx\` and \`annaeherung/besuch-in-der-wissensstadt.mdx\` respectively (the latter also absorbs \`ann/umgeb1.html\`, the Umgebung tour's closing stop).
-- Some already-migrated MDX files aggregate several source pages into one (each \`##\` heading matches one source page's \`<title>\`): \`kon/ewelt2.html\`, \`ewelt2a.html\`–\`ewelt2h.html\` → \`konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx\`. \`ann/kurzueb1.html\`–\`kurzueb5.html\` used to follow the same pattern but were split in #98 into five ordered sibling pages (\`annaeherung/staetten-der-begegnung.mdx\` through \`annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx\`), sequenced via \`annaeherung/meta.json\` so Fumadocs prev/next provides the walk.
+- Some already-migrated MDX files aggregate several source pages into one (each \`##\` heading matches one source page's \`<title>\`): \`kon/ewelt2.html\`, \`ewelt2a.html\`–\`ewelt2h.html\` → \`konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx\`. \`ann/kurzueb1.html\`–\`kurzueb5.html\` used to follow the same pattern but were split in #98 into five ordered sibling pages (\`annaeherung/staetten-der-begegnung.mdx\` through \`annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx\`), sequenced via \`annaeherung/meta.json\` so Fumadocs prev/next provides the walk.
 - \`ins/\`'s Medienspiegel and Präsentationen sub-pages (\`aufstz*\`, \`cebit*\`, \`meilen0\`, \`radio0\`, \`telepol0\`, \`web0\`, \`zeitun*\`) are not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from \`inszenierung/index.mdx\`.
 - Frame/menu chrome, the site's root frameset, and the shared \`baustelle.html\` placeholder have no target path — they're navigation/placeholder artifacts, not content.
 - \`telepol/\` and \`~mib/\` are a separate, older "Telepolis" exhibition embedded in the same site, outside the Stadtviertel/Zentrum structure; they're flagged \`needs manual triage\` rather than assigned a path.
