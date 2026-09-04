@@ -385,7 +385,7 @@
       "https://xeniapolis.de/gifs/b_icons/baustell.gif"
     ],
     "underConstruction": true,
-    "notes": "Shared \"under construction\" placeholder — no content to migrate; the five interactive features that linked to it (Gästebuch, Xenia-Tribune, Xenia-Ideenbox, Xenia-Weblink, Xenia-Newsgroup) are recorded as never-built plans in xeniapolis/archiv/nie-gebaute-features.mdx."
+    "notes": "Shared \"under construction\" placeholder — no content to migrate; the five interactive features that linked to it (Gästebuch, Xenia-Tribune, Xenia-Ideenbox, Xenia-Weblink, Xenia-Newsgroup) plus zuk/zukstart.html's two sub-pages (Das XENIA-System, Der Arbeitsprozeß) are recorded as never-built plans in xeniapolis/archiv/nie-gebaute-features.mdx."
   },
   {
     "url": "https://xeniapolis.de/fue_frame.html",
@@ -3860,6 +3860,6 @@
       "https://xeniapolis.de/gifs/b_icons/zukbild.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Its two sub-page links (\"Das XENIA-System\", \"Der Arbeitsprozeß\") both resolve to baustelle.html and are recorded as never-built plans in xeniapolis/archiv/nie-gebaute-features.mdx."
   }
 ]
