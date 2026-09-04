@@ -3,6 +3,10 @@
   "description": "Beschreibung zu Viertel der Wertschöpfung",
   "icon": "Building2",
   "pages": [
-    "index"
+    "index",
+    "die-idee",
+    "projektgeschichte",
+    "forschungsarbeit",
+    "mitwirkende"
   ]
 }
