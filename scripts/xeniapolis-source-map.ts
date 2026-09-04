@@ -61,6 +61,14 @@ const DISTRICT_SLUGS: Record<string, string> = {
 // gets its own target below. ann/umgeb1.html has no numbered siblings of its
 // own, so it is listed here rather than getting a regex branch like besuchN
 // and viertelN below.
+//
+// wer/idee0.html, wer/gesch0.html, and wer/werist0.html were each renamed to
+// a human-readable slug (die-idee, projektgeschichte, mitwirkende) rather
+// than keeping their mechanical basename. wer/arbeit0.html and
+// wer/plan0.html were aggregated into one forschungsarbeit.mdx (each ##
+// heading matches one source page's <title>), the district's own "current
+// work" and "future plans" sections, named after its own tagline
+// "Chaos-Chancen und Forschungsarbeit" (#104).
 const VERIFIED_TARGETS: Record<string, string> = {
 	'/mar/marstart.html': 'src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx',
 	'/ann/kurzueb1.html': 'src/content/docs/xeniapolis/annaeherung/staetten-der-begegnung.mdx',
@@ -78,6 +86,11 @@ const VERIFIED_TARGETS: Record<string, string> = {
 	'/kon/ewelt2f.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
 	'/kon/ewelt2g.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
 	'/kon/ewelt2h.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/wer/idee0.html': 'src/content/docs/xeniapolis/wertschoepfung/die-idee.mdx',
+	'/wer/gesch0.html': 'src/content/docs/xeniapolis/wertschoepfung/projektgeschichte.mdx',
+	'/wer/arbeit0.html': 'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx',
+	'/wer/plan0.html': 'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx',
+	'/wer/werist0.html': 'src/content/docs/xeniapolis/wertschoepfung/mitwirkende.mdx',
 }
 
 const NAMED_ENTITIES: Record<string, string> = {

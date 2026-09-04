@@ -3509,28 +3509,28 @@
     "url": "https://xeniapolis.de/wer/arbeit0.html",
     "httpStatus": 200,
     "title": "Das Projekt: Aktuelle Arbeiten",
-    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/arbeit0.mdx",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/wer/gesch0.html",
     "httpStatus": 200,
     "title": "Das Projekt: Projektgeschichte",
-    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/gesch0.mdx",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/projektgeschichte.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/wer/idee0.html",
     "httpStatus": 200,
     "title": "Das Projekt: Zur Idee",
-    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/idee0.mdx",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/die-idee.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/wer/palfred.html",
@@ -3624,10 +3624,10 @@
     "url": "https://xeniapolis.de/wer/plan0.html",
     "httpStatus": 200,
     "title": "Das Projekt: Wie geht es weiter?",
-    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/plan0.mdx",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/wer/pmath.html",
@@ -3695,10 +3695,10 @@
     "url": "https://xeniapolis.de/wer/werist0.html",
     "httpStatus": 200,
     "title": "Das Projekt: Wer ist Xenia?",
-    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/werist0.mdx",
+    "targetPath": "src/content/docs/xeniapolis/wertschoepfung/mitwirkende.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/wer/werstart.html",
