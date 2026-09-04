@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh *)",
+      "Bash(git fetch *)",
+      "Bash(git checkout *)",
+      "Bash(git pull *)",
+      "Bash(git add *)",
+      "Bash(git diff *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(pnpm run sandcastle:build)",
+      "Bash(pnpm tsx scripts/run-sandcastle.ts *)",
+      "Bash(./scripts/set-project-status.sh *)"
+    ]
+  }
+}
