@@ -2308,178 +2308,178 @@
     "url": "https://xeniapolis.de/pot/inh0.html",
     "httpStatus": 200,
     "title": "Inhaltsverzeichnis",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/inh0.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/register.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/lit0.html",
     "httpStatus": 200,
     "title": "Literaturverzeichnis",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/lit0.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/literatur.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk01.html",
     "httpStatus": 200,
     "title": "MOSAIK: Innovationsmanagement",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk01.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-01.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk02.html",
     "httpStatus": 200,
     "title": "MOSAIK: Kondratieff's Zyklen",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk02.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-02.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk03.html",
     "httpStatus": 200,
     "title": "MOSAIK: Technologien",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk03.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-03.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/baustell.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk04.html",
     "httpStatus": 200,
     "title": "MOSAIK: Methodik",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk04.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-04.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk05.html",
     "httpStatus": 200,
     "title": "MOSAIK: Lebensqualität",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk05.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-05.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/baustell.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk06.html",
     "httpStatus": 200,
     "title": "MOSAIK: Urbanität",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk06.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-06.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk07.html",
     "httpStatus": 200,
     "title": "MOSAIK: Wagnis-Ideen",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk07.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-07.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk08.html",
     "httpStatus": 200,
     "title": "MOSAIK: Gesellschaft",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk08.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-08.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk09.html",
     "httpStatus": 200,
     "title": "MOSAIK: Polis",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk09.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-09.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk10.html",
     "httpStatus": 200,
     "title": "MOSAIK: Lernen",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk10.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-10.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk11.html",
     "httpStatus": 200,
     "title": "MOSAIK: Gruppe",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk11.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-11.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/baustell.gif"
     ],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk12.html",
     "httpStatus": 200,
     "title": "MOSAIK: Leitbild",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk12.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-12.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk13.html",
     "httpStatus": 200,
     "title": "MOSAIK: Ateliers für Innovatoren",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk13.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-13.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk14.html",
     "httpStatus": 200,
     "title": "MOSAIK: Fokus und Kontext",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk14.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-14.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk15.html",
     "httpStatus": 200,
     "title": "MOSAIK: SATORI",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk15.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-15.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk16.html",
     "httpStatus": 200,
     "title": "MOSAIK: SATORI",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk16.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-16.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/msk17.html",
     "httpStatus": 200,
     "title": "MOSAIK: SATORI",
-    "targetPath": "src/content/docs/xeniapolis/potenziale/msk17.mdx",
+    "targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-17.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": ""
+    "notes": "Content matches an already-migrated page (verified by comparing text)."
   },
   {
     "url": "https://xeniapolis.de/pot/potstart.html",
