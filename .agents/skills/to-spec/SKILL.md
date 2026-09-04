@@ -16,7 +16,7 @@ The issue tracker and triage label vocabulary should have been provided to you. 
 
 Check with the user that these seams match their expectations.
 
-3. Write the spec using the template below, then publish it to the project issue tracker. Apply the triage label mapped to the `ready-for-agent` role (see `docs/agents/triage-labels.md`) - no need for additional triage. Specs from this skill are usually large enough to become an epic (split into sub-issues later via `/to-tickets`), so apply the `epic` label by default. Ask the user only when you suspect this one isn't — e.g. it's already scoped to a single atomic ticket — and skip the label if they confirm it isn't.
+3. Write the spec using the template below, then publish it to the project issue tracker. Apply the triage label mapped to the `ready-for-agent` role (see `docs/agents/triage-labels.md`) — no need for additional triage. Specs from this skill are usually large enough to become an epic (split into sub-issues later via `/to-tickets`), so apply the `epic` label by default. Ask the user only when you suspect this one isn't — e.g. it's already scoped to a single atomic ticket — and skip the label if they confirm it isn't.
 
 <spec-template>
 
