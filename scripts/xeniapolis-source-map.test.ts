@@ -129,7 +129,7 @@ test('computeTargetPath maps the Inszenierung Medienspiegel/Präsentationen sect
 		assert.equal(result.targetPath, targetPath, `expected archive target for ${path}`)
 		assert.equal(
 			result.notes,
-			'Migrated verbatim into the Xeniapolis archive (#102), framed as dated 1995–96 source material outside the Stadtviertel structure.',
+			'Migrated verbatim into the Xeniapolis archive (#102), framed as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted) outside the Stadtviertel structure.',
 			`expected archive note for ${path}`,
 		)
 	}

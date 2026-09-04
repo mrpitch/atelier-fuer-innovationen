@@ -224,7 +224,8 @@ export function computeTargetPath(pathname: string): { targetPath: string; notes
 	if (ARCHIVED_TARGETS[pathname]) {
 		return {
 			targetPath: ARCHIVED_TARGETS[pathname],
-			notes: 'Migrated verbatim into the Xeniapolis archive (#102), framed as dated 1995–96 source material outside the Stadtviertel structure.',
+			notes:
+				'Migrated verbatim into the Xeniapolis archive (#102), framed as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted) outside the Stadtviertel structure.',
 		}
 	}
 	if (file === 'impress.html' && segments[0] === 'zen') {
@@ -404,7 +405,7 @@ ${records.length} source URLs found, grouped below by their first path segment (
 - **Zentrum** (\`zen/\`) is not one of the 8 Stadtviertel (see \`docs/reference/glossary.md\`), so it gets its own \`xeniapolis/zentrum/\` folder rather than living inside the Stadtviertel convention.
 - The numbered \`viertelN.html\` and \`besuchN.html\` tours are each duplicated verbatim inside every district folder on the source site; all copies of a tour point at that tour's single already-migrated overview page — \`annaeherung/die-stadtviertel-der-wissensstadt.mdx\` and \`annaeherung/besuch-in-der-wissensstadt.mdx\` respectively (the latter also absorbs \`ann/umgeb1.html\`, the Umgebung tour's closing stop).
 - Some already-migrated MDX files aggregate several source pages into one (each \`##\` heading matches one source page's \`<title>\`): \`kon/ewelt2.html\`, \`ewelt2a.html\`–\`ewelt2h.html\` → \`konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx\`. \`ann/kurzueb1.html\`–\`kurzueb5.html\` used to follow the same pattern but were split in #98 into five ordered sibling pages (\`annaeherung/staetten-der-begegnung.mdx\` through \`annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx\`), sequenced via \`annaeherung/meta.json\` so Fumadocs prev/next provides the walk.
-- \`ins/\`'s Medienspiegel and Präsentationen *section index* pages (\`meilen0\`, \`zeitun0\`, \`radio0\`, \`web0\`, \`aufstz0\`, \`cebit0\`, \`telepol0\`) were migrated verbatim into \`xeniapolis/archiv/\` by #102, framed as dated 1995–96 source material outside the Stadtviertel structure. Their numbered sub-items (\`aufstz01\`-\`aufstz26\`, \`cebit1\`-\`cebit5\`, \`zeitun01\`-\`zeitun25\`) remain unmigrated — out of #102's scope, which covered only the section index pages.
+- \`ins/\`'s Medienspiegel and Präsentationen *section index* pages (\`meilen0\`, \`zeitun0\`, \`radio0\`, \`web0\`, \`aufstz0\`, \`cebit0\`, \`telepol0\`) were migrated verbatim into \`xeniapolis/archiv/\` by #102, framed as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted) outside the Stadtviertel structure. Their numbered sub-items (\`aufstz01\`-\`aufstz26\`, \`cebit1\`-\`cebit5\`, \`zeitun01\`-\`zeitun25\`) remain unmigrated — out of #102's scope, which covered only the section index pages.
 - Frame/menu chrome, the site's root frameset, and the shared \`baustelle.html\` placeholder have no target path — they're navigation/placeholder artifacts, not content. The five interactive features that linked to \`baustelle.html\` (Gästebuch, Xenia-Tribune, Xenia-Ideenbox, Xenia-Weblink, Xenia-Newsgroup) are recorded as never-built plans in \`xeniapolis/archiv/nie-gebaute-features.mdx\`.
 - \`telepol/\` and \`~mib/\` are a separate, older "Telepolis" exhibition embedded in the same site, outside the Stadtviertel/Zentrum structure; they're flagged \`needs manual triage\` rather than assigned a path.
 - A handful of nested URLs (e.g. \`kon/zen/zenstart.html\`) are broken/duplicate relative links already present on the source site — also flagged \`needs manual triage\`.
