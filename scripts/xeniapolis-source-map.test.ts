@@ -103,23 +103,34 @@ test('computeTargetPath maps a district start page to that folder\'s index.mdx',
 	assert.equal(notes, '')
 })
 
-test('computeTargetPath defers Inszenierung Medienspiegel and Präsentationen sub-pages to the archive ticket', () => {
-	for (const path of [
-		'/ins/aufstz10.html',
-		'/ins/cebit2.html',
-		'/ins/zeitun01.html',
-		'/ins/meilen0.html',
-		'/ins/radio0.html',
-		'/ins/telepol0.html',
-		'/ins/web0.html',
-		'/ins/impression',
-	]) {
+test('computeTargetPath leaves Inszenierung Medienspiegel/Präsentationen numbered sub-items unmigrated', () => {
+	for (const path of ['/ins/aufstz10.html', '/ins/cebit2.html', '/ins/zeitun01.html', '/ins/impression']) {
 		const { targetPath, notes } = computeTargetPath(path)
 		assert.equal(targetPath, '', `expected no target path for ${path}`)
 		assert.equal(
 			notes,
-			'Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx.',
+			'Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed.',
 			`expected archive-ticket note for ${path}`,
+		)
+	}
+})
+
+test('computeTargetPath maps the Inszenierung Medienspiegel/Präsentationen section index pages into the #102 archive', () => {
+	for (const [path, targetPath] of [
+		['/ins/meilen0.html', 'src/content/docs/xeniapolis/archiv/medienspiegel.mdx'],
+		['/ins/zeitun0.html', 'src/content/docs/xeniapolis/archiv/medienspiegel.mdx'],
+		['/ins/radio0.html', 'src/content/docs/xeniapolis/archiv/medienspiegel.mdx'],
+		['/ins/web0.html', 'src/content/docs/xeniapolis/archiv/medienspiegel.mdx'],
+		['/ins/aufstz0.html', 'src/content/docs/xeniapolis/archiv/praesentationen.mdx'],
+		['/ins/cebit0.html', 'src/content/docs/xeniapolis/archiv/cebit-95.mdx'],
+		['/ins/telepol0.html', 'src/content/docs/xeniapolis/archiv/telepolis.mdx'],
+	] as const) {
+		const result = computeTargetPath(path)
+		assert.equal(result.targetPath, targetPath, `expected archive target for ${path}`)
+		assert.equal(
+			result.notes,
+			'Migrated verbatim into the Xeniapolis archive (#102), framed as dated 1995–96 source material outside the Stadtviertel structure.',
+			`expected archive note for ${path}`,
 		)
 	}
 })

@@ -5,7 +5,7 @@ tags: [glossary, domain, xenia, wissensstadt, xeniapolis, concept]
 kind: reference
 type: Reference
 status: current
-last_reviewed: 2026-08-30
+last_reviewed: 2026-09-04
 authoritative: true
 ---
 
@@ -36,6 +36,9 @@ _Avoid_: city-state
 **Zentrum**:
 The non-thematic hub at the heart of the Wissensstadt — a deliberately empty, Agora-like coordinating space where visitors orient themselves before dispersing into a Stadtviertel.
 _Avoid_: center, downtown
+
+**Archiv**:
+This site's own addition, not a concept from the original xeniapolis.de: a `src/content/docs/xeniapolis/archiv/` folder, alongside Zentrum and the eight Stadtviertel, that frames dated (1995–96) source material — Medienspiegel, Präsentationen, and never-built plans — as historical record rather than current district content.
 
 **Stadtviertel** (District):
 One of Xenia's eight thematic zones, each built around a single **Gestaltungsschwerpunkt**. Always name which one; "Viertel" alone is ambiguous.
