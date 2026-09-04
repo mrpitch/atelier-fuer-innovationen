@@ -195,7 +195,7 @@ test('computeTargetPath maps each kurzueb page to its own split sibling page', (
 test('computeTargetPath maps the ewelt2 page sequence onto its aggregated MDX file', () => {
 	assert.equal(
 		computeTargetPath('/kon/ewelt2f.html').targetPath,
-		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-nformationsgesellschaft.mdx',
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
 	)
 })
 
