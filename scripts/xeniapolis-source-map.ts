@@ -80,6 +80,19 @@ const VERIFIED_TARGETS: Record<string, string> = {
 	'/kon/ewelt2h.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
 }
 
+// #102's archive: the ins/ Medienspiegel and Präsentationen index pages
+// (their numbered sub-items — aufstz*, cebit1-5, zeitun01-25 — stay
+// unmigrated, still covered by the ins-fallback note below).
+const ARCHIVED_TARGETS: Record<string, string> = {
+	'/ins/meilen0.html': 'src/content/docs/xeniapolis/archiv/medienspiegel.mdx',
+	'/ins/zeitun0.html': 'src/content/docs/xeniapolis/archiv/medienspiegel.mdx',
+	'/ins/radio0.html': 'src/content/docs/xeniapolis/archiv/medienspiegel.mdx',
+	'/ins/web0.html': 'src/content/docs/xeniapolis/archiv/medienspiegel.mdx',
+	'/ins/aufstz0.html': 'src/content/docs/xeniapolis/archiv/praesentationen.mdx',
+	'/ins/cebit0.html': 'src/content/docs/xeniapolis/archiv/cebit-95.mdx',
+	'/ins/telepol0.html': 'src/content/docs/xeniapolis/archiv/telepolis.mdx',
+}
+
 const NAMED_ENTITIES: Record<string, string> = {
 	auml: 'ä',
 	ouml: 'ö',
@@ -193,7 +206,11 @@ export function computeTargetPath(pathname: string): { targetPath: string; notes
 	const file = (segments[segments.length - 1] ?? '').toLowerCase()
 
 	if (isUnderConstruction(pathname)) {
-		return { targetPath: '', notes: 'Shared "under construction" placeholder — no content to migrate.' }
+		return {
+			targetPath: '',
+			notes:
+				'Shared "under construction" placeholder — no content to migrate; the five interactive features that linked to it (Gästebuch, Xenia-Tribune, Xenia-Ideenbox, Xenia-Weblink, Xenia-Newsgroup) are recorded as never-built plans in xeniapolis/archiv/nie-gebaute-features.mdx.',
+		}
 	}
 	if (segments.length === 0 || (segments.length === 1 && /^index\.html?$/.test(file))) {
 		return { targetPath: '', notes: 'Site root frameset — superseded by Fumadocs layout, not migrated as content.' }
@@ -203,6 +220,12 @@ export function computeTargetPath(pathname: string): { targetPath: string; notes
 	}
 	if (VERIFIED_TARGETS[pathname]) {
 		return { targetPath: VERIFIED_TARGETS[pathname], notes: 'Content matches an already-migrated page (verified by comparing text).' }
+	}
+	if (ARCHIVED_TARGETS[pathname]) {
+		return {
+			targetPath: ARCHIVED_TARGETS[pathname],
+			notes: 'Migrated verbatim into the Xeniapolis archive (#102), framed as dated 1995–96 source material outside the Stadtviertel structure.',
+		}
 	}
 	if (file === 'impress.html' && segments[0] === 'zen') {
 		return {
@@ -240,7 +263,7 @@ export function computeTargetPath(pathname: string): { targetPath: string; notes
 			return {
 				targetPath: '',
 				notes:
-					'Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx.',
+					'Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed.',
 			}
 		}
 		if (district === 'zen') {
@@ -381,8 +404,8 @@ ${records.length} source URLs found, grouped below by their first path segment (
 - **Zentrum** (\`zen/\`) is not one of the 8 Stadtviertel (see \`docs/reference/glossary.md\`), so it gets its own \`xeniapolis/zentrum/\` folder rather than living inside the Stadtviertel convention.
 - The numbered \`viertelN.html\` and \`besuchN.html\` tours are each duplicated verbatim inside every district folder on the source site; all copies of a tour point at that tour's single already-migrated overview page — \`annaeherung/die-stadtviertel-der-wissensstadt.mdx\` and \`annaeherung/besuch-in-der-wissensstadt.mdx\` respectively (the latter also absorbs \`ann/umgeb1.html\`, the Umgebung tour's closing stop).
 - Some already-migrated MDX files aggregate several source pages into one (each \`##\` heading matches one source page's \`<title>\`): \`kon/ewelt2.html\`, \`ewelt2a.html\`–\`ewelt2h.html\` → \`konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx\`. \`ann/kurzueb1.html\`–\`kurzueb5.html\` used to follow the same pattern but were split in #98 into five ordered sibling pages (\`annaeherung/staetten-der-begegnung.mdx\` through \`annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx\`), sequenced via \`annaeherung/meta.json\` so Fumadocs prev/next provides the walk.
-- \`ins/\`'s Medienspiegel and Präsentationen sub-pages (\`aufstz*\`, \`cebit*\`, \`meilen0\`, \`radio0\`, \`telepol0\`, \`web0\`, \`zeitun*\`) are not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from \`inszenierung/index.mdx\`.
-- Frame/menu chrome, the site's root frameset, and the shared \`baustelle.html\` placeholder have no target path — they're navigation/placeholder artifacts, not content.
+- \`ins/\`'s Medienspiegel and Präsentationen *section index* pages (\`meilen0\`, \`zeitun0\`, \`radio0\`, \`web0\`, \`aufstz0\`, \`cebit0\`, \`telepol0\`) were migrated verbatim into \`xeniapolis/archiv/\` by #102, framed as dated 1995–96 source material outside the Stadtviertel structure. Their numbered sub-items (\`aufstz01\`-\`aufstz26\`, \`cebit1\`-\`cebit5\`, \`zeitun01\`-\`zeitun25\`) remain unmigrated — out of #102's scope, which covered only the section index pages.
+- Frame/menu chrome, the site's root frameset, and the shared \`baustelle.html\` placeholder have no target path — they're navigation/placeholder artifacts, not content. The five interactive features that linked to \`baustelle.html\` (Gästebuch, Xenia-Tribune, Xenia-Ideenbox, Xenia-Weblink, Xenia-Newsgroup) are recorded as never-built plans in \`xeniapolis/archiv/nie-gebaute-features.mdx\`.
 - \`telepol/\` and \`~mib/\` are a separate, older "Telepolis" exhibition embedded in the same site, outside the Stadtviertel/Zentrum structure; they're flagged \`needs manual triage\` rather than assigned a path.
 - A handful of nested URLs (e.g. \`kon/zen/zenstart.html\`) are broken/duplicate relative links already present on the source site — also flagged \`needs manual triage\`.
 

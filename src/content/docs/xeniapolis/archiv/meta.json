@@ -1,8 +1,13 @@
 {
   "title": "Archiv",
-  "description": "Datiertes Quellmaterial zu Xeniapolis",
-  "icon": "Building2",
+  "description": "Datiertes Quellmaterial zu Xeniapolis aus den Jahren 1995 und 1996",
+  "icon": "Archive",
   "pages": [
-    "index"
+    "index",
+    "medienspiegel",
+    "praesentationen",
+    "cebit-95",
+    "telepolis",
+    "nie-gebaute-features"
   ]
 }

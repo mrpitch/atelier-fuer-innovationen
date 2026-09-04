@@ -385,7 +385,7 @@
       "https://xeniapolis.de/gifs/b_icons/baustell.gif"
     ],
     "underConstruction": true,
-    "notes": "Shared \"under construction\" placeholder — no content to migrate."
+    "notes": "Shared \"under construction\" placeholder — no content to migrate; the five interactive features that linked to it (Gästebuch, Xenia-Tribune, Xenia-Ideenbox, Xenia-Weblink, Xenia-Newsgroup) are recorded as never-built plans in xeniapolis/archiv/nie-gebaute-features.mdx."
   },
   {
     "url": "https://xeniapolis.de/fue_frame.html",
@@ -462,12 +462,12 @@
     "url": "https://xeniapolis.de/ins/aufstz0.html",
     "httpStatus": 200,
     "title": "Veröffentlichungen",
-    "targetPath": "",
+    "targetPath": "src/content/docs/xeniapolis/archiv/praesentationen.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/ball.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Migrated verbatim into the Xeniapolis archive (#102), framed as dated 1995–96 source material outside the Stadtviertel structure."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz01.html",
@@ -476,7 +476,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz02.html",
@@ -485,7 +485,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz03.html",
@@ -494,7 +494,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz04.html",
@@ -503,7 +503,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz05.html",
@@ -512,7 +512,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz06.html",
@@ -521,7 +521,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz08.html",
@@ -530,7 +530,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz09.html",
@@ -539,7 +539,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz10.html",
@@ -548,7 +548,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz11.html",
@@ -557,7 +557,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz13.html",
@@ -566,7 +566,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz14.html",
@@ -575,7 +575,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz15.html",
@@ -584,7 +584,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz17.html",
@@ -593,7 +593,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz18.html",
@@ -602,7 +602,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz19.html",
@@ -611,7 +611,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz20.html",
@@ -622,7 +622,7 @@
       "https://xeniapolis.de/gifs/b_icons/baustell.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz21.html",
@@ -633,7 +633,7 @@
       "https://xeniapolis.de/gifs/b_icons/baustell.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz23.html",
@@ -642,7 +642,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz24.html",
@@ -651,7 +651,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz25.html",
@@ -660,7 +660,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstz26.html",
@@ -669,7 +669,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstzb1.html",
@@ -678,7 +678,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstzb2.html",
@@ -687,7 +687,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/aufstze5.html",
@@ -696,19 +696,19 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/cebit0.html",
     "httpStatus": 200,
     "title": "Xenia auf der CeBIT '95",
-    "targetPath": "",
+    "targetPath": "src/content/docs/xeniapolis/archiv/cebit-95.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_photos/totale.gif",
       "https://xeniapolis.de/gifs/b_icons/ball.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Migrated verbatim into the Xeniapolis archive (#102), framed as dated 1995–96 source material outside the Stadtviertel structure."
   },
   {
     "url": "https://xeniapolis.de/ins/cebit1.html",
@@ -723,7 +723,7 @@
       "https://xeniapolis.de/gifs/b_allg/zeichen1.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/cebit2.html",
@@ -747,7 +747,7 @@
       "https://xeniapolis.de/telepol/mrbilder/mkette.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/cebit3.html",
@@ -761,7 +761,7 @@
       "https://xeniapolis.de/gifs/b_cbit95/neupr_kl.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/cebit4.html",
@@ -778,7 +778,7 @@
       "https://xeniapolis.de/gifs/b_cbit95/buchhoff.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/cebit5.html",
@@ -797,7 +797,7 @@
       "https://xeniapolis.de/gifs/b_person/alt1.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/impression",
@@ -806,7 +806,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/insstart.html",
@@ -823,52 +823,52 @@
     "url": "https://xeniapolis.de/ins/meilen0.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Meilensteine",
-    "targetPath": "",
+    "targetPath": "src/content/docs/xeniapolis/archiv/medienspiegel.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Migrated verbatim into the Xeniapolis archive (#102), framed as dated 1995–96 source material outside the Stadtviertel structure."
   },
   {
     "url": "https://xeniapolis.de/ins/radio0.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Radio und Fernsehen",
-    "targetPath": "",
+    "targetPath": "src/content/docs/xeniapolis/archiv/medienspiegel.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/ball.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Migrated verbatim into the Xeniapolis archive (#102), framed as dated 1995–96 source material outside the Stadtviertel structure."
   },
   {
     "url": "https://xeniapolis.de/ins/telepol0.html",
     "httpStatus": 200,
     "title": "Xenia in Telepolis",
-    "targetPath": "",
+    "targetPath": "src/content/docs/xeniapolis/archiv/telepolis.mdx",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Migrated verbatim into the Xeniapolis archive (#102), framed as dated 1995–96 source material outside the Stadtviertel structure."
   },
   {
     "url": "https://xeniapolis.de/ins/web0.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Internet",
-    "targetPath": "",
+    "targetPath": "src/content/docs/xeniapolis/archiv/medienspiegel.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/ball.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Migrated verbatim into the Xeniapolis archive (#102), framed as dated 1995–96 source material outside the Stadtviertel structure."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun0.html",
     "httpStatus": 200,
     "title": "Medienspiegel: Zeitungen",
-    "targetPath": "",
+    "targetPath": "src/content/docs/xeniapolis/archiv/medienspiegel.mdx",
     "assets": [
       "https://xeniapolis.de/gifs/b_icons/ball.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Migrated verbatim into the Xeniapolis archive (#102), framed as dated 1995–96 source material outside the Stadtviertel structure."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun01.html",
@@ -877,7 +877,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun02.html",
@@ -886,7 +886,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun03.html",
@@ -895,7 +895,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun04.html",
@@ -904,7 +904,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun05.html",
@@ -913,7 +913,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun06.html",
@@ -922,7 +922,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun07a.html",
@@ -931,7 +931,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun08.html",
@@ -940,7 +940,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun09.html",
@@ -949,7 +949,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun10.html",
@@ -958,7 +958,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun11.html",
@@ -969,7 +969,7 @@
       "https://xeniapolis.de/gifs/b_allg/blaues.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun12.html",
@@ -978,7 +978,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun13.html",
@@ -987,7 +987,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun15.html",
@@ -998,7 +998,7 @@
       "https://xeniapolis.de/gifs/b_allg/atelier.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun18.html",
@@ -1010,7 +1010,7 @@
       "https://xeniapolis.de/gifs/b_zeitun/spiegel2.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun19.html",
@@ -1019,7 +1019,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun20.html",
@@ -1028,7 +1028,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun21.html",
@@ -1039,7 +1039,7 @@
       "https://xeniapolis.de/gifs/b_zeitun/merkur.gif"
     ],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun22.html",
@@ -1048,7 +1048,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun23.html",
@@ -1057,7 +1057,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun24.html",
@@ -1066,7 +1066,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/ins/zeitun25.html",
@@ -1075,7 +1075,7 @@
     "targetPath": "",
     "assets": [],
     "underConstruction": false,
-    "notes": "Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx."
+    "notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
   },
   {
     "url": "https://xeniapolis.de/kon_frame.html",
