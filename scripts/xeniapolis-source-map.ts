@@ -69,6 +69,15 @@ const DISTRICT_SLUGS: Record<string, string> = {
 // heading matches one source page's <title>), the district's own "current
 // work" and "future plans" sections, named after its own tagline
 // "Chaos-Chancen und Forschungsarbeit" (#104).
+//
+// pot/msk01.html-msk17.html (the 17 MOSAIK knowledge modules), pot/lit0.html,
+// and pot/inh0.html were moved into their own potenziale/mosaik/ subfolder
+// rather than sitting flat in potenziale/ alongside index.mdx — the
+// collection is large enough (17 modules + literature + register) to warrant
+// its own folder and meta.json, referenced as a single "mosaik" entry from
+// potenziale/meta.json (#106). The modules were also renamed msk01→msk-01 …
+// msk17→msk-17 for readability, and lit0/inh0 to their human-readable German
+// names literatur/register, following the same rename pattern as wer/idee0.html.
 const VERIFIED_TARGETS: Record<string, string> = {
 	'/mar/marstart.html': 'src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx',
 	'/ann/kurzueb1.html': 'src/content/docs/xeniapolis/annaeherung/staetten-der-begegnung.mdx',
@@ -91,6 +100,25 @@ const VERIFIED_TARGETS: Record<string, string> = {
 	'/wer/arbeit0.html': 'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx',
 	'/wer/plan0.html': 'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx',
 	'/wer/werist0.html': 'src/content/docs/xeniapolis/wertschoepfung/mitwirkende.mdx',
+	'/pot/msk01.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-01.mdx',
+	'/pot/msk02.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-02.mdx',
+	'/pot/msk03.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-03.mdx',
+	'/pot/msk04.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-04.mdx',
+	'/pot/msk05.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-05.mdx',
+	'/pot/msk06.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-06.mdx',
+	'/pot/msk07.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-07.mdx',
+	'/pot/msk08.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-08.mdx',
+	'/pot/msk09.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-09.mdx',
+	'/pot/msk10.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-10.mdx',
+	'/pot/msk11.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-11.mdx',
+	'/pot/msk12.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-12.mdx',
+	'/pot/msk13.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-13.mdx',
+	'/pot/msk14.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-14.mdx',
+	'/pot/msk15.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-15.mdx',
+	'/pot/msk16.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-16.mdx',
+	'/pot/msk17.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-17.mdx',
+	'/pot/lit0.html': 'src/content/docs/xeniapolis/potenziale/mosaik/literatur.mdx',
+	'/pot/inh0.html': 'src/content/docs/xeniapolis/potenziale/mosaik/register.mdx',
 }
 
 const NAMED_ENTITIES: Record<string, string> = {
@@ -394,6 +422,8 @@ ${records.length} source URLs found, grouped below by their first path segment (
 - **Zentrum** (\`zen/\`) is not one of the 8 Stadtviertel (see \`docs/reference/glossary.md\`), so it gets its own \`xeniapolis/zentrum/\` folder rather than living inside the Stadtviertel convention.
 - The numbered \`viertelN.html\` and \`besuchN.html\` tours are each duplicated verbatim inside every district folder on the source site; all copies of a tour point at that tour's single already-migrated overview page — \`annaeherung/die-stadtviertel-der-wissensstadt.mdx\` and \`annaeherung/besuch-in-der-wissensstadt.mdx\` respectively (the latter also absorbs \`ann/umgeb1.html\`, the Umgebung tour's closing stop).
 - Some already-migrated MDX files aggregate several source pages into one (each \`##\` heading matches one source page's \`<title>\`): \`kon/ewelt2.html\`, \`ewelt2a.html\`–\`ewelt2h.html\` → \`konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx\`. \`ann/kurzueb1.html\`–\`kurzueb5.html\` used to follow the same pattern but were split in #98 into five ordered sibling pages (\`annaeherung/staetten-der-begegnung.mdx\` through \`annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx\`), sequenced via \`annaeherung/meta.json\` so Fumadocs prev/next provides the walk.
+- \`wer/idee0.html\`, \`wer/gesch0.html\`, and \`wer/werist0.html\` were each renamed to a human-readable slug (\`die-idee\`, \`projektgeschichte\`, \`mitwirkende\`) rather than keeping their mechanical basename. \`wer/arbeit0.html\` and \`wer/plan0.html\` were aggregated the same way as the \`ewelt2*\` pages above, into one \`forschungsarbeit.mdx\` (#104) — the district's own "current work" and "future plans" sections, named after its own tagline "Chaos-Chancen und Forschungsarbeit". \`wer/palfred.html\`–\`wer/wvolk.html\` (the individual partner and team-member bios linked from \`werist0.html\`) are out of scope for #104 and remain mapped to their mechanical per-person target paths for a future ticket.
+- \`pot/msk01.html\`–\`msk17.html\` (the 17 MOSAIK knowledge modules), \`pot/lit0.html\`, and \`pot/inh0.html\` were moved into their own \`potenziale/mosaik/\` subfolder rather than sitting flat in \`potenziale/\` alongside \`index.mdx\` — the collection is large enough (17 modules + literature + register) to warrant its own folder and \`meta.json\`, referenced as a single \`"mosaik"\` entry from \`potenziale/meta.json\` (#106). The modules were also renamed \`msk01\`→\`msk-01\` … \`msk17\`→\`msk-17\` for readability, and \`lit0\`/\`inh0\` to their human-readable German names \`literatur\`/\`register\`, following the same rename pattern as \`wer/idee0.html\` above.
 - \`ins/\`'s Medienspiegel and Präsentationen sub-pages (\`aufstz*\`, \`cebit*\`, \`meilen0\`, \`radio0\`, \`telepol0\`, \`web0\`, \`zeitun*\`) are not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from \`inszenierung/index.mdx\`.
 - Frame/menu chrome, the site's root frameset, and the shared \`baustelle.html\` placeholder have no target path — they're navigation/placeholder artifacts, not content.
 - \`telepol/\` and \`~mib/\` are a separate, older "Telepolis" exhibition embedded in the same site, outside the Stadtviertel/Zentrum structure; they're flagged \`needs manual triage\` rather than assigned a path.
