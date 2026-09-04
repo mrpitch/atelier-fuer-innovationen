@@ -199,6 +199,32 @@ test('computeTargetPath maps the ewelt2 page sequence onto its aggregated MDX fi
 	)
 })
 
+test('computeTargetPath maps wer/idee0.html, wer/gesch0.html, and wer/werist0.html to their human-readable slugs', () => {
+	assert.equal(
+		computeTargetPath('/wer/idee0.html').targetPath,
+		'src/content/docs/xeniapolis/wertschoepfung/die-idee.mdx',
+	)
+	assert.equal(
+		computeTargetPath('/wer/gesch0.html').targetPath,
+		'src/content/docs/xeniapolis/wertschoepfung/projektgeschichte.mdx',
+	)
+	assert.equal(
+		computeTargetPath('/wer/werist0.html').targetPath,
+		'src/content/docs/xeniapolis/wertschoepfung/mitwirkende.mdx',
+	)
+})
+
+test('computeTargetPath aggregates wer/arbeit0.html and wer/plan0.html onto one Forschungsarbeit page', () => {
+	assert.equal(
+		computeTargetPath('/wer/arbeit0.html').targetPath,
+		'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx',
+	)
+	assert.equal(
+		computeTargetPath('/wer/plan0.html').targetPath,
+		'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx',
+	)
+})
+
 test('computeTargetPath places Zentrum outside the Stadtviertel folder convention', () => {
 	const { targetPath, notes } = computeTargetPath('/zen/rundgang1.html')
 	assert.equal(targetPath, 'src/content/docs/xeniapolis/zentrum/rundgang1.mdx')
