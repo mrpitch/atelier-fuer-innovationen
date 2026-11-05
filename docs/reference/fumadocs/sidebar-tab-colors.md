@@ -1,9 +1,8 @@
 ---
-name: "Sidebar tab icon color transform"
+title: 'Sidebar tab icon color transform'
 description: "The docs layout's tabs.transform reads source.getNodeMeta() to build a per-top-level-folder CSS color variable for sidebar tab icons, following fumadocs' own documented pattern."
-kind: reference
-type: Reference
-status: current
+type: reference
+status: stable
 last_reviewed: 2026-08-22
 tags: [fumadocs, sidebar, tabs, theming, source-loader]
 ---
