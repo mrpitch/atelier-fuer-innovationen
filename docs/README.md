@@ -4,20 +4,20 @@ This directory uses the [Diataxis](https://diataxis.fr/) framework.
 
 ## Quick Links
 
-| Type                        | Purpose                        | Start Here                    |
-| --------------------------- | ------------------------------ | ----------------------------- |
-| [Tutorials](tutorials/)     | Learn by doing                 | New contributors              |
-| [How-to Guides](how-to/)    | Solve a specific task          | Day-to-day work               |
-| [Reference](reference/)     | Look up technical facts        | API / config lookup           |
-| [Explanation](explanation/) | Understand the "why"           | Onboarding, design            |
-| [ADRs](adr/)                | Architectural decision records | Understanding a past decision |
+| Type                               | Purpose                        | Start Here                    |
+| ---------------------------------- | ------------------------------ | ----------------------------- |
+| [Tutorials](tutorials/)            | Learn by doing                 | New contributors              |
+| [How-to Guides](how-to/)           | Solve a specific task          | Day-to-day work               |
+| [Reference](reference/)            | Look up technical facts        | API / config lookup           |
+| [Explanation](explanation/)        | Understand the "why"           | Onboarding, design            |
+| [ADRs](architecture/09-decisions/) | Architectural decision records | Understanding a past decision |
 
 ## Finding What You Need
 
 - **New here?** Start with [tutorials](tutorials/) and the root [`AGENTS.md`](../AGENTS.md).
 - **Need to ship a change?** See [how-to guides](how-to/).
 - **Looking up a component, config, or the domain glossary?** See [reference](reference/) (start with [`reference/glossary.md`](reference/glossary.md)).
-- **Want context on architecture or design decisions?** See [explanation](explanation/) and [adr](adr/).
+- **Want context on architecture or design decisions?** See [explanation](explanation/) and [architecture decisions](architecture/09-decisions/).
 
 ## Not part of this documentation tree
 

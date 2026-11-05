@@ -20,7 +20,13 @@ export interface OkfViolation {
 
 // Directories whose contents are never OKF concept documents, wherever they occur
 // (build/vendor output) — skipped entirely rather than filtered file-by-file.
-const VENDOR_DIR_NAMES = new Set(['node_modules', '.next', '.source', 'out', '.git'])
+const VENDOR_DIR_NAMES = new Set([
+	'node_modules',
+	'.next',
+	'.source',
+	'out',
+	'.git',
+])
 
 // Path prefixes with a fixed, tool-owned frontmatter contract of their own.
 const EXEMPT_DIR_PREFIXES = [
@@ -39,10 +45,20 @@ const EXEMPT_FILES = new Set([
 	'CLAUDE.md',
 ])
 
+// OKF reserves index.md and log.md in the arc42 bundle: they are navigation and change
+// history, not concept documents, and carry no `type` (the root index only `okf_version`).
+const ARCHITECTURE_BUNDLE_PREFIX = 'docs/architecture/'
+const ARCHITECTURE_RESERVED_FILES = new Set(['index.md', 'log.md'])
+
 const toPosix = (p: string): string => p.split(sep).join('/')
 
 function isExempt(relPath: string): boolean {
 	if (basename(relPath) === 'README.md') return true
+	if (
+		relPath.startsWith(ARCHITECTURE_BUNDLE_PREFIX) &&
+		ARCHITECTURE_RESERVED_FILES.has(basename(relPath))
+	)
+		return true
 	if (EXEMPT_FILES.has(relPath)) return true
 	return EXEMPT_DIR_PREFIXES.some((prefix) => relPath.startsWith(prefix))
 }
@@ -101,7 +117,8 @@ export function findOkfViolations(root: string): OkfViolation[] {
 	return violations.sort((a, b) => a.file.localeCompare(b.file))
 }
 
-const isMain = process.argv[1] && import.meta.url === `file://${process.argv[1]}`
+const isMain =
+	process.argv[1] && import.meta.url === `file://${process.argv[1]}`
 
 if (isMain) {
 	const root = argv[2] ?? '.'
