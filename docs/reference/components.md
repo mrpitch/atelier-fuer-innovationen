@@ -56,6 +56,20 @@ import { Illu } from '@/components/illus'
 
 Illustrations are defined in `src/data/illus.json` with `slug`, `name` and `image`, all required. Images live in `public/illus/`.
 
+### Register slides and illustrations before using them
+
+Add the JSON entry and the image first, then reference the slug.
+
+1. Put the image in `public/slides/` or `public/illus/`.
+2. Add the entry to `src/data/slides.json` or `src/data/illus.json`.
+3. Use `<Slide slug="…" />` or `<Illu slug="…" />`.
+4. Open the page locally and check the image renders.
+
+- A slug missing from the JSON renders nothing, and `pnpm build` still passes.
+- A typo in the slug and an image without a JSON entry fail the same silent way.
+- No check catches this. Also check `url`: it must point to a file in `public/`. A missing file gives a dead Download link; `slide-1` to `slide-3` currently point to PDFs that do not exist.
+- Verify: `grep -c 'slides/<name>' out/docs/<page>.html` is above 0 after `pnpm build`.
+
 ### `ImageZoom`
 
 Click-to-zoom wrapper around `ExportedImage` from `next-image-export-optimizer`, using `react-medium-image-zoom`. It is a client component.
