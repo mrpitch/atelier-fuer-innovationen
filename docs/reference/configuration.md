@@ -18,8 +18,13 @@ tags:
 | `build`            | `next build && next-image-export-optimizer`                 | Static export to `out/`, then image optimization                   |
 | `start`            | `npx serve@latest out`                                      | Serves the built `out/` folder                                     |
 | `postinstall`      | `fumadocs-mdx`                                              | Generates `.source/` from `src/content/docs`                       |
+| `prepare`          | `husky`                                                     | Installs the git hooks; `.husky/pre-commit` runs `lint-staged`     |
 | `test`             | `tsx --test scripts/*.test.ts`                              | Tests for the `scripts/` tooling                                   |
 | `validate:okf`     | `tsx scripts/validate-okf.ts`                               | Fails if a Markdown or MDX file has no `type` frontmatter          |
+| `format`           | `prettier --write .`                                        | Rewrites every file not in `.prettierignore`                       |
+| `format:check`     | `prettier --check .`                                        | Fails if a file is not Prettier-formatted; runs in CI              |
+| `lint`             | `eslint . --max-warnings 0`                                 | Fails on any ESLint warning or error; runs in CI                   |
+| `typecheck`        | `next typegen && tsc --noEmit`                              | Generates route types, then typechecks the project; runs in CI     |
 | `afk`              | `tsx --env-file=.sandcastle/.env scripts/run-sandcastle.ts` | Runs the sandboxed agent on a GitHub issue                         |
 | `sandcastle:build` | `docker build ... -f .sandcastle/Dockerfile .`              | Builds the Sandcastle image `sandcastle:atelier-fuer-innovationen` |
 | `nuke`             | `rm -r node_modules; rm -r pnpm-lock.yaml`                  | Deletes dependencies and the lockfile                              |
