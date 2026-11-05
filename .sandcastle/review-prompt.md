@@ -1,13 +1,13 @@
 # Task
 
 You are independently reviewing another agent's completed work on issue
-#{{ISSUE_NUMBER}} — {{ISSUE_TITLE}} — inside an isolated sandbox. The host
-already checked out the branch with the implementer's commit(s) already
-on it — you are working directly in that branch's working directory,
-which is a bind mount of the real repo. This is a one-shot, **read-only**
-review: you have no memory of writing this code, which is the point —
-review it as a stranger would, against the fixed point below, not against
-whatever reasoning the implementer left in commit messages.
+#{{ISSUE_NUMBER}} — {{ISSUE_TITLE}} — inside an isolated sandbox. This is a
+fresh worktree forked from the issue's branch, which by now already has the
+implementer's commit(s) merged onto it — you are working directly in that
+worktree's working directory. This is a one-shot, **read-only** review: you
+have no memory of writing this code, which is the point — review it as a
+stranger would, against the fixed point below, not against whatever
+reasoning the implementer left in commit messages.
 
 - **Issue**: #{{ISSUE_NUMBER}} — {{ISSUE_TITLE}} (context for the Spec axis only)
 - **Fixed point**: `{{FIXED_POINT}}` — the implementer's complete change
