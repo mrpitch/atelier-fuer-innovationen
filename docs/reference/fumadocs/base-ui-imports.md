@@ -1,9 +1,8 @@
 ---
-name: "@fumadocs/base-ui import convention"
-description: "All fumadocs UI/layout imports use @fumadocs/base-ui subpaths, not fumadocs-ui — the two packages have the same subpath structure but fumadocs-ui is no longer installed."
-kind: reference
-type: Reference
-status: current
+title: '@fumadocs/base-ui import convention'
+description: 'All fumadocs UI/layout imports use @fumadocs/base-ui subpaths, not fumadocs-ui — the two packages have the same subpath structure but fumadocs-ui is no longer installed.'
+type: reference
+status: stable
 last_reviewed: 2026-08-23
 tags: [fumadocs, imports, base-ui, v16]
 ---

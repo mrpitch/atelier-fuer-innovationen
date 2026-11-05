@@ -5,7 +5,7 @@ Dated, numbered, immutable records of significant technical decisions — distin
 ## Guidelines
 
 - One ADR per decision. Number sequentially: `0001-title-in-kebab-case.md`.
-- Frontmatter: `kind: adr`, plus `status` reflecting the decision lifecycle (`proposed`, `accepted`, `superseded`, `deprecated`).
+- Frontmatter: `type: adr`, plus `status` reflecting the decision lifecycle (`proposed`, `accepted`, `superseded`, `deprecated`).
 - Once accepted, an ADR's body is not rewritten — a changed decision gets a new ADR that supersedes it (link both ways).
 
 ## Structure

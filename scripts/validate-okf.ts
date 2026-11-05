@@ -23,13 +23,18 @@ export interface OkfViolation {
 const VENDOR_DIR_NAMES = new Set(['node_modules', '.next', '.source', 'out', '.git'])
 
 // Path prefixes with a fixed, tool-owned frontmatter contract of their own.
-const EXEMPT_DIR_PREFIXES = ['.claude/skills/', '.agents/skills/', '.sandcastle/']
+const EXEMPT_DIR_PREFIXES = [
+	'.claude/skills/',
+	'.agents/skills/',
+	'.sandcastle/',
+	'docs/audit-reports/',
+]
 
 // AGENTS.md/CLAUDE.md are loaded verbatim as runtime agent instructions (not read via
-// docs-discovery tooling like docs/agents/*.md) — same "don't touch tool-loaded frontmatter" risk as SKILL.md.
+// `docs find` tooling like docs/agents/*.md) — same "don't touch tool-loaded frontmatter" risk as SKILL.md.
 const EXEMPT_FILES = new Set([
 	'docs/index.md',
-	'docs/agents/diataxis-context.md',
+	'docs/agents/docs-context.md',
 	'AGENTS.md',
 	'CLAUDE.md',
 ])

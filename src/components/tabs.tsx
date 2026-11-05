@@ -29,7 +29,7 @@ export interface TabsProps extends BaseTabsProps {
  * Thin wrapper on `@fumadocs/base-ui`'s native `Tabs`, which already implements
  * `groupId`/`persist`/`updateAnchor` in its underlying `components/ui/tabs`
  * primitive and forwards unrecognized props through to it. See
- * `docs/reference/fumadocs/tabs-migration.md` for the parity verification.
+ * `docs/reference/fumadocs/tabs-wrapper.md` for the contract.
  */
 export function Tabs(props: TabsProps) {
 	return <BaseTabs {...props} />;

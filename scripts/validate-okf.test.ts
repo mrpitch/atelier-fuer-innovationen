@@ -62,8 +62,14 @@ test('docs/index.md is exempt', () => {
 	assert.deepEqual(violations, [])
 })
 
-test('docs/agents/diataxis-context.md is exempt', () => {
-	write('docs/agents/diataxis-context.md', '# Generated project context\n')
+test('docs/agents/docs-context.md is exempt', () => {
+	write('docs/agents/docs-context.md', '# Generated project context\n')
+	const violations = findOkfViolations(root)
+	assert.deepEqual(violations, [])
+})
+
+test('docs/audit-reports/** is exempt', () => {
+	write('docs/audit-reports/docs-audit-2026-11-04.md', '# Documentation Audit\n')
 	const violations = findOkfViolations(root)
 	assert.deepEqual(violations, [])
 })
