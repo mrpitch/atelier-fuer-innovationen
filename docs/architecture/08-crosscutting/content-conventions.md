@@ -8,6 +8,9 @@ status: draft
 generated:
   by: docs-code-to-docs/1.0.0
   at: 2026-11-05T11:01:33Z
+verified:
+  by: claude-code/sonnet-5-5
+  at: 2026-11-05T18:05:41Z
 sources:
   - resource: scripts/validate-okf.ts
   - resource: scripts/validate-okf.test.ts

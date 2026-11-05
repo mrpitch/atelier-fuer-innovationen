@@ -63,7 +63,7 @@ jobs:
         with:
           cache: true
       - name: Install modules
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
       - name: Build application
         run: pnpm build
       - name: Deploy to S3

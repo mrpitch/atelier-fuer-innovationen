@@ -8,6 +8,9 @@ status: draft
 generated:
   by: docs-code-to-docs/1.0.0
   at: 2026-11-05T11:16:00Z
+verified:
+  by: claude-code/sonnet-5-5
+  at: 2026-11-05T18:05:41Z
 sources:
   - resource: .github/workflows/main.yml
   - resource: package.json

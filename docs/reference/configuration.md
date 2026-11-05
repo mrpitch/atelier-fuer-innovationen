@@ -88,9 +88,12 @@ GitHub Actions secrets and variables for the deploy are listed in [How to build 
 
 ## Where else configuration lives
 
-| File                            | Controls                                                                     |
-| ------------------------------- | ---------------------------------------------------------------------------- |
-| `src/content/docs/**/meta.json` | Sidebar order and tabs; see [meta.json conventions](./fumadocs/meta-json.md) |
-| `.github/workflows/main.yml`    | CI validation and deploy                                                     |
-| `docs/agents/*.md`              | Agent skill configuration                                                    |
-| `.sandcastle/`                  | Sandbox image, prompts and runner settings                                   |
+| File                            | Controls                                                                                               |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `src/content/docs/**/meta.json` | Sidebar order and tabs; see [meta.json conventions](./fumadocs/meta-json.md)                           |
+| `.github/workflows/main.yml`    | CI: jobs `quality` and `validate-okf`, then `deploy` on pushes to `main`                               |
+| `.prettierignore`               | Paths Prettier skips: vendored skills, sandbox, `src/content`, lockfile                                |
+| `lint-staged.config.mjs`        | Pre-commit tasks on staged files; see [Format, lint and typecheck](./global/formatting-and-linting.md) |
+| `.husky/pre-commit`             | Git hook that runs `lint-staged`                                                                       |
+| `docs/agents/*.md`              | Agent skill configuration                                                                              |
+| `.sandcastle/`                  | Sandbox image, prompts and runner settings                                                             |
