@@ -13,7 +13,7 @@ Why does this site render in two different color palettes depending on which con
 
 ## Background
 
-This site has two identities layered on one Next.js app: **Atelier für Innovationen**, this site's own brand (its default look, applied to the home page, shared chrome, the Atelier content section, and the docs root), and **Xeniapolis**, the content section republishing the outside Xenia research concept, which gets its own distinct look. The decision to give Xeniapolis a full-page override rather than a single accent color is recorded in [ADR-0002](../adr/0002-per-section-theming.md).
+This site has two identities layered on one Next.js app: **Atelier für Innovationen**, this site's own brand (its default look, applied to the home page, shared chrome, the Atelier content section, and the docs root), and **Xeniapolis**, the content section republishing the outside Xenia research concept, which gets its own distinct look. The decision to give Xeniapolis a full-page override rather than a single accent color is recorded in [ADR-0002](../architecture/09-decisions/adr-0002-per-section-theming.md).
 
 ## The core mechanism: two token sets, one variable name each
 
@@ -34,7 +34,7 @@ The `data-section` attribute is derived the same way the docs layout already der
 
 ## Why this needed a full-page wrapper, not just the content area
 
-The attribute is applied high enough in the docs layout tree to wrap shared chrome (nav, sidebar, footer) as well as the article body. If it only wrapped the content slot, a Xeniapolis page would render with a re-themed article inside an unchanged, still-Atelier-colored nav and sidebar — which reads as a bug, not an intentional section identity. See the "Alternatives Considered" table in [ADR-0002](../adr/0002-per-section-theming.md) for why a content-only scope, and separately why per-section Next.js route layouts, were both rejected in favor of this single attribute.
+The attribute is applied high enough in the docs layout tree to wrap shared chrome (nav, sidebar, footer) as well as the article body. If it only wrapped the content slot, a Xeniapolis page would render with a re-themed article inside an unchanged, still-Atelier-colored nav and sidebar — which reads as a bug, not an intentional section identity. See the "Alternatives Considered" table in [ADR-0002](../architecture/09-decisions/adr-0002-per-section-theming.md) for why a content-only scope, and separately why per-section Next.js route layouts, were both rejected in favor of this single attribute.
 
 ## The tab-switcher is deliberately independent of this
 
@@ -48,10 +48,10 @@ The only time this needs deliberate handling is a component that hardcodes a col
 
 ## A third section
 
-This mechanism generalizes to a third top-level content section in principle — the same `data-section` attribute and a third scoped selector — but that is explicitly not something to add speculatively. [ADR-0002](../adr/0002-per-section-theming.md) covers exactly two sections; a third needs its own decision about whether it deserves a distinct identity at all before reaching for this pattern again.
+This mechanism generalizes to a third top-level content section in principle — the same `data-section` attribute and a third scoped selector — but that is explicitly not something to add speculatively. [ADR-0002](../architecture/09-decisions/adr-0002-per-section-theming.md) covers exactly two sections; a third needs its own decision about whether it deserves a distinct identity at all before reaching for this pattern again.
 
 ## Further Reading
 
-- [ADR-0002: Per-section theming via CSS custom-property scoping](../adr/0002-per-section-theming.md)
-- [ADR-0001: Adopt @fumadocs/base-ui over fumadocs-ui (Radix UI)](../adr/0001-adopt-fumadocs-base-ui.md)
+- [ADR-0002: Per-section theming via CSS custom-property scoping](../architecture/09-decisions/adr-0002-per-section-theming.md)
+- [ADR-0001: Adopt @fumadocs/base-ui over fumadocs-ui (Radix UI)](../architecture/09-decisions/adr-0001-adopt-fumadocs-base-ui.md)
 - [Domain glossary](../reference/glossary.md) — for what "Atelier für Innovationen" and "Xeniapolis" mean as concepts, not just as CSS scopes

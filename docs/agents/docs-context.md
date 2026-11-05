@@ -50,7 +50,7 @@
 ## Other Conventions
 
 - `CLAUDE.md` points to `AGENTS.md`; treat `AGENTS.md` as the source of truth.
-- Folder names follow the `docs` skill: `tutorials/`, alongside `how-to/`, `reference/`, `explanation/` and `adr/`, with `reference/glossary.md` as the domain vocabulary file (see `docs/agents/domain.md`). Use these names when scaffolding.
+- Folder names follow the `docs` skill: `tutorials/`, alongside `how-to/`, `reference/`, `explanation/`; ADRs live in `architecture/09-decisions/`, with `reference/glossary.md` as the domain vocabulary file (see `docs/agents/domain.md`). Use these names when scaffolding.
 - Frontmatter follows the `docs` skill contract: lowercase `type` (the Diataxis quadrant), `title`, `description`, `tags`, `status: stable | draft | deprecated`. The `type` field doubles as the OKF `type` that `pnpm validate:okf` requires; see `docs/agents/domain.md`.
 - Issue tracking is via `gh` CLI / GitHub issues (see `docs/agents/issue-tracker.md`); PRs are not a triage surface.
 - Sandboxed `afk` agent execution runs via Sandcastle (`pnpm afk`, `.sandcastle/`); see `docs/agents/implementation-workflow.md`.

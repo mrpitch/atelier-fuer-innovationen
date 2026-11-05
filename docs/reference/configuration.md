@@ -65,10 +65,10 @@ Set under `env` in `next.config.mjs`. They are build-time constants, not variabl
 
 ## `pnpm-workspace.yaml`
 
-| Key                        | Value                                                | Purpose                                                                                                               |
-| -------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `allowBuilds`              | `esbuild: true`, `sharp: true`                       | Allows these packages' install scripts to run                                                                         |
-| `minimumReleaseAgeExclude` | `fumadocs-core@16.15.0`, `@fumadocs/base-ui@16.15.0` | Lets pnpm install two versions newer than the release-age gate. See [ADR 0001](../adr/0001-adopt-fumadocs-base-ui.md) |
+| Key                        | Value                                                | Purpose                                                                                                                                         |
+| -------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `allowBuilds`              | `esbuild: true`, `sharp: true`                       | Allows these packages' install scripts to run                                                                                                   |
+| `minimumReleaseAgeExclude` | `fumadocs-core@16.15.0`, `@fumadocs/base-ui@16.15.0` | Lets pnpm install two versions newer than the release-age gate. See [ADR 0001](../architecture/09-decisions/adr-0001-adopt-fumadocs-base-ui.md) |
 
 ## Environment variables
 
