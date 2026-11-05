@@ -2,7 +2,13 @@ import { execFileSync, execSync } from 'node:child_process'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { basename, dirname, join, sep } from 'node:path'
 
-import { type AgentStreamEvent, claudeCode, type LoggingOption, Output, run } from '@ai-hero/sandcastle'
+import {
+	type AgentStreamEvent,
+	claudeCode,
+	type LoggingOption,
+	Output,
+	run,
+} from '@ai-hero/sandcastle'
 import { docker } from '@ai-hero/sandcastle/sandboxes/docker'
 import { z } from 'zod'
 
@@ -13,7 +19,8 @@ const MAX_ITERATIONS = 1
 const TEMPLATES_DIR = join(process.cwd(), '.sandcastle')
 
 // Container-side paths — fixed regardless of host layout.
-const CONTAINER_NODE_MODULES_CACHE_SUBPATH = '.sandcastle/container-cache/node_modules'
+const CONTAINER_NODE_MODULES_CACHE_SUBPATH =
+	'.sandcastle/container-cache/node_modules'
 // Same bind-mount problem as node_modules above, different symptom: without
 // this, `.next` inside the sandbox is the host's real `.next` directory
 // (bind-mounted, not copied). If the implement or review pass runs `pnpm
@@ -91,7 +98,7 @@ export function readFixedPoint(): string {
 		return readFileSync(BASE_BRANCH_FILE, 'utf8').trim()
 	} catch {
 		throw new Error(
-			`Expected ${BASE_BRANCH_FILE} to exist — implement-epic writes it right before invoking sandbox_command.`,
+			`Expected ${BASE_BRANCH_FILE} to exist — implement-epic writes it right before invoking sandbox_command.`
 		)
 	}
 }
@@ -111,11 +118,16 @@ export function readEpicNotes(fixedPoint: string): string {
 // buildReviewRunOptions() each get their own, rather than sharing one
 // object, in case sandcastle mutates it internally.
 function buildDockerSandbox() {
-	const hostNodeModulesCache = join(process.cwd(), CONTAINER_NODE_MODULES_CACHE_SUBPATH)
+	const hostNodeModulesCache = join(
+		process.cwd(),
+		CONTAINER_NODE_MODULES_CACHE_SUBPATH
+	)
 	const hostNextCache = join(process.cwd(), CONTAINER_NEXT_CACHE_SUBPATH)
 	// Share the host pnpm content-addressable store so warm-cache installs
 	// are a no-op. dirname strips the version segment pnpm appends.
-	const hostPnpmStore = dirname(execSync('pnpm store path', { encoding: 'utf8' }).trim())
+	const hostPnpmStore = dirname(
+		execSync('pnpm store path', { encoding: 'utf8' }).trim()
+	)
 	const hostClaudeJson = hostClaudeJsonPath()
 	return docker({
 		mounts: [
@@ -135,40 +147,56 @@ function buildDockerSandbox() {
 
 const installHook = {
 	onSandboxReady: [
-		{ command: 'CI=true pnpm install --frozen-lockfile', timeoutMs: SANDBOX_READY_TIMEOUT_MS },
+		{
+			command: 'CI=true pnpm install --frozen-lockfile',
+			timeoutMs: SANDBOX_READY_TIMEOUT_MS,
+		},
 	],
 }
 
 // No explicit return-type annotation: run()'s overload resolution depends on
 // the literal `output` type surviving inference.
-export function buildImplementRunOptions(input: SandcastleIssueInput, config: SandcastleRunConfig = {}) {
+export function buildImplementRunOptions(
+	input: SandcastleIssueInput,
+	config: SandcastleRunConfig = {}
+) {
 	return {
 		name: 'implement',
 		sandbox: buildDockerSandbox(),
 		agent: claudeCode('claude-sonnet-5'),
-		promptFile: config.implementPromptFile ?? join(TEMPLATES_DIR, 'implement-prompt.md'),
+		promptFile:
+			config.implementPromptFile ?? join(TEMPLATES_DIR, 'implement-prompt.md'),
 		promptArgs: {
 			ISSUE_NUMBER: input.issueNumber,
 			ISSUE_TITLE: input.issueTitle,
 			ISSUE_BODY: input.issueBody,
 			FIXED_POINT: input.fixedPoint,
 			EPIC_NOTES: input.epicNotes || 'None yet.',
-			CHECK_COMMAND: config.checkCommand ?? 'echo "no check command configured"',
+			CHECK_COMMAND:
+				config.checkCommand ?? 'echo "no check command configured"',
 		},
 		maxIterations: MAX_ITERATIONS,
-		output: Output.object({ tag: 'result', schema: implementResultSchema, maxRetries: 1 }),
+		output: Output.object({
+			tag: 'result',
+			schema: implementResultSchema,
+			maxRetries: 1,
+		}),
 		branchStrategy: { type: 'merge-to-head' as const },
 		idleTimeoutSeconds: IDLE_TIMEOUT_SECONDS,
 		hooks: { sandbox: installHook },
 	}
 }
 
-export function buildReviewRunOptions(input: SandcastleIssueInput, config: SandcastleRunConfig = {}) {
+export function buildReviewRunOptions(
+	input: SandcastleIssueInput,
+	config: SandcastleRunConfig = {}
+) {
 	return {
 		name: 'review',
 		sandbox: buildDockerSandbox(),
 		agent: claudeCode('claude-sonnet-5'),
-		promptFile: config.reviewPromptFile ?? join(TEMPLATES_DIR, 'review-prompt.md'),
+		promptFile:
+			config.reviewPromptFile ?? join(TEMPLATES_DIR, 'review-prompt.md'),
 		promptArgs: {
 			ISSUE_NUMBER: input.issueNumber,
 			ISSUE_TITLE: input.issueTitle,
@@ -176,7 +204,11 @@ export function buildReviewRunOptions(input: SandcastleIssueInput, config: Sandc
 			FIXED_POINT: input.fixedPoint,
 		},
 		maxIterations: MAX_ITERATIONS,
-		output: Output.object({ tag: 'result', schema: reviewResultSchema, maxRetries: 1 }),
+		output: Output.object({
+			tag: 'result',
+			schema: reviewResultSchema,
+			maxRetries: 1,
+		}),
 		branchStrategy: { type: 'merge-to-head' as const },
 		idleTimeoutSeconds: IDLE_TIMEOUT_SECONDS,
 		hooks: { sandbox: installHook },
@@ -184,25 +216,37 @@ export function buildReviewRunOptions(input: SandcastleIssueInput, config: Sandc
 }
 
 export function assertOnIssueBranch(issueNumber: string): string {
-	const currentBranch = execSync('git rev-parse --abbrev-ref HEAD', { encoding: 'utf8' }).trim()
+	const currentBranch = execSync('git rev-parse --abbrev-ref HEAD', {
+		encoding: 'utf8',
+	}).trim()
 	const expectedPrefix = `feat/${issueNumber}-`
 	if (!currentBranch.startsWith(expectedPrefix)) {
 		throw new Error(
-			`Expected the host repo to be checked out on a "${expectedPrefix}*" branch for issue #${issueNumber}, but found "${currentBranch}".`,
+			`Expected the host repo to be checked out on a "${expectedPrefix}*" branch for issue #${issueNumber}, but found "${currentBranch}".`
 		)
 	}
 	return currentBranch
 }
 
-export function fetchIssue(issueNumber: string): { issueTitle: string; issueBody: string } {
-	const raw = execFileSync('gh', ['issue', 'view', issueNumber, '--json', 'title,body'], {
-		encoding: 'utf8',
-	})
+export function fetchIssue(issueNumber: string): {
+	issueTitle: string
+	issueBody: string
+} {
+	const raw = execFileSync(
+		'gh',
+		['issue', 'view', issueNumber, '--json', 'title,body'],
+		{
+			encoding: 'utf8',
+		}
+	)
 	const issue = issueSchema.parse(JSON.parse(raw))
 	return { issueTitle: issue.title, issueBody: issue.body ?? '' }
 }
 
-export function buildIssueBody(issueBody: string, repairContextPath?: string): string {
+export function buildIssueBody(
+	issueBody: string,
+	repairContextPath?: string
+): string {
 	if (!repairContextPath) return issueBody
 	const report = readFileSync(repairContextPath, 'utf8').trim()
 	return `${issueBody}
@@ -216,8 +260,12 @@ ${report}`
 }
 
 function ensureContainerCacheDirs() {
-	mkdirSync(join(process.cwd(), CONTAINER_NODE_MODULES_CACHE_SUBPATH), { recursive: true })
-	mkdirSync(join(process.cwd(), CONTAINER_NEXT_CACHE_SUBPATH), { recursive: true })
+	mkdirSync(join(process.cwd(), CONTAINER_NODE_MODULES_CACHE_SUBPATH), {
+		recursive: true,
+	})
+	mkdirSync(join(process.cwd(), CONTAINER_NEXT_CACHE_SUBPATH), {
+		recursive: true,
+	})
 }
 
 // A bind-mount source path that doesn't exist on the host gets created by
@@ -232,11 +280,18 @@ function ensureClaudeJsonSeed() {
 	if (existsSync(hostClaudeJson)) return
 	writeFileSync(
 		hostClaudeJson,
-		JSON.stringify({ projects: { '/home/agent/workspace': { hasTrustDialogAccepted: true } } }, null, 2) + '\n',
+		JSON.stringify(
+			{
+				projects: { '/home/agent/workspace': { hasTrustDialogAccepted: true } },
+			},
+			null,
+			2
+		) + '\n'
 	)
 }
 
-const errorMessage = (error: unknown) => (error instanceof Error ? error.message : String(error))
+const errorMessage = (error: unknown) =>
+	error instanceof Error ? error.message : String(error)
 
 // --- Crashed-run recovery --------------------------------------------------
 //
@@ -252,7 +307,11 @@ interface SandcastleWorktree {
 }
 
 const runGit = (args: string[], cwd?: string) =>
-	execFileSync('git', args, { cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] })
+	execFileSync('git', args, {
+		cwd,
+		encoding: 'utf8',
+		stdio: ['ignore', 'pipe', 'pipe'],
+	})
 
 function listSandcastleWorktrees(): SandcastleWorktree[] {
 	const root = join(process.cwd(), WORKTREES_SUBPATH) + sep
@@ -262,7 +321,10 @@ function listSandcastleWorktrees(): SandcastleWorktree[] {
 			path: /^worktree (.+)$/m.exec(block)?.[1],
 			branch: /^branch refs\/heads\/(.+)$/m.exec(block)?.[1],
 		}))
-		.filter((worktree): worktree is SandcastleWorktree => worktree.path?.startsWith(root) ?? false)
+		.filter(
+			(worktree): worktree is SandcastleWorktree =>
+				worktree.path?.startsWith(root) ?? false
+		)
 }
 
 function snapshotWorktrees(): Set<string> | undefined {
@@ -273,7 +335,10 @@ function snapshotWorktrees(): Set<string> | undefined {
 	}
 }
 
-function cleanUpNewWorktrees(issueNumber: string, known: Set<string> | undefined) {
+function cleanUpNewWorktrees(
+	issueNumber: string,
+	known: Set<string> | undefined
+) {
 	if (!known) return
 	try {
 		const hostHead = runGit(['rev-parse', 'HEAD']).trim()
@@ -281,13 +346,20 @@ function cleanUpNewWorktrees(issueNumber: string, known: Set<string> | undefined
 			if (known.has(worktree.path)) continue
 			try {
 				runGit(['add', '-A'], worktree.path)
-				const patch = runGit(['diff', '--cached', '--binary', hostHead], worktree.path)
+				const patch = runGit(
+					['diff', '--cached', '--binary', hostHead],
+					worktree.path
+				)
 				if (patch.trim()) {
-					const patchPath = join(process.cwd(), PRESERVED_PATCHES_SUBPATH, `${issueNumber}-${basename(worktree.path)}.patch`)
+					const patchPath = join(
+						process.cwd(),
+						PRESERVED_PATCHES_SUBPATH,
+						`${issueNumber}-${basename(worktree.path)}.patch`
+					)
 					mkdirSync(dirname(patchPath), { recursive: true })
 					writeFileSync(patchPath, patch)
 					console.error(
-						`Saved the work left in ${worktree.path} to ${patchPath}. Apply it with: git apply ${patchPath}`,
+						`Saved the work left in ${worktree.path} to ${patchPath}. Apply it with: git apply ${patchPath}`
 					)
 				}
 				runGit(['worktree', 'remove', '--force', worktree.path])
@@ -296,12 +368,14 @@ function cleanUpNewWorktrees(issueNumber: string, known: Set<string> | undefined
 				}
 			} catch (error) {
 				console.error(
-					`Could not clean up ${worktree.path}: ${errorMessage(error)}. Remove it with: git worktree remove --force ${worktree.path}`,
+					`Could not clean up ${worktree.path}: ${errorMessage(error)}. Remove it with: git worktree remove --force ${worktree.path}`
 				)
 			}
 		}
 	} catch (error) {
-		console.error(`Could not list the sandcastle worktrees: ${errorMessage(error)}`)
+		console.error(
+			`Could not list the sandcastle worktrees: ${errorMessage(error)}`
+		)
 	}
 }
 
@@ -460,11 +534,19 @@ export class TimingRecorder {
 				this.lastToolResultAt = undefined
 			}
 			if (topLevel && usage) {
-				const tokens = usage.input_tokens + usage.cache_creation_input_tokens + usage.cache_read_input_tokens
+				const tokens =
+					usage.input_tokens +
+					usage.cache_creation_input_tokens +
+					usage.cache_read_input_tokens
 				if (tokens > 0) this.finalContextTokens = tokens
 			}
 			for (const block of message.content) {
-				if (block.type !== 'tool_use' || block.name === undefined || block.id === undefined) continue
+				if (
+					block.type !== 'tool_use' ||
+					block.name === undefined ||
+					block.id === undefined
+				)
+					continue
 				const isSubagent = SUBAGENT_TOOLS.has(block.name)
 				const call: ToolCall = {
 					name: block.name,
@@ -480,7 +562,8 @@ export class TimingRecorder {
 			}
 		} else if (type === 'user') {
 			for (const block of message.content) {
-				if (block.type !== 'tool_result' || block.tool_use_id === undefined) continue
+				if (block.type !== 'tool_result' || block.tool_use_id === undefined)
+					continue
 				const call = this.calls.get(block.tool_use_id)
 				if (call && call.end === undefined) {
 					call.end = at
@@ -496,17 +579,25 @@ export class TimingRecorder {
 		const last = this.lastEvent ?? first
 		const wallMs = last - first
 		const topLevel = [...this.calls.values()].filter((call) => call.topLevel)
-		const toolEndSource = topLevel.length === 0 ? null : this.sawToolResult ? 'tool_result' : 'next-event-gap'
+		const toolEndSource =
+			topLevel.length === 0
+				? null
+				: this.sawToolResult
+					? 'tool_result'
+					: 'next-event-gap'
 
 		const interval = (call: ToolCall): Interval => {
-			const end = (toolEndSource === 'tool_result' ? call.end : call.gapEnd) ?? last
+			const end =
+				(toolEndSource === 'tool_result' ? call.end : call.gapEnd) ?? last
 			return [call.start, Math.max(end, call.lastChildAt ?? end)]
 		}
 		const subagents = topLevel.filter((call) => call.isSubagent)
 		const tools = topLevel.filter((call) => !call.isSubagent)
 		const busyMs = unionMs(topLevel.map(interval))
 
-		const bashAfterSpawn = topLevel.filter((call) => call.name === 'Bash' && call.afterSubagentSpawn)
+		const bashAfterSpawn = topLevel.filter(
+			(call) => call.name === 'Bash' && call.afterSubagentSpawn
+		)
 
 		let caveat: string | null = null
 		if (this.firstEvent === undefined) {
@@ -523,12 +614,16 @@ export class TimingRecorder {
 			toolSeconds: toSeconds(unionMs(tools.map(interval))),
 			subagentSeconds: toSeconds(unionMs(subagents.map(interval))),
 			modelSeconds: toSeconds(wallMs - busyMs),
-			toolResultToModelSeconds: toolEndSource === 'tool_result' ? toSeconds(this.toolResultToModelMs) : null,
+			toolResultToModelSeconds:
+				toolEndSource === 'tool_result'
+					? toSeconds(this.toolResultToModelMs)
+					: null,
 			toolCalls: topLevel.length,
 			subagentSpawns: subagents.length,
 			bashCallsAfterSubagentSpawn: bashAfterSpawn.length,
 			heartbeatBashCalls: bashAfterSpawn.filter(
-				(call) => call.command !== undefined && HEARTBEAT_COMMAND.test(call.command),
+				(call) =>
+					call.command !== undefined && HEARTBEAT_COMMAND.test(call.command)
 			).length,
 			finalContextTokens: this.finalContextTokens,
 			toolEndSource,
@@ -538,8 +633,12 @@ export class TimingRecorder {
 }
 
 export function formatTimingLine(summary: TimingSummary): string {
-	const minutes = (seconds: number | null) => (seconds === null ? 'n/a' : (seconds / 60).toFixed(1))
-	const context = summary.finalContextTokens === null ? 'n/a' : `${Math.ceil(summary.finalContextTokens / 1000)}k`
+	const minutes = (seconds: number | null) =>
+		seconds === null ? 'n/a' : (seconds / 60).toFixed(1)
+	const context =
+		summary.finalContextTokens === null
+			? 'n/a'
+			: `${Math.ceil(summary.finalContextTokens / 1000)}k`
 	return (
 		`[${summary.name}] ${minutes(summary.wallSeconds)} min: ` +
 		`tools ${minutes(summary.toolSeconds)}, sub-agents ${minutes(summary.subagentSeconds)}, ` +
@@ -559,10 +658,18 @@ export function formatTimingLine(summary: TimingSummary): string {
 async function withRunLog<T>(
 	branch: string,
 	name: PassName,
-	runWith: (logging: LoggingOption) => Promise<T>,
+	runWith: (logging: LoggingOption) => Promise<T>
 ): Promise<T> {
-	const stamp = new Date().toISOString().replace(/\.\d+Z$/, '').replace(/[-:]/g, '').replace('T', '-')
-	const logPath = join(process.cwd(), LOGS_SUBPATH, `${branch.replaceAll('/', '-')}-${name}-${stamp}.log`)
+	const stamp = new Date()
+		.toISOString()
+		.replace(/\.\d+Z$/, '')
+		.replace(/[-:]/g, '')
+		.replace('T', '-')
+	const logPath = join(
+		process.cwd(),
+		LOGS_SUBPATH,
+		`${branch.replaceAll('/', '-')}-${name}-${stamp}.log`
+	)
 	const recorder = new TimingRecorder(name)
 	try {
 		return await runWith({
@@ -578,7 +685,9 @@ async function withRunLog<T>(
 			writeFileSync(timingPath, `${JSON.stringify(summary, null, 2)}\n`)
 			console.error(formatTimingLine(summary))
 		} catch (error) {
-			console.error(`Could not write the ${name} timing summary: ${errorMessage(error)}`)
+			console.error(
+				`Could not write the ${name} timing summary: ${errorMessage(error)}`
+			)
 		}
 	}
 }
@@ -601,7 +710,10 @@ async function withRunLog<T>(
 // merge-back is a no-op on the review call.
 //
 // `success` is only ever `true` once the independent review comes back clean.
-export async function runSandcastle(input: SandcastleIssueInput, config: SandcastleRunConfig = {}) {
+export async function runSandcastle(
+	input: SandcastleIssueInput,
+	config: SandcastleRunConfig = {}
+) {
 	const branch = assertOnIssueBranch(input.issueNumber)
 	ensureContainerCacheDirs()
 	ensureClaudeJsonSeed()
@@ -614,16 +726,28 @@ export async function runSandcastle(input: SandcastleIssueInput, config: Sandcas
 	}
 }
 
-async function runPasses(input: SandcastleIssueInput, config: SandcastleRunConfig, branch: string) {
-	const { output: implementOutput } = await withRunLog(branch, 'implement', (logging) =>
-		run({ ...buildImplementRunOptions(input, config), logging }),
+async function runPasses(
+	input: SandcastleIssueInput,
+	config: SandcastleRunConfig,
+	branch: string
+) {
+	const { output: implementOutput } = await withRunLog(
+		branch,
+		'implement',
+		(logging) => run({ ...buildImplementRunOptions(input, config), logging })
 	)
 	if (!implementOutput.success) {
-		return { ...implementOutput, reviewReport: null, notes: implementOutput.notes ?? null }
+		return {
+			...implementOutput,
+			reviewReport: null,
+			notes: implementOutput.notes ?? null,
+		}
 	}
 
-	const { output: reviewOutput } = await withRunLog(branch, 'review', (logging) =>
-		run({ ...buildReviewRunOptions(input, config), logging }),
+	const { output: reviewOutput } = await withRunLog(
+		branch,
+		'review',
+		(logging) => run({ ...buildReviewRunOptions(input, config), logging })
 	)
 	if (reviewOutput.verdict === 'clean') {
 		return {
@@ -649,7 +773,10 @@ export interface SandcastleCliArgs {
 	repairContextPath?: string
 }
 
-export async function runSandcastleForIssue(args: SandcastleCliArgs, config: SandcastleRunConfig = {}) {
+export async function runSandcastleForIssue(
+	args: SandcastleCliArgs,
+	config: SandcastleRunConfig = {}
+) {
 	assertOnIssueBranch(args.issueNumber)
 	const { issueTitle, issueBody } = fetchIssue(args.issueNumber)
 	const fixedPoint = readFixedPoint()
@@ -661,12 +788,13 @@ export async function runSandcastleForIssue(args: SandcastleCliArgs, config: San
 			epicNotes: readEpicNotes(fixedPoint),
 			issueBody: buildIssueBody(issueBody, args.repairContextPath),
 		},
-		config,
+		config
 	)
 }
 
 export function parseArgs(argv: string[]): SandcastleCliArgs {
-	const usage = 'Usage: pnpm tsx scripts/run-sandcastle.ts <issueNumber> [--repair-context <path>]'
+	const usage =
+		'Usage: pnpm tsx scripts/run-sandcastle.ts <issueNumber> [--repair-context <path>]'
 	const [issueNumber, ...rest] = argv
 
 	if (!issueNumber || !/^\d+$/.test(issueNumber)) {

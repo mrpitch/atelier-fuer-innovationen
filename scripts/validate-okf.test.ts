@@ -25,7 +25,10 @@ function write(relPath: string, content: string): void {
 }
 
 test('a conformant file with a non-empty type passes', () => {
-	write('docs/reference/widget.md', '---\nname: Widget\ntype: Reference\n---\n\n# Widget\n')
+	write(
+		'docs/reference/widget.md',
+		'---\nname: Widget\ntype: Reference\n---\n\n# Widget\n'
+	)
 	const violations = findOkfViolations(root)
 	assert.deepEqual(violations, [])
 })
@@ -38,7 +41,10 @@ test('a file with frontmatter but no type field fails', () => {
 })
 
 test('a file with an empty type value fails', () => {
-	write('docs/reference/widget.md', '---\nname: Widget\ntype:\n---\n\n# Widget\n')
+	write(
+		'docs/reference/widget.md',
+		'---\nname: Widget\ntype:\n---\n\n# Widget\n'
+	)
 	const violations = findOkfViolations(root)
 	assert.equal(violations.length, 1)
 })
@@ -69,7 +75,10 @@ test('docs/agents/docs-context.md is exempt', () => {
 })
 
 test('docs/audit-reports/** is exempt', () => {
-	write('docs/audit-reports/docs-audit-2026-11-04.md', '# Documentation Audit\n')
+	write(
+		'docs/audit-reports/docs-audit-2026-11-04.md',
+		'# Documentation Audit\n'
+	)
 	const violations = findOkfViolations(root)
 	assert.deepEqual(violations, [])
 })
@@ -97,6 +106,38 @@ test('.sandcastle/** is exempt', () => {
 	write('.sandcastle/prompt.md', '# Sandcastle prompt\n')
 	const violations = findOkfViolations(root)
 	assert.deepEqual(violations, [])
+})
+
+test('reserved index.md and log.md in the architecture bundle are exempt at any depth', () => {
+	write(
+		'docs/architecture/index.md',
+		'---\nokf_version: "0.2"\n---\n\n# Bundle\n'
+	)
+	write('docs/architecture/log.md', '# Change log\n')
+	write('docs/architecture/05-building-blocks/index.md', '# 05\n')
+	const violations = findOkfViolations(root)
+	assert.deepEqual(violations, [])
+})
+
+test('concept files in the architecture bundle still need a type', () => {
+	write(
+		'docs/architecture/05-building-blocks/level1.md',
+		'---\ntitle: Level 1\n---\n'
+	)
+	const violations = findOkfViolations(root)
+	assert.deepEqual(
+		violations.map((v) => v.file),
+		['docs/architecture/05-building-blocks/level1.md']
+	)
+})
+
+test('index.md outside the architecture bundle is not exempt', () => {
+	write('docs/how-to/index.md', '# How-to\n')
+	const violations = findOkfViolations(root)
+	assert.deepEqual(
+		violations.map((v) => v.file),
+		['docs/how-to/index.md']
+	)
 })
 
 test('non-markdown files are ignored', () => {
