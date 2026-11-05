@@ -40,4 +40,4 @@ Everything else (`items`, `defaultIndex`, `label`) comes from the native compone
 
 The behavior above comes from `node_modules/@fumadocs/base-ui/dist/components/ui/tabs.js`, which `components/tabs.js` renders and forwards unrecognized props to. If a `@fumadocs/base-ui` upgrade changes how `groupId`, `persist` or `updateAnchor` work, check that file first.
 
-The local Radix-backed `Tabs` and `src/components/ui/tabs.tsx` no longer exist. See [ADR 0001](../../adr/0001-adopt-fumadocs-base-ui.md) for why the site moved to `@fumadocs/base-ui`.
+The local Radix-backed `Tabs` and `src/components/ui/tabs.tsx` no longer exist. See [ADR 0001](../../architecture/09-decisions/adr-0001-adopt-fumadocs-base-ui.md) for why the site moved to `@fumadocs/base-ui`.

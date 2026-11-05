@@ -47,5 +47,5 @@ Fumadocs supplies the layout, the page chrome and most MDX components, from `@fu
 
 ## Related decisions
 
-- [ADR 0001](../adr/0001-adopt-fumadocs-base-ui.md): `@fumadocs/base-ui` instead of `fumadocs-ui`.
-- [ADR 0002](../adr/0002-per-section-theming.md): per-section theming through CSS custom-property scoping.
+- [ADR 0001](../architecture/09-decisions/adr-0001-adopt-fumadocs-base-ui.md): `@fumadocs/base-ui` instead of `fumadocs-ui`.
+- [ADR 0002](../architecture/09-decisions/adr-0002-per-section-theming.md): per-section theming through CSS custom-property scoping.
