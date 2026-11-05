@@ -1,5 +1,5 @@
 ---
-okf_version: '0.2'
+okf_version: "0.2"
 ---
 
 # docs — Documentation Index
@@ -24,6 +24,23 @@ re-run `docs index` after adding or moving files.
 - [Configuration](reference/configuration.md)
 - [Domain Glossary](reference/glossary.md)
 
+### Assets
+
+- [Originals in `public/<kind>/`, optimized copies are build output](reference/assets/asset-layout.md)
+- [Images go through ExportedImage, never next/image or `<img>`](reference/assets/image-components.md)
+
+### Components
+
+- [cn() is tailwind-merge, not clsx](reference/components/cn-helper.md)
+- [Color utilities use fd-\* tokens](reference/components/color-utilities.md)
+- [Variants: pass color and size, extend with cn()](reference/components/cva-variants.md)
+- [Catalog components read src/data/\*.json by slug](reference/components/json-catalog-components.md)
+
+### Content
+
+- [Page headings start at H2](reference/content/page-headings.md)
+- [Slugs and filenames are ASCII](reference/content/slugs-and-filenames.md)
+
 ### Fumadocs
 
 - [@fumadocs/base-ui import convention](reference/fumadocs/base-ui-imports.md)
@@ -37,13 +54,29 @@ re-run `docs index` after adding or moving files.
 - [Tailwind v4 @source directive for fumadocs](reference/fumadocs/tailwind-source-directive.md)
 - [TOCItemType import path (v16)](reference/fumadocs/toc-item-type.md)
 
+### Global
+
+- [Format and lint files you touch](reference/global/formatting-and-linting.md)
+- [Import with @/ aliases, export by name](reference/global/imports-and-exports.md)
+- [Type names: I-prefix for data, Props suffix for components](reference/global/type-naming.md)
+
 ## Explanation
 
 - [About the architecture](explanation/about-architecture.md)
 - [About section theming](explanation/about-section-theming.md)
 - [About the epic/afk workflow](explanation/about-the-epic-afk-workflow.md)
 
-## Architecture Decision Records
+## Architecture
 
-- [Adopt @fumadocs/base-ui over fumadocs-ui (Radix UI)](adr/0001-adopt-fumadocs-base-ui.md)
-- [Per-section theming via CSS custom-property scoping](adr/0002-per-section-theming.md)
+- [01. Introduction and Goals](architecture/01-goals/index.md)
+- [02. Architecture Constraints](architecture/02-constraints/index.md)
+- [03. Context and Scope](architecture/03-context/index.md)
+- [04. Solution Strategy](architecture/04-strategy/index.md)
+- [05. Building Block View](architecture/05-building-blocks/index.md)
+- [06. Runtime View](architecture/06-runtime/index.md)
+- [07. Deployment View](architecture/07-deployment/index.md)
+- [08. Cross-cutting Concepts](architecture/08-crosscutting/index.md)
+- [09. Architecture Decisions](architecture/09-decisions/index.md)
+- [10. Quality Requirements](architecture/10-quality/index.md)
+- [11. Risks and Technical Debts](architecture/11-risks/index.md)
+- [12. Glossary](architecture/12-glossary/index.md)
