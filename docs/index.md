@@ -56,7 +56,7 @@ re-run `docs index` after adding or moving files.
 
 ### Global
 
-- [Format and lint files you touch](reference/global/formatting-and-linting.md)
+- [Pass format, lint and typecheck before you commit](reference/global/formatting-and-linting.md)
 - [Import with @/ aliases, export by name](reference/global/imports-and-exports.md)
 - [Type names: I-prefix for data, Props suffix for components](reference/global/type-naming.md)
 

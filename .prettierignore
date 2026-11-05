@@ -9,8 +9,8 @@ skills-lock.json
 # Package manager lockfile: machine-written.
 pnpm-lock.yaml
 
-# Published site content (MDX and Fumadocs meta.json), authored and
-# checked by pnpm validate:okf instead.
+# Published site content (MDX and Fumadocs meta.json). Authored by hand;
+# pnpm validate:okf checks only the `type` frontmatter of its .md/.mdx files.
 src/content
 
 # Generated and build output.
