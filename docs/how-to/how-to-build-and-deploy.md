@@ -34,10 +34,11 @@ pnpm start
 
 ## What CI does
 
-`.github/workflows/main.yml` runs on every push to `main`:
+`.github/workflows/main.yml` runs on every push to `main` and on every pull request targeting `main`:
 
-1. **`validate-okf`** runs only when a `.md` or `.mdx` file changed. It runs `pnpm test` and `pnpm validate:okf`.
-2. **`deploy`** installs dependencies, runs `pnpm build`, syncs `./out/` to an S3 bucket with `aws s3 sync`, then creates a CloudFront invalidation for `/*`.
+1. **`quality`** runs `pnpm format:check`, `pnpm lint` and `pnpm typecheck`.
+2. **`validate-okf`** runs `pnpm test` and `pnpm validate:okf`, whether or not Markdown changed.
+3. **`deploy`** runs on pushes only, once `quality` and `validate-okf` have both passed. It installs dependencies, runs `pnpm build`, syncs `./out/` to an S3 bucket with `aws s3 sync`, then creates a CloudFront invalidation for `/*`.
 
 The workflow reads these from the repository settings:
 
@@ -49,7 +50,7 @@ The workflow reads these from the repository settings:
 | Variable | `AWS_S3_REGION`            |
 | Variable | `AWS_S3_BUCKET_NAME`       |
 
-`validate-okf` and `deploy` run as separate jobs, and `deploy` does not wait for `validate-okf`. A failing validation does not stop a deploy.
+A failure in `quality` or `validate-okf` stops the deploy, and the live site keeps the previous version. A pull request never deploys.
 
 ## Deploy by hand
 
