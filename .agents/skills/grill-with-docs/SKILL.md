@@ -4,7 +4,4 @@ description: A relentless interview to sharpen a plan or design, which also crea
 disable-model-invocation: true
 ---
 
-Run a `/grilling` session. Check `docs/agents/domain.md` for the active domain-docs layout, then write live as decisions crystallise:
-
-- **Flat `CONTEXT.md` / `docs/adr/`** (default — no `docs/agents/domain.md`, or it doesn't mention Diataxis) — use the `/domain-modeling` skill for the whole session: glossary terms and ADRs both go through it, exactly as before.
-- **Diataxis** (`docs/agents/domain.md` names the Diataxis layout) — use the `/diataxis` skill instead: a resolved term is `diataxis write glossary <term>`, a resolved concept worth more than a definition is `diataxis write explanation <concept>`, and an ADR still needs all three of hard-to-reverse, surprising without context, and a real trade-off before it's offered — written to `docs/adr/` either way.
+Run a `/grilling` session together with the `/domain-modeling` skill for the whole session. `/domain-modeling` resolves the domain-docs layout from `docs/agents/domain.md` and writes glossary terms, concepts and ADRs live as decisions crystallise: to `CONTEXT.md` and `docs/adr/` in the flat layout, through `/docs` in the Diataxis layout.

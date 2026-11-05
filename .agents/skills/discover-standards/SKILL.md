@@ -1,6 +1,6 @@
 ---
 name: discover-standards
-description: 'Extract tribal knowledge from the codebase into concise, Diataxis-tagged reference standards in docs/reference/. Use when the user wants to document coding patterns, conventions, or opinionated choices so other agents can inject them during planning and implementation. Requires the Diataxis domain-docs layout (docs/agents/domain.md declaring diataxis) — has no target under the flat CONTEXT.md model.'
+description: 'Extract tribal knowledge from the codebase into concise, frontmatter-tagged reference standards in docs/reference/. Use when the user wants to document coding patterns, conventions, or opinionated choices so other agents can inject them during planning and implementation. Requires the Diataxis domain-docs layout (docs/agents/domain.md declaring the Diataxis layout) — has no target under the flat CONTEXT.md model.'
 ---
 
 # Discover Standards
@@ -19,16 +19,10 @@ Requires the Diataxis domain-docs layout — check `docs/agents/domain.md`. If t
 
 ### Step 1: Surface Existing Standards
 
-Run docs-discovery on `docs/reference/` to see what is already documented:
+Run `docs find` on `docs/reference/` ([find.md](../docs/operations/find.md)) to see what is already documented:
 
 ```bash
-npx tsx .claude/skills/docs-discovery/scripts/discover.ts docs/reference
-```
-
-If the script is unavailable, fall back to:
-
-```bash
-find docs/reference -name '*.md' | sort
+npx tsx .claude/skills/docs/scripts/discover.ts docs/reference
 ```
 
 Use the result to:
@@ -112,27 +106,19 @@ Example questions to ask (adapt per standard):
 
 **Do NOT batch all questions upfront.** One standard at a time through the full loop.
 
-### Step 5: Create the Standard File
+### Step 5: Write the Standard
 
 For each standard (after completing Step 4's Q&A):
 
-1. Determine the appropriate folder (create if needed):
-   - `actions/`, `database/`, `components/`, `css/`, `forms/`, `testing/`, `global/`
-2. Check if a related file already exists — append to it if so
-3. Draft with Diataxis frontmatter and use AskUserQuestion to confirm:
+1. Pick the folder under `docs/reference/` (create if needed): `actions/`, `database/`, `components/`, `css/`, `forms/`, `testing/`, `global/`. Extend a related existing file instead of adding a second one.
+2. Show the draft title, one-sentence description and body, and confirm with AskUserQuestion:
 
 ```
 Here's the draft for database/soft-delete.md:
 
----
----
-name: "Soft-delete filter"
-description: "Every Prisma query must include deletedAt: null — records are never hard-deleted."
-kind: reference
-status: current
-last_reviewed: 2026-04-30
-tags: [database, prisma, soft-delete]
----
+Title: Soft-delete filter
+Description: Every Prisma query must include deletedAt: null — records are never hard-deleted.
+Tags: database, prisma, soft-delete
 
 # Soft-delete filter
 
@@ -144,13 +130,12 @@ prisma.recipe.findMany({ where: { deletedAt: null } })
 
 - Records are never hard-deleted — always set `deletedAt` instead
 - Omitting the filter is a silent bug: soft-deleted records silently appear in results
----
 
 Create this file? (yes / edit: [your changes] / skip)
 ```
 
-4. Create or update the file in `docs/reference/[folder]/`
-5. Repeat Steps 4–5 for the next selected standard
+3. On approval, invoke `/docs write reference <topic>` with the folder, title, description, tags and approved body as resolved inputs — the operation's [Called by another skill](../docs/operations/write.md#called-by-another-skill) path. The `docs` skill owns the frontmatter contract and writes the file; this skill writes no frontmatter.
+4. Repeat Steps 4–5 for the next selected standard.
 
 ### Step 6: Offer to Continue
 
@@ -182,18 +167,7 @@ Every word costs tokens. Follow these rules:
 - **One standard per concept** — Don't combine unrelated patterns
 - **Bullet points over paragraphs** — Scannable beats readable
 
-**Frontmatter is required on every standard file:**
-
-```yaml
----
-name: "Human-readable title"
-description: "One sentence — used by inject-standards for matching and by docs-discovery for ranking."
-kind: reference
-status: current
-last_reviewed: YYYY-MM-DD   # today's date
-tags: [area, technology, pattern]
----
-```
+The `description` is one sentence stating the rule: `docs find` ranks and matches standards on it. Frontmatter itself follows the contract in the [`docs` skill](../docs/SKILL.md#frontmatter-contract).
 
 **Good standard:**
 ```markdown
