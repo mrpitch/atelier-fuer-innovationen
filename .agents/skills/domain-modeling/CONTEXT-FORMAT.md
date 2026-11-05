@@ -1,5 +1,7 @@
 # CONTEXT.md Format
 
+> Flat layout only. In the Diataxis layout the glossary is `docs/reference/glossary.md`, written with `docs write glossary`; see the layout table in [SKILL.md](./SKILL.md#resolve-the-layout-first).
+
 ## Structure
 
 ```md
@@ -40,9 +42,9 @@ _Avoid_: Client, buyer, account
 
 ## Contexts
 
-- [Ordering](./src/ordering/CONTEXT.md): receives and tracks customer orders
-- [Billing](./src/billing/CONTEXT.md): generates invoices and processes payments
-- [Fulfillment](./src/fulfillment/CONTEXT.md): manages warehouse picking and shipping
+- [Ordering](./src/ordering/CONTEXT.md) — receives and tracks customer orders
+- [Billing](./src/billing/CONTEXT.md) — generates invoices and processes payments
+- [Fulfillment](./src/fulfillment/CONTEXT.md) — manages warehouse picking and shipping
 
 ## Relationships
 
