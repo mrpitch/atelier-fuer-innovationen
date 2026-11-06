@@ -13,7 +13,7 @@ export const buttonVariants = cva(
 					'border bg-fd-secondary text-fd-secondary-foreground hover:bg-fd-accent hover:text-fd-accent-foreground',
 			},
 			size: {
-				lg: 'gap-1 px4 py-1 text-lg',
+				lg: 'gap-1 px-4 py-1 text-lg',
 				sm: 'gap-1 p-0.5 text-xs',
 				icon: 'p-1.5 [&_svg]:size-5',
 				'icon-sm': 'p-1.5 [&_svg]:size-4.5',

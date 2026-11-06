@@ -1,0 +1,14 @@
+# docs arch draft — populate a section with real content
+
+**Entry:** the user wants a section (or a topic inside it) filled with real content, not stubs. Not for: [generate](./generate.md) (scaffolds the skeleton), [edit](./edit.md) (changes an already-written concept or places one piece of content). Rules for every file written: [non-negotiables](../../references/architecture/non-negotiables.md).
+
+## Steps
+
+1. **Target.** Identify the arc42 section from the request. Read the bundle's `language` and `detail_level` from the root `index.md` (default ESSENTIAL).
+2. **Pre-flight.** Open the section's entry in [section-interviews.md](../../references/architecture/section-interviews.md) (read only that entry) and read the sections it names as dependencies. When the code is the source (a brownfield bundle from [code-to-docs](./code-to-docs.md)), read the code evidence first — file-finding matrix in code-to-docs step 4 — and ask only what the code cannot answer.
+3. **Interview.** Ask all of the entry's questions in one block and wait for every answer before generating. Push back on vague quality answers until each is a measurable scenario with specific numbers; "fast", "reliable" and "secure" are not metrics. A question the user cannot answer now stays a `<!-- ... -->` placeholder in the file, and the hand-off lists the exact unanswered question.
+4. **Classify and generate.** Write at the bundle's `detail_level`, in the bundle's language (templates are English: translate their headings for DE bundles). Give each file exactly one type per the entry's output contract and [framework.md](../../references/framework.md). When the user asks for a type that conflicts with that classification, draft in the requested type and state the mismatch and its likely tradeoffs.
+5. **Write** the files named in the output contract. Fill an existing stub of that name instead of creating a second file. List every new file in the section `index.md` and cross-link related concepts. Diagrams come from the [diagram operation](./diagram.md); ADRs from the [adr operation](./adr.md).
+6. **Verify.** Walk the section's checklist in [arc42-sections.md](../../references/architecture/arc42-sections.md#quality-checklists), plus: type matches content, every fact is grounded in an answer or in code, assumptions are listed explicitly, examples contain no secrets. Run `python {baseDir}/scripts/architecture/validate.py <bundle-root>`, and `python {baseDir}/scripts/architecture/arc42-lint.py <bundle-root>` for sections 1, 3, 5, 7, 9, 10, 11.
+
+**Done when:** the output-contract file(s) hold real content (placeholders only for the unanswered questions listed in the hand-off), frontmatter is valid, every file is linked from its section `index.md`, the checklist passes, `validate.py` exits 0, and non-negotiables are applied.

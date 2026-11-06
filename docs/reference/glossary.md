@@ -1,10 +1,9 @@
 ---
-name: Domain Glossary
+title: Domain Glossary
 description: Canonical vocabulary for the Xenia / Wissensstadt concept published by this site, and for the Atelier für Innovationen brand it lives under.
 tags: [glossary, domain, xenia, wissensstadt, xeniapolis, concept]
-kind: reference
-type: Reference
-status: current
+type: reference
+status: stable
 last_reviewed: 2026-08-30
 authoritative: true
 ---

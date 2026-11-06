@@ -57,7 +57,7 @@ export function PreviewImages() {
 					height={1080}
 					priority
 					className={cn(
-						'animate-in fade-in slide-in-from-bottom-12 w-full duration-1000 [mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)] select-none',
+						'animate-in fade-in slide-in-from-bottom-12 w-full [mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)] duration-1000 select-none',
 						active !== 0 && 'hidden'
 					)}
 				/>
@@ -70,7 +70,7 @@ export function PreviewImages() {
 						height={1080}
 						priority
 						className={cn(
-							'animate-in fade-in slide-in-from-bottom-12 w-full duration-1000 [mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)] select-none',
+							'animate-in fade-in slide-in-from-bottom-12 w-full [mask-image:linear-gradient(to_bottom,white_70%,transparent_90%)] duration-1000 select-none',
 							active !== 1 && 'hidden'
 						)}
 					/>
