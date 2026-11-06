@@ -10,7 +10,7 @@
 ## Package Manager
 
 - **Command:** `pnpm` (`packageManager: pnpm@11.3.0`)
-- **Format/lint command:** `npx prettier --write` (no `format`/`lint`/`lint:fix` script in package.json; `prettier` + `prettier-plugin-tailwindcss` are devDependencies)
+- **Format/lint command:** `pnpm format` (`prettier --write .`); `pnpm format:check`, `pnpm lint` (`eslint . --max-warnings 0`) and `pnpm typecheck` (`next typegen && tsc --noEmit`) run in CI; the husky pre-commit hook runs Prettier and ESLint fixers on staged files and one full-project typecheck when a `.ts`/`.tsx` file is staged
 - **Test command:** `pnpm test` (`tsx --test scripts/*.test.ts`, covers the `scripts/` tooling only)
 - **Build command:** `pnpm build` (`next build && next-image-export-optimizer`)
 

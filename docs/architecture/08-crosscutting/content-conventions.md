@@ -8,6 +8,9 @@ status: draft
 generated:
   by: docs-code-to-docs/1.0.0
   at: 2026-11-05T11:01:33Z
+verified:
+  by: claude-code/sonnet-5-5
+  at: 2026-11-05T18:05:41Z
 sources:
   - resource: scripts/validate-okf.ts
   - resource: scripts/validate-okf.test.ts
@@ -43,7 +46,7 @@ The validator skips these without checking them:
 
 ## When it runs
 
-`.github/workflows/main.yml` runs job `validate-okf` (`pnpm test`, then `pnpm validate:okf`) only when a `.md` or `.mdx` file changed in the push. Job `deploy` does not depend on it, so a failed validation does not stop a deploy. See [RISK-03](../11-risks/risks-and-tech-debt.md).
+`.github/workflows/main.yml` runs job `validate-okf` (`pnpm test`, then `pnpm validate:okf`) on every push to `main` and every pull request targeting `main`, whether or not Markdown changed. Job `deploy` needs it (and job `quality`), so a failed validation stops the deploy. See [RISK-03](../11-risks/risks-and-tech-debt.md).
 
 `pnpm test` runs `tsx --test scripts/*.test.ts`. It covers the validator and the other scripts, not the application.
 
