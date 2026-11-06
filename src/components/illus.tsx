@@ -6,6 +6,13 @@ interface IIllu {
 	slug: string
 	name: string
 	image: string
+	/**
+	 * Monochrome, background-less `.svg` line art: inverted in dark mode so it
+	 * stays visible on the `bg-fd-card` frame. An `<img>`-embedded SVG can't
+	 * see the page's `color` or the `.dark` class, so CSS on the `<img>` is the
+	 * only theme hook. Never set this on full-colour artwork.
+	 */
+	themed?: boolean
 }
 
 // interface ISlides {
@@ -80,7 +87,11 @@ export const Illu = async ({
 			<div className="bg-fd-card mb-8 border p-4">
 				<ImageZoom src={illus?.image} alt={illus?.name}>
 					{/* eslint-disable-next-line @next/next/no-img-element -- next-image-export-optimizer only processes raster formats; SVGs render as-is */}
-					<img src={illus?.image} alt={illus?.name} />
+					<img
+						src={illus?.image}
+						alt={illus?.name}
+						className={illus.themed ? 'dark:invert' : undefined}
+					/>
 				</ImageZoom>
 			</div>
 		)

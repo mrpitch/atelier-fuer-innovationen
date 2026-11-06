@@ -68,7 +68,8 @@
 		{
 			"slug": "vector-showcase",
 			"name": "Vector illustration showcase (SVG)",
-			"image": "/illus/vector-showcase.svg"
+			"image": "/illus/vector-showcase.svg",
+			"themed": true
 		},
 		{
 			"slug": "icon-viertel-annaeherung",
