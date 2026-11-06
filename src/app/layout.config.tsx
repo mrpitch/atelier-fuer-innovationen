@@ -82,13 +82,15 @@ export const baseOptions: BaseLayoutProps = {
 				{
 					icon: <Book />,
 					text: 'Viertel der Annäherung',
-					description: 'Lorem ipsum dolor sit amet',
+					description:
+						'Ansatz und Gestaltungsschwerpunkt des Viertels der Annäherung sowie die Stadtrundgänge, die hier ihren Ausgang nehmen',
 					url: '/docs/xeniapolis/annaeherung',
 				},
 				{
 					icon: <AlbumIcon />,
 					text: 'Viertel der Führung',
-					description: 'Lorem ipsum dolor sit amet',
+					description:
+						'Ansatz und Gestaltungsschwerpunkt des Viertels der Führung sowie das XENIA-Thema "Netzwerk der Innovatoren"',
 					url: '/docs/xeniapolis/fuehrung',
 				},
 			],
