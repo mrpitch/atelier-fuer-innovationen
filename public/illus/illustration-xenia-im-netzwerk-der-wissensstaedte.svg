@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-labelledby="xenia-netzwerk-title xenia-netzwerk-desc">
+	<title id="xenia-netzwerk-title">Xenia im Netzwerk der Wissensstädte</title>
+	<desc id="xenia-netzwerk-desc">Schematische Landkarte: Xenia als ummauerte Wissensstadt im Zentrum, verbunden über Wege mit weiteren Wissensstädten und einer Hafenstadt in der näheren und weiteren Umgebung, umgeben von Gebirge, Wald und Meer.</desc>
+
+	<rect x="0" y="0" width="900" height="700" fill="#f6efdc" stroke="#8a6d3b" stroke-width="6" />
+	<rect x="10" y="10" width="880" height="680" fill="none" stroke="#c7a76a" stroke-width="1.5" stroke-dasharray="4 4" />
+
+	<text x="450" y="40" text-anchor="middle" font-size="19" font-weight="700" fill="#4a2e0a">Xenia im Netzwerk der Wissensstädte</text>
+
+	<!-- mountains, top-left -->
+	<g fill="#9ca3af" stroke="#4b5563" stroke-width="1">
+		<path d="M50 180 L90 110 L130 180 Z" />
+		<path d="M100 180 L140 95 L185 180 Z" />
+		<path d="M160 180 L195 125 L230 180 Z" />
+	</g>
+	<text x="140" y="200" text-anchor="middle" font-size="11" fill="#4b5563">Gebirge</text>
+
+	<!-- forest, bottom-left -->
+	<g fill="#4d7c0f">
+		<circle cx="95" cy="560" r="16" />
+		<circle cx="120" cy="545" r="18" />
+		<circle cx="145" cy="565" r="16" />
+		<circle cx="115" cy="580" r="17" />
+	</g>
+	<text x="120" y="610" text-anchor="middle" font-size="11" fill="#365314">Wald</text>
+
+	<!-- lake, bottom-right -->
+	<path d="M680 580 Q 710 550 750 575 Q 790 600 750 620 Q 700 640 680 580 Z" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1.5" />
+	<text x="725" y="650" text-anchor="middle" font-size="11" fill="#1e3a8a">See</text>
+
+	<!-- compass rose, top-right -->
+	<g transform="translate(820 80)">
+		<circle r="30" fill="#fff" stroke="#4a2e0a" stroke-width="1.5" />
+		<path d="M0,-26 L6,0 L0,26 L-6,0 Z" fill="#b91c1c" />
+		<path d="M-26,0 L0,6 L26,0 L0,-6 Z" fill="#4a2e0a" />
+		<text y="-34" text-anchor="middle" font-size="11" font-weight="700" fill="#4a2e0a">N</text>
+	</g>
+
+	<path d="M 450 380 Q 443.95277334996047 212.2788370481688 397.90554669992093 84.55767409633762" fill="none" stroke="#8a6d3b" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round" />
+	<path d="M 450 380 Q 610.9538931178863 308.6969785011497 731.9077862357725 277.3939570022994" fill="none" stroke="#8a6d3b" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round" />
+	<path d="M 450 380 Q 556.0364654526569 482.8728066433488 622.0729309053138 625.7456132866976" fill="none" stroke="#8a6d3b" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round" />
+	<path d="M 450 380 Q 373.5818585470191 474.9066664678467 257.1637170940382 609.8133329356934" fill="none" stroke="#8a6d3b" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round" />
+	<path d="M 450 380 Q 329.04610688211375 308.6969785011497 168.0922137642275 277.39395700229943" fill="none" stroke="#8a6d3b" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round" />
+	
+
+	<!-- Xenia, centre -->
+	<circle cx="450" cy="380" r="70" fill="#fde68a" stroke="#92400e" stroke-width="3" />
+	<circle cx="450" cy="380" r="52" fill="none" stroke="#92400e" stroke-width="1.5" stroke-dasharray="3 5" />
+	<g fill="#92400e">
+		<rect x="442" y="335" width="16" height="16" />
+		<rect x="405" y="372" width="16" height="16" />
+		<rect x="479" y="372" width="16" height="16" />
+		<rect x="442" y="409" width="16" height="16" />
+	</g>
+	<text x="450" y="378" text-anchor="middle" font-size="20" font-weight="700" fill="#5b3a1a">XENIA</text>
+	<text x="450" y="398" text-anchor="middle" font-size="10" fill="#5b3a1a">Musterstadt des Wissens</text>
+
+	
+	<circle cx="397.90554669992093" cy="84.55767409633762" r="22" fill="#fef3c7" stroke="#92400e" stroke-width="2" />
+	<path d="M 387.90554669992093 80.55767409633762 h20 M 389.90554669992093 74.55767409633762 l8 -8 l8 8" fill="none" stroke="#92400e" stroke-width="1.5" />
+	<text x="397.90554669992093" y="122.55767409633762" text-anchor="middle" font-size="11" font-weight="600" fill="#5b3a1a">Wissensstadt</text>
+	<text x="397.90554669992093" y="135.55767409633762" text-anchor="middle" font-size="11" font-weight="600" fill="#5b3a1a">Nord</text>
+	
+	<circle cx="731.9077862357725" cy="277.3939570022994" r="22" fill="#fef3c7" stroke="#92400e" stroke-width="2" />
+	<path d="M 721.9077862357725 273.3939570022994 h20 M 723.9077862357725 267.3939570022994 l8 -8 l8 8" fill="none" stroke="#92400e" stroke-width="1.5" />
+	<text x="731.9077862357725" y="315.3939570022994" text-anchor="middle" font-size="11" font-weight="600" fill="#5b3a1a">Wissensstadt</text>
+	<text x="731.9077862357725" y="328.3939570022994" text-anchor="middle" font-size="11" font-weight="600" fill="#5b3a1a">Ost</text>
+	
+	<circle cx="622.0729309053138" cy="625.7456132866976" r="22" fill="#fef3c7" stroke="#92400e" stroke-width="2" />
+	<path d="M 612.0729309053138 621.7456132866976 h20 M 614.0729309053138 615.7456132866976 l8 -8 l8 8" fill="none" stroke="#92400e" stroke-width="1.5" />
+	<text x="622.0729309053138" y="663.7456132866976" text-anchor="middle" font-size="11" font-weight="600" fill="#5b3a1a">Hafenstadt</text>
+	<text x="622.0729309053138" y="676.7456132866976" text-anchor="middle" font-size="11" font-weight="600" fill="#5b3a1a">am Meer</text>
+	
+	<circle cx="257.1637170940382" cy="609.8133329356934" r="22" fill="#fef3c7" stroke="#92400e" stroke-width="2" />
+	<path d="M 247.1637170940382 605.8133329356934 h20 M 249.1637170940382 599.8133329356934 l8 -8 l8 8" fill="none" stroke="#92400e" stroke-width="1.5" />
+	<text x="257.1637170940382" y="647.8133329356934" text-anchor="middle" font-size="11" font-weight="600" fill="#5b3a1a">Wissensstadt</text>
+	<text x="257.1637170940382" y="660.8133329356934" text-anchor="middle" font-size="11" font-weight="600" fill="#5b3a1a">Süd</text>
+	
+	<circle cx="168.0922137642275" cy="277.39395700229943" r="22" fill="#fef3c7" stroke="#92400e" stroke-width="2" />
+	<path d="M 158.0922137642275 273.39395700229943 h20 M 160.0922137642275 267.39395700229943 l8 -8 l8 8" fill="none" stroke="#92400e" stroke-width="1.5" />
+	<text x="168.0922137642275" y="315.39395700229943" text-anchor="middle" font-size="11" font-weight="600" fill="#5b3a1a">Wissensstadt</text>
+	<text x="168.0922137642275" y="328.39395700229943" text-anchor="middle" font-size="11" font-weight="600" fill="#5b3a1a">West</text>
+	
+
+	<text x="450" y="688" text-anchor="middle" font-size="10" fill="#6b5431">Schematische Darstellung — Örtlichkeiten der näheren und weiteren Umgebung, über Wege zu einem Netzwerk der Wissensstädte verknüpft</text>
+</svg>

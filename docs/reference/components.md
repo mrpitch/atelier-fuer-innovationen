@@ -27,7 +27,7 @@ The docs route registers only `@fumadocs/base-ui/mdx`'s default components (`src
 
 ### `Slide`
 
-Renders the slide image through `ImageZoom` at 1920 by 1080. When the slide has a `url`, a "Download" link with the slide name follows the image and opens in a new tab. An unknown `slug` renders nothing.
+Renders the slide image through `ImageZoom` at 1920 by 1080. When `image` ends in `.svg`, it instead renders as a plain `<img>` inside a `bg-fd-card border p-4` frame — the same SVG path `<Illu>` uses, since `next-image-export-optimizer` only processes raster formats. When the slide has a `url`, a "Download" link with the slide name follows the image and opens in a new tab — this is how the PDF export of a redrawn SVG slide stays downloadable. An unknown `slug` renders nothing.
 
 ```mdx
 import { Slide } from '@/components/slides'
