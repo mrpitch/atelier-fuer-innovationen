@@ -68,9 +68,8 @@ export const Illu = async ({
 		}
 		return (
 			<span
-				role="img"
-				aria-label={illus.name}
-				className="inline-flex size-6 align-text-bottom [&_svg]:size-full"
+				aria-hidden="true"
+				className="ml-2 inline-flex size-6 align-text-bottom [&_svg]:size-full"
 				dangerouslySetInnerHTML={{ __html: markup }}
 			/>
 		)
