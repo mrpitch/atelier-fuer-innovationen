@@ -63,7 +63,7 @@ export const baseOptions: BaseLayoutProps = {
 					icon: <Building2 />,
 					text: 'Xeniapolis',
 					description:
-						'Generate interactive playgrounds and docs for your OpenAPI schema.',
+						'Xenia: das Forschungsprojekt, das den Übergang in die Informationsgesellschaft als begehbare Wissensstadt erlebbar macht.',
 					url: '/docs/xeniapolis',
 				},
 				{
