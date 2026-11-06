@@ -69,6 +69,51 @@
 			"slug": "vector-showcase",
 			"name": "Vector illustration showcase (SVG)",
 			"image": "/illus/vector-showcase.svg"
+		},
+		{
+			"slug": "icon-viertel-annaeherung",
+			"name": "Viertel der Annäherung",
+			"image": "/illus/icon-viertel-annaeherung.svg"
+		},
+		{
+			"slug": "icon-viertel-maerkte",
+			"name": "Viertel der Märkte und Kooperation",
+			"image": "/illus/icon-viertel-maerkte.svg"
+		},
+		{
+			"slug": "icon-viertel-kontexte",
+			"name": "Viertel der Kontexte",
+			"image": "/illus/icon-viertel-kontexte.svg"
+		},
+		{
+			"slug": "icon-viertel-inszenierung",
+			"name": "Viertel der Inszenierung",
+			"image": "/illus/icon-viertel-inszenierung.svg"
+		},
+		{
+			"slug": "icon-viertel-zukunft",
+			"name": "Viertel der Zukunft",
+			"image": "/illus/icon-viertel-zukunft.svg"
+		},
+		{
+			"slug": "icon-viertel-wertschoepfung",
+			"name": "Viertel der Wertschöpfung",
+			"image": "/illus/icon-viertel-wertschoepfung.svg"
+		},
+		{
+			"slug": "icon-viertel-potenziale",
+			"name": "Viertel der Potenziale",
+			"image": "/illus/icon-viertel-potenziale.svg"
+		},
+		{
+			"slug": "icon-viertel-fuehrung",
+			"name": "Viertel der Führung",
+			"image": "/illus/icon-viertel-fuehrung.svg"
+		},
+		{
+			"slug": "icon-zentrum",
+			"name": "Zentrum der Wissensstadt",
+			"image": "/illus/icon-zentrum.svg"
 		}
 	]
 }

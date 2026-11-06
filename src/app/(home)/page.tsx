@@ -25,31 +25,29 @@ export default function HomePage() {
 						<Cards>
 							<Link href="/docs">
 								<Card icon={<Rocket />} title="Einführung">
-									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-									diam nonumy eirmod tempor invidunt ut labore et dolore magna
-									aliquyam erat, sed diam voluptua.
+									Der Einstieg in diese Dokumentation – ein Überblick über das
+									Atelier für Innovationen, das Xenia-Projekt und die hier
+									verwendeten UI-Komponenten.
 								</Card>
 							</Link>
 							<Link href="/docs/atelier">
 								<Card icon={<Book />} title="Atelier">
-									At vero eos et accusam et justo duo dolores et ea rebum. Stet
-									clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-									dolor sit amet.
+									Atelier für Innovationen: die Stätte der Begegnung, an der
+									dieses Projekt entsteht.
 								</Card>
 							</Link>
 							<Link href="/docs/xeniapolis">
 								<Card icon={<AlbumIcon />} title="Xeniapolis">
-									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-									diam nonumy eirmod tempor invidunt ut labore et dolore magna
-									aliquyam erat, sed diam voluptua.
+									Xenia ist das Forschungsprojekt, das den Übergang in die
+									Informationsgesellschaft als begehbare Wissensstadt erlebbar
+									macht – gegliedert in ein Zentrum und acht Stadtviertel.
 								</Card>
 							</Link>
 
 							<Link href="/docs/components">
 								<Card icon={<ComponentIcon />} title="Components">
-									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-									diam nonumy eirmod tempor invidunt ut labore et dolore magna
-									aliquyam erat, sed diam voluptua.
+									Eine Übersicht aller UI-Komponenten, die in dieser
+									Dokumentation verwendet werden.
 								</Card>
 							</Link>
 						</Cards>
