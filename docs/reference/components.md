@@ -3,7 +3,7 @@ title: Components
 description: The MDX components available to content pages, which ones live in src/components and which come from @fumadocs/base-ui, with their props and import paths.
 type: reference
 status: stable
-last_reviewed: 2026-11-05
+last_reviewed: 2026-11-06
 tags: [components, mdx, slides, illustrations, image-zoom, tabs]
 ---
 
@@ -55,6 +55,45 @@ import { Illu } from '@/components/illus'
 ```
 
 Illustrations are defined in `src/data/illus.json` with `slug`, `name` and `image`, all required. Images live in `public/illus/`.
+
+`<Illu slug="…" variant="icon" />` renders a `.svg` entry's markup inline
+(`dangerouslySetInnerHTML`, no `ImageZoom`, no `mb-8` block) instead of as an
+`<img>`. Use this for small icons that must pick up the page's current text
+color — an `<img>`-embedded SVG renders in an isolated image context that
+cannot see the page's `color`, so `fill`/`stroke="currentColor"` would
+otherwise always resolve to black regardless of the active palette (ADR-0002
+[Per-section theming](../architecture/09-decisions/adr-0002-per-section-theming.md)).
+The default `variant`, `"illustration"`, is unchanged.
+
+#### Xeniapolis district header icons
+
+Nine `variant="icon"` entries recreate xeniapolis.de's
+`gifs/b_icons/{ann,mar,kon,ins,zuk,wer,pot,fue}bild.gif` + `platz.gif` as
+neutral, `currentColor`-only SVGs (see
+`src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx`
+for their use next to each Stadtviertel/Zentrum heading):
+
+| Slug                          | Stadtviertel / Zentrum   | Source                      |
+| ----------------------------- | ------------------------ | --------------------------- |
+| `icon-viertel-annaeherung`    | Annäherung               | `lucide-react` `Signpost`   |
+| `icon-viertel-maerkte`        | Märkte und Kooperation   | `lucide-react` `Store`      |
+| `icon-viertel-kontexte`       | Kontexte                 | `lucide-react` `Globe`      |
+| `icon-viertel-inszenierung`   | Inszenierung             | `lucide-react` `Drama`      |
+| `icon-viertel-zukunft`        | Zukunft                  | `lucide-react` `Rocket`     |
+| `icon-viertel-wertschoepfung` | Wertschöpfung            | `lucide-react` `Sprout`     |
+| `icon-viertel-potenziale`     | Potenziale               | `lucide-react` `Hexagon`    |
+| `icon-viertel-fuehrung`       | Führung                  | `lucide-react` `Crown`      |
+| `icon-zentrum`                | Zentrum der Wissensstadt | bespoke (hub with 8 spokes) |
+
+The eight district icons reuse an existing `lucide-react` icon whose stock
+meaning already matches the Viertel's concept (signpost for the first-contact
+"Annäherung", globe for the "eine Welt" context icon, crown for "Führung",
+etc. — each also echoes the hand-drawn motif in the source GIF where one was
+obvious). `icon-zentrum` is bespoke because the source `platz.gif` is a full
+city-map collage, not a single-motif badge like the others, and no
+`lucide-react` icon depicts "a hub coordinating 8 radiating points" — the
+one shape specific to this site's own radial Stadtviertel layout described in
+`die-stadtviertel-der-wissensstadt.mdx`.
 
 ### Register slides and illustrations before using them
 
