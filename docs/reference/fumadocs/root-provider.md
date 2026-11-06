@@ -1,9 +1,8 @@
 ---
-name: "RootProvider: framework entrypoint + static search"
+title: 'RootProvider: framework entrypoint + static search'
 description: "RootProvider must be imported from @fumadocs/base-ui/provider/next and configured with search.options.type: 'static' for this repo's statically-exported site."
-kind: reference
-type: Reference
-status: current
+type: reference
+status: stable
 last_reviewed: 2026-08-22
 tags: [fumadocs, provider, search, static-export, v16]
 ---
@@ -13,17 +12,22 @@ tags: [fumadocs, provider, search, static-export, v16]
 `RootProvider` lives at `src/app/layout.tsx`.
 
 ```tsx
+import type { ReactNode } from 'react'
 import { RootProvider } from '@fumadocs/base-ui/provider/next'
 
-<RootProvider
-	search={{
-		options: {
-			type: 'static',
-		},
-	}}
->
-	{children}
-</RootProvider>
+export default function Layout({ children }: { children: ReactNode }) {
+	return (
+		<RootProvider
+			search={{
+				options: {
+					type: 'static',
+				},
+			}}
+		>
+			{children}
+		</RootProvider>
+	)
+}
 ```
 
 - Import from `@fumadocs/base-ui/provider/next`, never the bare `@fumadocs/base-ui/provider` — **v16 removed the generic entrypoint entirely** and split it per framework (`/next`, `/react-router`, `/tanstack`, `/waku`, `/astro`), each with different internals (e.g. the Astro variant needs `pathname`/`params`/`navigate` props, Tanstack needs `HeadContent`/`Scripts`). The bare import will fail to resolve.

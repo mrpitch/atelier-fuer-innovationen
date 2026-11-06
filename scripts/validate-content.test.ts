@@ -27,24 +27,44 @@ function write(relPath: string, content: string): void {
 test('a fully conformant tree returns no violations', () => {
 	write(
 		'src/data/illus.json',
-		JSON.stringify({ illus: [{ slug: 'illustration-1', name: 'Illustration 1', image: '/illus/illustration-1.png' }] }),
+		JSON.stringify({
+			illus: [
+				{
+					slug: 'illustration-1',
+					name: 'Illustration 1',
+					image: '/illus/illustration-1.png',
+				},
+			],
+		})
 	)
 	write('public/illus/illustration-1.png', 'fake-png')
 	write(
 		'src/data/slides.json',
-		JSON.stringify({ slides: [{ slug: 'slide-1', name: 'Slide 1', image: '/slides/slide-1.jpg', url: '/slides/slide-1.pdf' }] }),
+		JSON.stringify({
+			slides: [
+				{
+					slug: 'slide-1',
+					name: 'Slide 1',
+					image: '/slides/slide-1.jpg',
+					url: '/slides/slide-1.pdf',
+				},
+			],
+		})
 	)
 	write('public/slides/slide-1.jpg', 'fake-jpg')
 	write('public/slides/slide-1.pdf', 'fake-pdf')
-	write('src/content/docs/meta.json', JSON.stringify({ pages: ['index', 'xeniapolis'] }))
+	write(
+		'src/content/docs/meta.json',
+		JSON.stringify({ pages: ['index', 'xeniapolis'] })
+	)
 	write('src/content/docs/index.mdx', '# Home\n')
 	write(
 		'src/content/docs/xeniapolis/meta.json',
-		JSON.stringify({ pages: ['---Zentrum---', 'index', '!hidden'] }),
+		JSON.stringify({ pages: ['---Zentrum---', 'index', '!hidden'] })
 	)
 	write(
 		'src/content/docs/xeniapolis/index.mdx',
-		'# Xeniapolis\n\n<Illu slug="illustration-1" />\n\n<Slide slug="slide-1" />\n\n![alt](./local.png)\n\n[link](./local.png)\n\n[external](https://example.com)\n\n[absolute](/xeniapolis/hidden)\n',
+		'# Xeniapolis\n\n<Illu slug="illustration-1" />\n\n<Slide slug="slide-1" />\n\n![alt](./local.png)\n\n[link](./local.png)\n\n[external](https://example.com)\n\n[absolute](/xeniapolis/hidden)\n'
 	)
 	write('src/content/docs/xeniapolis/hidden.mdx', '# Hidden\n')
 	write('src/content/docs/xeniapolis/local.png', 'fake-png')
@@ -54,7 +74,10 @@ test('a fully conformant tree returns no violations', () => {
 
 test('an <Illu> slug with no matching illus.json entry is a violation', () => {
 	write('src/data/illus.json', JSON.stringify({ illus: [] }))
-	write('src/content/docs/xeniapolis/index.mdx', '<Illu slug="missing-illu" />\n')
+	write(
+		'src/content/docs/xeniapolis/index.mdx',
+		'<Illu slug="missing-illu" />\n'
+	)
 
 	const violations = findContentViolations(root)
 	assert.equal(violations.length, 1)
@@ -64,7 +87,10 @@ test('an <Illu> slug with no matching illus.json entry is a violation', () => {
 
 test('a <Slide> slug with no matching slides.json entry is a violation', () => {
 	write('src/data/slides.json', JSON.stringify({ slides: [] }))
-	write('src/content/docs/xeniapolis/index.mdx', '<Slide slug="missing-slide" />\n')
+	write(
+		'src/content/docs/xeniapolis/index.mdx',
+		'<Slide slug="missing-slide" />\n'
+	)
 
 	const violations = findContentViolations(root)
 	assert.equal(violations.length, 1)
@@ -72,7 +98,12 @@ test('a <Slide> slug with no matching slides.json entry is a violation', () => {
 })
 
 test('an illus.json image that does not resolve under public/ is a violation', () => {
-	write('src/data/illus.json', JSON.stringify({ illus: [{ slug: 'a', name: 'A', image: '/illus/missing.png' }] }))
+	write(
+		'src/data/illus.json',
+		JSON.stringify({
+			illus: [{ slug: 'a', name: 'A', image: '/illus/missing.png' }],
+		})
+	)
 
 	const violations = findContentViolations(root)
 	assert.equal(violations.length, 1)
@@ -81,14 +112,22 @@ test('an illus.json image that does not resolve under public/ is a violation', (
 })
 
 test('an illus.json entry with an .svg image resolves like any other extension', () => {
-	write('src/data/illus.json', JSON.stringify({ illus: [{ slug: 'a', name: 'A', image: '/illus/a.svg' }] }))
+	write(
+		'src/data/illus.json',
+		JSON.stringify({ illus: [{ slug: 'a', name: 'A', image: '/illus/a.svg' }] })
+	)
 	write('public/illus/a.svg', '<svg />')
 
 	assert.deepEqual(findContentViolations(root), [])
 })
 
 test('a slides.json image that does not resolve under public/ is a violation', () => {
-	write('src/data/slides.json', JSON.stringify({ slides: [{ slug: 'a', name: 'A', image: '/slides/missing.jpg' }] }))
+	write(
+		'src/data/slides.json',
+		JSON.stringify({
+			slides: [{ slug: 'a', name: 'A', image: '/slides/missing.jpg' }],
+		})
+	)
 
 	const violations = findContentViolations(root)
 	assert.equal(violations.length, 1)
@@ -100,7 +139,16 @@ test('a slides.json url that does not resolve under public/ is a violation', () 
 	write('public/slides/a.jpg', 'fake-jpg')
 	write(
 		'src/data/slides.json',
-		JSON.stringify({ slides: [{ slug: 'a', name: 'A', image: '/slides/a.jpg', url: '/slides/missing.pdf' }] }),
+		JSON.stringify({
+			slides: [
+				{
+					slug: 'a',
+					name: 'A',
+					image: '/slides/a.jpg',
+					url: '/slides/missing.pdf',
+				},
+			],
+		})
 	)
 
 	const violations = findContentViolations(root)
@@ -110,13 +158,21 @@ test('a slides.json url that does not resolve under public/ is a violation', () 
 
 test('a slides.json entry with no url is fine', () => {
 	write('public/slides/a.jpg', 'fake-jpg')
-	write('src/data/slides.json', JSON.stringify({ slides: [{ slug: 'a', name: 'A', image: '/slides/a.jpg' }] }))
+	write(
+		'src/data/slides.json',
+		JSON.stringify({
+			slides: [{ slug: 'a', name: 'A', image: '/slides/a.jpg' }],
+		})
+	)
 
 	assert.deepEqual(findContentViolations(root), [])
 })
 
 test('a meta.json pages entry that resolves to neither a file nor a folder is a violation', () => {
-	write('src/content/docs/meta.json', JSON.stringify({ pages: ['nonexistent'] }))
+	write(
+		'src/content/docs/meta.json',
+		JSON.stringify({ pages: ['nonexistent'] })
+	)
 
 	const violations = findContentViolations(root)
 	assert.equal(violations.length, 1)
@@ -125,7 +181,10 @@ test('a meta.json pages entry that resolves to neither a file nor a folder is a 
 })
 
 test('a meta.json pages entry resolving to a sibling mdx file passes', () => {
-	write('src/content/docs/meta.json', JSON.stringify({ pages: ['index', 'about'] }))
+	write(
+		'src/content/docs/meta.json',
+		JSON.stringify({ pages: ['index', 'about'] })
+	)
 	write('src/content/docs/index.mdx', '# Home\n')
 	write('src/content/docs/about.mdx', '# About\n')
 
@@ -140,14 +199,20 @@ test('a meta.json pages entry resolving to a subfolder passes', () => {
 })
 
 test('meta.json separator entries are ignored', () => {
-	write('src/content/docs/meta.json', JSON.stringify({ pages: ['---Section---', '---', 'index'] }))
+	write(
+		'src/content/docs/meta.json',
+		JSON.stringify({ pages: ['---Section---', '---', 'index'] })
+	)
 	write('src/content/docs/index.mdx', '# Home\n')
 
 	assert.deepEqual(findContentViolations(root), [])
 })
 
 test('meta.json "..." rest entries are ignored', () => {
-	write('src/content/docs/meta.json', JSON.stringify({ pages: ['index', '...'] }))
+	write(
+		'src/content/docs/meta.json',
+		JSON.stringify({ pages: ['index', '...'] })
+	)
 	write('src/content/docs/index.mdx', '# Home\n')
 
 	assert.deepEqual(findContentViolations(root), [])
@@ -169,7 +234,10 @@ test('a "!"-prefixed meta.json pages entry passes when the page exists', () => {
 })
 
 test('an "..." extract-from-folder meta.json pages entry that does not resolve to a folder is a violation', () => {
-	write('src/content/docs/meta.json', JSON.stringify({ pages: ['...missing-folder'] }))
+	write(
+		'src/content/docs/meta.json',
+		JSON.stringify({ pages: ['...missing-folder'] })
+	)
 
 	const violations = findContentViolations(root)
 	assert.equal(violations.length, 1)
@@ -177,7 +245,10 @@ test('an "..." extract-from-folder meta.json pages entry that does not resolve t
 })
 
 test('an "..." extract-from-folder meta.json pages entry passes when the folder exists', () => {
-	write('src/content/docs/meta.json', JSON.stringify({ pages: ['...xeniapolis'] }))
+	write(
+		'src/content/docs/meta.json',
+		JSON.stringify({ pages: ['...xeniapolis'] })
+	)
 	write('src/content/docs/xeniapolis/index.mdx', '# Xeniapolis\n')
 
 	assert.deepEqual(findContentViolations(root), [])
@@ -201,7 +272,10 @@ test('a relative link path in MDX that does not resolve is a violation', () => {
 })
 
 test('a relative path resolving to a sibling file passes', () => {
-	write('src/content/docs/xeniapolis/index.mdx', '![alt](./present.png)\n\n[doc](present.pdf)\n')
+	write(
+		'src/content/docs/xeniapolis/index.mdx',
+		'![alt](./present.png)\n\n[doc](present.pdf)\n'
+	)
 	write('src/content/docs/xeniapolis/present.png', 'fake-png')
 	write('src/content/docs/xeniapolis/present.pdf', 'fake-pdf')
 
@@ -211,7 +285,7 @@ test('a relative path resolving to a sibling file passes', () => {
 test('absolute site paths, external URLs, and anchors in MDX are not checked', () => {
 	write(
 		'src/content/docs/xeniapolis/index.mdx',
-		'![alt](/illus/whatever.png)\n\n[a](https://example.com/x)\n\n[b](#some-heading)\n\n[c](mailto:a@b.com)\n',
+		'![alt](/illus/whatever.png)\n\n[a](https://example.com/x)\n\n[b](#some-heading)\n\n[c](mailto:a@b.com)\n'
 	)
 
 	assert.deepEqual(findContentViolations(root), [])

@@ -1,6 +1,6 @@
 {
 	"name": "atelier-fuer-innovationen",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"private": true,
 	"packageManager": "pnpm@11.3.0",
 	"scripts": {
@@ -9,16 +9,19 @@
 		"start": "npx serve@latest out",
 		"nuke": "rm -r node_modules; rm -r pnpm-lock.yaml",
 		"postinstall": "fumadocs-mdx",
+		"prepare": "husky",
+		"afk": "tsx --env-file=.sandcastle/.env scripts/run-sandcastle.ts",
 		"test": "tsx --test scripts/*.test.ts",
 		"validate:okf": "tsx scripts/validate-okf.ts",
 		"validate:content": "tsx scripts/validate-content.ts",
-		"afk": "tsx --env-file=.sandcastle/.env scripts/run-sandcastle.ts",
-		"sandcastle:build": "DOCKER_BUILDKIT=1 GITHUB_TOKEN=$(gh auth token) docker build --secret id=github_token,env=GITHUB_TOKEN --build-arg AGENT_UID=$(id -u) --build-arg AGENT_GID=$(id -g) -t sandcastle:atelier-fuer-innovationen -f .sandcastle/Dockerfile ."
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"lint": "eslint . --max-warnings 0",
+		"typecheck": "next typegen && tsc --noEmit",
+		"sandcastle:build": "DOCKER_BUILDKIT=1 docker build --secret id=npmrc,src=.npmrc --build-arg AGENT_UID=$(id -u) --build-arg AGENT_GID=$(id -g) -t sandcastle:atelier-fuer-innovationen -f .sandcastle/Dockerfile ."
 	},
 	"dependencies": {
 		"@fumadocs/base-ui": "^16.15.0",
-		"@radix-ui/react-accordion": "^1.2",
-		"@radix-ui/react-collapsible": "^1.1",
 		"class-variance-authority": "^0.7.1",
 		"fumadocs-core": "^16.15.0",
 		"fumadocs-mdx": "^15",
@@ -35,8 +38,8 @@
 		"vite": "*"
 	},
 	"devDependencies": {
+		"@ai-hero/sandcastle": "^0.12.0",
 		"@fumadocs/cli": "^1",
-		"@mrpitch/sandcastle": "git+https://github.com/mrpitch/myskills.git",
 		"@playwright/mcp": "^0.0.79",
 		"@tailwindcss/postcss": "^4.3.3",
 		"@types/mdx": "^2.0.13",
@@ -45,6 +48,8 @@
 		"@types/react-dom": "^19.2.4",
 		"eslint": "^9",
 		"eslint-config-next": "^16",
+		"husky": "^9.1.7",
+		"lint-staged": "^17.6.0",
 		"postcss": "^8",
 		"prettier": "^3",
 		"prettier-plugin-tailwindcss": "^0.6.14",

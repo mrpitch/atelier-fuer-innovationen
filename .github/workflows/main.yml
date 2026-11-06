@@ -4,12 +4,18 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  # Don't install the git hooks (husky's prepare script) on the runner.
+  HUSKY: 0
 
 jobs:
   check-changes:
     runs-on: ubuntu-latest
     outputs:
-      markdown: ${{ steps.filter.outputs.markdown }}
       content: ${{ steps.filter.outputs.content }}
     steps:
       - uses: actions/checkout@v4
@@ -17,24 +23,38 @@ jobs:
         id: filter
         with:
           filters: |
-            markdown:
-              - '**/*.md'
-              - '**/*.mdx'
             content:
               - 'src/content/docs/**'
               - 'src/data/**'
               - 'public/**'
 
-  validate-okf:
-    needs: check-changes
-    if: needs.check-changes.outputs.markdown == 'true'
+  quality:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v6
+        with:
+          cache: true
       - name: Install modules
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
+      - name: Check formatting
+        run: pnpm format:check
+      - name: Lint
+        run: pnpm lint
+      - name: Typecheck
+        run: pnpm typecheck
+
+  validate-okf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v6
+        with:
+          cache: true
+      - name: Install modules
+        run: pnpm install --frozen-lockfile
       - name: Run tests
         run: pnpm test
       - name: Validate OKF frontmatter conformance
@@ -47,9 +67,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v6
+        with:
+          cache: true
       - name: Install modules
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
       - name: Run tests
         run: pnpm test
       - name: Validate content integrity
@@ -62,9 +84,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v6
+        with:
+          cache: true
       - name: Install modules
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
       - name: Build and capture output
         run: pnpm build 2>&1 | tee build.log
       - name: Fail on known missing-image / unresolved-link warning signatures
@@ -94,10 +118,14 @@ jobs:
           fi
 
   deploy:
-    # Default `if: success()` already treats a skipped dependency (content
-    # unchanged) as passing, so this only blocks deploy when validate-content
-    # or build-check actually ran and failed.
-    needs: [validate-content, build-check]
+    # A pull request runs the checks only; publishing is for pushes to main.
+    # validate-content and build-check are skipped when no content changed,
+    # and a skipped `needs` job would skip this one too — so gate on "nothing
+    # failed" explicitly instead of relying on the implicit success().
+    if: >-
+      github.event_name == 'push' && !cancelled() &&
+      !contains(needs.*.result, 'failure')
+    needs: [quality, validate-okf, validate-content, build-check]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -108,7 +136,9 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_S3_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_S3_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.AWS_S3_REGION }}
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v6
+        with:
+          cache: true
       - name: Install modules
         run: pnpm install
       - name: Build application

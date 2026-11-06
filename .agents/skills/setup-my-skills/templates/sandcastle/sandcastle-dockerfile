@@ -28,9 +28,9 @@ RUN npx --yes playwright install --with-deps chromium \
 USER ${AGENT_UID}:${AGENT_GID}
 
 # /implement's own flow ends with a commit, run inside this container on the
-# bind-mounted repo (see run-sandcastle.ts) — git needs an identity to commit
-# as. No GitHub credentials here regardless: this only covers the local
-# `git commit`; push and PR creation stay host-side.
+# bind-mounted worktree (see run-sandcastle.ts) — git needs an identity to
+# commit as. No GitHub credentials here regardless: this only covers the
+# local `git commit`; push and PR creation stay host-side.
 ENV GIT_AUTHOR_NAME="Sandcastle Agent"
 ENV GIT_AUTHOR_EMAIL="sandcastle-agent@localhost"
 ENV GIT_COMMITTER_NAME="Sandcastle Agent"
@@ -41,43 +41,38 @@ RUN curl -fsSL https://claude.ai/install.sh | bash
 
 ENV PATH="/home/agent/.local/bin:$PATH"
 
-# In head-branch sandbox mode, sandcastle bind-mounts the host's already
-# checked-out git worktree at /home/agent/workspace, overriding whatever is
-# copied in below. The COPY + install here still matter: they bake
-# dependencies into the image at build time so `docker build` and a
+# In merge-to-head sandbox mode, sandcastle bind-mounts an isolated git
+# worktree at /home/agent/workspace (never your own checkout), overriding
+# whatever is copied in below. The COPY + install here still matter: they
+# bake dependencies into the image at build time so `docker build` and a
 # standalone `docker run` (no bind mount, no network) can be used to verify
 # the image on its own, and they seed a warm package-manager store for
 # iterations where the bind-mounted node_modules is missing or stale.
 WORKDIR /home/agent/workspace
 # REPLACE_WITH_LOCKFILE_COPY — setup-my-skills fills this in to match this
-# repo's package manager, e.g. "COPY --chown=${AGENT_UID}:${AGENT_GID}
-# package.json pnpm-lock.yaml ./" for pnpm, or the package-lock.json /
-# yarn.lock equivalent.
+# repo's package manager:
+#   pnpm:  package.json pnpm-lock.yaml [pnpm-workspace.yaml if present] ./
+#   npm:   package.json package-lock.json ./
+#   yarn:  package.json yarn.lock ./
+# pnpm-workspace.yaml carries pnpm v9+ config (allowBuilds,
+# onlyBuiltDependencies, etc.) — pnpm v9 removed these fields from the
+# "pnpm" key in package.json. The file must be present at install time or
+# pnpm ignores the settings and may fail on native-module builds.
 COPY --chown=${AGENT_UID}:${AGENT_GID} REPLACE_WITH_LOCKFILE_COPY ./
-# @mrpitch/sandcastle is a GitHub git dependency — inject the GitHub token as
-# a BuildKit secret so pnpm can clone it without baking the token into a layer.
-# Pass at build time via: --secret id=github_token,env=GITHUB_TOKEN
-# mode=0444 makes the secret readable by the non-root agent user inside this
-# RUN layer; it is never written to any image layer.
-#
+RUN REPLACE_WITH_INSTALL_COMMAND
 # Private package registry (a scoped registry entry in .npmrc/.yarnrc.yml
-# carrying a real auth token): don't COPY that file in — .dockerignore
-# excludes it, and a plain COPY would bake the token into this layer
-# permanently, readable from the image forever after. Mount it as an additional
-# build secret, scoped to this one RUN, never written to a layer:
-#   RUN --mount=type=secret,id=github_token,mode=0444 \
-#       --mount=type=secret,id=npmrc,target=/home/agent/workspace/.npmrc,uid=${AGENT_UID},gid=${AGENT_GID} \
-#     git config --global url."https://$(cat /run/secrets/github_token)@github.com/".insteadOf "https://github.com/" \
-#     && REPLACE_WITH_INSTALL_COMMAND \
-#     && git config --global --unset url."https://$(cat /run/secrets/github_token)@github.com/".insteadOf
-# and pass both secrets at build time:
-#   docker build --secret id=github_token,env=GITHUB_TOKEN --secret id=npmrc,src=.npmrc ...
+# carrying a real auth token, for one of *this repo's own* dependencies —
+# unrelated to Sandcastle itself, which has no private dependencies): don't
+# COPY that file in — .dockerignore excludes it, and a plain COPY would bake
+# the token into this layer permanently, readable from the image forever
+# after. Mount it as a build secret instead, scoped to this one RUN, never
+# written to a layer:
+#   RUN --mount=type=secret,id=npmrc,target=/home/agent/workspace/.npmrc,uid=${AGENT_UID},gid=${AGENT_GID} \
+#     REPLACE_WITH_INSTALL_COMMAND
+# and pass the secret at build time:
+#   docker build --secret id=npmrc,src=.npmrc ...
 # setup-my-skills' scaffold offer writes this variant automatically when it
 # detects a live token in a tracked .npmrc/.yarnrc.yml.
-RUN --mount=type=secret,id=github_token,mode=0444 \
-  git config --global url."https://$(cat /run/secrets/github_token)@github.com/".insteadOf "https://github.com/" \
-  && REPLACE_WITH_INSTALL_COMMAND \
-  && git config --global --unset url."https://$(cat /run/secrets/github_token)@github.com/".insteadOf
 COPY --chown=${AGENT_UID}:${AGENT_GID} . .
 
 ENTRYPOINT ["sleep", "infinity"]

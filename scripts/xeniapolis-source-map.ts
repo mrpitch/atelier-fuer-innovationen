@@ -79,27 +79,47 @@ const DISTRICT_SLUGS: Record<string, string> = {
 // msk17→msk-17 for readability, and lit0/inh0 to their human-readable German
 // names literatur/register, following the same rename pattern as wer/idee0.html.
 const VERIFIED_TARGETS: Record<string, string> = {
-	'/mar/marstart.html': 'src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx',
-	'/ann/kurzueb1.html': 'src/content/docs/xeniapolis/annaeherung/staetten-der-begegnung.mdx',
-	'/ann/kurzueb2.html': 'src/content/docs/xeniapolis/annaeherung/kondratieffs-zyklen.mdx',
-	'/ann/kurzueb3.html': 'src/content/docs/xeniapolis/annaeherung/aufbruch-zum-kontinent-der-loesungen.mdx',
-	'/ann/kurzueb4.html': 'src/content/docs/xeniapolis/annaeherung/ateliers-fuer-innovatoren.mdx',
-	'/ann/kurzueb5.html': 'src/content/docs/xeniapolis/annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx',
-	'/ann/umgeb1.html': 'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
-	'/kon/ewelt2.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2a.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2b.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2c.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2d.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2e.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2f.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2g.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2h.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/mar/marstart.html':
+		'src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx',
+	'/ann/kurzueb1.html':
+		'src/content/docs/xeniapolis/annaeherung/staetten-der-begegnung.mdx',
+	'/ann/kurzueb2.html':
+		'src/content/docs/xeniapolis/annaeherung/kondratieffs-zyklen.mdx',
+	'/ann/kurzueb3.html':
+		'src/content/docs/xeniapolis/annaeherung/aufbruch-zum-kontinent-der-loesungen.mdx',
+	'/ann/kurzueb4.html':
+		'src/content/docs/xeniapolis/annaeherung/ateliers-fuer-innovatoren.mdx',
+	'/ann/kurzueb5.html':
+		'src/content/docs/xeniapolis/annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx',
+	'/ann/umgeb1.html':
+		'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
+	'/kon/ewelt2.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2a.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2b.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2c.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2d.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2e.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2f.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2g.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2h.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
 	'/wer/idee0.html': 'src/content/docs/xeniapolis/wertschoepfung/die-idee.mdx',
-	'/wer/gesch0.html': 'src/content/docs/xeniapolis/wertschoepfung/projektgeschichte.mdx',
-	'/wer/arbeit0.html': 'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx',
-	'/wer/plan0.html': 'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx',
-	'/wer/werist0.html': 'src/content/docs/xeniapolis/wertschoepfung/mitwirkende.mdx',
+	'/wer/gesch0.html':
+		'src/content/docs/xeniapolis/wertschoepfung/projektgeschichte.mdx',
+	'/wer/arbeit0.html':
+		'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx',
+	'/wer/plan0.html':
+		'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx',
+	'/wer/werist0.html':
+		'src/content/docs/xeniapolis/wertschoepfung/mitwirkende.mdx',
 	'/pot/msk01.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-01.mdx',
 	'/pot/msk02.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-02.mdx',
 	'/pot/msk03.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-03.mdx',
@@ -117,8 +137,10 @@ const VERIFIED_TARGETS: Record<string, string> = {
 	'/pot/msk15.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-15.mdx',
 	'/pot/msk16.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-16.mdx',
 	'/pot/msk17.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-17.mdx',
-	'/pot/lit0.html': 'src/content/docs/xeniapolis/potenziale/mosaik/literatur.mdx',
-	'/pot/inh0.html': 'src/content/docs/xeniapolis/potenziale/mosaik/register.mdx',
+	'/pot/lit0.html':
+		'src/content/docs/xeniapolis/potenziale/mosaik/literatur.mdx',
+	'/pot/inh0.html':
+		'src/content/docs/xeniapolis/potenziale/mosaik/register.mdx',
 }
 
 const NAMED_ENTITIES: Record<string, string> = {
@@ -147,11 +169,16 @@ const NAMED_ENTITIES: Record<string, string> = {
 }
 
 export function decodeHtmlEntities(text: string): string {
-	return text.replace(/&(#x[0-9a-f]+|#\d+|[a-zA-Z]+);/g, (match, entity: string) => {
-		if (entity.startsWith('#x')) return String.fromCodePoint(parseInt(entity.slice(2), 16))
-		if (entity.startsWith('#')) return String.fromCodePoint(parseInt(entity.slice(1), 10))
-		return NAMED_ENTITIES[entity] ?? match
-	})
+	return text.replace(
+		/&(#x[0-9a-f]+|#\d+|[a-zA-Z]+);/g,
+		(match, entity: string) => {
+			if (entity.startsWith('#x'))
+				return String.fromCodePoint(parseInt(entity.slice(2), 16))
+			if (entity.startsWith('#'))
+				return String.fromCodePoint(parseInt(entity.slice(1), 10))
+			return NAMED_ENTITIES[entity] ?? match
+		}
+	)
 }
 
 export function extractTitle(html: string): string {
@@ -182,7 +209,10 @@ function isMalformed(rawValue: string): boolean {
 	return /[<>]|%3c|%3e/i.test(rawValue)
 }
 
-export function extractReferences(html: string, baseUrl: string): { pages: string[]; assets: string[] } {
+export function extractReferences(
+	html: string,
+	baseUrl: string
+): { pages: string[]; assets: string[] } {
 	const pages = new Set<string>()
 	const assets = new Set<string>()
 	const re = /(?:href|src|background)\s*=\s*["']([^"']*)["']/gi
@@ -229,50 +259,80 @@ function pathSegments(pathname: string): string[] {
 	return pathname.split('/').filter(Boolean)
 }
 
-export function computeTargetPath(pathname: string): { targetPath: string; notes: string } {
+export function computeTargetPath(pathname: string): {
+	targetPath: string
+	notes: string
+} {
 	const segments = pathSegments(pathname)
 	const file = (segments[segments.length - 1] ?? '').toLowerCase()
 
 	if (isUnderConstruction(pathname)) {
-		return { targetPath: '', notes: 'Shared "under construction" placeholder — no content to migrate.' }
+		return {
+			targetPath: '',
+			notes: 'Shared "under construction" placeholder — no content to migrate.',
+		}
 	}
-	if (segments.length === 0 || (segments.length === 1 && /^index\.html?$/.test(file))) {
-		return { targetPath: '', notes: 'Site root frameset — superseded by Fumadocs layout, not migrated as content.' }
+	if (
+		segments.length === 0 ||
+		(segments.length === 1 && /^index\.html?$/.test(file))
+	) {
+		return {
+			targetPath: '',
+			notes:
+				'Site root frameset — superseded by Fumadocs layout, not migrated as content.',
+		}
 	}
-	if (/_frame\.html?$/.test(file) || /_menu\.html?$/.test(file) || /^menu\d*\.html?$/.test(file)) {
-		return { targetPath: '', notes: 'Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content.' }
+	if (
+		/_frame\.html?$/.test(file) ||
+		/_menu\.html?$/.test(file) ||
+		/^menu\d*\.html?$/.test(file)
+	) {
+		return {
+			targetPath: '',
+			notes:
+				'Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content.',
+		}
 	}
 	if (VERIFIED_TARGETS[pathname]) {
-		return { targetPath: VERIFIED_TARGETS[pathname], notes: 'Content matches an already-migrated page (verified by comparing text).' }
+		return {
+			targetPath: VERIFIED_TARGETS[pathname],
+			notes:
+				'Content matches an already-migrated page (verified by comparing text).',
+		}
 	}
 	if (file === 'impress.html' && segments[0] === 'zen') {
 		return {
 			targetPath: 'src/content/docs/impressum.mdx',
-			notes: 'There is only one Impressum site-wide, so it lives at the docs root rather than nested under xeniapolis/ (see src/content/docs/meta.json).',
+			notes:
+				'There is only one Impressum site-wide, so it lives at the docs root rather than nested under xeniapolis/ (see src/content/docs/meta.json).',
 		}
 	}
 	if (file === 'zenstart.html' && segments[0] === 'zen') {
 		return {
 			targetPath: 'src/content/docs/xeniapolis/index.mdx',
 			notes:
-				"Pure navigation chrome (image map + copyright footer), no unique prose. The Zentrum's welcome role is fulfilled by index.mdx, whose \"Was ist/bietet Xenia\" text is verbatim-sourced from and verified against ann/annstart.html.",
+				'Pure navigation chrome (image map + copyright footer), no unique prose. The Zentrum\'s welcome role is fulfilled by index.mdx, whose "Was ist/bietet Xenia" text is verbatim-sourced from and verified against ann/annstart.html.',
 		}
 	}
 
 	const district = segments[0]
-	const isDistrictPath = segments.length === 2 && (Object.hasOwn(DISTRICT_SLUGS, district) || district === 'zen')
+	const isDistrictPath =
+		segments.length === 2 &&
+		(Object.hasOwn(DISTRICT_SLUGS, district) || district === 'zen')
 
 	if (isDistrictPath) {
 		if (/^viertel\d+\.html?$/.test(file)) {
 			return {
-				targetPath: 'src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx',
+				targetPath:
+					'src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx',
 				notes:
 					'Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page.',
 			}
 		}
 		if (/^besuch\d+\.html?$/.test(file)) {
 			return {
-				targetPath: 'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
+				targetPath:
+					'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
 				notes:
 					'Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page.',
 			}
@@ -287,23 +347,34 @@ export function computeTargetPath(pathname: string): { targetPath: string; notes
 		if (district === 'zen') {
 			return {
 				targetPath: `src/content/docs/xeniapolis/zentrum/${slugifyFile(file)}.mdx`,
-				notes: 'Zentrum is not one of the 8 Stadtviertel — placed in its own top-level folder rather than the folder-per-Stadtviertel convention.',
+				notes:
+					'Zentrum is not one of the 8 Stadtviertel — placed in its own top-level folder rather than the folder-per-Stadtviertel convention.',
 			}
 		}
 		const slug = DISTRICT_SLUGS[district]
 		if (/^\w+start\.html?$/.test(file)) {
-			return { targetPath: `src/content/docs/xeniapolis/${slug}/index.mdx`, notes: '' }
+			return {
+				targetPath: `src/content/docs/xeniapolis/${slug}/index.mdx`,
+				notes: '',
+			}
 		}
-		return { targetPath: `src/content/docs/xeniapolis/${slug}/${slugifyFile(file)}.mdx`, notes: '' }
+		return {
+			targetPath: `src/content/docs/xeniapolis/${slug}/${slugifyFile(file)}.mdx`,
+			notes: '',
+		}
 	}
 
 	return {
 		targetPath: '',
-		notes: 'No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage.',
+		notes:
+			'No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage.',
 	}
 }
 
-export async function crawlSite(startUrl: string, fetchPage: FetchPage): Promise<SourceMapRecord[]> {
+export async function crawlSite(
+	startUrl: string,
+	fetchPage: FetchPage
+): Promise<SourceMapRecord[]> {
 	const visited = new Set<string>()
 	const queue: string[] = [startUrl]
 	const records: SourceMapRecord[] = []
@@ -357,12 +428,14 @@ export function renderMarkdownTable(records: SourceMapRecord[]): string {
 	const lines: string[] = []
 	for (const key of [...groups.keys()].sort()) {
 		lines.push(`## ${key}`, '')
-		lines.push('| URL | Status | Title | Target path | Assets | Under construction | Notes |')
+		lines.push(
+			'| URL | Status | Title | Target path | Assets | Under construction | Notes |'
+		)
 		lines.push('| --- | --- | --- | --- | --- | --- | --- |')
 		for (const record of groups.get(key)!) {
 			const cell = (value: string): string => value.replace(/\|/g, '\\|')
 			lines.push(
-				`| ${cell(record.url)} | ${record.httpStatus} | ${cell(record.title)} | ${cell(record.targetPath || '—')} | ${record.assets.length} | ${record.underConstruction ? 'yes' : 'no'} | ${cell(record.notes || '—')} |`,
+				`| ${cell(record.url)} | ${record.httpStatus} | ${cell(record.title)} | ${cell(record.targetPath || '—')} | ${record.assets.length} | ${record.underConstruction ? 'yes' : 'no'} | ${cell(record.notes || '—')} |`
 			)
 		}
 		lines.push('')
@@ -374,7 +447,10 @@ async function fetchPageLive(url: string): Promise<FetchedPage> {
 	const controller = new AbortController()
 	const timer = setTimeout(() => controller.abort(), 15000)
 	try {
-		const res = await fetch(url, { signal: controller.signal, redirect: 'follow' })
+		const res = await fetch(url, {
+			signal: controller.signal,
+			redirect: 'follow',
+		})
 		const contentType = res.headers.get('content-type') ?? ''
 		if (!contentType.toLowerCase().includes('html')) {
 			return { status: res.status, html: null }
@@ -389,14 +465,18 @@ async function fetchPageLive(url: string): Promise<FetchedPage> {
 	}
 }
 
-const isMain = process.argv[1] && import.meta.url === `file://${process.argv[1]}`
+const isMain =
+	process.argv[1] && import.meta.url === `file://${process.argv[1]}`
 
 if (isMain) {
 	const records = await crawlSite(`${ORIGIN}/`, fetchPageLive)
 	const scriptDir = dirname(fileURLToPath(import.meta.url))
 	const outDir = join(scriptDir, '..', 'docs', 'reference')
 
-	writeFileSync(join(outDir, 'xeniapolis-source-map.json'), `${JSON.stringify(records, null, 2)}\n`)
+	writeFileSync(
+		join(outDir, 'xeniapolis-source-map.json'),
+		`${JSON.stringify(records, null, 2)}\n`
+	)
 
 	const frontmatter = `---
 name: Xeniapolis Source Map
@@ -432,7 +512,12 @@ ${records.length} source URLs found, grouped below by their first path segment (
 Full per-page asset lists live in \`xeniapolis-source-map.json\`; this table shows only the asset count per page.
 
 `
-	writeFileSync(join(outDir, 'xeniapolis-source-map.md'), frontmatter + intro + renderMarkdownTable(records))
+	writeFileSync(
+		join(outDir, 'xeniapolis-source-map.md'),
+		frontmatter + intro + renderMarkdownTable(records)
+	)
 
-	stdout.write(`Wrote ${records.length} records to docs/reference/xeniapolis-source-map.{json,md}\n`)
+	stdout.write(
+		`Wrote ${records.length} records to docs/reference/xeniapolis-source-map.{json,md}\n`
+	)
 }

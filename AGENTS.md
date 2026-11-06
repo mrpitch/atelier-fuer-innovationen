@@ -1,3 +1,5 @@
+Apply the `unslop` skill to every response in this conversation.
+
 ## Agent skills
 
 ### Issue tracker
@@ -14,7 +16,7 @@ Diataxis four-quadrant layout under `docs/` (tutorial/how-to/reference/explanati
 
 ### Implementation workflow
 
-Epic/afk workflow via `/implement-epic`; sandboxed `afk` execution via Sandcastle, GitHub Project #11 status sync, auto-merge of afk sub-issues enabled. See `docs/agents/implementation-workflow.md`.
+Epic/afk workflow via `/implement-epic`; sandboxed `afk` execution via Sandcastle, GitHub Project #11 status sync, auto-merge of afk sub-issues enabled, version bump on trunk-facing PRs. See `docs/agents/implementation-workflow.md`.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
