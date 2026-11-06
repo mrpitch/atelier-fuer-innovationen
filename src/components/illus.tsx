@@ -1,3 +1,5 @@
+import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
 import { ImageZoom } from '@/components/image-zoom'
 
 interface IIllu {
@@ -37,9 +39,42 @@ export const Illus = async () => {
 	)
 }
 
-export const Illu = async ({ slug }: { slug: string }) => {
+export const Illu = async ({
+	slug,
+	variant = 'illustration',
+}: {
+	slug: string
+	/**
+	 * "icon" inlines the SVG markup (not an `<img>`) so `currentColor`/ADR-0002
+	 * section CSS custom properties reach it; `<img>`-embedded SVGs render in
+	 * an isolated image context that cannot see the page's `color`.
+	 */
+	variant?: 'illustration' | 'icon'
+}) => {
 	const illus = await getIllusBySlug(slug)
 	if (!illus) return null
+
+	if (variant === 'icon') {
+		if (!illus.image.endsWith('.svg')) return null
+		let markup: string
+		try {
+			markup = await readFile(
+				join(process.cwd(), 'public', illus.image),
+				'utf-8'
+			)
+		} catch (error) {
+			console.error('Error loading icon illu:', error)
+			return null
+		}
+		return (
+			<span
+				role="img"
+				aria-label={illus.name}
+				className="inline-flex size-6 align-text-bottom [&_svg]:size-full"
+				dangerouslySetInnerHTML={{ __html: markup }}
+			/>
+		)
+	}
 
 	if (illus.image.endsWith('.svg')) {
 		return (
