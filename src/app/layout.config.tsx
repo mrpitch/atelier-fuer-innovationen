@@ -63,7 +63,7 @@ export const baseOptions: BaseLayoutProps = {
 					icon: <Building2 />,
 					text: 'Xeniapolis',
 					description:
-						'Generate interactive playgrounds and docs for your OpenAPI schema.',
+						'Xenia: das Forschungsprojekt, das den Übergang in die Informationsgesellschaft als begehbare Wissensstadt erlebbar macht.',
 					url: '/docs/xeniapolis',
 				},
 				{
@@ -82,13 +82,15 @@ export const baseOptions: BaseLayoutProps = {
 				{
 					icon: <Book />,
 					text: 'Viertel der Annäherung',
-					description: 'Lorem ipsum dolor sit amet',
+					description:
+						'Ansatz und Gestaltungsschwerpunkt des Viertels der Annäherung sowie die Stadtrundgänge, die hier ihren Ausgang nehmen',
 					url: '/docs/xeniapolis/annaeherung',
 				},
 				{
 					icon: <AlbumIcon />,
 					text: 'Viertel der Führung',
-					description: 'Lorem ipsum dolor sit amet',
+					description:
+						'Ansatz und Gestaltungsschwerpunkt des Viertels der Führung sowie das XENIA-Thema "Netzwerk der Innovatoren"',
 					url: '/docs/xeniapolis/fuehrung',
 				},
 			],
