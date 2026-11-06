@@ -3,6 +3,9 @@
   "description": "Beschreibung zu Viertel der Führung",
   "icon": "Building2",
   "pages": [
-    "index"
+    "index",
+    "netzwerk-der-innovatoren",
+    "ateliers-fuer-innovatoren",
+    "xenia-im-netzwerk-der-wissensstaedte"
   ]
 }
