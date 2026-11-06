@@ -68,7 +68,7 @@ The live component showcase is at `/docs/components`. For step-by-step instructi
 
 `pnpm build` runs `next build` (static export, `output: 'export'`) and then `next-image-export-optimizer`, which writes responsive WebP copies of every image in `public/`.
 
-Pushing to `main` triggers `.github/workflows/main.yml`. It validates frontmatter when Markdown changed, builds the site, syncs `out/` to S3 and invalidates CloudFront. See [how to build and deploy](docs/how-to/how-to-build-and-deploy.md) for the required secrets and variables.
+Pushing to `main` triggers `.github/workflows/main.yml`. Jobs `quality` (format, lint, typecheck) and `validate-okf` (tests, frontmatter) run first; if both pass, `deploy` builds the site, syncs `out/` to S3 and invalidates CloudFront. Pull requests targeting `main` run the two checks only. See [how to build and deploy](docs/how-to/how-to-build-and-deploy.md) for the required secrets and variables.
 
 ## Stack
 

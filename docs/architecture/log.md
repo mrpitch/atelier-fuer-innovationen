@@ -19,3 +19,4 @@
 - **Update**: 06-runtime/runtime-main-flow.md — page view scenario (site is a static website on S3 served by CloudFront, per maintainer)
 - **Creation**: 06-runtime/runtime-search.md, 06-runtime/runtime-publish-change.md
 - **Update**: 11-risks/risks-and-tech-debt.md, 07-deployment/deployment-topology.md, index.md — RISK-05 measured, CloudFront wiring marked maintainer-confirmed, §6 removed from open gaps
+- **Update**: 05-building-blocks/building-blocks-level1.md, 06-runtime/index.md, 06-runtime/runtime-publish-change.md, 08-crosscutting/content-conventions.md, 11-risks/risks-and-tech-debt.md — CI now gates the deploy on jobs `quality` and `validate-okf` and runs on pull requests (#128); RISK-03 closed, RISK-07 measure updated; hand edit, `verified` added

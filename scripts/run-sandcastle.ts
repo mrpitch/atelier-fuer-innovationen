@@ -813,6 +813,6 @@ export function parseArgs(argv: string[]): SandcastleCliArgs {
 }
 
 const output = await runSandcastleForIssue(parseArgs(process.argv.slice(2)), {
-	checkCommand: 'pnpm exec tsc --noEmit && pnpm exec eslint .',
+	checkCommand: 'pnpm typecheck && pnpm lint',
 })
 console.log(JSON.stringify(output))

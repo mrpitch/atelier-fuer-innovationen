@@ -18,8 +18,13 @@ tags:
 | `build`            | `next build && next-image-export-optimizer`                 | Static export to `out/`, then image optimization                   |
 | `start`            | `npx serve@latest out`                                      | Serves the built `out/` folder                                     |
 | `postinstall`      | `fumadocs-mdx`                                              | Generates `.source/` from `src/content/docs`                       |
+| `prepare`          | `husky`                                                     | Installs the git hooks; `.husky/pre-commit` runs `lint-staged`     |
 | `test`             | `tsx --test scripts/*.test.ts`                              | Tests for the `scripts/` tooling                                   |
 | `validate:okf`     | `tsx scripts/validate-okf.ts`                               | Fails if a Markdown or MDX file has no `type` frontmatter          |
+| `format`           | `prettier --write .`                                        | Rewrites every file not in `.prettierignore`                       |
+| `format:check`     | `prettier --check .`                                        | Fails if a file is not Prettier-formatted; runs in CI              |
+| `lint`             | `eslint . --max-warnings 0`                                 | Fails on any ESLint warning or error; runs in CI                   |
+| `typecheck`        | `next typegen && tsc --noEmit`                              | Generates route types, then typechecks the project; runs in CI     |
 | `afk`              | `tsx --env-file=.sandcastle/.env scripts/run-sandcastle.ts` | Runs the sandboxed agent on a GitHub issue                         |
 | `sandcastle:build` | `docker build ... -f .sandcastle/Dockerfile .`              | Builds the Sandcastle image `sandcastle:atelier-fuer-innovationen` |
 | `nuke`             | `rm -r node_modules; rm -r pnpm-lock.yaml`                  | Deletes dependencies and the lockfile                              |
@@ -83,9 +88,12 @@ GitHub Actions secrets and variables for the deploy are listed in [How to build 
 
 ## Where else configuration lives
 
-| File                            | Controls                                                                     |
-| ------------------------------- | ---------------------------------------------------------------------------- |
-| `src/content/docs/**/meta.json` | Sidebar order and tabs; see [meta.json conventions](./fumadocs/meta-json.md) |
-| `.github/workflows/main.yml`    | CI validation and deploy                                                     |
-| `docs/agents/*.md`              | Agent skill configuration                                                    |
-| `.sandcastle/`                  | Sandbox image, prompts and runner settings                                   |
+| File                            | Controls                                                                                               |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `src/content/docs/**/meta.json` | Sidebar order and tabs; see [meta.json conventions](./fumadocs/meta-json.md)                           |
+| `.github/workflows/main.yml`    | CI: jobs `quality` and `validate-okf`, then `deploy` on pushes to `main`                               |
+| `.prettierignore`               | Paths Prettier skips: vendored skills, sandbox, `src/content`, lockfile                                |
+| `lint-staged.config.mjs`        | Pre-commit tasks on staged files; see [Format, lint and typecheck](./global/formatting-and-linting.md) |
+| `.husky/pre-commit`             | Git hook that runs `lint-staged`                                                                       |
+| `docs/agents/*.md`              | Agent skill configuration                                                                              |
+| `.sandcastle/`                  | Sandbox image, prompts and runner settings                                                             |
