@@ -62,6 +62,26 @@ You keep the decisions and every edit. Sub-agents never write: they share
 this one worktree and the container's CPUs, so concurrent writes and concurrent test
 runs would collide and slow each other down.
 
+## External source material
+
+The container has outbound internet access and a headless Chromium. When the
+issue asks you to migrate or verify content from a public website (for
+example xeniapolis.de), read it from the live source instead of asking for it
+to be provided:
+
+- Static pages and binary assets (images, PDFs): `timeout 30 curl -fsSL <url>`.
+  Save downloaded assets into the repo where the issue says they belong.
+- Pages that need rendering: load the repo's pinned Playwright from
+  `node_modules/.pnpm/playwright-core@*/node_modules/playwright-core` (a bare
+  `require('playwright-core')` does not resolve — it is not a direct
+  dependency) and call `chromium.launch()`. The matching browser is
+  preinstalled, so never run `playwright install`.
+- If the issue or the epic notes name a checked-in URL index, start from it
+  rather than re-crawling.
+- Bound every fetch with `timeout`, and fetch each URL once: save what you
+  need to disk and work from the saved copy. The source site is not under our
+  control and may change or be slow.
+
 ## Rules
 
 - Do not run `git push`, `git branch`, `git checkout`, or any `gh` command.
