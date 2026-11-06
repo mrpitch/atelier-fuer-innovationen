@@ -1,5 +1,9 @@
 # Change log
 
+## 2026-11-06
+
+- **Creation**: 09-decisions/adr-0003-vector-icon-and-illustration-conventions.md — ADR-0003 records the `<Illu>` icon-vs-illustration SVG convention (#113)
+
 ## 2026-11-05
 
 - **Creation**: Initial bundle scaffold (12 arc42 sections) by docs-bootstrap/1.0.0
