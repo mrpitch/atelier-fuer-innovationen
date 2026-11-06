@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" role="img" aria-labelledby="konstellationen-spektrum-title konstellationen-spektrum-desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="680" viewBox="0 0 1000 680" role="img" aria-labelledby="konstellationen-spektrum-title konstellationen-spektrum-desc">
 	<title id="konstellationen-spektrum-title">Spektrum von Gütern und Leistungen in der gesellschaftlichen Entwicklung</title>
 	<desc id="konstellationen-spektrum-desc">Ein nach oben schmaler werdendes Trapezschema, das Güter und Leistungen von Nahrungsmitteln (unten, Low-End) bis zu neuen Ingenieurleistungen an der vorderen Linie (oben, High-End) anordnet, flankiert von Pfeilen für Markterschließung durch fundamentale und inkrementale Innovation.</desc>
 	<rect x="0" y="0" width="1000" height="680" fill="#ffffff" stroke="#7c3aed" stroke-width="10" />
