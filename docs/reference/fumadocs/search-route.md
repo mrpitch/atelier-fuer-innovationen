@@ -1,9 +1,8 @@
 ---
-name: "Static search API route"
+title: 'Static search API route'
 description: "The search route exports createFromSource(source)'s staticGET as GET, not the dynamic GET — required for this repo's static-export deployment."
-kind: reference
-type: Reference
-status: current
+type: reference
+status: stable
 last_reviewed: 2026-08-22
 tags: [fumadocs, search, static-export, api-route]
 ---

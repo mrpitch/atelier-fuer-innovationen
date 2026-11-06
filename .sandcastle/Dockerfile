@@ -32,9 +32,9 @@ RUN npx --yes playwright install-deps chromium \
 USER ${AGENT_UID}:${AGENT_GID}
 
 # /implement's own flow ends with a commit, run inside this container on the
-# bind-mounted repo (see run-sandcastle.ts) — git needs an identity to commit
-# as. No GitHub credentials here regardless: this only covers the local
-# `git commit`; push and PR creation stay host-side.
+# bind-mounted worktree (see run-sandcastle.ts) — git needs an identity to
+# commit as. No GitHub credentials here regardless: this only covers the
+# local `git commit`; push and PR creation stay host-side.
 ENV GIT_AUTHOR_NAME="Sandcastle Agent"
 ENV GIT_AUTHOR_EMAIL="sandcastle-agent@localhost"
 ENV GIT_COMMITTER_NAME="Sandcastle Agent"
@@ -45,24 +45,36 @@ RUN curl -fsSL https://claude.ai/install.sh | bash
 
 ENV PATH="/home/agent/.local/bin:$PATH"
 
-# In head-branch sandbox mode, sandcastle bind-mounts the host's already
-# checked-out git worktree at /home/agent/workspace, overriding whatever is
-# copied in below. The COPY + install here still matter: they bake
-# dependencies into the image at build time so `docker build` and a
+# In merge-to-head sandbox mode, sandcastle bind-mounts an isolated git
+# worktree at /home/agent/workspace (never your own checkout), overriding
+# whatever is copied in below. The COPY + install here still matter: they
+# bake dependencies into the image at build time so `docker build` and a
 # standalone `docker run` (no bind mount, no network) can be used to verify
 # the image on its own, and they seed a warm package-manager store for
 # iterations where the bind-mounted node_modules is missing or stale.
 WORKDIR /home/agent/workspace
-COPY --chown=${AGENT_UID}:${AGENT_GID} package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-# @mrpitch/sandcastle is a GitHub git dependency — inject the GitHub token as
-# a BuildKit secret so pnpm can clone it without baking the token into a layer.
-# Pass at build time via: --secret id=github_token,env=GITHUB_TOKEN
-# mode=0444 makes the secret readable by the non-root agent user inside this
-# RUN layer; it is never written to any image layer.
-RUN --mount=type=secret,id=github_token,mode=0444 \
-  git config --global url."https://$(cat /run/secrets/github_token)@github.com/".insteadOf "https://github.com/" \
-  && pnpm install --frozen-lockfile \
-  && git config --global --unset url."https://$(cat /run/secrets/github_token)@github.com/".insteadOf
+COPY --chown=${AGENT_UID}:${AGENT_GID} package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json source.config.ts ./
+# source.config.ts + tsconfig.json (beyond the usual package.json/lockfile
+# pair) are needed here because this repo's postinstall runs `fumadocs-mdx`,
+# which reads its config directly during install rather than lazily at
+# build/dev time — omitting it fails install with "Cannot find config file".
+# `vite` is in optionalDependencies (not devDependencies) solely to satisfy
+# fumadocs-mdx@15.3.0's postinstall: the CLI imports from its own
+# dist/vite/index.js even for Next.js projects, so a clean pnpm store
+# (Docker, fresh CI) fails with ERR_MODULE_NOT_FOUND unless vite is
+# explicitly installed. Locally the global pnpm store leaks it in as a
+# phantom dep, masking the bug — the Docker environment exposed it.
+# pnpm-workspace.yaml carries the allowBuilds entries for esbuild/sharp's
+# install scripts (pnpm 10+ ignores them by default otherwise) — without
+# it here, install fails non-interactively with ERR_PNPM_IGNORED_BUILDS.
+# .npmrc is always mounted as a build secret rather than COPYed in, so this
+# Dockerfile is identical whether or not the repo has a private registry:
+# empty/no-registry .npmrc → install behaves exactly like it wasn't there;
+# a real one with a token never touches an image layer either way. Pass it
+# at build time with `docker build --secret id=npmrc,src=.npmrc ...`
+# (already wired into the `sandcastle:build` package.json script).
+RUN --mount=type=secret,id=npmrc,target=/home/agent/workspace/.npmrc,uid=${AGENT_UID},gid=${AGENT_GID} \
+  pnpm install --frozen-lockfile
 # Install the Chromium revision the lockfile's playwright-core expects.
 # playwright is not a direct dependency (it arrives via @playwright/mcp), so
 # there is no `pnpm exec playwright` — call the pinned package's CLI directly.

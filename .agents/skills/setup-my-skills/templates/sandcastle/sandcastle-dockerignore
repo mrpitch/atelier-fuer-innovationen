@@ -1,0 +1,15 @@
+.git
+node_modules
+dist
+build
+.sandcastle/logs
+.sandcastle/container-cache
+.sandcastle/worktrees
+.env
+.env.*
+!.env.example
+.npmrc
+.yarnrc.yml
+*.pem
+*.key
+.DS_Store

@@ -1,4 +1,7 @@
-import { DocsLayout, type DocsLayoutProps } from '@fumadocs/base-ui/layouts/docs'
+import {
+	DocsLayout,
+	type DocsLayoutProps,
+} from '@fumadocs/base-ui/layouts/docs'
 import { PathUtils } from 'fumadocs-core/source'
 import { findPath, type Folder } from 'fumadocs-core/page-tree'
 import type { ReactNode } from 'react'
@@ -21,7 +24,7 @@ const docsOptions: DocsLayoutProps = {
 				...option,
 				icon: (
 					<div
-						className="size-full [&_svg]:size-full max-md:rounded-md max-md:p-1.5 max-md:border max-md:bg-fd-secondary"
+						className="max-md:bg-fd-secondary size-full max-md:rounded-md max-md:border max-md:p-1.5 [&_svg]:size-full"
 						style={{ color }}
 					>
 						{node.icon}
