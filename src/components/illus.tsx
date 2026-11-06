@@ -53,7 +53,7 @@ export const Illu = async ({ slug }: { slug: string }) => {
 	}
 
 	return (
-		<div className="mb-8">
+		<div className="mb-8 rounded-lg border bg-white p-4">
 			<ImageZoom
 				src={illus?.image}
 				width={640}
