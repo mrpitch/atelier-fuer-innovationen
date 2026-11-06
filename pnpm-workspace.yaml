@@ -3,7 +3,7 @@ allowBuilds:
   sharp: true
 # pnpm's minimumReleaseAge supply-chain gate (configured outside this repo)
 # blocks freshly-published versions by default. @fumadocs/base-ui@16.15.0 and
-# its required peer fumadocs-core@16.15.0 (see docs/adr/0001-adopt-fumadocs-base-ui.md)
+# its required peer fumadocs-core@16.15.0 (see docs/architecture/09-decisions/adr-0001-adopt-fumadocs-base-ui.md)
 # were too new to pass that gate at adoption time, so both are excluded here —
 # without excluding both, pnpm resolves an older, peer-incompatible
 # @fumadocs/base-ui and "pnpm peers check" reports an unmet peer.

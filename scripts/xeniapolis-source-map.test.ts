@@ -27,7 +27,8 @@ test('decodeHtmlEntities leaves unknown entities untouched', () => {
 })
 
 test('extractTitle reads and decodes the title tag', () => {
-	const html = '<HTML><HEAD><TITLE>Ann&auml;herung: Was ist Xenia?</TITLE></HEAD></HTML>'
+	const html =
+		'<HTML><HEAD><TITLE>Ann&auml;herung: Was ist Xenia?</TITLE></HEAD></HTML>'
 	assert.equal(extractTitle(html), 'Annäherung: Was ist Xenia?')
 })
 
@@ -42,8 +43,14 @@ test('extractReferences resolves relative page and asset links', () => {
 		<IMG SRC="gifs/b_icons/annbild.gif">
 		<BODY BACKGROUND="gifs/b_menu1/menu1_bckrd.gif">
 	`
-	const { pages, assets } = extractReferences(html, 'https://xeniapolis.de/ann_frame.html')
-	assert.deepEqual(pages.sort(), ['https://xeniapolis.de/ann/annstart.html', 'https://xeniapolis.de/ann_menu.html'])
+	const { pages, assets } = extractReferences(
+		html,
+		'https://xeniapolis.de/ann_frame.html'
+	)
+	assert.deepEqual(pages.sort(), [
+		'https://xeniapolis.de/ann/annstart.html',
+		'https://xeniapolis.de/ann_menu.html',
+	])
 	assert.deepEqual(assets.sort(), [
 		'https://xeniapolis.de/gifs/b_icons/annbild.gif',
 		'https://xeniapolis.de/gifs/b_menu1/menu1_bckrd.gif',
@@ -56,21 +63,30 @@ test('extractReferences ignores javascript, mailto, and fragment-only links', ()
 		<a href="mailto:someone@example.com">mail</a>
 		<a href="#top">top</a>
 	`
-	const { pages, assets } = extractReferences(html, 'https://xeniapolis.de/ann/annstart.html')
+	const { pages, assets } = extractReferences(
+		html,
+		'https://xeniapolis.de/ann/annstart.html'
+	)
 	assert.deepEqual(pages, [])
 	assert.deepEqual(assets, [])
 })
 
 test('extractReferences ignores external, off-domain links', () => {
 	const html = '<a href="http://home.de.netscape.com/de/">Netscape</a>'
-	const { pages, assets } = extractReferences(html, 'https://xeniapolis.de/index.html')
+	const { pages, assets } = extractReferences(
+		html,
+		'https://xeniapolis.de/index.html'
+	)
 	assert.deepEqual(pages, [])
 	assert.deepEqual(assets, [])
 })
 
 test('extractReferences drops malformed attribute values with stray angle brackets', () => {
 	const html = '<a href="telepol/wissensa.htm%3E%3Cimg%20src=">broken</a>'
-	const { pages, assets } = extractReferences(html, 'https://xeniapolis.de/telepol/1.htm')
+	const { pages, assets } = extractReferences(
+		html,
+		'https://xeniapolis.de/telepol/1.htm'
+	)
 	assert.deepEqual(pages, [])
 	assert.deepEqual(assets, [])
 })
@@ -85,8 +101,12 @@ test('extractReferences strips hash fragments so anchored links dedupe to one UR
 })
 
 test('extractReferences treats an extensionless, non-slash link as a page rather than dropping it', () => {
-	const html = '<a href="impression">broken link, no extension, no trailing slash</a>'
-	const { pages, assets } = extractReferences(html, 'https://xeniapolis.de/ins/insstart.html')
+	const html =
+		'<a href="impression">broken link, no extension, no trailing slash</a>'
+	const { pages, assets } = extractReferences(
+		html,
+		'https://xeniapolis.de/ins/insstart.html'
+	)
 	assert.deepEqual(pages, ['https://xeniapolis.de/ins/impression'])
 	assert.deepEqual(assets, [])
 })
@@ -97,7 +117,7 @@ test('isUnderConstruction flags baustelle.html targets only', () => {
 	assert.equal(isUnderConstruction('/mar/marstart.html'), false)
 })
 
-test('computeTargetPath maps a district start page to that folder\'s index.mdx', () => {
+test("computeTargetPath maps a district start page to that folder's index.mdx", () => {
 	const { targetPath, notes } = computeTargetPath('/ins/insstart.html')
 	assert.equal(targetPath, 'src/content/docs/xeniapolis/inszenierung/index.mdx')
 	assert.equal(notes, '')
@@ -119,7 +139,7 @@ test('computeTargetPath defers Inszenierung Medienspiegel and Präsentationen su
 		assert.equal(
 			notes,
 			'Medienspiegel / Präsentationen sub-page, not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from inszenierung/index.mdx.',
-			`expected archive-ticket note for ${path}`,
+			`expected archive-ticket note for ${path}`
 		)
 	}
 })
@@ -132,36 +152,36 @@ test('computeTargetPath maps a generic district content page by filename', () =>
 test('computeTargetPath consolidates every viertelN.html copy onto the shared overview page', () => {
 	assert.equal(
 		computeTargetPath('/ann/viertel3.html').targetPath,
-		'src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx',
+		'src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx'
 	)
 	assert.equal(
 		computeTargetPath('/pot/viertel3.html').targetPath,
-		'src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx',
+		'src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx'
 	)
 })
 
 test('computeTargetPath consolidates every besuchN.html copy onto the shared overview page', () => {
 	assert.equal(
 		computeTargetPath('/ann/besuch3.html').targetPath,
-		'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
+		'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx'
 	)
 	assert.equal(
 		computeTargetPath('/pot/besuch3.html').targetPath,
-		'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
+		'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx'
 	)
 })
 
 test('computeTargetPath uses the verified content match for ann/umgeb1.html', () => {
 	assert.equal(
 		computeTargetPath('/ann/umgeb1.html').targetPath,
-		'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
+		'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx'
 	)
 })
 
 test('computeTargetPath uses the verified content match for mar/marstart.html', () => {
 	assert.equal(
 		computeTargetPath('/mar/marstart.html').targetPath,
-		'src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx',
+		'src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx'
 	)
 })
 
@@ -180,48 +200,48 @@ test('computeTargetPath maps zen/impress.html to the docs-root impressum.mdx, no
 test('computeTargetPath maps each kurzueb page to its own split sibling page', () => {
 	assert.equal(
 		computeTargetPath('/ann/kurzueb1.html').targetPath,
-		'src/content/docs/xeniapolis/annaeherung/staetten-der-begegnung.mdx',
+		'src/content/docs/xeniapolis/annaeherung/staetten-der-begegnung.mdx'
 	)
 	assert.equal(
 		computeTargetPath('/ann/kurzueb3.html').targetPath,
-		'src/content/docs/xeniapolis/annaeherung/aufbruch-zum-kontinent-der-loesungen.mdx',
+		'src/content/docs/xeniapolis/annaeherung/aufbruch-zum-kontinent-der-loesungen.mdx'
 	)
 	assert.equal(
 		computeTargetPath('/ann/kurzueb5.html').targetPath,
-		'src/content/docs/xeniapolis/annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx',
+		'src/content/docs/xeniapolis/annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx'
 	)
 })
 
 test('computeTargetPath maps the ewelt2 page sequence onto its aggregated MDX file', () => {
 	assert.equal(
 		computeTargetPath('/kon/ewelt2f.html').targetPath,
-		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx'
 	)
 })
 
 test('computeTargetPath maps wer/idee0.html, wer/gesch0.html, and wer/werist0.html to their human-readable slugs', () => {
 	assert.equal(
 		computeTargetPath('/wer/idee0.html').targetPath,
-		'src/content/docs/xeniapolis/wertschoepfung/die-idee.mdx',
+		'src/content/docs/xeniapolis/wertschoepfung/die-idee.mdx'
 	)
 	assert.equal(
 		computeTargetPath('/wer/gesch0.html').targetPath,
-		'src/content/docs/xeniapolis/wertschoepfung/projektgeschichte.mdx',
+		'src/content/docs/xeniapolis/wertschoepfung/projektgeschichte.mdx'
 	)
 	assert.equal(
 		computeTargetPath('/wer/werist0.html').targetPath,
-		'src/content/docs/xeniapolis/wertschoepfung/mitwirkende.mdx',
+		'src/content/docs/xeniapolis/wertschoepfung/mitwirkende.mdx'
 	)
 })
 
 test('computeTargetPath aggregates wer/arbeit0.html and wer/plan0.html onto one Forschungsarbeit page', () => {
 	assert.equal(
 		computeTargetPath('/wer/arbeit0.html').targetPath,
-		'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx',
+		'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx'
 	)
 	assert.equal(
 		computeTargetPath('/wer/plan0.html').targetPath,
-		'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx',
+		'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx'
 	)
 })
 
@@ -245,9 +265,20 @@ test('computeTargetPath flags baustelle.html as having no content to migrate', (
 })
 
 test('computeTargetPath flags out-of-convention paths for manual triage', () => {
-	assert.equal(computeTargetPath('/telepol/xenia.htm').notes.includes('manual triage'), true)
-	assert.equal(computeTargetPath('/kon/zen/zenstart.html').notes.includes('manual triage'), true)
-	assert.equal(computeTargetPath('/~mib/agora/azxenia.htm').notes.includes('manual triage'), true)
+	assert.equal(
+		computeTargetPath('/telepol/xenia.htm').notes.includes('manual triage'),
+		true
+	)
+	assert.equal(
+		computeTargetPath('/kon/zen/zenstart.html').notes.includes('manual triage'),
+		true
+	)
+	assert.equal(
+		computeTargetPath('/~mib/agora/azxenia.htm').notes.includes(
+			'manual triage'
+		),
+		true
+	)
 })
 
 test('crawlSite follows links transitively and dedupes repeated URLs', async () => {
@@ -265,17 +296,26 @@ test('crawlSite follows links transitively and dedupes repeated URLs', async () 
 			html: '<TITLE>Annstart</TITLE><IMG SRC="../gifs/b_icons/annbild.gif">',
 		},
 	}
-	const fetchPage: FetchPage = async (url) => site[url] ?? { status: 404, html: null }
+	const fetchPage: FetchPage = async (url) =>
+		site[url] ?? { status: 404, html: null }
 
 	const records = await crawlSite('https://xeniapolis.de/', fetchPage)
 
 	assert.equal(records.length, 3)
 	const byUrl = new Map(records.map((r) => [r.url, r]))
 	assert.equal(byUrl.get('https://xeniapolis.de/')!.title, 'Willkommen')
-	assert.equal(byUrl.get('https://xeniapolis.de/ann_frame.html')!.title, 'Viertel der Annäherung')
+	assert.equal(
+		byUrl.get('https://xeniapolis.de/ann_frame.html')!.title,
+		'Viertel der Annäherung'
+	)
 	const annstart = byUrl.get('https://xeniapolis.de/ann/annstart.html')!
-	assert.deepEqual(annstart.assets, ['https://xeniapolis.de/gifs/b_icons/annbild.gif'])
-	assert.equal(annstart.targetPath, 'src/content/docs/xeniapolis/annaeherung/index.mdx')
+	assert.deepEqual(annstart.assets, [
+		'https://xeniapolis.de/gifs/b_icons/annbild.gif',
+	])
+	assert.equal(
+		annstart.targetPath,
+		'src/content/docs/xeniapolis/annaeherung/index.mdx'
+	)
 })
 
 test('crawlSite records unreachable pages with their HTTP status and does not crawl past them', async () => {
@@ -286,12 +326,15 @@ test('crawlSite records unreachable pages with their HTTP status and does not cr
 		},
 		'https://xeniapolis.de/missing.html': { status: 404, html: null },
 	}
-	const fetchPage: FetchPage = async (url) => site[url] ?? { status: 404, html: null }
+	const fetchPage: FetchPage = async (url) =>
+		site[url] ?? { status: 404, html: null }
 
 	const records = await crawlSite('https://xeniapolis.de/', fetchPage)
 
 	assert.equal(records.length, 2)
-	const missing = records.find((r) => r.url === 'https://xeniapolis.de/missing.html')!
+	const missing = records.find(
+		(r) => r.url === 'https://xeniapolis.de/missing.html'
+	)!
 	assert.equal(missing.httpStatus, 404)
 	assert.equal(missing.title, '')
 	assert.deepEqual(missing.assets, [])
@@ -315,7 +358,8 @@ test('renderMarkdownTable groups records by district and includes every record o
 			targetPath: '',
 			assets: [],
 			underConstruction: false,
-			notes: 'Site root frameset — superseded by Fumadocs layout, not migrated as content.',
+			notes:
+				'Site root frameset — superseded by Fumadocs layout, not migrated as content.',
 		},
 	]
 	const table = renderMarkdownTable(records)

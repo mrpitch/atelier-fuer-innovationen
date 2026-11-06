@@ -53,12 +53,16 @@ function readJson<T>(absPath: string): T | null {
 }
 
 function loadIllus(root: string): IlluEntry[] {
-	const data = readJson<{ illus: IlluEntry[] }>(join(root, DATA_DIR, 'illus.json'))
+	const data = readJson<{ illus: IlluEntry[] }>(
+		join(root, DATA_DIR, 'illus.json')
+	)
 	return data?.illus ?? []
 }
 
 function loadSlides(root: string): SlideEntry[] {
-	const data = readJson<{ slides: SlideEntry[] }>(join(root, DATA_DIR, 'slides.json'))
+	const data = readJson<{ slides: SlideEntry[] }>(
+		join(root, DATA_DIR, 'slides.json')
+	)
 	return data?.slides ?? []
 }
 
@@ -75,12 +79,21 @@ const SEPARATOR_RE = /^---(?:\[[^\]]+\])?.*---$|^---$/
 const REST_VALUES = new Set(['...', 'z...a'])
 
 function resolvesToPage(dir: string, name: string): boolean {
-	if (existsSync(join(dir, `${name}.mdx`)) || existsSync(join(dir, `${name}.md`))) return true
+	if (
+		existsSync(join(dir, `${name}.mdx`)) ||
+		existsSync(join(dir, `${name}.md`))
+	)
+		return true
 	const subDir = join(dir, name)
 	return existsSync(subDir) && statSync(subDir).isDirectory()
 }
 
-function checkMetaPages(absPath: string, relPath: string, dir: string, violations: ContentViolation[]): void {
+function checkMetaPages(
+	absPath: string,
+	relPath: string,
+	dir: string,
+	violations: ContentViolation[]
+): void {
 	const meta = readJson<MetaJson>(absPath)
 	if (!meta?.pages) return
 	for (const item of meta.pages) {
@@ -92,13 +105,19 @@ function checkMetaPages(absPath: string, relPath: string, dir: string, violation
 			const folderName = item.slice(3)
 			const subDir = join(dir, folderName)
 			if (!existsSync(subDir) || !statSync(subDir).isDirectory()) {
-				violations.push({ file: relPath, reason: `pages entry "${item}" does not resolve to a folder` })
+				violations.push({
+					file: relPath,
+					reason: `pages entry "${item}" does not resolve to a folder`,
+				})
 			}
 			continue
 		}
 		const name = item.startsWith('!') ? item.slice(1) : item
 		if (!resolvesToPage(dir, name)) {
-			violations.push({ file: relPath, reason: `pages entry "${item}" does not resolve to a page` })
+			violations.push({
+				file: relPath,
+				reason: `pages entry "${item}" does not resolve to a page`,
+			})
 		}
 	}
 }
@@ -111,7 +130,7 @@ function checkComponentSlugs(
 	relPath: string,
 	illus: IlluEntry[],
 	slides: SlideEntry[],
-	violations: ContentViolation[],
+	violations: ContentViolation[]
 ): void {
 	for (const match of content.matchAll(COMPONENT_RE)) {
 		const [, component, attrs] = match
@@ -121,7 +140,10 @@ function checkComponentSlugs(
 		const dataset = component === 'Illu' ? illus : slides
 		const dataFile = component === 'Illu' ? 'illus.json' : 'slides.json'
 		if (!dataset.some((entry) => entry.slug === slug)) {
-			violations.push({ file: relPath, reason: `<${component} slug="${slug}"> has no matching entry in ${dataFile}` })
+			violations.push({
+				file: relPath,
+				reason: `<${component} slug="${slug}"> has no matching entry in ${dataFile}`,
+			})
 		}
 	}
 }
@@ -144,7 +166,12 @@ function stripHash(url: string): string {
 	return idx === -1 ? url : url.slice(0, idx)
 }
 
-function checkRelativePaths(absPath: string, relPath: string, content: string, violations: ContentViolation[]): void {
+function checkRelativePaths(
+	absPath: string,
+	relPath: string,
+	content: string,
+	violations: ContentViolation[]
+): void {
 	const dir = dirname(absPath)
 	const checked = new Set<string>()
 	for (const re of [IMAGE_RE, LINK_RE]) {
@@ -155,13 +182,21 @@ function checkRelativePaths(absPath: string, relPath: string, content: string, v
 			if (!target || checked.has(target)) continue
 			checked.add(target)
 			if (!existsSync(join(dir, target))) {
-				violations.push({ file: relPath, reason: `relative path "${raw}" does not resolve to a file` })
+				violations.push({
+					file: relPath,
+					reason: `relative path "${raw}" does not resolve to a file`,
+				})
 			}
 		}
 	}
 }
 
-function walk(dir: string, root: string, mdxFiles: { absPath: string; relPath: string }[], violations: ContentViolation[]): void {
+function walk(
+	dir: string,
+	root: string,
+	mdxFiles: { absPath: string; relPath: string }[],
+	violations: ContentViolation[]
+): void {
 	if (!existsSync(dir)) return
 	for (const name of readdirSync(dir).sort()) {
 		const fullPath = join(dir, name)
@@ -213,10 +248,13 @@ export function findContentViolations(root: string): ContentViolation[] {
 		checkRelativePaths(absPath, relPath, content, violations)
 	}
 
-	return violations.sort((a, b) => a.file.localeCompare(b.file) || a.reason.localeCompare(b.reason))
+	return violations.sort(
+		(a, b) => a.file.localeCompare(b.file) || a.reason.localeCompare(b.reason)
+	)
 }
 
-const isMain = process.argv[1] && import.meta.url === `file://${process.argv[1]}`
+const isMain =
+	process.argv[1] && import.meta.url === `file://${process.argv[1]}`
 
 if (isMain) {
 	const root = argv[2] ?? '.'
