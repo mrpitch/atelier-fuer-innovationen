@@ -56,6 +56,8 @@ import { Illu } from '@/components/illus'
 
 Illustrations are defined in `src/data/illus.json` with `slug`, `name` and `image`, all required. Images live in `public/illus/`.
 
+An entry may set `"themed": true` on a monochrome, background-less `.svg` line drawing. `<Illu>` then adds `dark:invert` to its `<img>`, so the strokes stay visible on the `bg-fd-card` frame in dark mode. An `<img>`-embedded SVG cannot see the page's `color` or the `.dark` class (and `prefers-color-scheme` inside it would ignore the site's theme toggle), so a CSS filter on the `<img>` is the only theme hook. Never set it on full-colour artwork; `vector-showcase` is the only themed entry.
+
 `<Illu slug="…" variant="icon" />` renders a `.svg` entry's markup inline
 (`dangerouslySetInnerHTML`, no `ImageZoom`, no `mb-8` block) instead of as an
 `<img>`. Use this for small icons that must pick up the page's current text
