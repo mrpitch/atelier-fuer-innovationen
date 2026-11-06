@@ -43,7 +43,7 @@ export const Illu = async ({ slug }: { slug: string }) => {
 
 	if (illus.image.endsWith('.svg')) {
 		return (
-			<div className="mb-8">
+			<div className="bg-fd-card mb-8 border p-4">
 				<ImageZoom src={illus?.image} alt={illus?.name}>
 					{/* eslint-disable-next-line @next/next/no-img-element -- next-image-export-optimizer only processes raster formats; SVGs render as-is */}
 					<img src={illus?.image} alt={illus?.name} />
@@ -53,7 +53,7 @@ export const Illu = async ({ slug }: { slug: string }) => {
 	}
 
 	return (
-		<div className="mb-8 rounded-lg border bg-white p-4">
+		<div className="bg-fd-card mb-8 border p-4">
 			<ImageZoom
 				src={illus?.image}
 				width={640}

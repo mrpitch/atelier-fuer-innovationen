@@ -13,4 +13,7 @@ Two cases land here:
 
 Either way, the file at `_source/<slug>.png` is the highest-resolution copy
 available from the source material — check there before re-scanning or
-re-requesting an asset.
+re-requesting an asset. Nothing enforces that `_source/<slug>.png` and
+`public/illus/<slug>.png` stay byte-identical over time; `validate-content.ts`
+only checks that `illus.json` entries resolve under `public/`. Treat
+`_source/` as a manually maintained archive, not an automated mirror.
