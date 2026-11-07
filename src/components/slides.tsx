@@ -45,14 +45,25 @@ export const Slide = async ({ slug }: { slug: string }) => {
 	const slide = await getSlideBySlug(slug)
 	if (!slide) return null
 
+	const isSvg = slide.image.endsWith('.svg')
+
 	return (
 		<div className="mb-8">
-			<ImageZoom
-				src={slide?.image}
-				width={1920}
-				height={1080}
-				alt={slide?.name}
-			/>
+			{isSvg ? (
+				<div className="bg-fd-card border p-4">
+					<ImageZoom src={slide.image} alt={slide.name}>
+						{/* eslint-disable-next-line @next/next/no-img-element -- next-image-export-optimizer only processes raster formats; SVGs render as-is */}
+						<img src={slide.image} alt={slide.name} />
+					</ImageZoom>
+				</div>
+			) : (
+				<ImageZoom
+					src={slide.image}
+					width={1920}
+					height={1080}
+					alt={slide.name}
+				/>
+			)}
 			{slide?.url ? (
 				<Link
 					className={linkVariants({ color: 'primary', size: 'sm' })}

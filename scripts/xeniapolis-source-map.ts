@@ -60,7 +60,11 @@ const DISTRICT_SLUGS: Record<string, string> = {
 // (one per stop, sequenced via annaeherung/meta.json) so each source page now
 // gets its own target below. ann/umgeb1.html has no numbered siblings of its
 // own, so it is listed here rather than getting a regex branch like besuchN
-// and viertelN below.
+// and viertelN below. kurzueb4.html and kurzueb5.html ("Ateliers für
+// Innovatoren" and "Xenia im Netzwerk der Wissensstädte") were themselves
+// re-homed from annaeherung/ into fuehrung/ by #107 — their content belongs
+// to the Führung district's "Netzwerk der Innovatoren" theme even though the
+// source pages are hosted under ann/ as Kurzübersicht tour stops.
 //
 // wer/idee0.html, wer/gesch0.html, and wer/werist0.html were each renamed to
 // a human-readable slug (die-idee, projektgeschichte, mitwirkende) rather
@@ -68,7 +72,8 @@ const DISTRICT_SLUGS: Record<string, string> = {
 // wer/plan0.html were aggregated into one forschungsarbeit.mdx (each ##
 // heading matches one source page's <title>), the district's own "current
 // work" and "future plans" sections, named after its own tagline
-// "Chaos-Chancen und Forschungsarbeit" (#104).
+// "Chaos-Chancen und Forschungsarbeit" (#104). fue/netzw0.html was likewise
+// renamed to netzwerk-der-innovatoren.mdx (#107).
 //
 // pot/msk01.html-msk17.html (the 17 MOSAIK knowledge modules), pot/lit0.html,
 // and pot/inh0.html were moved into their own potenziale/mosaik/ subfolder
@@ -88,9 +93,9 @@ const VERIFIED_TARGETS: Record<string, string> = {
 	'/ann/kurzueb3.html':
 		'src/content/docs/xeniapolis/annaeherung/aufbruch-zum-kontinent-der-loesungen.mdx',
 	'/ann/kurzueb4.html':
-		'src/content/docs/xeniapolis/annaeherung/ateliers-fuer-innovatoren.mdx',
+		'src/content/docs/xeniapolis/fuehrung/ateliers-fuer-innovatoren.mdx',
 	'/ann/kurzueb5.html':
-		'src/content/docs/xeniapolis/annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx',
+		'src/content/docs/xeniapolis/fuehrung/xenia-im-netzwerk-der-wissensstaedte.mdx',
 	'/ann/umgeb1.html':
 		'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
 	'/kon/ewelt2.html':
@@ -141,6 +146,8 @@ const VERIFIED_TARGETS: Record<string, string> = {
 		'src/content/docs/xeniapolis/potenziale/mosaik/literatur.mdx',
 	'/pot/inh0.html':
 		'src/content/docs/xeniapolis/potenziale/mosaik/register.mdx',
+	'/fue/netzw0.html':
+		'src/content/docs/xeniapolis/fuehrung/netzwerk-der-innovatoren.mdx',
 }
 
 const NAMED_ENTITIES: Record<string, string> = {
@@ -498,11 +505,11 @@ ${records.length} source URLs found, grouped below by their first path segment (
 
 ## Target path convention
 
-- Each of the 8 Stadtviertel maps to its existing (or, for Märkte, not-yet-created) \`src/content/docs/xeniapolis/<slug>/\` folder; a district's \`<code>start.html\` is that folder's \`index.mdx\`.
+- Each of the 8 Stadtviertel maps to its existing \`src/content/docs/xeniapolis/<slug>/\` folder, including \`maerkte/\` (scaffolded with placeholder content in #94, then promoted to real migrated content in #99); a district's \`<code>start.html\` is that folder's \`index.mdx\`.
 - **Zentrum** (\`zen/\`) is not one of the 8 Stadtviertel (see \`docs/reference/glossary.md\`), so it gets its own \`xeniapolis/zentrum/\` folder rather than living inside the Stadtviertel convention.
 - The numbered \`viertelN.html\` and \`besuchN.html\` tours are each duplicated verbatim inside every district folder on the source site; all copies of a tour point at that tour's single already-migrated overview page — \`annaeherung/die-stadtviertel-der-wissensstadt.mdx\` and \`annaeherung/besuch-in-der-wissensstadt.mdx\` respectively (the latter also absorbs \`ann/umgeb1.html\`, the Umgebung tour's closing stop).
-- Some already-migrated MDX files aggregate several source pages into one (each \`##\` heading matches one source page's \`<title>\`): \`kon/ewelt2.html\`, \`ewelt2a.html\`–\`ewelt2h.html\` → \`konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx\`. \`ann/kurzueb1.html\`–\`kurzueb5.html\` used to follow the same pattern but were split in #98 into five ordered sibling pages (\`annaeherung/staetten-der-begegnung.mdx\` through \`annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx\`), sequenced via \`annaeherung/meta.json\` so Fumadocs prev/next provides the walk.
-- \`wer/idee0.html\`, \`wer/gesch0.html\`, and \`wer/werist0.html\` were each renamed to a human-readable slug (\`die-idee\`, \`projektgeschichte\`, \`mitwirkende\`) rather than keeping their mechanical basename. \`wer/arbeit0.html\` and \`wer/plan0.html\` were aggregated the same way as the \`ewelt2*\` pages above, into one \`forschungsarbeit.mdx\` (#104) — the district's own "current work" and "future plans" sections, named after its own tagline "Chaos-Chancen und Forschungsarbeit". \`wer/palfred.html\`–\`wer/wvolk.html\` (the individual partner and team-member bios linked from \`werist0.html\`) are out of scope for #104 and remain mapped to their mechanical per-person target paths for a future ticket.
+- Some already-migrated MDX files aggregate several source pages into one (each \`##\` heading matches one source page's \`<title>\`): \`kon/ewelt2.html\`, \`ewelt2a.html\`–\`ewelt2h.html\` → \`konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx\`. \`ann/kurzueb1.html\`–\`kurzueb5.html\` used to follow the same pattern but were split in #98 into five ordered sibling pages (\`annaeherung/staetten-der-begegnung.mdx\` through \`annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx\`), sequenced via \`annaeherung/meta.json\` so Fumadocs prev/next provides the walk. \`ann/kurzueb4.html\` and \`kurzueb5.html\` were then re-homed from \`annaeherung/\` into \`fuehrung/\` by #107, since their content ("Ateliers für Innovatoren" and "Xenia im Netzwerk der Wissensstädte") belongs to the Führung district's "Netzwerk der Innovatoren" theme.
+- \`wer/idee0.html\`, \`wer/gesch0.html\`, and \`wer/werist0.html\` were each renamed to a human-readable slug (\`die-idee\`, \`projektgeschichte\`, \`mitwirkende\`) rather than keeping their mechanical basename. \`wer/arbeit0.html\` and \`wer/plan0.html\` were aggregated the same way as the \`ewelt2*\` pages above, into one \`forschungsarbeit.mdx\` (#104) — the district's own "current work" and "future plans" sections, named after its own tagline "Chaos-Chancen und Forschungsarbeit". \`wer/palfred.html\`–\`wer/wvolk.html\` (the individual partner and team-member bios linked from \`werist0.html\`) are out of scope for #104 and remain mapped to their mechanical per-person target paths for a future ticket. \`fue/netzw0.html\` was likewise renamed to \`netzwerk-der-innovatoren.mdx\` (#107).
 - \`pot/msk01.html\`–\`msk17.html\` (the 17 MOSAIK knowledge modules), \`pot/lit0.html\`, and \`pot/inh0.html\` were moved into their own \`potenziale/mosaik/\` subfolder rather than sitting flat in \`potenziale/\` alongside \`index.mdx\` — the collection is large enough (17 modules + literature + register) to warrant its own folder and \`meta.json\`, referenced as a single \`"mosaik"\` entry from \`potenziale/meta.json\` (#106). The modules were also renamed \`msk01\`→\`msk-01\` … \`msk17\`→\`msk-17\` for readability, and \`lit0\`/\`inh0\` to their human-readable German names \`literatur\`/\`register\`, following the same rename pattern as \`wer/idee0.html\` above.
 - \`ins/\`'s Medienspiegel and Präsentationen sub-pages (\`aufstz*\`, \`cebit*\`, \`meilen0\`, \`radio0\`, \`telepol0\`, \`web0\`, \`zeitun*\`) are not migrated individually — deferred to the archive ticket that follows #101, cross-referenced from \`inszenierung/index.mdx\`.
 - Frame/menu chrome, the site's root frameset, and the shared \`baustelle.html\` placeholder have no target path — they're navigation/placeholder artifacts, not content.
