@@ -43,3 +43,7 @@ Sections 1, 2, 4 and 10 are `draft` stubs. The code cannot supply their content,
 | 10 Quality    | Measurable quality scenarios; needs the §1.2 quality goals first                 |
 
 Also unknown to the code: the public URL, how CloudFront maps extensionless URLs to the exported `.html` files, its error-page and cache settings, IAM scope and GitHub branch protection. Recorded as unconfirmed in [§6](./06-runtime/runtime-main-flow.md), [§7](./07-deployment/deployment-topology.md) and [Security conventions](./08-crosscutting/security-conventions.md).
+
+## Attribution
+
+This bundle follows the section structure of the [arc42](https://arc42.org) template, © Dr. Gernot Starke and Dr. Peter Hruschka, licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The architecture content is this project's own. See [THIRD_PARTY_NOTICES.md](https://github.com/mrpitch/atelier-fuer-innovationen/blob/main/THIRD_PARTY_NOTICES.md).
