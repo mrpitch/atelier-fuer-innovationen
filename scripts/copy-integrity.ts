@@ -108,6 +108,7 @@ function extractFileBlocks(content: string, page: string): Block[] {
 	let pendingMarker = false
 	let paragraphLines: string[] = []
 	let paragraphEditorial = false
+	let currentListItem: { lines: string[]; editorial: boolean } | null = null
 	let inGenericComment = false
 	let inOpenJsxTag = false
 	let inCodeFence = false
@@ -124,14 +125,40 @@ function extractFileBlocks(content: string, page: string): Block[] {
 		paragraphEditorial = false
 	}
 
-	for (const line of lines) {
+	// A list item's text can wrap onto following lines before the next
+	// blank line or bullet — those continuation lines belong to the item
+	// that's still open, not to a new paragraph block.
+	const flushListItem = (): void => {
+		if (!currentListItem) return
+		blocks.push({
+			page,
+			kind: 'listItem',
+			text: normalize(currentListItem.lines.join(' ')),
+			editorial: currentListItem.editorial,
+		})
+		currentListItem = null
+	}
+
+	// Leaving list territory for a different kind of block: flush whatever
+	// item was still open and, since a run of list items ends there too,
+	// drop the marked-list region (a heading region spans blank lines on
+	// purpose, so it isn't touched here).
+	const endListRun = (): void => {
+		flushListItem()
+		if (region?.kind === 'list') region = null
+	}
+
+	for (let line of lines) {
 		if (inCodeFence) {
 			if (CODE_FENCE_RE.test(line)) inCodeFence = false
 			continue
 		}
 		if (inGenericComment) {
-			if (line.includes('*/}')) inGenericComment = false
-			continue
+			const commentEnd = line.indexOf('*/}')
+			if (commentEnd === -1) continue
+			inGenericComment = false
+			line = line.slice(commentEnd + 3)
+			if (line.trim() === '') continue
 		}
 		if (inOpenJsxTag) {
 			if (line.includes('>')) inOpenJsxTag = false
@@ -142,46 +169,57 @@ function extractFileBlocks(content: string, page: string): Block[] {
 		// item or JSX line, but isn't one).
 		if (CODE_FENCE_RE.test(line)) {
 			flushParagraph()
+			endListRun()
 			pendingMarker = false
 			inCodeFence = true
 			continue
 		}
-
-		// A blank line ends a marked run of list items, same as any other
-		// block boundary: two lists separated by a blank line are two runs,
-		// and a marker never carries across one.
-		if (region?.kind === 'list' && !LIST_ITEM_RE.test(line)) region = null
 
 		// The marker applies only to the block directly below it, with no
 		// blank or intervening line — any other line wastes a pending marker
 		// rather than letting it drift onto a later block.
 		if (line.trim() === '') {
 			flushParagraph()
+			endListRun()
 			pendingMarker = false
 			continue
 		}
 		if (MARKER_RE.test(line)) {
 			flushParagraph()
+			endListRun()
 			pendingMarker = true
 			continue
 		}
 		// A generic `{/* ... */}` JSX comment (anything other than the exact
-		// editorial marker) is dead/invisible content, never rendered — skip
-		// it (and everything up to its closing `*/}`) rather than treating it
-		// as prose.
+		// editorial marker) is dead/invisible content, never rendered. Strip
+		// just the comment and keep processing whatever prose shares the
+		// line with it — only drop the line outright when nothing but the
+		// comment was on it.
 		if (line.includes('{/*')) {
-			flushParagraph()
-			pendingMarker = false
-			if (!line.includes('*/}')) inGenericComment = true
-			continue
+			const commentStart = line.indexOf('{/*')
+			const commentEnd = line.indexOf('*/}', commentStart)
+			const rest =
+				commentEnd === -1
+					? line.slice(0, commentStart)
+					: line.slice(0, commentStart) + line.slice(commentEnd + 3)
+			if (commentEnd === -1) inGenericComment = true
+			if (rest.trim() === '') {
+				flushParagraph()
+				endListRun()
+				pendingMarker = false
+				continue
+			}
+			line = rest
 		}
 		if (IMPORT_EXPORT_RE.test(line)) {
 			flushParagraph()
+			endListRun()
 			pendingMarker = false
 			continue
 		}
 		if (JSX_LINE_RE.test(line)) {
 			flushParagraph()
+			endListRun()
 			pendingMarker = false
 			// A JSX tag whose closing `>` isn't on this line (attributes or
 			// `/>` spilling onto their own lines) is still markup, not prose —
@@ -193,6 +231,7 @@ function extractFileBlocks(content: string, page: string): Block[] {
 		const heading = HEADING_RE.exec(line)
 		if (heading) {
 			flushParagraph()
+			endListRun()
 			const level = heading[1].length
 			let editorial: boolean
 			if (pendingMarker) {
@@ -215,6 +254,7 @@ function extractFileBlocks(content: string, page: string): Block[] {
 		const listItem = LIST_ITEM_RE.exec(line)
 		if (listItem) {
 			flushParagraph()
+			flushListItem()
 			let editorial: boolean
 			if (pendingMarker) {
 				editorial = true
@@ -223,12 +263,12 @@ function extractFileBlocks(content: string, page: string): Block[] {
 				editorial = region?.kind === 'heading' || region?.kind === 'list'
 			}
 			pendingMarker = false
-			blocks.push({
-				page,
-				kind: 'listItem',
-				text: normalize(listItem[1]),
-				editorial,
-			})
+			currentListItem = { lines: [listItem[1]], editorial }
+			continue
+		}
+
+		if (currentListItem) {
+			currentListItem.lines.push(line.trim())
 			continue
 		}
 
@@ -239,6 +279,7 @@ function extractFileBlocks(content: string, page: string): Block[] {
 		paragraphLines.push(line.trim())
 	}
 	flushParagraph()
+	flushListItem()
 
 	return blocks
 }
@@ -284,6 +325,10 @@ export function findCopyIntegrityViolations(
 	root: string,
 	baseline: BaselineEntry[]
 ): CopyIntegrityViolation[] {
+	// Matching is keyed on kind as well as text, so e.g. a heading that now
+	// reads the same as a since-deleted paragraph doesn't mask the loss.
+	const matchKey = (kind: BlockKind, text: string): string => `${kind}\u0000${text}`
+
 	// Only non-editorial text can satisfy a baseline entry: otherwise editing
 	// an unrelated editorial block to coincidentally match a deleted
 	// protected block's text would mask the deletion. Counts, not just
@@ -292,17 +337,16 @@ export function findCopyIntegrityViolations(
 	const currentTextCounts = new Map<string, number>()
 	for (const block of extractBlocks(root)) {
 		if (block.editorial) continue
-		currentTextCounts.set(
-			block.text,
-			(currentTextCounts.get(block.text) ?? 0) + 1
-		)
+		const key = matchKey(block.kind, block.text)
+		currentTextCounts.set(key, (currentTextCounts.get(key) ?? 0) + 1)
 	}
 
 	const violations: CopyIntegrityViolation[] = []
 	for (const entry of baseline) {
-		const remaining = currentTextCounts.get(entry.text) ?? 0
+		const key = matchKey(entry.kind, entry.text)
+		const remaining = currentTextCounts.get(key) ?? 0
 		if (remaining > 0) {
-			currentTextCounts.set(entry.text, remaining - 1)
+			currentTextCounts.set(key, remaining - 1)
 			continue
 		}
 		violations.push({

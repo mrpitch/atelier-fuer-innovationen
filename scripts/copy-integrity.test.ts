@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict'
+import { spawnSync } from 'node:child_process'
 import {
+	cpSync,
 	mkdirSync,
 	mkdtempSync,
 	readFileSync,
@@ -17,6 +19,8 @@ import {
 	generateBaseline,
 	type BaselineEntry,
 } from './copy-integrity'
+
+const repoRoot = join(fileURLToPath(import.meta.url), '..', '..')
 
 let root: string
 const createdRoots: string[] = []
@@ -560,11 +564,157 @@ test('changing or moving a marked editorial block never fails the check', () => 
 	assert.deepEqual(findCopyIntegrityViolations(root, baseline), [])
 })
 
+test('prose sharing a line with a generic JSX comment is kept, with just the comment stripped', () => {
+	write(
+		PAGE,
+		[
+			'---',
+			'title: Titel',
+			'---',
+			'',
+			'Geschützter Satz. {/* Hinweis für Redakteure */}',
+			'',
+		].join('\n')
+	)
+
+	const blocks = extractBlocks(root)
+	assert.deepEqual(
+		blocks.map((b) => b.text),
+		['Titel', 'Geschützter Satz.']
+	)
+})
+
+test('a wrapped list item continuation line stays part of the same list item, keeping its editorial flag', () => {
+	write(
+		PAGE,
+		[
+			'---',
+			'title: Titel',
+			'---',
+			'',
+			'{/* editorial */}',
+			'- Editorial Punkt eins',
+			'  der über zwei Zeilen geht',
+			'',
+			'- Geschützt zwei',
+			'  auch über zwei Zeilen',
+			'',
+		].join('\n')
+	)
+
+	const blocks = extractBlocks(root)
+	assert.deepEqual(
+		blocks.map(({ kind, text, editorial }) => ({ kind, text, editorial })),
+		[
+			{ kind: 'title', text: 'Titel', editorial: false },
+			{
+				kind: 'listItem',
+				text: 'Editorial Punkt eins der über zwei Zeilen geht',
+				editorial: true,
+			},
+			{
+				kind: 'listItem',
+				text: 'Geschützt zwei auch über zwei Zeilen',
+				editorial: false,
+			},
+		]
+	)
+})
+
+test('baseline matching is keyed on kind as well as text, so a same-text block of a different kind cannot mask a loss', () => {
+	write(
+		PAGE,
+		['---', 'title: Titel', '---', '', 'Geteilter Text.', ''].join('\n')
+	)
+	const baseline = generateBaseline(root)
+
+	write(
+		PAGE,
+		['---', 'title: Titel', '---', '', '## Geteilter Text.', ''].join('\n')
+	)
+
+	const violations = findCopyIntegrityViolations(root, baseline)
+	assert.equal(violations.length, 1)
+	assert.equal(violations[0].kind, 'paragraph')
+	assert.match(violations[0].reason, /Geteilter Text\./)
+})
+
+const scriptPath = fileURLToPath(new URL('./copy-integrity.ts', import.meta.url))
+const tsxBin = join(repoRoot, 'node_modules', '.bin', 'tsx')
+
+function runCli(
+	scriptDir: string,
+	args: string[],
+	cwd?: string
+): { status: number | null; stdout: string; stderr: string } {
+	return spawnSync(tsxBin, [join(scriptDir, 'copy-integrity.ts'), ...args], {
+		cwd,
+		encoding: 'utf8',
+	})
+}
+
+function createCliScriptDir(): string {
+	const scriptDir = mkdtempSync(join(tmpdir(), 'copy-integrity-cli-'))
+	createdRoots.push(scriptDir)
+	cpSync(scriptPath, join(scriptDir, 'copy-integrity.ts'))
+	return scriptDir
+}
+
+test('CLI: --generate parses argv, writes the baseline next to the script and reports the count', () => {
+	const scriptDir = createCliScriptDir()
+	write(
+		PAGE,
+		['---', 'title: Titel', '---', '', 'Geschützter Satz.', ''].join('\n')
+	)
+
+	const result = runCli(scriptDir, ['--generate', root])
+
+	assert.equal(result.status, 0)
+	assert.match(result.stdout, /Wrote 2 protected blocks/)
+	const baseline: BaselineEntry[] = JSON.parse(
+		readFileSync(join(scriptDir, 'copy-integrity-baseline.json'), 'utf8')
+	)
+	assert.deepEqual(
+		baseline.map((b) => b.text),
+		['Titel', 'Geschützter Satz.']
+	)
+})
+
+test('CLI: check mode exits 0 on a matching tree, defaulting root to the cwd', () => {
+	const scriptDir = createCliScriptDir()
+	write(
+		PAGE,
+		['---', 'title: Titel', '---', '', 'Geschützter Satz.', ''].join('\n')
+	)
+	runCli(scriptDir, ['--generate', root])
+
+	const result = runCli(scriptDir, [], root)
+
+	assert.equal(result.status, 0)
+	assert.match(result.stdout, /Copy integrity: OK/)
+})
+
+test('CLI: check mode exits 1 and names the page and the lost block on a changed tree', () => {
+	const scriptDir = createCliScriptDir()
+	write(
+		PAGE,
+		['---', 'title: Titel', '---', '', 'Geschützter Satz.', ''].join('\n')
+	)
+	runCli(scriptDir, ['--generate', root])
+	write(PAGE, ['---', 'title: Titel', '---', ''].join('\n'))
+
+	const result = runCli(scriptDir, [root])
+
+	assert.equal(result.status, 1)
+	assert.match(result.stderr, /1 violation/)
+	assert.match(result.stderr, new RegExp(PAGE.replace(/[/.]/g, '\\$&')))
+	assert.match(result.stderr, /Geschützter Satz\./)
+})
+
 // Copy rule for epic #144 / issue #145: the checked-in baseline is the
 // contract. These tests assert it against the repo's actual content tree
 // (not a fixture), so an edited, split, merged or missing protected block
 // fails `pnpm test` — the same check `pnpm validate:copy-integrity` runs in CI.
-const repoRoot = join(fileURLToPath(import.meta.url), '..', '..')
 const checkedInBaseline: BaselineEntry[] = JSON.parse(
 	readFileSync(
 		join(repoRoot, 'scripts', 'copy-integrity-baseline.json'),
