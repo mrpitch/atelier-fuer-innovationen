@@ -22,7 +22,7 @@ export interface TabsProps extends BaseTabsProps {
 }
 ```
 
-- Data shapes (JSON entries in `src/data/`): `interface I<Name>`, kept unexported in the component file (`ISlide`, `IIllu`).
+- Data shapes (JSON entries in `src/data/`): `interface I<Name>`, kept unexported in the component file (`ISlide`, `IIllu`). `scripts/validate-content.ts` stays standalone and declares its own `IIllu`, `ISlide` and `IMetaJson` mirrors under the same names.
 - Exported component props: `<Component>Props` (`TabsProps`, `ImageZoomProps`), `interface` or `type`.
 - Tiny components type props inline: `({ slug }: { slug: string })`.
-- Only four local types exist, so this is a convention that ESLint does not enforce.
+- Only a handful of local types exist, so this is a convention that ESLint does not enforce.

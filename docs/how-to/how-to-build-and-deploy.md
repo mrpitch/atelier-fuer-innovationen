@@ -37,8 +37,12 @@ pnpm start
 `.github/workflows/main.yml` runs on every push to `main` and on every pull request targeting `main`:
 
 1. **`quality`** runs `pnpm format:check`, `pnpm lint` and `pnpm typecheck`.
-2. **`validate-okf`** runs `pnpm test` and `pnpm validate:okf`, whether or not Markdown changed.
-3. **`deploy`** runs on pushes only, once `quality` and `validate-okf` have both passed. It installs dependencies, runs `pnpm build`, syncs `./out/` to an S3 bucket with `aws s3 sync`, then creates a CloudFront invalidation for `/*`.
+2. **`validate-okf`** runs `pnpm test` and `pnpm validate:okf`.
+3. **`validate-content`** runs `pnpm validate:content`: every `<Illu>`/`<Slide>` slug, registry asset, `meta.json` entry and relative image or link in the content must resolve.
+4. **`build-check`** runs `pnpm build`, fails if the build log contains a pinned missing-image warning string (the list lives in the workflow step), and uploads `out/` as an artefact.
+5. **`deploy`** runs on pushes only, once the four jobs above have passed. It downloads the `out/` artefact from `build-check`, syncs it to an S3 bucket with `aws s3 sync`, then creates a CloudFront invalidation for `/*`. It doesn't build again.
+
+All jobs run on every push and pull request; none is skipped by a path filter.
 
 The workflow reads these from the repository settings:
 
@@ -50,7 +54,7 @@ The workflow reads these from the repository settings:
 | Variable | `AWS_S3_REGION`            |
 | Variable | `AWS_S3_BUCKET_NAME`       |
 
-A failure in `quality` or `validate-okf` stops the deploy, and the live site keeps the previous version. A pull request never deploys.
+A failure in any of the four check jobs stops the deploy, and the live site keeps the previous version. A pull request never deploys.
 
 ## Deploy by hand
 

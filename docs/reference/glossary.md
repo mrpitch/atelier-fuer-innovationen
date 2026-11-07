@@ -4,7 +4,7 @@ description: Canonical vocabulary for the Xenia / Wissensstadt concept published
 tags: [glossary, domain, xenia, wissensstadt, xeniapolis, concept]
 type: reference
 status: stable
-last_reviewed: 2026-08-21
+last_reviewed: 2026-11-06
 authoritative: true
 ---
 
@@ -36,6 +36,9 @@ _Avoid_: city-state
 The non-thematic hub at the heart of the Wissensstadt — a deliberately empty, Agora-like coordinating space where visitors orient themselves before dispersing into a Stadtviertel.
 _Avoid_: center, downtown
 
+**Archiv**:
+This site's own addition, not a concept from the original xeniapolis.de: a `src/content/docs/xeniapolis/archiv/` folder, alongside Zentrum and the eight Stadtviertel, that frames dated source material (centered on Xenia's 1995/96 public breakthrough, but spanning 1991–1997 once Medienspiegel's press, radio/TV, and internet entries are counted) — Medienspiegel, Präsentationen, and never-built plans — as historical record rather than current district content.
+
 **Stadtviertel** (District):
 One of Xenia's eight thematic zones, each built around a single **Gestaltungsschwerpunkt**. Always name which one; "Viertel" alone is ambiguous.
 _Avoid_: Viertel (without qualifying which), neighborhood, quarter (as a standalone translation)
@@ -43,6 +46,10 @@ _Avoid_: Viertel (without qualifying which), neighborhood, quarter (as a standal
 **Gestaltungsschwerpunkt** (Design Focus):
 The one design concern a Stadtviertel concentrates on within the larger challenge of conceiving knowledge cities — expressed in the source content as a short "Ansatz" (approach) tagline per district.
 _Avoid_: theme, topic
+
+**Stadtrundgang**:
+The guided walk across the Zentrum's Stadtplatz that visits the representative "buildings" standing in for each Stadtviertel — the lead-in step of the **Besuch im Zentrum** tour, before a visitor moves on to the deeper **Besuch in den Stadtvierteln**.
+_Avoid_: city tour, walking tour (both flatten this into generic sightseeing; the source uses it to name one specific step in its own visit sequence)
 
 ### The eight Stadtviertel
 
@@ -57,7 +64,17 @@ _Avoid_: theme, topic
 | Potenziale               | Methodische Beherrschung der integrativ zu gestaltenden Prozesse von Kommunikation, Information, Wissen, Innovation, Wandel. |
 | Führung                  | Chancen denken lernen!                                                                                                       |
 
-> **Gap:** unlike the other seven, **Märkte** has no dedicated `src/content/docs/xeniapolis/<slug>/` folder yet — it currently exists only as a mention inside `besuch-in-der-wissensstadt.mdx`. Note this if you're about to treat the Stadtviertel list as fully scaffolded.
+All eight Stadtviertel now have a dedicated `src/content/docs/xeniapolis/<slug>/` folder, including `maerkte/`.
+
+### Named collections and archives
+
+**MOSAIK**:
+The Xenia-Kollektion the **Viertel der Potenziale** is dedicated to: a "Bausteinsystem" of reusable Wissensbausteine (knowledge building blocks) that the source content itself describes as "Work in Progress" and still incomplete. The 17 individual MOSAIK modules are out of scope for the district's overview page.
+_Avoid_: mosaic (translating the name turns a proper collection name into a description), using MOSAIK as a synonym for a Wissensbaustein (MOSAIK is the collection; a Wissensbaustein is one item inside it)
+
+**Medienspiegel**:
+The press-coverage record (Zeitungen, Rundfunk, Internet) of Xenia's public reception, grouped on the source site with — but distinct from — the **Präsentationen** (e.g. CeBIT '95, Telepolis) under one "Präsentationen und Medienspiegel" heading. Deferred content for both lives in `xeniapolis/archiv/`.
+_Avoid_: media review, press clippings (fine as English glosses in prose, but keep the German headword), conflating with Präsentationen (coverage of Xenia vs. Xenia's own public appearances)
 
 ### Societal frame
 
@@ -66,8 +83,16 @@ The societal transition Xenia was built to help navigate — the source content 
 _Avoid_: digital society, information age
 
 **Problemlösungsgesellschaft** (Problem-Solving Society):
-Xenia's name for the society the Informationsgesellschaft is becoming — one organized around "Problemlösungsgeschäfte" (problem-solving business/ventures) rather than around leisure or consumption.
+Xenia's name for the society the Informationsgesellschaft is becoming — one organized around **Problemlösungsgeschäfte** rather than around leisure or consumption.
 _Avoid_: knowledge economy (a different, external concept — don't conflate)
+
+**Problemlösungsgeschäft** (Problem-Solving Venture):
+A single business or venture organized around solving one of the problems the Problemlösungsgesellschaft is built on — "Die Probleme von heute sind die Geschäfte für morgen" (today's problems are tomorrow's business).
+_Avoid_: using interchangeably with Problemlösungsgesellschaft (that term names the society; this one names one venture within it)
+
+**Futursysteme**:
+Xenia's name for the systems a Problemlösungsgeschäft needs to develop, prepare and convey the knowledge required to shape the future, "aus Bestehendem weiterentwickelt oder sogar in Teilen neu geschaffen" (developed further from existing systems, or in part newly created). One of Xenia's three central Themenschwerpunkte, and the theme of the **Viertel der Zukunft**.
+_Avoid_: future systems (the plain English translation flattens a coined term back into a generic description), futuristic technology
 
 ### Brand
 

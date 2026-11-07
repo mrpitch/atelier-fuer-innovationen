@@ -1,0 +1,20 @@
+{
+  "title": "Wissensarchitekturen",
+  "description": "Die zwölf Wissensarchitekturen als Leitvorhaben-Beispiel",
+  "icon": "Landmark",
+  "pages": [
+    "index",
+    "01-nachbildungen-von-gestalten",
+    "02-flaechenhafte-darstellungen",
+    "03-referentielle-strukturierungen",
+    "04-behaelterartige-anordnungsformen",
+    "05-aussenarchitektur",
+    "06-bauliche-ensembles",
+    "07-strassen-und-plaetze",
+    "08-landschaften-und-parkanlagen",
+    "09-kontextfirmament",
+    "10-abstrakte-gestaltgebung",
+    "11-abstrakte-vernetzung",
+    "12-abstrakte-ensembles"
+  ]
+}

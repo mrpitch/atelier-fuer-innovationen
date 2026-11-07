@@ -27,7 +27,7 @@ re-run `docs index` after adding or moving files.
 ### Assets
 
 - [Originals in `public/<kind>/`, optimized copies are build output](reference/assets/asset-layout.md)
-- [Images go through ExportedImage, never next/image or `<img>`](reference/assets/image-components.md)
+- [Raster images go through ExportedImage; SVGs render as plain `<img>`](reference/assets/image-components.md)
 
 ### Components
 

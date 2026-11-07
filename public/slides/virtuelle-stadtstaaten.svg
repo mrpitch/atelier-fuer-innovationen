@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="virtuelle-stadtstaaten-title virtuelle-stadtstaaten-desc">
+	<title id="virtuelle-stadtstaaten-title">Virtuelle StadtStaaten</title>
+	<desc id="virtuelle-stadtstaaten-desc">Übersichtsschema zum virtuellen StadtStaat: Gesellschaft als Ganzes nach dem AGIL-Schema, die virtuellen StadtStaaten als Repräsentation offener Gesellschaften mit dem Maß VitaFutur, eingebettet in eine Mitwelt mit vier Gesellschaftsschichten, acht Stadtvierteln und Pavillon-Park, zwischen Erster und Zweiter Moderne im großen Übergang 1800 bis 2200.</desc>
+	<rect x="0" y="0" width="1200" height="700" fill="#0b1f3a" />
+	<rect x="12" y="12" width="1176" height="676" fill="none" stroke="var(--svg-fixed-light, #f8fafc)" stroke-width="1" />
+
+	<rect x="24" y="10" width="1152" height="32" fill="#1e3a8a" rx="4" />
+	<text x="600" y="31" text-anchor="middle" font-size="15" font-weight="700" fill="var(--svg-fixed-light, #ffffff)">Welt herum in Fluss — „Alles fließt" (Heraklit)</text>
+	<rect x="24" y="10" width="90" height="32" fill="#16a34a" rx="4" />
+	<text x="69" y="31" text-anchor="middle" font-size="13" font-weight="700" fill="var(--svg-fixed-light, #ffffff)">Wer?</text>
+	<rect x="1086" y="10" width="90" height="32" fill="#16a34a" rx="4" />
+	<text x="1131" y="31" text-anchor="middle" font-size="13" font-weight="700" fill="var(--svg-fixed-light, #ffffff)">Wozu?</text>
+
+	<rect x="24" y="50" width="299.52" height="44" fill="#db2777" stroke="#831843" stroke-width="1.5" rx="6" />
+	<text x="173.76" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="var(--svg-fixed-light, #ffffff)">1800  Erste Moderne  2000</text>
+	<rect x="323.52" y="50" width="552.96" height="44" fill="#0ea5e9" stroke="#075985" stroke-width="1.5" rx="6" />
+	<text x="600" y="72" text-anchor="middle" font-size="15" font-weight="700" fill="var(--svg-fixed-light, #ffffff)">1800   Der Große Übergang   2200</text>
+	<rect x="876.48" y="50" width="299.52" height="44" fill="#ea580c" stroke="#7c2d12" stroke-width="1.5" rx="6" />
+	<text x="1026.24" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="var(--svg-fixed-light, #ffffff)">2000  Zweite Moderne  2200</text>
+
+	<rect x="24" y="104" width="300" height="300" fill="var(--color-fd-background, #f8fafc)" stroke="currentColor" stroke-width="1.5" rx="6" />
+	<text x="174" y="128" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">Gesellschaft als Ganzes</text>
+	<text x="174" y="142.5" text-anchor="middle" font-size="9.5" font-weight="normal" fill="var(--color-fd-muted-foreground, #334155)" font-style="italic">Talcott Parsons (1880–1964)</text>
+	<text x="174" y="153.5" text-anchor="middle" font-size="9.5" font-weight="normal" fill="var(--color-fd-muted-foreground, #334155)" font-style="italic">Funktions-Strukturanalyse AGIL</text>
+
+	<rect x="44" y="170" width="124" height="99" fill="#bfdbfe" stroke="var(--svg-fixed-dark, #1e293b)" />
+	<text x="106" y="207.5" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--svg-fixed-dark, #1e293b)">Gemeinschaft</text>
+	<text x="106" y="219.5" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--svg-fixed-dark, #1e293b)">Einfluss &amp;</text>
+	<text x="106" y="231.5" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--svg-fixed-dark, #1e293b)">Vertrauen</text>
+	<circle cx="152" cy="186" r="10" fill="#e11d48" />
+	<text x="152" y="190" text-anchor="middle" font-size="10" font-weight="700" fill="var(--svg-fixed-light, #ffffff)">I</text>
+	
+	<rect x="174" y="170" width="124" height="99" fill="#fbcfe8" stroke="var(--svg-fixed-dark, #1e293b)" />
+	<text x="236" y="207.5" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--svg-fixed-dark, #1e293b)">Kultur</text>
+	<text x="236" y="219.5" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--svg-fixed-dark, #1e293b)">Werte &amp;</text>
+	<text x="236" y="231.5" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--svg-fixed-dark, #1e293b)">Emotionalität</text>
+	<circle cx="282" cy="186" r="10" fill="#e11d48" />
+	<text x="282" y="190" text-anchor="middle" font-size="10" font-weight="700" fill="var(--svg-fixed-light, #ffffff)">L</text>
+	
+	<rect x="44" y="275" width="124" height="99" fill="#fde68a" stroke="var(--svg-fixed-dark, #1e293b)" />
+	<text x="106" y="312.5" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--svg-fixed-dark, #1e293b)">Politik</text>
+	<text x="106" y="324.5" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--svg-fixed-dark, #1e293b)">Macht &amp;</text>
+	<text x="106" y="336.5" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--svg-fixed-dark, #1e293b)">Respekt</text>
+	<circle cx="152" cy="291" r="10" fill="#e11d48" />
+	<text x="152" y="295" text-anchor="middle" font-size="10" font-weight="700" fill="var(--svg-fixed-light, #ffffff)">G</text>
+	
+	<rect x="174" y="275" width="124" height="99" fill="#bbf7d0" stroke="var(--svg-fixed-dark, #1e293b)" />
+	<text x="236" y="312.5" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--svg-fixed-dark, #1e293b)">Wirtschaft</text>
+	<text x="236" y="324.5" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--svg-fixed-dark, #1e293b)">Geld &amp;</text>
+	<text x="236" y="336.5" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--svg-fixed-dark, #1e293b)">Geist</text>
+	<circle cx="282" cy="291" r="10" fill="#e11d48" />
+	<text x="282" y="295" text-anchor="middle" font-size="10" font-weight="700" fill="var(--svg-fixed-light, #ffffff)">A</text>
+	
+	<rect x="334" y="104" width="532" height="300" fill="var(--color-fd-background, #f8fafc)" stroke="currentColor" stroke-width="1.5" rx="6" />
+	<text x="600" y="132" text-anchor="middle" font-size="20" font-weight="700" fill="var(--color-fd-primary, #1e3a8a)">Virtuelle StadtStaaten</text>
+	<text x="600" y="156" text-anchor="middle" font-size="10.5" font-weight="normal" fill="var(--color-fd-muted-foreground, #334155)" font-style="italic">Wagnisidee: „verrückt, aber wenn es gelänge …"</text>
+	<text x="600" y="182" text-anchor="middle" font-size="11.5" font-weight="normal" fill="currentColor">1. Repräsentation offener Gesellschaften als „Res Publica"</text>
+	<text x="600" y="204" text-anchor="middle" font-size="11.5" font-weight="normal" fill="currentColor">2. „VitaFutur" für die Sicherung der Lebensqualität aller (Maß VF)</text>
+	<text x="600" y="226" text-anchor="middle" font-size="11.5" font-weight="normal" fill="currentColor">3. Es sind alle „zu Beteiligende"</text>
+	<rect x="354" y="254" width="492" height="130" fill="#eef2ff" stroke="#4338ca" rx="4" />
+	<text x="600" y="311" text-anchor="middle" font-size="11" font-weight="600" fill="#312e81">Ganzheitlich angelegte Imaginationen</text>
+	<text x="600" y="327" text-anchor="middle" font-size="11" font-weight="600" fill="#312e81">Akzeptanzvorsorge für „alle Fälle"</text>
+
+	<rect x="876" y="104" width="300" height="145" fill="#fed7aa" stroke="#9a3412" stroke-width="1.5" rx="6" />
+	<text x="1026" y="139" text-anchor="middle" font-size="11" font-weight="600" fill="#7c2d12">Neue Weltordnung</text>
+	<text x="1026" y="154" text-anchor="middle" font-size="11" font-weight="600" fill="#7c2d12">Verantwortung für das Ganze</text>
+	<text x="1026" y="169" text-anchor="middle" font-size="11" font-weight="600" fill="#7c2d12">„Integration"</text>
+	<text x="1026" y="184" text-anchor="middle" font-size="11" font-weight="600" fill="#7c2d12"></text>
+	<text x="1026" y="199" text-anchor="middle" font-size="11" font-weight="600" fill="#7c2d12">Leit-Kulturen in Vielfalt</text>
+	<text x="1026" y="214" text-anchor="middle" font-size="11" font-weight="600" fill="#7c2d12">für Frieden und Freiheit</text>
+	<rect x="876" y="259" width="300" height="135" fill="#fed7aa" stroke="#9a3412" stroke-width="1.5" rx="6" />
+	<text x="1026" y="289" text-anchor="middle" font-size="11" font-weight="600" fill="#7c2d12">Ganzheitlich ausgerichtete</text>
+	<text x="1026" y="304" text-anchor="middle" font-size="11" font-weight="600" fill="#7c2d12">Politik des Zivilen</text>
+	<text x="1026" y="319" text-anchor="middle" font-size="11" font-weight="600" fill="#7c2d12">„Zielerreichung"</text>
+	<text x="1026" y="334" text-anchor="middle" font-size="11" font-weight="600" fill="#7c2d12"></text>
+	<text x="1026" y="349" text-anchor="middle" font-size="11" font-weight="600" fill="#7c2d12">Wettbewerb von und in</text>
+	<text x="1026" y="364" text-anchor="middle" font-size="11" font-weight="600" fill="#7c2d12">Kooperation &amp; Anpassung</text>
+
+	<rect x="24" y="414" width="1152" height="28" fill="var(--svg-fixed-dark, #1e293b)" stroke="var(--svg-fixed-dark, #1e293b)" stroke-width="1.5" rx="6" />
+	<text x="44" y="433" font-size="12" font-weight="700" fill="var(--svg-fixed-light, #ffffff)">AGIL-Analysen</text>
+	<text x="600" y="433" text-anchor="middle" font-size="12" font-style="italic" fill="#f9a8d4">Verantwortung</text>
+	<text x="1156" y="433" text-anchor="end" font-size="12" font-weight="700" fill="var(--svg-fixed-light, #ffffff)">LIGA-Perspektiven</text>
+
+	<rect x="24" y="452" width="622.6" height="180" fill="var(--color-fd-background, #f8fafc)" stroke="currentColor" stroke-width="1.5" rx="6" />
+	<text x="335.3" y="470" text-anchor="middle" font-size="12.5" font-weight="700" fill="currentColor">8 Stadtviertel &amp; Infrastruktur</text>
+	<text x="335.3" y="486" text-anchor="middle" font-size="12.5" font-weight="700" fill="currentColor">Pavillon-Park VitaFutur (analog und/oder virtuell)</text>
+	<rect x="40" y="510" width="590.6" height="104" fill="var(--color-fd-foreground, #0f172a)" rx="4" />
+	<text x="335.3" y="539.5" text-anchor="middle" font-size="11" font-weight="600" fill="var(--color-fd-background, #ffffff)">Zu Beteiligende</text>
+	<text x="335.3" y="554.5" text-anchor="middle" font-size="11" font-weight="600" fill="var(--color-fd-background, #ffffff)">Bürgerinnen und Bürger</text>
+	<text x="335.3" y="569.5" text-anchor="middle" font-size="11" font-weight="600" fill="var(--color-fd-background, #ffffff)">Avantgarde, Pioniere, Experten</text>
+	<text x="335.3" y="584.5" text-anchor="middle" font-size="11" font-weight="600" fill="var(--color-fd-background, #ffffff)">Eliten, Ensembles, Begleiter</text>
+
+	<rect x="666.6" y="452" width="509.4" height="180" fill="var(--color-fd-background, #f8fafc)" stroke="currentColor" stroke-width="1.5" rx="6" />
+	<text x="921.3" y="472" text-anchor="middle" font-size="11.5" font-weight="700" fill="currentColor">Mitwelt: System-Beherrschung, VF max! Regulation</text>
+
+	<rect x="686.6" y="494" width="469.4" height="22" fill="#dbeafe" stroke="#1d4ed8" />
+	<text x="696.6" y="509" font-size="11" fill="#1e3a8a">4  Wissens- und Zivilgesellschaft</text>
+	
+	<rect x="686.6" y="522" width="469.4" height="22" fill="#dbeafe" stroke="#1d4ed8" />
+	<text x="696.6" y="537" font-size="11" fill="#1e3a8a">3  Industriegesellschaft</text>
+	
+	<rect x="686.6" y="550" width="469.4" height="22" fill="#dbeafe" stroke="#1d4ed8" />
+	<text x="696.6" y="565" font-size="11" fill="#1e3a8a">2  Agrargesellschaft</text>
+	
+	<rect x="686.6" y="578" width="469.4" height="22" fill="#dbeafe" stroke="#1d4ed8" />
+	<text x="696.6" y="593" font-size="11" fill="#1e3a8a">1  Jäger und Sammler</text>
+	
+	<text x="921.3" y="618" text-anchor="middle" font-size="9.5" font-weight="normal" fill="var(--color-fd-muted-foreground, #334155)" font-style="italic">Top-down ↕ Bottom-up — den Prozeß wagen, hoch-komplex bis kurz vor Chaos</text>
+
+	<rect x="24" y="642" width="1152" height="34" fill="#1e3a8a" stroke="var(--svg-fixed-dark, #1e293b)" stroke-width="1.5" rx="6" />
+	<text x="600" y="659" text-anchor="middle" font-size="13" font-weight="700" fill="var(--svg-fixed-light, #ffffff)">Überblick und Wagnis-Ansatz  ·  Der virtuelle StadtStaat  ·  Kontext und Gestaltungswissen</text>
+	<rect x="24" y="642" width="80" height="34" fill="#16a34a" stroke="var(--svg-fixed-dark, #1e293b)" stroke-width="1.5" rx="6" />
+	<text x="64" y="664" text-anchor="middle" font-size="12" font-weight="700" fill="var(--svg-fixed-light, #ffffff)">Wo?</text>
+	<rect x="1096" y="642" width="80" height="34" fill="#16a34a" stroke="var(--svg-fixed-dark, #1e293b)" stroke-width="1.5" rx="6" />
+	<text x="1136" y="664" text-anchor="middle" font-size="12" font-weight="700" fill="var(--svg-fixed-light, #ffffff)">Was?</text>
+</svg>

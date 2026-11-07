@@ -1,6 +1,6 @@
 {
 	"name": "atelier-fuer-innovationen",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"private": true,
 	"packageManager": "pnpm@11.3.0",
 	"scripts": {
@@ -13,6 +13,7 @@
 		"afk": "tsx --env-file=.sandcastle/.env scripts/run-sandcastle.ts",
 		"test": "tsx --test scripts/*.test.ts",
 		"validate:okf": "tsx scripts/validate-okf.ts",
+		"validate:content": "tsx scripts/validate-content.ts",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"lint": "eslint . --max-warnings 0",

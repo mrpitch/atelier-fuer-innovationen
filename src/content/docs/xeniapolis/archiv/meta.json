@@ -1,0 +1,16 @@
+{
+  "title": "Archiv",
+  "description": "Datiertes Quellmaterial zu Xeniapolis rund um ihren öffentlichen Durchbruch 1995/96",
+  "icon": "Archive",
+  "pages": [
+    "index",
+    "medienspiegel",
+    "zeitungen",
+    "praesentationen",
+    "aufsaetze",
+    "cebit-95",
+    "cebit",
+    "telepolis",
+    "nie-gebaute-features"
+  ]
+}

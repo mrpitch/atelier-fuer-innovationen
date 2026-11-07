@@ -45,27 +45,93 @@ jobs:
       - name: Validate OKF frontmatter conformance
         run: pnpm validate:okf
 
-  deploy:
-    # A pull request runs the checks only; publishing is for pushes to main.
-    if: github.event_name == 'push'
-    needs: [quality, validate-okf]
+  validate-content:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v6
+        with:
+          cache: true
+      - name: Install modules
+        run: pnpm install --frozen-lockfile
+      - name: Validate content integrity
+        run: pnpm validate:content
+
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v6
+        with:
+          cache: true
+      - name: Install modules
+        run: pnpm install --frozen-lockfile
+      - name: Build and capture output
+        # pipefail: without it `tee` would mask a failed build.
+        shell: bash
+        run: pnpm build 2>&1 | tee build.log
+      - name: Fail on known missing-image / unresolved-link warning signatures
+        run: |
+          # Pinned warning strings. Each is a literal emitted by code this
+          # repo builds with:
+          #
+          # "Module not found: Can't resolve"
+          #   Webpack/Turbopack's own diagnostic for an unresolvable import.
+          #   Fumadocs' remarkImage preset rewrites every MDX image reference
+          #   into a static `import`, so a missing image file in content
+          #   fails with this string.
+          #
+          # "Error loading illus:" / "Error loading slides:"
+          #   console.error prefixes in src/components/illus.tsx and
+          #   slides.tsx, logged when the dynamic import of src/data/illus.json
+          #   or slides.json throws while a page renders.
+          #
+          # "Error loading icon illu:"
+          #   console.error prefix in the icon variant of <Illu>
+          #   (src/components/illus.tsx), logged when the registered SVG file
+          #   is missing under public/.
+          #
+          # "Error parsing URL"
+          #   console.error in next-image-export-optimizer's ExportedImage
+          #   (dist/ExportedImage.js) for an image src it cannot parse.
+          #
+          # Not pinned, because nothing emits a string for them: an <Illu>
+          # or <Slide> slug missing from the registry renders null silently,
+          # and neither Next nor Fumadocs checks internal links at build
+          # time. `pnpm validate:content` (job validate-content) covers both.
+          PATTERN="Module not found: Can't resolve|Error loading illus:|Error loading slides:|Error loading icon illu:|Error parsing URL"
+          if grep -E "$PATTERN" build.log; then
+            echo "::error::Build produced a missing-image warning (see above)"
+            exit 1
+          fi
+      - name: Upload static export
+        # Reused by the deploy job so the published bytes are the ones checked.
+        uses: actions/upload-artifact@v4
+        with:
+          name: out
+          path: out/
+          retention-days: 1
+          if-no-files-found: error
+
+  deploy:
+    # A pull request runs the checks only; publishing is for pushes to main.
+    if: github.event_name == 'push'
+    needs: [quality, validate-okf, validate-content, build-check]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download static export
+        uses: actions/download-artifact@v4
+        with:
+          name: out
+          path: out/
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_S3_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_S3_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.AWS_S3_REGION }}
-      - uses: pnpm/action-setup@v6
-        with:
-          cache: true
-      - name: Install modules
-        run: pnpm install
-      - name: Build application
-        run: pnpm build
       - name: Deploy to S3
         run: aws s3 sync ./out/ s3://${{ vars.AWS_S3_BUCKET_NAME }}
       - name: Create CloudFront invalidation

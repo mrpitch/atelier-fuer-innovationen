@@ -1,0 +1,16 @@
+{
+  "title": "Stadtviertel",
+  "description": "Die neun Stadtviertel der Wissensstadt in der Fassung des Telepolis-Auftritts",
+  "icon": "Building2",
+  "pages": [
+    "annaeherung",
+    "kooperation",
+    "kontext",
+    "inszenierung",
+    "zukunft",
+    "wertschoepfung",
+    "ressourcen",
+    "fuehrung",
+    "zentrum"
+  ]
+}

@@ -208,7 +208,7 @@ Only if `project_status_command` is configured:
 
 Runs once `<N>` — an afk sub-issue of an epic — reaches an outcome, whether that is a step-4 auto-merge or a hand-back. Standalone and hitl runs end at step 4 as before. Skip this step entirely if `auto_merge_afk_epic_subissues` is not `true` — without auto-merge there is no unattended outcome to loop on.
 
-**Iteration cap: 5 sub-issues per session**, counting auto-merges and hand-backs alike. The cap bounds a runaway session's token spend — a systemically broken epic spends its iterations on hand-backs and stops at the same bound. Change it only when the user explicitly asks.
+**Iteration cap: 10 sub-issues per session**, counting auto-merges and hand-backs alike. The cap bounds a runaway session's token spend — a systemically broken epic spends its iterations on hand-backs and stops at the same bound. Change it only when the user explicitly asks.
 
 **Return to the epic branch.** After an auto-merge it is already checked out and synced (step 4). After a hand-back, check it out now — the hand-back committed the attempted work, so the tree is clean:
 

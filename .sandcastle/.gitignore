@@ -1,4 +1,5 @@
 .env
+logs/
 container-cache/
 worktrees/
 base-branch.txt

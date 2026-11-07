@@ -1,0 +1,13 @@
+{
+  "title": "Netzwerk für Innovatoren",
+  "description": "Projekthistorie, Messerückblick, Publikationen, Kooperationspartner und Gästebuch des Netzwerks für Innovatoren",
+  "icon": "Users",
+  "pages": [
+    "index",
+    "projekthistorie",
+    "messerueckblick",
+    "publikationen",
+    "kooperationspartner",
+    "gaestebuch"
+  ]
+}

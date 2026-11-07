@@ -1,0 +1,30 @@
+{
+  "title": "Zeitungsartikel",
+  "description": "Zeitungs- und Zeitschriftenartikel über Xenia, 1991-1996",
+  "icon": "Newspaper",
+  "pages": [
+    "index",
+    "01-tempo-spinner-vom-dienst",
+    "02-manager-magazin-das-letzte-experiment",
+    "03-manager-magazin-lizenz-zum-spinnen",
+    "04-merchants-of-vision",
+    "05-hannoversche-allgemeine-der-hauptberufliche-visionaer",
+    "06-sueddeutsche-orakel-und-navigation",
+    "07-sni-in-nrw-staedte-des-wissens",
+    "08-handelsblatt-stadt-der-1000-kreuzungen",
+    "09-hannoversche-allgemeine-wissensstadt-zur-expo-2000",
+    "10-hannoversche-allgemeine-chancen-2000",
+    "11-neue-presse-in-der-stadt-des-wissens-lernen",
+    "12-neue-presse-xenia-soll-bleiben",
+    "13-neue-presse-frust-ueber-expo-zankerei",
+    "15-screen-multimedia-allgegenwaertiger-campus",
+    "18-spiegel-meine-chaos-chance",
+    "19-spiegel-editorial",
+    "20-spiegel-hochdotiertes-missverstaendnis",
+    "21-muenchner-merkur-mit-bauklotzen-aus-der-krise",
+    "22-wiener-kurier-ich-bin-hier-der-spinner",
+    "23-badische-zeitung-ergebnis-von-zehn-jahren-denkarbeit",
+    "24-kleine-zeitung-spinner-vom-dienst",
+    "25-sueddeutsche-ein-mann-spinnt"
+  ]
+}

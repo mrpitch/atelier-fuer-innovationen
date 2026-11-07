@@ -8,6 +8,45 @@
 	max-width: 100%;
 }
 
+/*
+ * Theme-aware inline SVG (`"themed": true` in illus.json / slides.json).
+ *
+ * An <img>-embedded SVG cannot see the page's colour or the `.dark` class, so
+ * themed files are inlined and paint themselves with:
+ *
+ * - `currentColor` for ink (text, outlines, rules);
+ * - `var(--color-fd-foreground | -background | -card | -muted | -border |
+ *   -muted-foreground | -primary, <light fallback>)` for surfaces. These follow
+ *   the active section palette (ADR-0002) in light and dark mode;
+ * - `var(--svg-fixed-dark, ...)` / `var(--svg-fixed-light, ...)` for ink that
+ *   must stay dark on pastel tints and light on saturated accent fills in both
+ *   modes. The values below are the fallbacks the files carry.
+ *
+ * The fallbacks keep the file legible as a standalone image or PDF companion.
+ */
+[data-rmiz] {
+	--svg-fixed-dark: #1e293b;
+	--svg-fixed-light: #ffffff;
+}
+
+[data-rmiz-content] svg {
+	display: block;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	color: var(--color-fd-foreground);
+}
+
+[data-rmiz-content='found'] svg {
+	cursor: zoom-in;
+}
+
+/* The zoomed clone sits on the dark overlay, outside the card frame. */
+[data-rmiz-modal-img] svg {
+	background-color: var(--color-fd-card);
+	color: var(--color-fd-foreground);
+}
+
 [data-rmiz-ghost] {
 	pointer-events: none;
 	position: absolute;

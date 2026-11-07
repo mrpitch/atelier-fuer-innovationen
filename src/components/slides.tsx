@@ -2,12 +2,15 @@ import Link from 'next/link'
 
 import { linkVariants } from '@/components/ui/button'
 import { ImageZoom } from '@/components/image-zoom'
+import { isSvg, SvgFrame } from '@/components/svg-frame'
 
 interface ISlide {
 	slug: string
 	name: string
 	image: string
 	url?: string
+	/** `.svg` rendered inline so `currentColor`/`var(--color-fd-*)` follow the page theme, see `SvgFrame`. */
+	themed?: boolean
 }
 
 // interface ISlides {
@@ -47,12 +50,16 @@ export const Slide = async ({ slug }: { slug: string }) => {
 
 	return (
 		<div className="mb-8">
-			<ImageZoom
-				src={slide?.image}
-				width={1920}
-				height={1080}
-				alt={slide?.name}
-			/>
+			{isSvg(slide.image) ? (
+				<SvgFrame src={slide.image} alt={slide.name} themed={slide.themed} />
+			) : (
+				<ImageZoom
+					src={slide.image}
+					width={1920}
+					height={1080}
+					alt={slide.name}
+				/>
+			)}
 			{slide?.url ? (
 				<Link
 					className={linkVariants({ color: 'primary', size: 'sm' })}

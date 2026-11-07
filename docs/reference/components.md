@@ -3,7 +3,7 @@ title: Components
 description: The MDX components available to content pages, which ones live in src/components and which come from @fumadocs/base-ui, with their props and import paths.
 type: reference
 status: stable
-last_reviewed: 2026-11-05
+last_reviewed: 2026-11-06
 tags: [components, mdx, slides, illustrations, image-zoom, tabs]
 ---
 
@@ -27,7 +27,9 @@ The docs route registers only `@fumadocs/base-ui/mdx`'s default components (`src
 
 ### `Slide`
 
-Renders the slide image through `ImageZoom` at 1920 by 1080. When the slide has a `url`, a "Download" link with the slide name follows the image and opens in a new tab. An unknown `slug` renders nothing.
+Renders the slide image through `ImageZoom` at 1920 by 1080. When `image` ends in `.svg`, it instead renders through `SvgFrame` (`src/components/svg-frame.tsx`), a `bg-fd-card border p-4` frame shared with `<Illu>`: a plain `<img>`, or the inlined markup when the entry sets `themed`. This is because `next-image-export-optimizer` only processes raster formats. When the slide has a `url`, a "Download" link with the slide name follows the image and opens in a new tab — this is how the PDF export of a redrawn SVG slide stays downloadable. An unknown `slug` renders nothing.
+
+The plain `<img>` carries no `width`/`height` props, so its rendered size depends entirely on the SVG file: every slide/illustration `.svg` must declare `width` and `height` on the root `<svg>` matching its `viewBox` (not `viewBox` alone). Tailwind's preflight (`img { max-width: 100%; height: auto }`) then scales that intrinsic size down to the frame while preserving the aspect ratio — a `viewBox`-only SVG has no intrinsic size and renders at an unpredictable size in an `<img>`.
 
 ```mdx
 import { Slide } from '@/components/slides'
@@ -37,12 +39,13 @@ import { Slide } from '@/components/slides'
 
 Slides are defined in `src/data/slides.json`:
 
-| Field   | Required | Meaning                                                 |
-| ------- | -------- | ------------------------------------------------------- |
-| `slug`  | yes      | Identifier used in `<Slide slug="…" />`                 |
-| `name`  | yes      | Used as the image alt text and link label               |
-| `image` | yes      | Path under `public/`, for example `/slides/slide-1.jpg` |
-| `url`   | no       | Download link, for example a PDF in `public/slides/`    |
+| Field    | Required | Meaning                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| `slug`   | yes      | Identifier used in `<Slide slug="…" />`                                                                   |
+| `name`   | yes      | Used as the image alt text and link label                                                                 |
+| `image`  | yes      | Path under `public/`, for example `/slides/slide-1.jpg`                                                   |
+| `url`    | no       | Download link, for example a PDF in `public/slides/`                                                      |
+| `themed` | no       | `.svg` only: inline the markup so `currentColor` and `--color-fd-*` follow the theme, see [`Illu`](#illu) |
 
 ### `Illu`
 
@@ -55,6 +58,47 @@ import { Illu } from '@/components/illus'
 ```
 
 Illustrations are defined in `src/data/illus.json` with `slug`, `name` and `image`, all required. Images live in `public/illus/`.
+
+An entry may set `"themed": true` on a `.svg` that uses `currentColor` or `var(--color-fd-*, <light fallback>)` (`foreground`, `background`, `card`, `muted`, `border`; see the comment in `src/components/image-zoom.css`). `SvgFrame` then reads the file and inlines its markup inside the same `bg-fd-card border p-4` frame and `ImageZoom`, so the colours follow the site's light and dark theme, also in the zoom modal. An `<img>`-embedded SVG cannot see the page's `color`, the `.dark` class or the CSS variables, and `prefers-color-scheme` inside it would ignore the site's theme toggle. Without `themed` the SVG renders as a plain `<img>` and keeps its own colours. If the file can't be read, the `<img>` is used. `slides.json` entries take the same flag, see [`Slide`](#slide).
+
+`<Illu slug="…" variant="icon" />` renders a `.svg` entry's markup inline
+(`dangerouslySetInnerHTML`, no `ImageZoom`, no `mb-8` block) instead of as an
+`<img>`. Use this for small icons that must pick up the page's current text
+color — an `<img>`-embedded SVG renders in an isolated image context that
+cannot see the page's `color`, so `fill`/`stroke="currentColor"` would
+otherwise always resolve to black regardless of the active palette (ADR-0002
+[Per-section theming](../architecture/09-decisions/adr-0002-per-section-theming.md)).
+The default `variant`, `"illustration"`, is unchanged.
+
+#### Xeniapolis district header icons
+
+Nine `variant="icon"` entries recreate xeniapolis.de's
+`gifs/b_icons/{ann,mar,kon,ins,zuk,wer,pot,fue}bild.gif` + `platz.gif` as
+neutral, `currentColor`-only SVGs (see
+`src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx`
+for their use next to each Stadtviertel/Zentrum heading):
+
+| Slug                          | Stadtviertel / Zentrum   | Source                      |
+| ----------------------------- | ------------------------ | --------------------------- |
+| `icon-viertel-annaeherung`    | Annäherung               | `lucide-react` `Signpost`   |
+| `icon-viertel-maerkte`        | Märkte und Kooperation   | `lucide-react` `Store`      |
+| `icon-viertel-kontexte`       | Kontexte                 | `lucide-react` `Globe`      |
+| `icon-viertel-inszenierung`   | Inszenierung             | `lucide-react` `Drama`      |
+| `icon-viertel-zukunft`        | Zukunft                  | `lucide-react` `Rocket`     |
+| `icon-viertel-wertschoepfung` | Wertschöpfung            | `lucide-react` `Sprout`     |
+| `icon-viertel-potenziale`     | Potenziale               | `lucide-react` `Hexagon`    |
+| `icon-viertel-fuehrung`       | Führung                  | `lucide-react` `Crown`      |
+| `icon-zentrum`                | Zentrum der Wissensstadt | bespoke (hub with 8 spokes) |
+
+The eight district icons reuse an existing `lucide-react` icon whose stock
+meaning already matches the Viertel's concept (signpost for the first-contact
+"Annäherung", globe for the "eine Welt" context icon, crown for "Führung",
+etc. — each also echoes the hand-drawn motif in the source GIF where one was
+obvious). `icon-zentrum` is bespoke because the source `platz.gif` is a full
+city-map collage, not a single-motif badge like the others, and no
+`lucide-react` icon depicts "a hub coordinating 8 radiating points" — the
+one shape specific to this site's own radial Stadtviertel layout described in
+`die-stadtviertel-der-wissensstadt.mdx`.
 
 ### Register slides and illustrations before using them
 
