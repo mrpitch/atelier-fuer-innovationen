@@ -1,3 +1,13 @@
+---
+title: Third-party notices
+description: Sources, licenses and changes for third-party skills, templates and content in this repository.
+tags: [license, attribution, third-party]
+type: reference
+status: current
+last_reviewed: 2026-11-07
+authoritative: true
+---
+
 # Third-party notices
 
 This repository contains material from third parties. Each item below lists its
