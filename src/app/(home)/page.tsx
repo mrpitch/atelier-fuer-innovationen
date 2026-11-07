@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import { HomeHero } from '@/app/_components/home-hero'
 import { Cards, Card } from '@fumadocs/base-ui/components/card'
-import { Book, ComponentIcon, Rocket, AlbumIcon } from 'lucide-react'
+import { Book, Rocket, AlbumIcon } from 'lucide-react'
 
 export default function HomePage() {
 	const gridColor =
@@ -41,13 +41,6 @@ export default function HomePage() {
 									Xenia ist das Forschungsprojekt, das den Übergang in die
 									Informationsgesellschaft als begehbare Wissensstadt erlebbar
 									macht – gegliedert in ein Zentrum und acht Stadtviertel.
-								</Card>
-							</Link>
-
-							<Link href="/docs/components">
-								<Card icon={<ComponentIcon />} title="Components">
-									Eine Übersicht aller UI-Komponenten, die in dieser
-									Dokumentation verwendet werden.
 								</Card>
 							</Link>
 						</Cards>

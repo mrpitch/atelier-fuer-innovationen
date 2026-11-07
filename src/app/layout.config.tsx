@@ -3,7 +3,7 @@ import Logo from '@/public/images/logo.png'
 import type { BaseLayoutProps } from '@fumadocs/base-ui/layouts/shared'
 import stadtviertelData from '@/data/stadtviertel.json'
 
-import { HousePlus, Building2, ComponentIcon, Landmark, icons } from 'lucide-react'
+import { HousePlus, Building2, Landmark, icons } from 'lucide-react'
 
 // Home-page-only descriptions for the Xeniapolis mega menu; name, order and
 // icon come from src/data/stadtviertel.json (the single Stadtviertel source
@@ -81,12 +81,6 @@ export const baseOptions: BaseLayoutProps = {
 					description:
 						'Xenia: das Forschungsprojekt, das den Übergang in die Informationsgesellschaft als begehbare Wissensstadt erlebbar macht.',
 					url: '/docs/xeniapolis',
-				},
-				{
-					icon: <ComponentIcon />,
-					text: 'Components',
-					description: 'Übersicht über alle UI Komponenten',
-					url: '/docs/components',
 				},
 			],
 		},
