@@ -16,14 +16,18 @@ ARG AGENT_GID=1000
 RUN groupmod -o -g $AGENT_GID node \
   && usermod -o -u $AGENT_UID -g $AGENT_GID -d /home/agent -m -l agent node
 
-# Install Playwright Chromium + system dependencies before switching to the
-# non-root user — browser installation and apt-get both require root.
-# PLAYWRIGHT_BROWSERS_PATH bakes the binary at a fixed, world-readable path
-# so the agent user can reach it at runtime without write access to root-owned
-# directories.
+# Install Chromium's system libraries before switching to the non-root user —
+# apt-get needs root. The browser binary itself is installed later, after
+# `pnpm install`, so it matches the Playwright version pinned in
+# pnpm-lock.yaml: a plain `playwright install` here would fetch whatever is
+# newest on npm, and the repo's Playwright then fails to launch with
+# "Executable doesn't exist at /ms-playwright/chromium_headless_shell-<rev>".
+# PLAYWRIGHT_BROWSERS_PATH is a fixed path owned by the agent user so that
+# later install can write to it and the runtime launch can read it.
 ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
-RUN npx --yes playwright install --with-deps chromium \
-  && chmod -R o+rx /ms-playwright
+RUN npx --yes playwright install-deps chromium \
+  && mkdir -p /ms-playwright \
+  && chown ${AGENT_UID}:${AGENT_GID} /ms-playwright
 
 USER ${AGENT_UID}:${AGENT_GID}
 
@@ -71,6 +75,10 @@ COPY --chown=${AGENT_UID}:${AGENT_GID} package.json pnpm-lock.yaml pnpm-workspac
 # (already wired into the `sandcastle:build` package.json script).
 RUN --mount=type=secret,id=npmrc,target=/home/agent/workspace/.npmrc,uid=${AGENT_UID},gid=${AGENT_GID} \
   pnpm install --frozen-lockfile
+# Install the Chromium revision the lockfile's playwright-core expects.
+# playwright is not a direct dependency (it arrives via @playwright/mcp), so
+# there is no `pnpm exec playwright` — call the pinned package's CLI directly.
+RUN node "$(ls -d node_modules/.pnpm/playwright-core@*/node_modules/playwright-core | head -1)/cli.js" install chromium
 COPY --chown=${AGENT_UID}:${AGENT_GID} . .
 
 ENTRYPOINT ["sleep", "infinity"]
