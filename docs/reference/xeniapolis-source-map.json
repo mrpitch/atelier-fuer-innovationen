@@ -188,7 +188,7 @@
 		"url": "https://xeniapolis.de/ann/kurzueb4.html",
 		"httpStatus": 200,
 		"title": "Eine erste Annäherung: Ateliers für Innovatoren",
-		"targetPath": "src/content/docs/xeniapolis/annaeherung/ateliers-fuer-innovatoren.mdx",
+		"targetPath": "src/content/docs/xeniapolis/fuehrung/ateliers-fuer-innovatoren.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_allg/atelier.gif"],
 		"underConstruction": false,
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
@@ -197,7 +197,7 @@
 		"url": "https://xeniapolis.de/ann/kurzueb5.html",
 		"httpStatus": 200,
 		"title": "Eine erste Ann&auml,herung: Netzwerk der Wissensstädte",
-		"targetPath": "src/content/docs/xeniapolis/annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx",
+		"targetPath": "src/content/docs/xeniapolis/fuehrung/xenia-im-netzwerk-der-wissensstaedte.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_allg/umland.gif"],
 		"underConstruction": false,
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
@@ -387,10 +387,10 @@
 		"url": "https://xeniapolis.de/fue/netzw0.html",
 		"httpStatus": 200,
 		"title": "Xenia-Partner im Netzwerk für Innovatoren",
-		"targetPath": "src/content/docs/xeniapolis/fuehrung/netzw0.mdx",
+		"targetPath": "src/content/docs/xeniapolis/fuehrung/netzwerk-der-innovatoren.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": ""
+		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
 		"url": "https://xeniapolis.de/index.html",

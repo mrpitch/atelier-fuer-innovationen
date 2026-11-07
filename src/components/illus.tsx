@@ -1,9 +1,18 @@
+import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
 import { ImageZoom } from '@/components/image-zoom'
 
 interface IIllu {
 	slug: string
 	name: string
 	image: string
+	/**
+	 * Monochrome, background-less `.svg` line art: inverted in dark mode so it
+	 * stays visible on the `bg-fd-card` frame. An `<img>`-embedded SVG can't
+	 * see the page's `color` or the `.dark` class, so CSS on the `<img>` is the
+	 * only theme hook. Never set this on full-colour artwork.
+	 */
+	themed?: boolean
 }
 
 // interface ISlides {
@@ -37,23 +46,59 @@ export const Illus = async () => {
 	)
 }
 
-export const Illu = async ({ slug }: { slug: string }) => {
+export const Illu = async ({
+	slug,
+	variant = 'illustration',
+}: {
+	slug: string
+	/**
+	 * "icon" inlines the SVG markup (not an `<img>`) so `currentColor`/ADR-0002
+	 * section CSS custom properties reach it; `<img>`-embedded SVGs render in
+	 * an isolated image context that cannot see the page's `color`.
+	 */
+	variant?: 'illustration' | 'icon'
+}) => {
 	const illus = await getIllusBySlug(slug)
 	if (!illus) return null
 
+	if (variant === 'icon') {
+		if (!illus.image.endsWith('.svg')) return null
+		let markup: string
+		try {
+			markup = await readFile(
+				join(process.cwd(), 'public', illus.image),
+				'utf-8'
+			)
+		} catch (error) {
+			console.error('Error loading icon illu:', error)
+			return null
+		}
+		return (
+			<span
+				aria-hidden="true"
+				className="ml-2 inline-flex size-6 align-text-bottom [&_svg]:size-full"
+				dangerouslySetInnerHTML={{ __html: markup }}
+			/>
+		)
+	}
+
 	if (illus.image.endsWith('.svg')) {
 		return (
-			<div className="mb-8">
+			<div className="bg-fd-card mb-8 border p-4">
 				<ImageZoom src={illus?.image} alt={illus?.name}>
 					{/* eslint-disable-next-line @next/next/no-img-element -- next-image-export-optimizer only processes raster formats; SVGs render as-is */}
-					<img src={illus?.image} alt={illus?.name} />
+					<img
+						src={illus?.image}
+						alt={illus?.name}
+						className={illus.themed ? 'dark:invert' : undefined}
+					/>
 				</ImageZoom>
 			</div>
 		)
 	}
 
 	return (
-		<div className="mb-8">
+		<div className="bg-fd-card mb-8 border p-4">
 			<ImageZoom
 				src={illus?.image}
 				width={640}

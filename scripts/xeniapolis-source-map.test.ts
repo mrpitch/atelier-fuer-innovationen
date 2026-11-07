@@ -206,9 +206,16 @@ test('computeTargetPath maps each kurzueb page to its own split sibling page', (
 		computeTargetPath('/ann/kurzueb3.html').targetPath,
 		'src/content/docs/xeniapolis/annaeherung/aufbruch-zum-kontinent-der-loesungen.mdx'
 	)
+})
+
+test('computeTargetPath maps kurzueb4/5 to the re-homed fuehrung pages, not annaeherung', () => {
+	assert.equal(
+		computeTargetPath('/ann/kurzueb4.html').targetPath,
+		'src/content/docs/xeniapolis/fuehrung/ateliers-fuer-innovatoren.mdx'
+	)
 	assert.equal(
 		computeTargetPath('/ann/kurzueb5.html').targetPath,
-		'src/content/docs/xeniapolis/annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx'
+		'src/content/docs/xeniapolis/fuehrung/xenia-im-netzwerk-der-wissensstaedte.mdx'
 	)
 })
 
@@ -242,6 +249,13 @@ test('computeTargetPath aggregates wer/arbeit0.html and wer/plan0.html onto one 
 	assert.equal(
 		computeTargetPath('/wer/plan0.html').targetPath,
 		'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx'
+	)
+})
+
+test('computeTargetPath maps fue/netzw0.html to its human-readable slug', () => {
+	assert.equal(
+		computeTargetPath('/fue/netzw0.html').targetPath,
+		'src/content/docs/xeniapolis/fuehrung/netzwerk-der-innovatoren.mdx'
 	)
 })
 

@@ -4,7 +4,7 @@ description: Canonical vocabulary for the Xenia / Wissensstadt concept published
 tags: [glossary, domain, xenia, wissensstadt, xeniapolis, concept]
 type: reference
 status: stable
-last_reviewed: 2026-08-30
+last_reviewed: 2026-11-06
 authoritative: true
 ---
 
@@ -44,6 +44,10 @@ _Avoid_: Viertel (without qualifying which), neighborhood, quarter (as a standal
 The one design concern a Stadtviertel concentrates on within the larger challenge of conceiving knowledge cities — expressed in the source content as a short "Ansatz" (approach) tagline per district.
 _Avoid_: theme, topic
 
+**Stadtrundgang**:
+The guided walk across the Zentrum's Stadtplatz that visits the representative "buildings" standing in for each Stadtviertel — the lead-in step of the **Besuch im Zentrum** tour, before a visitor moves on to the deeper **Besuch in den Stadtvierteln**.
+_Avoid_: city tour, walking tour (both flatten this into generic sightseeing; the source uses it to name one specific step in its own visit sequence)
+
 ### The eight Stadtviertel
 
 | Stadtviertel             | Ansatz (tagline)                                                                                                             |
@@ -59,6 +63,16 @@ _Avoid_: theme, topic
 
 All eight Stadtviertel now have a dedicated `src/content/docs/xeniapolis/<slug>/` folder, including `maerkte/`.
 
+### Named collections and archives
+
+**MOSAIK**:
+The Xenia-Kollektion the **Viertel der Potenziale** is dedicated to: a "Bausteinsystem" of reusable Wissensbausteine (knowledge building blocks) that the source content itself describes as "Work in Progress" and still incomplete. The 17 individual MOSAIK modules are out of scope for the district's overview page.
+_Avoid_: mosaic (translating the name turns a proper collection name into a description), using MOSAIK as a synonym for a Wissensbaustein (MOSAIK is the collection; a Wissensbaustein is one item inside it)
+
+**Medienspiegel**:
+The press-coverage record (Zeitungen, Rundfunk, Internet) of Xenia's public reception, grouped on the source site with — but distinct from — the **Präsentationen** (e.g. CeBIT '95, Telepolis) under one "Präsentationen und Medienspiegel" heading. Deferred content for both lives in `xeniapolis/archiv/`.
+_Avoid_: media review, press clippings (fine as English glosses in prose, but keep the German headword), conflating with Präsentationen (coverage of Xenia vs. Xenia's own public appearances)
+
 ### Societal frame
 
 **Informationsgesellschaft** (Information Society):
@@ -66,8 +80,16 @@ The societal transition Xenia was built to help navigate — the source content 
 _Avoid_: digital society, information age
 
 **Problemlösungsgesellschaft** (Problem-Solving Society):
-Xenia's name for the society the Informationsgesellschaft is becoming — one organized around "Problemlösungsgeschäfte" (problem-solving business/ventures) rather than around leisure or consumption.
+Xenia's name for the society the Informationsgesellschaft is becoming — one organized around **Problemlösungsgeschäfte** rather than around leisure or consumption.
 _Avoid_: knowledge economy (a different, external concept — don't conflate)
+
+**Problemlösungsgeschäft** (Problem-Solving Venture):
+A single business or venture organized around solving one of the problems the Problemlösungsgesellschaft is built on — "Die Probleme von heute sind die Geschäfte für morgen" (today's problems are tomorrow's business).
+_Avoid_: using interchangeably with Problemlösungsgesellschaft (that term names the society; this one names one venture within it)
+
+**Futursysteme**:
+Xenia's name for the systems a Problemlösungsgeschäft needs to develop, prepare and convey the knowledge required to shape the future, "aus Bestehendem weiterentwickelt oder sogar in Teilen neu geschaffen" (developed further from existing systems, or in part newly created). One of Xenia's three central Themenschwerpunkte, and the theme of the **Viertel der Zukunft**.
+_Avoid_: future systems (the plain English translation flattens a coined term back into a generic description), futuristic technology
 
 ### Brand
 
