@@ -2,6 +2,8 @@
 
 Source: [quality.arc42.org](https://quality.arc42.org) (checked 2026-10-15)
 
+License: Q42 is created by Gernot Starke, CC BY-SA 4.0. This file is a condensed summary.
+
 Q42 is arc42's quality model. It provides the shared vocabulary for quality goals in arc42 Section 1.2 and quality scenarios in Section 10. As of October 2026 it lists about 190 qualities across **9 dimensions**, plus roughly 150 measurable **example requirements** and 55 **solution approaches** (architecture tactics). The dimensions overlap by design — a quality can belong to more than one, e.g. testability is tagged both `#suitable` and `#maintainable`.
 
 ---

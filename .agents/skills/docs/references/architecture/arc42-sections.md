@@ -2,6 +2,8 @@
 
 Source: [arc42.org](https://arc42.org) and [docs.arc42.org](https://docs.arc42.org) — template **v9.0 (EN, July 2025)** / **v9.1 (DE, December 2025)**. The 12 sections are unchanged since v8; sub-structure changed mainly in §5, §7 and §10. Headings below give the DE / EN names; a bundle uses one language only.
 
+License: arc42 is © Dr. Gernot Starke and Dr. Peter Hruschka, CC BY-SA 4.0. This file is a condensed adaptation.
+
 arc42 is a template for communicating and documenting software architectures. It defines 12 sections that together cover all topics a technical audience needs to understand, evaluate, and evolve a system. The template is intentionally lean — use only what adds value; mark unused sections `N/A` with a one-sentence reason.
 
 ---

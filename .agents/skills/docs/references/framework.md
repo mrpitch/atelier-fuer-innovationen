@@ -2,6 +2,8 @@
 
 The Diataxis framework (Greek: _dia_ "across" + _taxis_ "arrangement") splits documentation into four distinct types based on user need.
 
+License: Diátaxis is © Daniele Procida, CC BY-SA 4.0 (https://diataxis.fr). This file is a condensed summary.
+
 ## The Two Axes
 
 - **Practical ↔ Theoretical** — does it focus on doing or on understanding?
