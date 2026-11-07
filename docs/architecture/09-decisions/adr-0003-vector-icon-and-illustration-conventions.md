@@ -15,6 +15,7 @@ generated:
   at: 2026-11-06T15:30:00Z
 sources:
   - resource: src/components/illus.tsx
+  - resource: src/components/svg-frame.tsx
   - resource: public/illus/icon-viertel-annaeherung.svg
   - resource: public/illus/vector-showcase.svg
   - resource: docs/reference/components.md
@@ -48,15 +49,15 @@ Migrating xeniapolis.de's artwork raised two different needs that the single `<I
 Chosen: inline SVG for icons, opaque SVG/raster for illustrations, raster originals preserved under `_source/`.
 
 1. **Icon variant → inline SVG + `currentColor`.** The nine district/Zentrum icons (`icon-viertel-*.svg`, `icon-zentrum.svg`) use a 24×24 lucide-style `viewBox`, `stroke="currentColor"`, `fill="none"`. `<Illu variant="icon">` reads the file and inlines its markup via `dangerouslySetInnerHTML` instead of rendering an `<img>`, specifically so `currentColor` resolves against the page's own color instead of being trapped inside an isolated image context.
-2. **Illustration variant → SVG or raster as `<img>`, opaque by default.** Full illustrations keep their own fixed, hand-picked `viewBox` and literal fill/stroke colors rather than `currentColor`, and render through the default `<Illu>` path (`<img>` inside `ImageZoom`) — the same code path a raster PNG uses, since `next-image-export-optimizer` only processes raster formats. The exception is monochrome, background-less line art (`vector-showcase.svg`): its `illus.json` entry sets `"themed": true`, and `<Illu>` adds `dark:invert` to the `<img>` so it stays visible on the `bg-fd-card` frame in dark mode. An `<img>` SVG can't read the `.dark` class, and `prefers-color-scheme` inside it would ignore the site's theme toggle, so a CSS filter on the `<img>` is the only theme hook. Full-colour artwork is never themed.
-3. **`_source/` keeps the raster original.** When a raster illustration is recreated as a hand-authored SVG, its PNG moves to `public/illus/_source/<slug>.png` (git-tracked) instead of being deleted, giving the recreation a durable, reviewable reference.
+2. **Illustration variant → SVG or raster, opaque by default; `themed` SVG inline.** Full illustrations keep their own fixed, hand-picked `viewBox` and literal fill/stroke colors rather than `currentColor`. A raster illustration renders through `ImageZoom` and `ExportedImage`. An SVG illustration renders as a plain `<img>` inside `ImageZoom` through the shared `SvgFrame` (`src/components/svg-frame.tsx`), because `next-image-export-optimizer` only processes raster formats. The exception is an SVG whose `illus.json` or `slides.json` entry sets `"themed": true`: it uses `currentColor` or `var(--color-fd-*, <light fallback>)` (`foreground`, `background`, `card`, `muted`, `border`, see the comment in `src/components/image-zoom.css`), and `SvgFrame` reads the file and inlines its markup inside the same `bg-fd-card` frame and `ImageZoom`. An `<img>` SVG can't read the `.dark` class, `currentColor` or the page's CSS variables, and `prefers-color-scheme` inside it would ignore the site's theme toggle, so inlining is the only theme hook that keeps colour artwork intact. `react-medium-image-zoom` finds the inline `svg` and clones it into the zoom modal, where the same variables resolve. If a themed file can't be read, `SvgFrame` falls back to the plain `<img>`. Entries without `themed` keep their own colours.
+3. **`_source/` keeps the raster original.** When a raster illustration is recreated as a hand-authored SVG, its PNG moves to `public/illus/_source/<slug>.png` (git-tracked) instead of being deleted, giving the recreation a durable, reviewable reference. Narrative raster art that stays raster (`illustration-ansicht`, `illustration-ateliers-fuer-innovatoren`, `illustration-aufbruch-zum-kontinent-der-loesungen`) is different: the served copy stays in `public/illus/`, because `next-image-export-optimizer` reads from there, and a byte-identical copy is mirrored in `_source/` as the untouched reference. Nothing enforces that the two stay identical.
 
 ### Consequences
 
 - Good, because icons render correctly under both ADR-0002 palettes, in light and dark mode, without maintaining per-palette icon duplicates.
 - Good, because the raster-to-vector migration stays auditable through a plain file-move convention, without a separate asset-history tool.
-- Bad, because "SVG under `public/illus/`" now means two different internal conventions (themed/stroke-only icons vs. opaque/fill illustrations) depending on `variant` — a contributor adding a new asset must know which one applies before choosing its `viewBox` and colors.
-- Bad, because `dangerouslySetInnerHTML` on a server-read file means icon SVG markup is trusted input: it must only ever come from a file committed to this repo, never from user-supplied content.
+- Bad, because "SVG under `public/illus/`" now means two different internal conventions (themed icons and illustrations using `currentColor`/`--color-fd-*` vs. opaque/fill illustrations) depending on `variant` and the `themed` flag — a contributor adding a new asset must know which one applies before choosing its `viewBox` and colors.
+- Bad, because `dangerouslySetInnerHTML` on a server-read file means icon and themed SVG markup is trusted input: it must only ever come from a file committed to this repo, never from user-supplied content.
 
 **Risks created:** none
 
@@ -85,7 +86,7 @@ No automated check enforces the `viewBox`/color convention; it is reviewed at PR
 
 ### Theme full illustrations too (e.g. `dark:invert`)
 
-- Bad, because the source scans are already full-colour; inverting or retinting them would no longer match the original artwork the illustration is recreating.
+- Bad, because the source scans are already full-colour; inverting or retinting them would no longer match the original artwork the illustration is recreating. `themed` SVGs avoid the problem by using theme tokens instead of a filter.
 
 ## More Information
 

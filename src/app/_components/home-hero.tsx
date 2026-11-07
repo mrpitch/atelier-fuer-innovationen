@@ -7,15 +7,15 @@ export function HomeHero() {
 	return (
 		<div className="bg-fd-card/80 relative z-[2] flex flex-col border border-x px-6 pt-12 max-lg:overflow-hidden max-md:text-center md:px-12 md:pt-16">
 			<h1 className="mb-8 text-4xl font-medium md:hidden">
-				magna aliquyam erat
+				Städte des Wissens
 			</h1>
 			<h1 className="mb-8 max-w-[600px] text-4xl font-medium max-md:hidden">
-				Lorem ipsum dolor sit amet
+				Städte des Wissens als Stätten der Begegnung
 			</h1>
 			<p className="text-fd-muted-foreground mb-8 md:max-w-[80%] md:text-xl">
-				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-				eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-				voluptua.
+				Xenia ist eine Wissensstadt am Wege zur Informationsgesellschaft: ein
+				Forschungsprojekt, das den Übergang als begehbare Stadt mit einem
+				Zentrum und acht Stadtvierteln erlebbar macht.
 			</p>
 			<div className="inline-flex items-center gap-3 max-md:mx-auto">
 				<Link

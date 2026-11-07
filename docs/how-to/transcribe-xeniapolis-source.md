@@ -1,10 +1,9 @@
 ---
-name: Transcribe Xeniapolis source material
+title: Transcribe Xeniapolis source material
 description: How to transcribe text from the archived xeniapolis.de source pages into MDX content without introducing unintended edits.
 tags: [xeniapolis, migration, transcription, content]
-kind: how-to
-type: How-To Guide
-status: current
+type: how-to
+status: stable
 last_reviewed: 2026-08-30
 authoritative: true
 ---

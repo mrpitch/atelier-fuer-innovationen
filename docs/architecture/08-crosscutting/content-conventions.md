@@ -27,11 +27,12 @@ Content Sources, Content Validator and CI/CD Workflow share one contract: every 
 
 ## Rules
 
-| Rule                                                                             | Enforced by                                                     | Scope                                        |
-| -------------------------------------------------------------------------------- | --------------------------------------------------------------- | -------------------------------------------- |
-| Every `.md` and `.mdx` file has a frontmatter block with `type`                  | `scripts/validate-okf.ts` (`pnpm validate:okf`)                 | Whole repository, minus the exemptions below |
-| Content pages also carry `title` and `description`                               | Convention in [README](../../../README.md); not machine-checked | `src/content/docs/`                          |
-| A page appears in the sidebar only when its slug is in the section's `meta.json` | Convention; Fumadocs ignores the rest                           | `src/content/docs/**/meta.json`              |
+| Rule                                                                                                                                                                                                                                      | Enforced by                                                     | Scope                                        |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | -------------------------------------------- |
+| Every `.md` and `.mdx` file has a frontmatter block with `type`                                                                                                                                                                           | `scripts/validate-okf.ts` (`pnpm validate:okf`)                 | Whole repository, minus the exemptions below |
+| Content pages also carry `title` and `description`                                                                                                                                                                                        | Convention in [README](../../../README.md); not machine-checked | `src/content/docs/`                          |
+| Every `<Illu>`/`<Slide>` slug resolves to a registry entry, every `illus.json`/`slides.json` asset exists under `public/`, every `meta.json` `pages` entry resolves to a page, and every relative image or link in MDX resolves to a file | `scripts/validate-content.ts` (`pnpm validate:content`)         | `src/content/docs/`, `src/data/`, `public/`  |
+| A page appears in the sidebar only when its slug is in the section's `meta.json`                                                                                                                                                          | Convention; Fumadocs ignores the rest                           | `src/content/docs/**/meta.json`              |
 
 ## Exemptions
 
@@ -47,6 +48,8 @@ The validator skips these without checking them:
 ## When it runs
 
 `.github/workflows/main.yml` runs job `validate-okf` (`pnpm test`, then `pnpm validate:okf`) on every push to `main` and every pull request targeting `main`, whether or not Markdown changed. Job `deploy` needs it (and job `quality`), so a failed validation stops the deploy. See [RISK-03](../11-risks/risks-and-tech-debt.md).
+
+Job `validate-content` runs `pnpm validate:content` and job `build-check` runs `pnpm build` and fails on the pinned missing-image warning strings, both on every push and pull request. Job `deploy` needs all four check jobs.
 
 `pnpm test` runs `tsx --test scripts/*.test.ts`. It covers the validator and the other scripts, not the application.
 

@@ -1,10 +1,9 @@
 ---
-name: Recreate an illustration as SVG
+title: Recreate an illustration as SVG
 description: How to move a raster Xeniapolis illustration to a hand-recreated SVG while keeping the original as a design reference.
 tags: [xeniapolis, migration, illustration, svg, assets]
-kind: how-to
-type: How-To Guide
-status: current
+type: how-to
+status: stable
 last_reviewed: 2026-08-30
 authoritative: true
 ---

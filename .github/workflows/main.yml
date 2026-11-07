@@ -13,21 +13,6 @@ env:
   HUSKY: 0
 
 jobs:
-  check-changes:
-    runs-on: ubuntu-latest
-    outputs:
-      content: ${{ steps.filter.outputs.content }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: dorny/paths-filter@v3
-        id: filter
-        with:
-          filters: |
-            content:
-              - 'src/content/docs/**'
-              - 'src/data/**'
-              - 'public/**'
-
   quality:
     runs-on: ubuntu-latest
     steps:
@@ -61,8 +46,6 @@ jobs:
         run: pnpm validate:okf
 
   validate-content:
-    needs: check-changes
-    if: needs.check-changes.outputs.content == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -72,14 +55,10 @@ jobs:
           cache: true
       - name: Install modules
         run: pnpm install --frozen-lockfile
-      - name: Run tests
-        run: pnpm test
       - name: Validate content integrity
         run: pnpm validate:content
 
   build-check:
-    needs: check-changes
-    if: needs.check-changes.outputs.content == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -90,59 +69,69 @@ jobs:
       - name: Install modules
         run: pnpm install --frozen-lockfile
       - name: Build and capture output
+        # pipefail: without it `tee` would mask a failed build.
+        shell: bash
         run: pnpm build 2>&1 | tee build.log
       - name: Fail on known missing-image / unresolved-link warning signatures
         run: |
-          # Pinned warning strings — each verified against this repo's actual
-          # source rather than guessed:
+          # Pinned warning strings. Each is a literal emitted by code this
+          # repo builds with:
           #
           # "Module not found: Can't resolve"
-          #   Webpack/Next.js's own diagnostic when an import can't be
-          #   resolved. Fumadocs' remarkImage preset (enabled by default; see
-          #   the remarkImageOptions handling in
-          #   fumadocs-core/dist/content/mdx/preset-bundler.js) rewrites every
-          #   relative/absolute MDX image reference into a static `import`, so
-          #   a broken image path in content fails the build with exactly this
-          #   string.
+          #   Webpack/Turbopack's own diagnostic for an unresolvable import.
+          #   Fumadocs' remarkImage preset rewrites every MDX image reference
+          #   into a static `import`, so a missing image file in content
+          #   fails with this string.
           #
           # "Error loading illus:" / "Error loading slides:"
-          #   Literal console.error prefixes in src/components/illus.tsx and
-          #   src/components/slides.tsx, logged when the dynamic import of
-          #   src/data/illus.json or slides.json throws during that async
-          #   server component's render, which Next executes for every page
-          #   during the static export build.
-          PATTERN="Module not found: Can't resolve|Error loading illus:|Error loading slides:"
+          #   console.error prefixes in src/components/illus.tsx and
+          #   slides.tsx, logged when the dynamic import of src/data/illus.json
+          #   or slides.json throws while a page renders.
+          #
+          # "Error loading icon illu:"
+          #   console.error prefix in the icon variant of <Illu>
+          #   (src/components/illus.tsx), logged when the registered SVG file
+          #   is missing under public/.
+          #
+          # "Error parsing URL"
+          #   console.error in next-image-export-optimizer's ExportedImage
+          #   (dist/ExportedImage.js) for an image src it cannot parse.
+          #
+          # Not pinned, because nothing emits a string for them: an <Illu>
+          # or <Slide> slug missing from the registry renders null silently,
+          # and neither Next nor Fumadocs checks internal links at build
+          # time. `pnpm validate:content` (job validate-content) covers both.
+          PATTERN="Module not found: Can't resolve|Error loading illus:|Error loading slides:|Error loading icon illu:|Error parsing URL"
           if grep -E "$PATTERN" build.log; then
-            echo "::error::Build produced a missing-image / unresolved-link warning (see above)"
+            echo "::error::Build produced a missing-image warning (see above)"
             exit 1
           fi
+      - name: Upload static export
+        # Reused by the deploy job so the published bytes are the ones checked.
+        uses: actions/upload-artifact@v4
+        with:
+          name: out
+          path: out/
+          retention-days: 1
+          if-no-files-found: error
 
   deploy:
     # A pull request runs the checks only; publishing is for pushes to main.
-    # validate-content and build-check are skipped when no content changed,
-    # and a skipped `needs` job would skip this one too — so gate on "nothing
-    # failed" explicitly instead of relying on the implicit success().
-    if: >-
-      github.event_name == 'push' && !cancelled() &&
-      !contains(needs.*.result, 'failure')
+    if: github.event_name == 'push'
     needs: [quality, validate-okf, validate-content, build-check]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Download static export
+        uses: actions/download-artifact@v4
+        with:
+          name: out
+          path: out/
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_S3_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_S3_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.AWS_S3_REGION }}
-      - uses: pnpm/action-setup@v6
-        with:
-          cache: true
-      - name: Install modules
-        run: pnpm install
-      - name: Build application
-        run: pnpm build
       - name: Deploy to S3
         run: aws s3 sync ./out/ s3://${{ vars.AWS_S3_BUCKET_NAME }}
       - name: Create CloudFront invalidation

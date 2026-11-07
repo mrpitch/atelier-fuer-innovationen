@@ -13,7 +13,7 @@
 		{
 			"slug": "illustration-xenia-im-netzwerk-der-wissensstaedte",
 			"name": "Xenia im Netzwerk der Wissensstädte",
-			"image": "/illus/illustration-xenia-im-netzwerk-der-wissensstaedte.svg"
+			"image": "/illus/illustration-xenia-im-netzwerk-der-wissensstaedte.png"
 		},
 		{
 			"slug": "illustration-ateliers-fuer-innovatoren",
@@ -23,47 +23,56 @@
 		{
 			"slug": "modell-zentrum",
 			"name": "Ein Besuch im Zentrum der Wissensstadt",
-			"image": "/illus/modell-zentrum.svg"
+			"image": "/illus/modell-zentrum.svg",
+			"themed": true
 		},
 		{
 			"slug": "modell-annaeherung",
 			"name": "Das Viertel der Annäherung im Zentrum der Wissensstadt",
-			"image": "/illus/modell-annaeherung.svg"
+			"image": "/illus/modell-annaeherung.svg",
+			"themed": true
 		},
 		{
 			"slug": "modell-markt",
 			"name": "Das Viertel der Märkte und Kooperation im Zentrum der Wissensstadt",
-			"image": "/illus/modell-markt.svg"
+			"image": "/illus/modell-markt.svg",
+			"themed": true
 		},
 		{
 			"slug": "modell-kontext",
 			"name": "Das Viertel der Kontexte im Zentrum der Wissensstadt",
-			"image": "/illus/modell-kontext.svg"
+			"image": "/illus/modell-kontext.svg",
+			"themed": true
 		},
 		{
 			"slug": "modell-inszenierung",
 			"name": "Das Viertel der Inszenierung im Zentrum der Wissensstadt",
-			"image": "/illus/modell-inszenierung.svg"
+			"image": "/illus/modell-inszenierung.svg",
+			"themed": true
 		},
 		{
 			"slug": "modell-zukunft",
 			"name": "Das Viertel der Zukunft im Zentrum der Wissensstadt",
-			"image": "/illus/modell-zukunft.svg"
+			"image": "/illus/modell-zukunft.svg",
+			"themed": true
 		},
 		{
 			"slug": "modell-wertschoepfung",
 			"name": "Das Viertel der Wertschöpfung im Zentrum der Wissensstadt",
-			"image": "/illus/modell-wertschoepfung.svg"
+			"image": "/illus/modell-wertschoepfung.svg",
+			"themed": true
 		},
 		{
 			"slug": "modell-potentiale",
 			"name": "Das Viertel der Potentiale im Zentrum der Wissensstadt",
-			"image": "/illus/modell-potentiale.svg"
+			"image": "/illus/modell-potentiale.svg",
+			"themed": true
 		},
 		{
 			"slug": "modell-fuehrung",
 			"name": "Das Viertel der Führung im Zentrum der Wissensstadt",
-			"image": "/illus/modell-fuehrung.svg"
+			"image": "/illus/modell-fuehrung.svg",
+			"themed": true
 		},
 		{
 			"slug": "vector-showcase",
@@ -115,6 +124,661 @@
 			"slug": "icon-zentrum",
 			"name": "Zentrum der Wissensstadt",
 			"image": "/illus/icon-zentrum.svg"
+		},
+		{
+			"slug": "cebit95-stadtansicht",
+			"name": "Stadtansicht von Xenia als Kulisse auf der CeBIT '95",
+			"image": "/illus/cebit95-stadtansicht.png"
+		},
+		{
+			"slug": "cebit95-kondratieff-fassade",
+			"name": "Exponat \"Die Zyklen des Kondratieff\" auf der CeBIT '95",
+			"image": "/illus/cebit95-kondratieff-fassade.png"
+		},
+		{
+			"slug": "cebit95-medienwarte",
+			"name": "Exponat \"Das Ensemble der Medien\" als tempelartige Fassade auf der CeBIT '95",
+			"image": "/illus/cebit95-medienwarte.png"
+		},
+		{
+			"slug": "cebit95-kulturen-des-wissens",
+			"name": "Zeichnung zum Exponat \"Kulturen des Wissens\"",
+			"image": "/illus/cebit95-kulturen-des-wissens.png"
+		},
+		{
+			"slug": "cebit95-besucher-chancen-2000",
+			"name": "Besucher der Veranstaltung CHANCEN 2000 vor der Kulisse der Wissenstadt Xenia",
+			"image": "/illus/cebit95-besucher-chancen-2000.png"
+		},
+		{
+			"slug": "cebit95-suessmuth-autogramm",
+			"name": "Rita Süßmuth gibt nach dem Stadtrundgang ein Autogramm",
+			"image": "/illus/cebit95-suessmuth-autogramm.png"
+		},
+		{
+			"slug": "cebit95-ruettgers-informationsmaterial",
+			"name": "Bundesforschungsminister Rüttgers am Ende des Stadtrundgangs",
+			"image": "/illus/cebit95-ruettgers-informationsmaterial.png"
+		},
+		{
+			"slug": "cebit95-leonhard-im-atelier",
+			"name": "Willy Leonhard im Atelier für Innovatoren",
+			"image": "/illus/cebit95-leonhard-im-atelier.png"
+		},
+		{
+			"slug": "cebit95-halle-15",
+			"name": "Blick aus dem Mediencafe in Halle 15",
+			"image": "/illus/cebit95-halle-15.png"
+		},
+		{
+			"slug": "cebit95-chinesische-delegation",
+			"name": "Chinesische Wissenschaftsdelegation im Atelier für Innovatoren",
+			"image": "/illus/cebit95-chinesische-delegation.png"
+		},
+		{
+			"slug": "cebit95-besucher-im-gespraech",
+			"name": "Besucher nach dem Stadtrundgang vor dem Ensemble der Medien",
+			"image": "/illus/cebit95-besucher-im-gespraech.png"
+		},
+		{
+			"slug": "cebit95-braess-im-atelier",
+			"name": "Prof. Braess im Atelier für Innovatoren im Gespräch",
+			"image": "/illus/cebit95-braess-im-atelier.png"
+		},
+		{
+			"slug": "cebit95-schroeder-informationsmaterial",
+			"name": "Hiltrud Schröder erhält Informationsmaterial am Ende des Stadtrundgangs",
+			"image": "/illus/cebit95-schroeder-informationsmaterial.png"
+		},
+		{
+			"slug": "cebit95-junge-besucher",
+			"name": "Junge Besucher im Atelier für Innovatoren mit dem Stadtführer Gantenbein junior",
+			"image": "/illus/cebit95-junge-besucher.png"
+		},
+		{
+			"slug": "cebit95-engelbert-volkmann",
+			"name": "Arthur Engelbert und Helmut Volkmann im Atelier für Innovatoren",
+			"image": "/illus/cebit95-engelbert-volkmann.png"
+		},
+		{
+			"slug": "cebit95-messeigel",
+			"name": "Die Veranstalter von CHANCEN 2000 beim abendlichen Ritual des \"Messeigels\"",
+			"image": "/illus/cebit95-messeigel.png"
+		},
+		{
+			"slug": "cebit95-presse-hallenzeitung-15-3-1995",
+			"name": "CeBIT-Hallenzeitung vom 15. März 1995 mit dem Artikel \"In der Stadt des Wissens für die Zukunft lernen\"",
+			"image": "/illus/cebit95-presse-hallenzeitung-15-3-1995.png"
+		},
+		{
+			"slug": "cebit95-presse-leipziger-volkszeitung",
+			"name": "Bericht in der Leipziger Volkszeitung über Xenia auf der CeBIT '95",
+			"image": "/illus/cebit95-presse-leipziger-volkszeitung.png"
+		},
+		{
+			"slug": "cebit95-presse-berliner-morgenpost",
+			"name": "Bericht in der Berliner Morgenpost über Xenia auf der CeBIT '95",
+			"image": "/illus/cebit95-presse-berliner-morgenpost.png"
+		},
+		{
+			"slug": "cebit95-presse-hallenzeitung-ausschnitt",
+			"name": "Ausschnitt aus der CeBIT-Hallenzeitung",
+			"image": "/illus/cebit95-presse-hallenzeitung-ausschnitt.png"
+		},
+		{
+			"slug": "cebit95-goldenes-buch-seite-1",
+			"name": "Das Goldene Buch der Stadt Xenia, aufgeschlagen",
+			"image": "/illus/cebit95-goldenes-buch-seite-1.png"
+		},
+		{
+			"slug": "cebit95-goldenes-buch-seite-2",
+			"name": "Das Goldene Buch der Stadt Xenia, Seite 2",
+			"image": "/illus/cebit95-goldenes-buch-seite-2.png"
+		},
+		{
+			"slug": "cebit95-goldenes-buch-seite-3",
+			"name": "Das Goldene Buch der Stadt Xenia, Seite 3",
+			"image": "/illus/cebit95-goldenes-buch-seite-3.png"
+		},
+		{
+			"slug": "cebit95-goldenes-buch-seite-4",
+			"name": "Das Goldene Buch der Stadt Xenia, Seite 4",
+			"image": "/illus/cebit95-goldenes-buch-seite-4.png"
+		},
+		{
+			"slug": "cebit95-goldenes-buch-seite-5",
+			"name": "Das Goldene Buch der Stadt Xenia, Seite 5",
+			"image": "/illus/cebit95-goldenes-buch-seite-5.png"
+		},
+		{
+			"slug": "cebit95-goldenes-buch-seite-6",
+			"name": "Das Goldene Buch der Stadt Xenia, Seite 6",
+			"image": "/illus/cebit95-goldenes-buch-seite-6.png"
+		},
+		{
+			"slug": "cebit95-goldenes-buch-seite-7",
+			"name": "Das Goldene Buch der Stadt Xenia, Seite 7",
+			"image": "/illus/cebit95-goldenes-buch-seite-7.png"
+		},
+		{
+			"slug": "cebit95-suessmuth-im-atelier",
+			"name": "Rita Süßmuth im Atelier für Innovatoren auf der CeBIT '95",
+			"image": "/illus/cebit95-suessmuth-im-atelier.png"
+		},
+		{
+			"slug": "cebit95-leonhard-platz-der-zukunft",
+			"name": "Willy Leonhard beim Stadtrundgang am Platz der Zukunft",
+			"image": "/illus/cebit95-leonhard-platz-der-zukunft.png"
+		},
+		{
+			"slug": "cebit95-ruettgers-kondratieff",
+			"name": "Bundesforschungsminister Rüttgers vor den Kondratieff-Zyklen",
+			"image": "/illus/cebit95-ruettgers-kondratieff.png"
+		},
+		{
+			"slug": "cebit95-glashaus-bruno-taut",
+			"name": "Glashaus von Bruno Taut in der Computeranimation \"Kulturen des Wissens\"",
+			"image": "/illus/cebit95-glashaus-bruno-taut.png"
+		},
+		{
+			"slug": "cebit95-braess-ensemble-der-medien",
+			"name": "Prof. Braess vor dem Ensemble der Medien",
+			"image": "/illus/cebit95-braess-ensemble-der-medien.png"
+		},
+		{
+			"slug": "cebit95-eintrag-renate-schmidt",
+			"name": "Eintrag von Renate Schmidt im Goldenen Buch der Stadt Xenia",
+			"image": "/illus/cebit95-eintrag-renate-schmidt.png"
+		},
+		{
+			"slug": "cebit95-franz-alt",
+			"name": "Franz Alt bei der Diskussion vor dem Ensemble der Medien",
+			"image": "/illus/cebit95-franz-alt.png"
+		},
+		{
+			"slug": "presse-spiegel-20-1996-modell",
+			"name": "Helmut Volkmann am Modell der Wissensstadt (Foto zum SPIEGEL-Artikel 20/1996)",
+			"image": "/illus/presse-spiegel-20-1996-modell.png"
+		},
+		{
+			"slug": "presse-spiegel-20-1996-atelier",
+			"name": "Helmut Volkmann am Computerarbeitsplatz im Atelier für Innovatoren (Foto zum SPIEGEL-Artikel 20/1996)",
+			"image": "/illus/presse-spiegel-20-1996-atelier.png"
+		},
+		{
+			"slug": "presse-muenchner-merkur-volkmann-modell",
+			"name": "Helmut Volkmann mit seiner Stadt des Wissens (Foto zum Artikel im Münchner Merkur, 1./2. Juni 1996)",
+			"image": "/illus/presse-muenchner-merkur-volkmann-modell.png"
+		},
+		{
+			"slug": "kontexte-skala-der-beduerfnisse",
+			"name": "Lebensqualität, Skala der Bedürfnisse und der Bedürfnisbefriedigung",
+			"image": "/illus/kontexte-skala-der-beduerfnisse.gif"
+		},
+		{
+			"slug": "kontexte-staedte-potentiale-und-probleme",
+			"name": "\"Städte\": Potentiale und Probleme",
+			"image": "/illus/kontexte-staedte-potentiale-und-probleme.gif"
+		},
+		{
+			"slug": "kontexte-wiederbelebung-der-polis",
+			"name": "Die Wiederbelebung der Polis",
+			"image": "/illus/kontexte-wiederbelebung-der-polis.gif"
+		},
+		{
+			"slug": "kontexte-xenia-platz-der-zukunft",
+			"name": "Xenia, Platz der Zukunft",
+			"image": "/illus/kontexte-xenia-platz-der-zukunft.gif"
+		},
+		{
+			"slug": "kontexte-visionen-innovationen-paradigmen",
+			"name": "Visionen - Innovationen - Paradigmen",
+			"image": "/illus/kontexte-visionen-innovationen-paradigmen.gif"
+		},
+		{
+			"slug": "kontexte-gedankenkreise-heureka",
+			"name": "Gedankenkreise für eine \"heiße, kreative Mischung\"",
+			"image": "/illus/kontexte-gedankenkreise-heureka.gif"
+		},
+		{
+			"slug": "kontexte-potential-defizit-balance-rechnung",
+			"name": "Potential-Defizit-Balance-Rechnung",
+			"image": "/illus/kontexte-potential-defizit-balance-rechnung.gif"
+		},
+		{
+			"slug": "kontexte-eine-welt-kommt-in-bewegung",
+			"name": "\"Eine Welt\" kommt in Bewegung",
+			"image": "/illus/kontexte-eine-welt-kommt-in-bewegung.gif"
+		},
+		{
+			"slug": "kontexte-individuum-in-der-gemeinschaft",
+			"name": "Das Individuum in der Gemeinschaft",
+			"image": "/illus/kontexte-individuum-in-der-gemeinschaft.gif"
+		},
+		{
+			"slug": "kontexte-verantwortungsstrategien",
+			"name": "Verantwortungsstrategien - Ausprägungen und Wirkungen",
+			"image": "/illus/kontexte-verantwortungsstrategien.gif"
+		},
+		{
+			"slug": "kontexte-bifurkationen-weltmodelle",
+			"name": "Bifurkationen bei alternativen Weltmodellen",
+			"image": "/illus/kontexte-bifurkationen-weltmodelle.gif"
+		},
+		{
+			"slug": "kontexte-der-weg-ist-das-ziel",
+			"name": "Der Weg ist das Ziel!",
+			"image": "/illus/kontexte-der-weg-ist-das-ziel.gif"
+		},
+		{
+			"slug": "kontexte-xenia-stadtplan",
+			"name": "Xenia - Stadtplan der modernen Viertel",
+			"image": "/illus/kontexte-xenia-stadtplan.gif"
+		},
+		{
+			"slug": "kontexte-gestaltungsfelder-leitvorhaben",
+			"name": "Gestaltungsfelder und Leitvorhaben",
+			"image": "/illus/kontexte-gestaltungsfelder-leitvorhaben.gif"
+		},
+		{
+			"slug": "kontexte-kontextwissen-faktenwissen",
+			"name": "Kontextwissen und Faktenwissen",
+			"image": "/illus/kontexte-kontextwissen-faktenwissen.gif"
+		},
+		{
+			"slug": "kontexte-xenia-konzept",
+			"name": "Das XENIA-Konzept",
+			"image": "/illus/kontexte-xenia-konzept.gif"
+		},
+		{
+			"slug": "kontexte-1-1",
+			"name": "Wandel der Beschäftigungsstruktur",
+			"image": "/illus/kontexte-1-1.gif"
+		},
+		{
+			"slug": "kontexte-1-2",
+			"name": "Das informationale Babylon",
+			"image": "/illus/kontexte-1-2.gif"
+		},
+		{
+			"slug": "kontexte-1-3",
+			"name": "Beschützte Weisheit - Geordnetes Staatswesen",
+			"image": "/illus/kontexte-1-3.gif"
+		},
+		{
+			"slug": "kontexte-1-4",
+			"name": "Die Mission des Hl. Franziskus",
+			"image": "/illus/kontexte-1-4.gif"
+		},
+		{
+			"slug": "kontexte-1-5",
+			"name": "Unternehmerische Engagements im visionären Vorfeld",
+			"image": "/illus/kontexte-1-5.gif"
+		},
+		{
+			"slug": "kontexte-1-6",
+			"name": "Xenia, Stadt des Wissens und Stätte der Begegnung",
+			"image": "/illus/kontexte-1-6.gif"
+		},
+		{
+			"slug": "kontexte-1-7",
+			"name": "Potentiale einer Stadt des Wissens nutzen!",
+			"image": "/illus/kontexte-1-7.gif"
+		},
+		{
+			"slug": "kontexte-1-8",
+			"name": "Das Vor-Bild: Der Erfinderunternehmer",
+			"image": "/illus/kontexte-1-8.gif"
+		},
+		{
+			"slug": "kontexte-3-1",
+			"name": "Das SATORI-Konzept",
+			"image": "/illus/kontexte-3-1.gif"
+		},
+		{
+			"slug": "kontexte-3-2",
+			"name": "\"Eine Welt\" der Probleme und Revolutionen",
+			"image": "/illus/kontexte-3-2.gif"
+		},
+		{
+			"slug": "kontexte-3-3",
+			"name": "Die Gestaltungsfelder der Problemlösungsgesellschaft",
+			"image": "/illus/kontexte-3-3.gif"
+		},
+		{
+			"slug": "kontexte-3-5",
+			"name": "Die erste globale Revolution",
+			"image": "/illus/kontexte-3-5.gif"
+		},
+		{
+			"slug": "kontexte-3-6",
+			"name": "Megatrends der Erfordernisse",
+			"image": "/illus/kontexte-3-6.gif"
+		},
+		{
+			"slug": "kontexte-3-7",
+			"name": "\"Gedanken\"",
+			"image": "/illus/kontexte-3-7.gif"
+		},
+		{
+			"slug": "kontexte-3-8",
+			"name": "Eine programmatische Skizzierung",
+			"image": "/illus/kontexte-3-8.gif"
+		},
+		{
+			"slug": "kontexte-ewelt6a",
+			"name": "XENIA-System im Überblick",
+			"image": "/illus/kontexte-ewelt6a.png"
+		},
+		{
+			"slug": "kontexte-ewelt6b",
+			"name": "Wissensrepräsentation in urbanem Ambiente",
+			"image": "/illus/kontexte-ewelt6b.png"
+		},
+		{
+			"slug": "kontexte-ewelt6c",
+			"name": "Kontext und Fokus als komplementäre Regulatoren",
+			"image": "/illus/kontexte-ewelt6c.png"
+		},
+		{
+			"slug": "kontexte-ewelt6d",
+			"name": "Die thematisch-methodische Inszenierung",
+			"image": "/illus/kontexte-ewelt6d.png"
+		},
+		{
+			"slug": "kontexte-ewelt6e",
+			"name": "Das Fokusthema",
+			"image": "/illus/kontexte-ewelt6e.png"
+		},
+		{
+			"slug": "kontexte-ewelt6f",
+			"name": "Der innovative Support",
+			"image": "/illus/kontexte-ewelt6f.png"
+		},
+		{
+			"slug": "kontexte-ewelt6g",
+			"name": "Mehrfach weiterverwendbare Wissensbausteine",
+			"image": "/illus/kontexte-ewelt6g.png"
+		},
+		{
+			"slug": "kontexte-ewelt6h",
+			"name": "Das Netzwerk für Innovatoren",
+			"image": "/illus/kontexte-ewelt6h.png"
+		},
+		{
+			"slug": "kontexte-ewelt7a",
+			"name": "Das XENIA-Konzept - vorbereitete Komplexe",
+			"image": "/illus/kontexte-ewelt7a.png"
+		},
+		{
+			"slug": "kontexte-ewelt7b",
+			"name": "Handlungsszenario: Wissensstädte und/oder Datenautobahnen",
+			"image": "/illus/kontexte-ewelt7b.png"
+		},
+		{
+			"slug": "kontexte-ewelt7c",
+			"name": "Kontextszenario: Die Leerstelle",
+			"image": "/illus/kontexte-ewelt7c.png"
+		},
+		{
+			"slug": "kontexte-ewelt7d",
+			"name": "Das Leitbild: Entstehung und Perspektiven der Erweiterung",
+			"image": "/illus/kontexte-ewelt7d.png"
+		},
+		{
+			"slug": "kontexte-ewelt7e",
+			"name": "Das Applikationenszenario",
+			"image": "/illus/kontexte-ewelt7e.png"
+		},
+		{
+			"slug": "kontexte-ewelt7f",
+			"name": "Das Portfolio für Innovationen",
+			"image": "/illus/kontexte-ewelt7f.png"
+		},
+		{
+			"slug": "kontexte-ewelt7g",
+			"name": "Das Potentialeportfolio",
+			"image": "/illus/kontexte-ewelt7g.png"
+		},
+		{
+			"slug": "kontexte-ewelt7h",
+			"name": "Das unternehmerische Programm",
+			"image": "/illus/kontexte-ewelt7h.png"
+		},
+		{
+			"slug": "kontexte-ewelt8a",
+			"name": "Innovative Herausforderungen aus Sicht der Führung",
+			"image": "/illus/kontexte-ewelt8a.png"
+		},
+		{
+			"slug": "kontexte-ewelt8b",
+			"name": "EXPO 2000 - mehr Markttransparenz für Innovationen",
+			"image": "/illus/kontexte-ewelt8b.png"
+		},
+		{
+			"slug": "kontexte-ewelt8c",
+			"name": "Kybernetischer Ansatz zur Systembeherrschung",
+			"image": "/illus/kontexte-ewelt8c.png"
+		},
+		{
+			"slug": "kontexte-ewelt8d",
+			"name": "Xenia, Festival Futur",
+			"image": "/illus/kontexte-ewelt8d.png"
+		},
+		{
+			"slug": "kontexte-ewelt8e",
+			"name": "Wege zur Informationsgesellschaft",
+			"image": "/illus/kontexte-ewelt8e.png"
+		},
+		{
+			"slug": "kontexte-ewelt8f",
+			"name": "Makro-Gestaltungspotentiale des Wandels",
+			"image": "/illus/kontexte-ewelt8f.png"
+		},
+		{
+			"slug": "kontexte-ewelt8g",
+			"name": "\"Halb voll oder halb leer\"",
+			"image": "/illus/kontexte-ewelt8g.png"
+		},
+		{
+			"slug": "kontexte-ewelt8h",
+			"name": "Unternehmerische Perspektiven mit Xenia",
+			"image": "/illus/kontexte-ewelt8h.png"
+		},
+		{
+			"slug": "telepolis-willkommen",
+			"name": "Xenia, die Wissensstadt am Weg zur Informationsgesellschaft ... zu Gast bei Telepolis",
+			"image": "/illus/telepolis-willkommen.gif"
+		},
+		{
+			"slug": "telepolis-uebersicht",
+			"name": "Die neun Stadtviertel als Menü der Übersicht: Annäherung, Kooperation, Kontext, Inszenierung, Zukunft, Wertschöpfung, Ressourcen, Führung, Zentrum",
+			"image": "/illus/telepolis-uebersicht.gif"
+		},
+		{
+			"slug": "telepolis-stadtplan-xenia",
+			"name": "Stadtplan der Wissensstadt Xenia mit den neun Stadtvierteln",
+			"image": "/illus/telepolis-stadtplan-xenia.gif"
+		},
+		{
+			"slug": "telepolis-themenschwerpunkte",
+			"name": "Die neun Themenschwerpunkte der Zukunftsgestaltung in Xeniapolis, den Stadtvierteln zugeordnet",
+			"image": "/illus/telepolis-themenschwerpunkte.gif"
+		},
+		{
+			"slug": "telepolis-wissensarchitekturen",
+			"name": "Die zwölf Wissensarchitekturen im Kreis angeordnet",
+			"image": "/illus/telepolis-wissensarchitekturen.gif"
+		},
+		{
+			"slug": "telepolis-kulturen-glashaus",
+			"name": "Kulturen des Wissens: Glashaus von Bruno Taut in der Computeranimation",
+			"image": "/illus/telepolis-kulturen-glashaus.gif"
+		},
+		{
+			"slug": "telepolis-kulturen-bibliothek",
+			"name": "Kulturen des Wissens: Bibliothek in der Computeranimation",
+			"image": "/illus/telepolis-kulturen-bibliothek.gif"
+		},
+		{
+			"slug": "telepolis-kulturen-stadtplan",
+			"name": "Kulturen des Wissens: Stadtplan in der Computeranimation",
+			"image": "/illus/telepolis-kulturen-stadtplan.gif"
+		},
+		{
+			"slug": "telepolis-kulturen-kuppel",
+			"name": "Kulturen des Wissens: Kuppel des Glashauses in der Computeranimation",
+			"image": "/illus/telepolis-kulturen-kuppel.gif"
+		},
+		{
+			"slug": "telepolis-wissensarchitektur-04",
+			"name": "Wissensarchitekturen 4: Behälterartige Anordnungsformen",
+			"image": "/illus/telepolis-wissensarchitektur-04.gif"
+		},
+		{
+			"slug": "telepolis-wissensarchitektur-05",
+			"name": "Wissensarchitekturen 5: Außenarchitektur, Fassaden und Fassadenelemente",
+			"image": "/illus/telepolis-wissensarchitektur-05.gif"
+		},
+		{
+			"slug": "telepolis-wissensarchitektur-06",
+			"name": "Wissensarchitekturen 6: Bauliche Ensembles nach Vorbildern der Architektur",
+			"image": "/illus/telepolis-wissensarchitektur-06.gif"
+		},
+		{
+			"slug": "telepolis-wissensarchitektur-07",
+			"name": "Wissensarchitekturen 7: Straßen und Plätze",
+			"image": "/illus/telepolis-wissensarchitektur-07.gif"
+		},
+		{
+			"slug": "telepolis-wissensarchitektur-08",
+			"name": "Wissensarchitekturen 8: Landschaften und Parkanlagen",
+			"image": "/illus/telepolis-wissensarchitektur-08.gif"
+		},
+		{
+			"slug": "telepolis-wissensarchitektur-09",
+			"name": "Wissensarchitekturen 9: Kontextuelle, selbstreferentielle Positionierungen im dreidimensionalen Raum",
+			"image": "/illus/telepolis-wissensarchitektur-09.gif"
+		},
+		{
+			"slug": "telepolis-wissensarchitektur-10",
+			"name": "Wissensarchitekturen 10: Abstrakte, selbstreferentielle Gestaltgebung",
+			"image": "/illus/telepolis-wissensarchitektur-10.gif"
+		},
+		{
+			"slug": "telepolis-wissensarchitektur-11",
+			"name": "Wissensarchitekturen 11: Abstrakte, selbstreferentielle Vernetzung",
+			"image": "/illus/telepolis-wissensarchitektur-11.gif"
+		},
+		{
+			"slug": "telepolis-wissensarchitektur-12",
+			"name": "Wissensarchitekturen 12: Abstrakte Ensembles in künstlerischer Form- und Farbgebung",
+			"image": "/illus/telepolis-wissensarchitektur-12.gif"
+		},
+		{
+			"slug": "telepolis-messerueckblick-01",
+			"name": "Messerückblick 1: Platz der Zukunft in XENIA in Halle 15",
+			"image": "/illus/telepolis-messerueckblick-01.gif"
+		},
+		{
+			"slug": "telepolis-messerueckblick-02",
+			"name": "Messerückblick 2: Besucher von CHANCEN 2000 vor der Kulisse der Wissensstadt XENIA",
+			"image": "/illus/telepolis-messerueckblick-02.gif"
+		},
+		{
+			"slug": "telepolis-messerueckblick-04",
+			"name": "Messerückblick 4: Rita Süssmuth beim Autogramm nach dem Stadtrundgang",
+			"image": "/illus/telepolis-messerueckblick-04.gif"
+		},
+		{
+			"slug": "telepolis-messerueckblick-05",
+			"name": "Messerückblick 5: Bundesforschungsminister Rüttgers am Ende des Stadtrundgangs",
+			"image": "/illus/telepolis-messerueckblick-05.gif"
+		},
+		{
+			"slug": "telepolis-messerueckblick-06",
+			"name": "Messerückblick 6: Willy Leonhard im Atelier für Innovatoren",
+			"image": "/illus/telepolis-messerueckblick-06.gif"
+		},
+		{
+			"slug": "telepolis-messerueckblick-07",
+			"name": "Messerückblick 7: Blick aus dem Mediencafe in Halle 15",
+			"image": "/illus/telepolis-messerueckblick-07.gif"
+		},
+		{
+			"slug": "telepolis-messerueckblick-08",
+			"name": "Messerückblick 8: Chinesische Wissenschaftsdelegation im Atelier für Innovatoren",
+			"image": "/illus/telepolis-messerueckblick-08.gif"
+		},
+		{
+			"slug": "telepolis-messerueckblick-09",
+			"name": "Messerückblick 9: Besucher vor dem Ensemble der Medien",
+			"image": "/illus/telepolis-messerueckblick-09.gif"
+		},
+		{
+			"slug": "telepolis-messerueckblick-10",
+			"name": "Messerückblick 10: H. H. Braess im Atelier für Innovatoren",
+			"image": "/illus/telepolis-messerueckblick-10.gif"
+		},
+		{
+			"slug": "telepolis-messerueckblick-11",
+			"name": "Messerückblick 11: Hiltrud Schröder erhält Informationsmaterial",
+			"image": "/illus/telepolis-messerueckblick-11.gif"
+		},
+		{
+			"slug": "telepolis-messerueckblick-13",
+			"name": "Messerückblick 13: Junge Besucher im Atelier für Innovatoren",
+			"image": "/illus/telepolis-messerueckblick-13.gif"
+		},
+		{
+			"slug": "telepolis-messerueckblick-14",
+			"name": "Messerückblick 14: Arthur Engelbert und Helmut Volkmann auf der obersten Plattform des Ateliers",
+			"image": "/illus/telepolis-messerueckblick-14.gif"
+		},
+		{
+			"slug": "telepolis-messerueckblick-15",
+			"name": "Messerückblick 15: Messeigel der Veranstalter von CHANCEN 2000 vor der Stadtkulisse von XENIA",
+			"image": "/illus/telepolis-messerueckblick-15.gif"
+		},
+		{
+			"slug": "telepolis-viertel-annaeherung",
+			"name": "Grundriss des Stadtviertels der Annäherung",
+			"image": "/illus/telepolis-viertel-annaeherung.gif"
+		},
+		{
+			"slug": "telepolis-viertel-kontext",
+			"name": "Grundriss des Stadtviertels der Kontexte",
+			"image": "/illus/telepolis-viertel-kontext.gif"
+		},
+		{
+			"slug": "telepolis-viertel-inszenierung",
+			"name": "Grundriss des Stadtviertels der Inszenierung",
+			"image": "/illus/telepolis-viertel-inszenierung.gif"
+		},
+		{
+			"slug": "telepolis-viertel-zukunft",
+			"name": "Grundriss des Stadtviertels der Zukunft",
+			"image": "/illus/telepolis-viertel-zukunft.gif"
+		},
+		{
+			"slug": "telepolis-viertel-wertschoepfung",
+			"name": "Grundriss des Stadtviertels der Wertschöpfung",
+			"image": "/illus/telepolis-viertel-wertschoepfung.gif"
+		},
+		{
+			"slug": "telepolis-viertel-ressourcen",
+			"name": "Grundriss des Stadtviertels der Ressourcen",
+			"image": "/illus/telepolis-viertel-ressourcen.gif"
+		},
+		{
+			"slug": "telepolis-viertel-fuehrung",
+			"name": "Grundriss des Stadtviertels der Führung",
+			"image": "/illus/telepolis-viertel-fuehrung.gif"
+		},
+		{
+			"slug": "telepolis-viertel-zentrum",
+			"name": "Grundriss des Zentrums der Wissensstadt",
+			"image": "/illus/telepolis-viertel-zentrum.gif"
 		}
 	]
 }

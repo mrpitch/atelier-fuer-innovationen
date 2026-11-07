@@ -5,8 +5,11 @@
   "pages": [
     "index",
     "medienspiegel",
+    "zeitungen",
     "praesentationen",
+    "aufsaetze",
     "cebit-95",
+    "cebit",
     "telepolis",
     "nie-gebaute-features"
   ]

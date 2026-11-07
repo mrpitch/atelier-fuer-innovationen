@@ -37,5 +37,8 @@ last_reviewed: 2026-11-05
 
 - Job `quality` in `.github/workflows/main.yml` runs the three scripts.
 - Job `validate-okf` runs `pnpm test` and `pnpm validate:okf`.
-- Job `deploy` needs both and runs on pushes only. See [How to build and deploy the site](../../how-to/how-to-build-and-deploy.md).
+- Job `validate-content` runs `pnpm validate:content`.
+- Job `build-check` runs `pnpm build`, fails on the pinned missing-image warning strings in the build log, and uploads `out/` as an artefact.
+- Jobs `validate-content` and `build-check` run on every push and pull request, not only when content changes.
+- Job `deploy` needs all four, runs on pushes only and publishes the `out/` artefact from `build-check`. See [How to build and deploy the site](../../how-to/how-to-build-and-deploy.md).
 - CI sets `HUSKY=0`, so the runner doesn't install the hook.

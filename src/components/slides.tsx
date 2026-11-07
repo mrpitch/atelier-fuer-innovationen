@@ -2,12 +2,15 @@ import Link from 'next/link'
 
 import { linkVariants } from '@/components/ui/button'
 import { ImageZoom } from '@/components/image-zoom'
+import { isSvg, SvgFrame } from '@/components/svg-frame'
 
 interface ISlide {
 	slug: string
 	name: string
 	image: string
 	url?: string
+	/** `.svg` rendered inline so `currentColor`/`var(--color-fd-*)` follow the page theme, see `SvgFrame`. */
+	themed?: boolean
 }
 
 // interface ISlides {
@@ -45,17 +48,10 @@ export const Slide = async ({ slug }: { slug: string }) => {
 	const slide = await getSlideBySlug(slug)
 	if (!slide) return null
 
-	const isSvg = slide.image.endsWith('.svg')
-
 	return (
 		<div className="mb-8">
-			{isSvg ? (
-				<div className="bg-fd-card border p-4">
-					<ImageZoom src={slide.image} alt={slide.name}>
-						{/* eslint-disable-next-line @next/next/no-img-element -- next-image-export-optimizer only processes raster formats; SVGs render as-is */}
-						<img src={slide.image} alt={slide.name} />
-					</ImageZoom>
-				</div>
+			{isSvg(slide.image) ? (
+				<SvgFrame src={slide.image} alt={slide.name} themed={slide.themed} />
 			) : (
 				<ImageZoom
 					src={slide.image}

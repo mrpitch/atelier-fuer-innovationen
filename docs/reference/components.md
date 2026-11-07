@@ -27,7 +27,7 @@ The docs route registers only `@fumadocs/base-ui/mdx`'s default components (`src
 
 ### `Slide`
 
-Renders the slide image through `ImageZoom` at 1920 by 1080. When `image` ends in `.svg`, it instead renders as a plain `<img>` inside a `bg-fd-card border p-4` frame — the same SVG path `<Illu>` uses, since `next-image-export-optimizer` only processes raster formats. When the slide has a `url`, a "Download" link with the slide name follows the image and opens in a new tab — this is how the PDF export of a redrawn SVG slide stays downloadable. An unknown `slug` renders nothing.
+Renders the slide image through `ImageZoom` at 1920 by 1080. When `image` ends in `.svg`, it instead renders through `SvgFrame` (`src/components/svg-frame.tsx`), a `bg-fd-card border p-4` frame shared with `<Illu>`: a plain `<img>`, or the inlined markup when the entry sets `themed`. This is because `next-image-export-optimizer` only processes raster formats. When the slide has a `url`, a "Download" link with the slide name follows the image and opens in a new tab — this is how the PDF export of a redrawn SVG slide stays downloadable. An unknown `slug` renders nothing.
 
 The plain `<img>` carries no `width`/`height` props, so its rendered size depends entirely on the SVG file: every slide/illustration `.svg` must declare `width` and `height` on the root `<svg>` matching its `viewBox` (not `viewBox` alone). Tailwind's preflight (`img { max-width: 100%; height: auto }`) then scales that intrinsic size down to the frame while preserving the aspect ratio — a `viewBox`-only SVG has no intrinsic size and renders at an unpredictable size in an `<img>`.
 
@@ -39,12 +39,13 @@ import { Slide } from '@/components/slides'
 
 Slides are defined in `src/data/slides.json`:
 
-| Field   | Required | Meaning                                                 |
-| ------- | -------- | ------------------------------------------------------- |
-| `slug`  | yes      | Identifier used in `<Slide slug="…" />`                 |
-| `name`  | yes      | Used as the image alt text and link label               |
-| `image` | yes      | Path under `public/`, for example `/slides/slide-1.jpg` |
-| `url`   | no       | Download link, for example a PDF in `public/slides/`    |
+| Field    | Required | Meaning                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| `slug`   | yes      | Identifier used in `<Slide slug="…" />`                                                                   |
+| `name`   | yes      | Used as the image alt text and link label                                                                 |
+| `image`  | yes      | Path under `public/`, for example `/slides/slide-1.jpg`                                                   |
+| `url`    | no       | Download link, for example a PDF in `public/slides/`                                                      |
+| `themed` | no       | `.svg` only: inline the markup so `currentColor` and `--color-fd-*` follow the theme, see [`Illu`](#illu) |
 
 ### `Illu`
 
@@ -58,7 +59,7 @@ import { Illu } from '@/components/illus'
 
 Illustrations are defined in `src/data/illus.json` with `slug`, `name` and `image`, all required. Images live in `public/illus/`.
 
-An entry may set `"themed": true` on a monochrome, background-less `.svg` line drawing. `<Illu>` then adds `dark:invert` to its `<img>`, so the strokes stay visible on the `bg-fd-card` frame in dark mode. An `<img>`-embedded SVG cannot see the page's `color` or the `.dark` class (and `prefers-color-scheme` inside it would ignore the site's theme toggle), so a CSS filter on the `<img>` is the only theme hook. Never set it on full-colour artwork; `vector-showcase` is the only themed entry.
+An entry may set `"themed": true` on a `.svg` that uses `currentColor` or `var(--color-fd-*, <light fallback>)` (`foreground`, `background`, `card`, `muted`, `border`; see the comment in `src/components/image-zoom.css`). `SvgFrame` then reads the file and inlines its markup inside the same `bg-fd-card border p-4` frame and `ImageZoom`, so the colours follow the site's light and dark theme, also in the zoom modal. An `<img>`-embedded SVG cannot see the page's `color`, the `.dark` class or the CSS variables, and `prefers-color-scheme` inside it would ignore the site's theme toggle. Without `themed` the SVG renders as a plain `<img>` and keeps its own colours. If the file can't be read, the `<img>` is used. `slides.json` entries take the same flag, see [`Slide`](#slide).
 
 `<Illu slug="…" variant="icon" />` renders a `.svg` entry's markup inline
 (`dangerouslySetInnerHTML`, no `ImageZoom`, no `mb-8` block) instead of as an

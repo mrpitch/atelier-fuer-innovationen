@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="vector-showcase-title">
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480" role="img" aria-labelledby="vector-showcase-title">
 	<title id="vector-showcase-title">Vector illustration showcase</title>
-	<g fill="none" stroke="#2b2b2b" stroke-width="4" stroke-linejoin="round">
+	<g fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round">
 		<rect x="80" y="220" width="80" height="180" />
 		<rect x="180" y="160" width="90" height="240" />
 		<rect x="290" y="200" width="70" height="200" />

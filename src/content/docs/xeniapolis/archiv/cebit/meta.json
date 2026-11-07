@@ -1,0 +1,13 @@
+{
+  "title": "CeBIT '95",
+  "description": "Unterseiten zur Xenia-Ausstellung auf der CeBIT '95",
+  "icon": "Presentation",
+  "pages": [
+    "index",
+    "01-die-ausstellung",
+    "02-impressionen",
+    "03-stimmen-zu-xenia",
+    "04-das-goldene-buch",
+    "05-rueckblick-zfe-aktuell"
+  ]
+}

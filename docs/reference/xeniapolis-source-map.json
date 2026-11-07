@@ -6,6 +6,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Site root frameset — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -15,7 +16,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/~mib/agora/azuxenia.htm",
@@ -24,7 +26,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/~mib/agora/azxenia.htm",
@@ -33,7 +36,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/ann_frame.html",
@@ -42,6 +46,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -54,6 +59,7 @@
 			"https://xeniapolis.de/gifs/b_menu2/annbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -63,6 +69,7 @@
 		"targetPath": "src/content/docs/xeniapolis/annaeherung/index.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/annbild.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -72,6 +79,7 @@
 		"targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_modell/ann_mo.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -81,6 +89,7 @@
 		"targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_modell/mar_mo.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -90,6 +99,7 @@
 		"targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_modell/kon_mo.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -99,6 +109,7 @@
 		"targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_modell/ins_mo.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -108,6 +119,7 @@
 		"targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_modell/zuk_mo.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -117,6 +129,7 @@
 		"targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_modell/wer_mo.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -126,6 +139,7 @@
 		"targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_modell/pot_mo.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -135,6 +149,7 @@
 		"targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_modell/fue_mo.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -155,6 +170,7 @@
 			"https://xeniapolis.de/gifs/b_modell/pot_mokl.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -164,6 +180,7 @@
 		"targetPath": "src/content/docs/xeniapolis/annaeherung/staetten-der-begegnung.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_allg/ansichkl.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -173,6 +190,7 @@
 		"targetPath": "src/content/docs/xeniapolis/annaeherung/kondratieffs-zyklen.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_allg/kondrat2.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -182,6 +200,7 @@
 		"targetPath": "src/content/docs/xeniapolis/annaeherung/aufbruch-zum-kontinent-der-loesungen.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_allg/blaues.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -191,6 +210,7 @@
 		"targetPath": "src/content/docs/xeniapolis/fuehrung/ateliers-fuer-innovatoren.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_allg/atelier.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -200,16 +220,18 @@
 		"targetPath": "src/content/docs/xeniapolis/fuehrung/xenia-im-netzwerk-der-wissensstaedte.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_allg/umland.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
 		"url": "https://xeniapolis.de/ann/umgeb1.html",
 		"httpStatus": 200,
 		"title": "Besuch in der Umgebung: Überblick",
-		"targetPath": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
+		"targetPath": "src/content/docs/xeniapolis/annaeherung/umgebung.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_allg/umland.gif"],
 		"underConstruction": false,
-		"notes": "Content matches an already-migrated page (verified by comparing text)."
+		"disposition": "migrated",
+		"notes": "Renamed to a human-readable slug rather than keeping the mechanical basename."
 	},
 	{
 		"url": "https://xeniapolis.de/ann/viertel0.html",
@@ -218,6 +240,7 @@
 		"targetPath": "src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_stteil/zenkl.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -231,6 +254,7 @@
 			"https://xeniapolis.de/gifs/b_stteil/anngr.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -244,6 +268,7 @@
 			"https://xeniapolis.de/gifs/b_stteil/margr.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -257,6 +282,7 @@
 			"https://xeniapolis.de/gifs/b_stteil/kongr.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -270,6 +296,7 @@
 			"https://xeniapolis.de/gifs/b_stteil/insgr.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -283,6 +310,7 @@
 			"https://xeniapolis.de/gifs/b_stteil/zukgr.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -296,6 +324,7 @@
 			"https://xeniapolis.de/gifs/b_stteil/wergr.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -309,6 +338,7 @@
 			"https://xeniapolis.de/gifs/b_stteil/potgr.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -322,6 +352,7 @@
 			"https://xeniapolis.de/gifs/b_stteil/fuegr.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -342,6 +373,7 @@
 			"https://xeniapolis.de/gifs/b_stteil/potkl.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page."
 	},
 	{
@@ -351,6 +383,7 @@
 		"targetPath": "",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/baustell.gif"],
 		"underConstruction": true,
+		"disposition": "under-construction",
 		"notes": "Shared \"under construction\" placeholder — no content to migrate; the five interactive features that linked to it (Gästebuch, Xenia-Tribune, Xenia-Ideenbox, Xenia-Weblink, Xenia-Newsgroup) plus zukstart.html's two sub-pages (Das XENIA-System, Der Arbeitsprozeß) are recorded as never-built plans in xeniapolis/archiv/nie-gebaute-features.mdx."
 	},
 	{
@@ -360,6 +393,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -372,6 +406,7 @@
 			"https://xeniapolis.de/gifs/b_menu2/fuehbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -381,6 +416,7 @@
 		"targetPath": "src/content/docs/xeniapolis/fuehrung/index.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/fuebild.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -390,6 +426,7 @@
 		"targetPath": "src/content/docs/xeniapolis/fuehrung/netzwerk-der-innovatoren.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -399,6 +436,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Site root frameset — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -408,6 +446,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -420,6 +459,7 @@
 			"https://xeniapolis.de/gifs/b_menu2/insbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -429,232 +469,258 @@
 		"targetPath": "src/content/docs/xeniapolis/archiv/praesentationen.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/ball.gif"],
 		"underConstruction": false,
-		"notes": "Migrated verbatim into the Xeniapolis archive (#102), framed as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted) outside the Stadtviertel structure."
+		"disposition": "migrated",
+		"notes": "Section index page, migrated verbatim into the Xeniapolis archive as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted), outside the Stadtviertel structure."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz01.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Städte erleben Wissen gewinnen",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/01-staedte-erleben-und-wissen-gewinnen.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Source page holds only a title and a notice (\"under construction\" or \"nicht vorhanden\"); migrated as a stub page that records this."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz02.html",
 		"httpStatus": 200,
 		"title": "Impressionen zum Leitbild",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz03.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Über Datenautobahnen spricht man nicht",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/03-ueber-datenautobahnen-spricht-man-nicht.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz04.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Wandel der Innovationskultur",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/04-wandel-der-innovationskultur.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz05.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Metropolen der Informationsgesellschaft",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/05-staedte-des-wissens-metropolen-der-informationsgesellschaft.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz06.html",
 		"httpStatus": 200,
 		"title": "Technologiemanagement in der Informationsindustrie",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/06-zukunft-und-kulturelles-gedaechtnis.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz08.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Der große Basar",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/08-der-grosse-basar.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz09.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Die Stadt des Wissens als Stätte der Begegnung:",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/09-die-stadt-des-wissens-als-staette-der-begegnung.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz10.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Die Wiederbelebung der Polis mit den Städten des Wissens als Stätten der Begegnung.",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/10-die-wiederbelebung-der-polis-mit-den-staedten-des-wissens.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz11.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Die Polis als Leitbild für den Wandel der Innovationskultur",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/11-die-polis-als-leitbild-fuer-den-wandel-der-innovationskultur.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz13.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Technologiemanagement in der Informationsindustrie",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/13-technologiemanagement-in-der-informationsindustrie.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz14.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Wieviel Umweltschutz braucht die Wirtschaft",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/14-wieviel-umweltschutz-braucht-die-wirtschaft.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz15.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Wiederbelebung der Polis zum gemeinsamen Diskurs.",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/15-die-wiederbelebung-der-polis-unternehmen-buerger-und-kommunen.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz17.html",
 		"httpStatus": 200,
 		"title": "Technologiemanagement in der Informationsindustrie",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz18.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Verantwortung im Umgang mit Technologie",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/18-verantwortung-im-umgang-mit-technologie.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz19.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Gefragt sind Visionen, keine Ideologien",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/19-gefragt-sind-visionen-keine-ideologien.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz20.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Vom Nutzen der Zukunftsforschung",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/20-vom-nutzen-der-zukunftsforschung.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/baustell.gif"],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Source page holds only a title and a notice (\"under construction\" or \"nicht vorhanden\"); migrated as a stub page that records this."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz21.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Mehr als Informationsgesellschaft",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/21-mehr-als-informationsgesellschaft.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/baustell.gif"],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Source page holds only a title and a notice (\"under construction\" or \"nicht vorhanden\"); migrated as a stub page that records this."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz23.html",
 		"httpStatus": 200,
 		"title": "Technologiemanagement in der Informationsindustrie",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/23-die-gastgeschenke.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz24.html",
 		"httpStatus": 200,
 		"title": "Wiederbelebung der Polis zum gemeinsamen Diskurs.",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/24-die-wiederbelebung-der-polis-manuskript.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz25.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Information als Wertschöpfungsfaktor ...",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/25-information-als-wertschoepfungs-gestaltungs-und-operationsfaktor.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstz26.html",
 		"httpStatus": 200,
 		"title": "Technologiemanagement in der Informationsindustrie",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/26-chancen-denken-lernen.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstzb1.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Der Strategische Abakus",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/abakus.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstzb2.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Der Informationsmarkt",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/informationsmarkt.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/aufstze5.html",
 		"httpStatus": 200,
 		"title": "Aufsätze: Cities of Knowledge",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/aufsaetze/cities-of-knowledge.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Verbatim transcription of one Aufsatz, Vortrag or Klappentext listed on the Präsentationen page."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/cebit0.html",
@@ -666,13 +732,14 @@
 			"https://xeniapolis.de/gifs/b_icons/ball.gif"
 		],
 		"underConstruction": false,
-		"notes": "Migrated verbatim into the Xeniapolis archive (#102), framed as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted) outside the Stadtviertel structure."
+		"disposition": "migrated",
+		"notes": "Section index page, migrated verbatim into the Xeniapolis archive as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted), outside the Stadtviertel structure."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/cebit1.html",
 		"httpStatus": 200,
 		"title": "Xenia auf der Cebit '95: Die Ausstellung",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/cebit/01-die-ausstellung.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_allg/ansichkl.gif",
 			"https://xeniapolis.de/gifs/b_photos/zyklspd.gif",
@@ -681,13 +748,14 @@
 			"https://xeniapolis.de/gifs/b_allg/zeichen1.gif"
 		],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "CeBIT '95 sub-page, migrated verbatim into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/cebit2.html",
 		"httpStatus": 200,
 		"title": "Xenia auf der Cebit '95:Impressionen",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/cebit/02-impressionen.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/mrbilder/stud.gif",
 			"https://xeniapolis.de/telepol/mrbilder/alt.gif",
@@ -705,13 +773,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/mkette.gif"
 		],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "CeBIT '95 sub-page, migrated verbatim into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/cebit3.html",
 		"httpStatus": 200,
 		"title": "Xenia auf der Cebit '95: Reaktionen der Presse",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/cebit/03-stimmen-zu-xenia.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_cbit95/neupres.gif",
 			"https://xeniapolis.de/gifs/b_cbit95/leipzig.gif",
@@ -719,13 +788,14 @@
 			"https://xeniapolis.de/gifs/b_cbit95/neupr_kl.gif"
 		],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "CeBIT '95 sub-page, migrated verbatim into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/cebit4.html",
 		"httpStatus": 200,
 		"title": "Xenia auf der Cebit '95:Das Goldene Buch der Stadt Xenia",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/cebit/04-das-goldene-buch.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_cbit95/buch.gif",
 			"https://xeniapolis.de/gifs/b_cbit95/buchrena.gif",
@@ -736,13 +806,14 @@
 			"https://xeniapolis.de/gifs/b_cbit95/buchhoff.gif"
 		],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "CeBIT '95 sub-page, migrated verbatim into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/cebit5.html",
 		"httpStatus": 200,
 		"title": "Xenia auf der Cebit '95: Beilage zum Informationsblatt ZFE aktuell",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_allg/atelier.gif",
 			"https://xeniapolis.de/gifs/b_person/suss1.gif",
@@ -755,7 +826,8 @@
 			"https://xeniapolis.de/gifs/b_person/alt1.gif"
 		],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "CeBIT '95 sub-page, migrated verbatim into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/impression",
@@ -764,7 +836,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/insstart.html",
@@ -773,6 +846,7 @@
 		"targetPath": "src/content/docs/xeniapolis/inszenierung/index.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/insbild.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -782,7 +856,8 @@
 		"targetPath": "src/content/docs/xeniapolis/archiv/medienspiegel.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Migrated verbatim into the Xeniapolis archive (#102), framed as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted) outside the Stadtviertel structure."
+		"disposition": "migrated",
+		"notes": "Section index page, migrated verbatim into the Xeniapolis archive as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted), outside the Stadtviertel structure."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/radio0.html",
@@ -791,16 +866,18 @@
 		"targetPath": "src/content/docs/xeniapolis/archiv/medienspiegel.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/ball.gif"],
 		"underConstruction": false,
-		"notes": "Migrated verbatim into the Xeniapolis archive (#102), framed as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted) outside the Stadtviertel structure."
+		"disposition": "migrated",
+		"notes": "Section index page, migrated verbatim into the Xeniapolis archive as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted), outside the Stadtviertel structure."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/telepol0.html",
 		"httpStatus": 200,
 		"title": "Xenia in Telepolis",
-		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis.mdx",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/index.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Migrated verbatim into the Xeniapolis archive (#102), framed as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted) outside the Stadtviertel structure."
+		"disposition": "migrated",
+		"notes": "Section index page, migrated verbatim into the Xeniapolis archive as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted), outside the Stadtviertel structure."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/web0.html",
@@ -809,7 +886,8 @@
 		"targetPath": "src/content/docs/xeniapolis/archiv/medienspiegel.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/ball.gif"],
 		"underConstruction": false,
-		"notes": "Migrated verbatim into the Xeniapolis archive (#102), framed as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted) outside the Stadtviertel structure."
+		"disposition": "migrated",
+		"notes": "Section index page, migrated verbatim into the Xeniapolis archive as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted), outside the Stadtviertel structure."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun0.html",
@@ -818,208 +896,231 @@
 		"targetPath": "src/content/docs/xeniapolis/archiv/medienspiegel.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/ball.gif"],
 		"underConstruction": false,
-		"notes": "Migrated verbatim into the Xeniapolis archive (#102), framed as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted) outside the Stadtviertel structure."
+		"disposition": "migrated",
+		"notes": "Section index page, migrated verbatim into the Xeniapolis archive as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted), outside the Stadtviertel structure."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun01.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Tempo 1/1991",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/01-tempo-spinner-vom-dienst.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun02.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Manager Magazin 3/91",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/02-manager-magazin-das-letzte-experiment.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun03.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Manager Magazin 4/93",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/03-manager-magazin-lizenz-zum-spinnen.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun04.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: James E. Liebig",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/04-merchants-of-vision.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun05.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Hannoversche Allgemeine 21.2.94",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/05-hannoversche-allgemeine-der-hauptberufliche-visionaer.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun06.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Süddeutsche Zeitung, 25.2.94",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/06-sueddeutsche-orakel-und-navigation.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun07a.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: SNI in NRW 1/95",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/07-sni-in-nrw-staedte-des-wissens.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun08.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Handelsblatt, Beilage Karriere, Februar 1995",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/08-handelsblatt-stadt-der-1000-kreuzungen.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun09.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Hannoversche Allgemeine, 11.3.1995",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/09-hannoversche-allgemeine-wissensstadt-zur-expo-2000.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun10.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Hannoversche Allgemeine, 11.3.1995",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/10-hannoversche-allgemeine-chancen-2000.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun11.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Neue Presse, 15.3.95",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/11-neue-presse-in-der-stadt-des-wissens-lernen.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_allg/blaues.gif"],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun12.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Neue Presse, 15.3.95",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/12-neue-presse-xenia-soll-bleiben.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun13.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Neue Presse, 8.4.1995",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/13-neue-presse-frust-ueber-expo-zankerei.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun15.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Screen Multimedia 1/96",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/15-screen-multimedia-allgegenwaertiger-campus.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_allg/atelier.gif"],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun18.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: DER SPIEGEL 20/1996",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/18-spiegel-meine-chaos-chance.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_zeitun/spiegel1.gif",
 			"https://xeniapolis.de/gifs/b_zeitun/spiegel2.gif"
 		],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun19.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: DER SPIEGEL 20/1996",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/19-spiegel-editorial.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun20.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Zeitungen",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/20-spiegel-hochdotiertes-missverstaendnis.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun21.html",
 		"httpStatus": 200,
 		"title": "Zeitungen: Münchner Merkur",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/21-muenchner-merkur-mit-bauklotzen-aus-der-krise.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_zeitun/merkur.gif"],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun22.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Wiener Kurier 9.7.1996",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/22-wiener-kurier-ich-bin-hier-der-spinner.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun23.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Badische Zeitung, 1996 Nr.145/3",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/23-badische-zeitung-ergebnis-von-zehn-jahren-denkarbeit.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun24.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: Kleine Zeitung 1.11.1996",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/24-kleine-zeitung-spinner-vom-dienst.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/ins/zeitun25.html",
 		"httpStatus": 200,
 		"title": "Medienspiegel: SZ 16/17.11.1996",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/zeitungen/25-sueddeutsche-ein-mann-spinnt.mdx",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "Medienspiegel / Präsentationen sub-page — the archive ticket (#102) migrated only its section index page verbatim; this individual clipping/manuscript remains untranscribed."
+		"disposition": "migrated",
+		"notes": "Press clipping from the Medienspiegel, migrated verbatim into the archive; numbering follows the source file names."
 	},
 	{
 		"url": "https://xeniapolis.de/kon_frame.html",
@@ -1028,6 +1129,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -1040,6 +1142,7 @@
 			"https://xeniapolis.de/gifs/b_menu2/konbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -1049,7 +1152,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt1.html",
@@ -1061,6 +1165,7 @@
 			"https://xeniapolis.de/gifs/b_64er/ewann.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1073,6 +1178,7 @@
 			"https://xeniapolis.de/gifs/b_64er/1_1-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1085,6 +1191,7 @@
 			"https://xeniapolis.de/gifs/b_64er/1_2-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1097,6 +1204,7 @@
 			"https://xeniapolis.de/gifs/b_64er/1_3-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1109,6 +1217,7 @@
 			"https://xeniapolis.de/gifs/b_64er/1_4-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1121,6 +1230,7 @@
 			"https://xeniapolis.de/gifs/b_64er/1_5-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1133,6 +1243,7 @@
 			"https://xeniapolis.de/gifs/b_64er/1_6-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1145,6 +1256,7 @@
 			"https://xeniapolis.de/gifs/b_64er/1_7-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1157,6 +1269,7 @@
 			"https://xeniapolis.de/gifs/b_64er/1_8-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1169,6 +1282,7 @@
 			"https://xeniapolis.de/gifs/b_64er/ewmar.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -1181,6 +1295,7 @@
 			"https://xeniapolis.de/gifs/b_64er/2_1-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -1193,6 +1308,7 @@
 			"https://xeniapolis.de/gifs/b_64er/2_2-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -1205,6 +1321,7 @@
 			"https://xeniapolis.de/gifs/b_64er/2_3-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -1217,6 +1334,7 @@
 			"https://xeniapolis.de/gifs/b_64er/2_4-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -1229,6 +1347,7 @@
 			"https://xeniapolis.de/gifs/b_64er/2_5-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -1241,6 +1360,7 @@
 			"https://xeniapolis.de/gifs/b_64er/2_6-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -1253,6 +1373,7 @@
 			"https://xeniapolis.de/gifs/b_64er/2_7-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -1265,6 +1386,7 @@
 			"https://xeniapolis.de/gifs/b_64er/2_8-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -1277,6 +1399,7 @@
 			"https://xeniapolis.de/gifs/b_64er/ewkon.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1289,6 +1412,7 @@
 			"https://xeniapolis.de/gifs/b_64er/3_1-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1301,6 +1425,7 @@
 			"https://xeniapolis.de/gifs/b_64er/3_2-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1313,6 +1438,7 @@
 			"https://xeniapolis.de/gifs/b_64er/3_3-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1325,6 +1451,7 @@
 			"https://xeniapolis.de/gifs/b_64er/3_4-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1337,6 +1464,7 @@
 			"https://xeniapolis.de/gifs/b_64er/3_5-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1349,6 +1477,7 @@
 			"https://xeniapolis.de/gifs/b_64er/3_6-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1361,6 +1490,7 @@
 			"https://xeniapolis.de/gifs/b_64er/3_7-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1373,6 +1503,7 @@
 			"https://xeniapolis.de/gifs/b_64er/3_8-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1385,6 +1516,7 @@
 			"https://xeniapolis.de/gifs/b_64er/ewins.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1397,6 +1529,7 @@
 			"https://xeniapolis.de/gifs/b_64er/4_1-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1409,6 +1542,7 @@
 			"https://xeniapolis.de/gifs/b_64er/4_2-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1421,6 +1555,7 @@
 			"https://xeniapolis.de/gifs/b_64er/4_3-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1433,6 +1568,7 @@
 			"https://xeniapolis.de/gifs/b_64er/4_4-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1445,6 +1581,7 @@
 			"https://xeniapolis.de/gifs/b_64er/4_5-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1457,6 +1594,7 @@
 			"https://xeniapolis.de/gifs/b_64er/4_6-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1469,6 +1607,7 @@
 			"https://xeniapolis.de/gifs/b_64er/4_7-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1481,6 +1620,7 @@
 			"https://xeniapolis.de/gifs/b_64er/4_8-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1493,6 +1633,7 @@
 			"https://xeniapolis.de/gifs/b_64er/ewzuk.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1505,6 +1646,7 @@
 			"https://xeniapolis.de/gifs/b_64er/5_1-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1517,6 +1659,7 @@
 			"https://xeniapolis.de/gifs/b_64er/5_2-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1529,6 +1672,7 @@
 			"https://xeniapolis.de/gifs/b_64er/5_3-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1541,6 +1685,7 @@
 			"https://xeniapolis.de/gifs/b_64er/5_4-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1553,6 +1698,7 @@
 			"https://xeniapolis.de/gifs/b_64er/5_5-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1565,6 +1711,7 @@
 			"https://xeniapolis.de/gifs/b_64er/5_6-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1577,6 +1724,7 @@
 			"https://xeniapolis.de/gifs/b_64er/5_7-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1589,6 +1737,7 @@
 			"https://xeniapolis.de/gifs/b_64er/5_8-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1601,6 +1750,7 @@
 			"https://xeniapolis.de/gifs/b_64er/ewwer.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1613,6 +1763,7 @@
 			"https://xeniapolis.de/gifs/b_64er/6_1-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1625,6 +1776,7 @@
 			"https://xeniapolis.de/gifs/b_64er/6_2-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1637,6 +1789,7 @@
 			"https://xeniapolis.de/gifs/b_64er/6_3-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1649,6 +1802,7 @@
 			"https://xeniapolis.de/gifs/b_64er/6_4-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1661,6 +1815,7 @@
 			"https://xeniapolis.de/gifs/b_64er/6_5-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1673,6 +1828,7 @@
 			"https://xeniapolis.de/gifs/b_64er/6_6-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1685,6 +1841,7 @@
 			"https://xeniapolis.de/gifs/b_64er/6_7-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1697,6 +1854,7 @@
 			"https://xeniapolis.de/gifs/b_64er/6_8-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1709,6 +1867,7 @@
 			"https://xeniapolis.de/gifs/b_64er/ewpot.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1721,6 +1880,7 @@
 			"https://xeniapolis.de/gifs/b_64er/7_1-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1733,6 +1893,7 @@
 			"https://xeniapolis.de/gifs/b_64er/7_2-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1745,6 +1906,7 @@
 			"https://xeniapolis.de/gifs/b_64er/7_3-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1757,6 +1919,7 @@
 			"https://xeniapolis.de/gifs/b_64er/7_4-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1769,6 +1932,7 @@
 			"https://xeniapolis.de/gifs/b_64er/7_5-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1781,6 +1945,7 @@
 			"https://xeniapolis.de/gifs/b_64er/7_6-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1793,6 +1958,7 @@
 			"https://xeniapolis.de/gifs/b_64er/7_7-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1805,6 +1971,7 @@
 			"https://xeniapolis.de/gifs/b_64er/7_8-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1817,6 +1984,7 @@
 			"https://xeniapolis.de/gifs/b_64er/ewfue.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1829,6 +1997,7 @@
 			"https://xeniapolis.de/gifs/b_64er/8_1-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1841,6 +2010,7 @@
 			"https://xeniapolis.de/gifs/b_64er/8_2-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1853,6 +2023,7 @@
 			"https://xeniapolis.de/gifs/b_64er/8_3-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1865,6 +2036,7 @@
 			"https://xeniapolis.de/gifs/b_64er/8_4-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1877,6 +2049,7 @@
 			"https://xeniapolis.de/gifs/b_64er/8_5-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1889,6 +2062,7 @@
 			"https://xeniapolis.de/gifs/b_64er/8_6-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1901,6 +2075,7 @@
 			"https://xeniapolis.de/gifs/b_64er/8_7-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1913,6 +2088,7 @@
 			"https://xeniapolis.de/gifs/b_64er/8_8-s.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -1922,7 +2098,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ins/insstart.html",
@@ -1931,7 +2108,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/kon/konstart.html",
@@ -1940,7 +2118,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/kon1_frame.html",
@@ -1949,6 +2128,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -1961,6 +2141,7 @@
 			"https://xeniapolis.de/gifs/b_menu3/konbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -1970,6 +2151,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -1982,6 +2164,7 @@
 			"https://xeniapolis.de/gifs/b_menu3/konbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -1991,6 +2174,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2003,6 +2187,7 @@
 			"https://xeniapolis.de/gifs/b_menu3/konbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2012,6 +2197,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2024,6 +2210,7 @@
 			"https://xeniapolis.de/gifs/b_menu3/konbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2033,6 +2220,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2045,6 +2233,7 @@
 			"https://xeniapolis.de/gifs/b_menu3/konbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2054,6 +2243,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2066,6 +2256,7 @@
 			"https://xeniapolis.de/gifs/b_menu3/konbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2075,6 +2266,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2087,6 +2279,7 @@
 			"https://xeniapolis.de/gifs/b_menu3/konbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2096,6 +2289,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2108,6 +2302,7 @@
 			"https://xeniapolis.de/gifs/b_menu3/konbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2120,6 +2315,7 @@
 			"https://xeniapolis.de/gifs/b_64er/ewtotal.gif"
 		],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -2129,7 +2325,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/pot/potstart.html",
@@ -2138,7 +2335,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/wer/werstart.html",
@@ -2147,7 +2345,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/zen/zenstart.html",
@@ -2156,7 +2355,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/zuk/zukstart.html",
@@ -2165,7 +2365,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/mar_frame.html",
@@ -2174,6 +2375,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2186,6 +2388,7 @@
 			"https://xeniapolis.de/gifs/b_menu2/marbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2195,6 +2398,7 @@
 		"targetPath": "src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/marbild.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2223,6 +2427,7 @@
 			"https://xeniapolis.de/gifs/b_menu1/menu_0.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2232,6 +2437,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2244,6 +2450,7 @@
 			"https://xeniapolis.de/gifs/b_menu2/potbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -2253,6 +2460,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/register.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2262,6 +2470,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/literatur.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2271,6 +2480,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-01.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2280,6 +2490,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-02.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2289,6 +2500,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-03.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/baustell.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2298,6 +2510,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-04.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2307,6 +2520,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-05.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/baustell.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2316,6 +2530,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-06.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2325,6 +2540,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-07.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2334,6 +2550,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-08.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2343,6 +2560,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-09.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2352,6 +2570,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-10.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2361,6 +2580,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-11.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/baustell.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2370,6 +2590,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-12.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2379,6 +2600,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-13.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2388,6 +2610,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-14.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2397,6 +2620,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-15.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2406,6 +2630,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-16.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2415,6 +2640,7 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/mosaik/msk-17.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -2424,13 +2650,14 @@
 		"targetPath": "src/content/docs/xeniapolis/potenziale/index.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/potbild.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/1.htm",
 		"httpStatus": 200,
 		"title": "Xenia- Wissenarchitekturen P. 1",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/wissensarchitekturen/01-nachbildungen-von-gestalten.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2438,13 +2665,14 @@
 			"https://xeniapolis.de/telepol/wissenbi/bild01.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/10.htm",
 		"httpStatus": 200,
 		"title": "Xenia- Wissensarchitekturen P. 10",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/wissensarchitekturen/10-abstrakte-gestaltgebung.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2452,13 +2680,14 @@
 			"https://xeniapolis.de/telepol/wissenbi/bild10.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/11.htm",
 		"httpStatus": 200,
 		"title": "Xenia- Wissensarchitektur P. 11",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/wissensarchitekturen/11-abstrakte-vernetzung.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2466,13 +2695,14 @@
 			"https://xeniapolis.de/telepol/wissenbi/bild11.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/12.htm",
 		"httpStatus": 200,
 		"title": "Xenia- Wissensarchitektur P. 12",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/wissensarchitekturen/12-abstrakte-ensembles.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2480,13 +2710,14 @@
 			"https://xeniapolis.de/telepol/wissenbi/bild12.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/2.htm",
 		"httpStatus": 200,
 		"title": "Xenia- Wissenarchitekturen P. 2",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/wissensarchitekturen/02-flaechenhafte-darstellungen.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2494,13 +2725,14 @@
 			"https://xeniapolis.de/telepol/wissenbi/bild02.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/3.htm",
 		"httpStatus": 200,
 		"title": "Xenia- Wissensarchitektur P. 3",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/wissensarchitekturen/03-referentielle-strukturierungen.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2508,13 +2740,14 @@
 			"https://xeniapolis.de/telepol/wissenbi/bild03.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/4.htm",
 		"httpStatus": 200,
 		"title": "Xenia- Wissensarchitektur P. 4",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/wissensarchitekturen/04-behaelterartige-anordnungsformen.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2522,13 +2755,14 @@
 			"https://xeniapolis.de/telepol/wissenbi/bild04.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/5.htm",
 		"httpStatus": 200,
 		"title": "Xenia- Wissensarchitekturen P. 5",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/wissensarchitekturen/05-aussenarchitektur.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2536,13 +2770,14 @@
 			"https://xeniapolis.de/telepol/wissenbi/bild05.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/6.htm",
 		"httpStatus": 200,
 		"title": "Xenia- Wissensarchitekturen P. 6",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/wissensarchitekturen/06-bauliche-ensembles.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2550,13 +2785,14 @@
 			"https://xeniapolis.de/telepol/wissenbi/bild06.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/7.htm",
 		"httpStatus": 200,
 		"title": "Xenia- Wissensarchitekturen P. 7",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/wissensarchitekturen/07-strassen-und-plaetze.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2564,13 +2800,14 @@
 			"https://xeniapolis.de/telepol/wissenbi/bild07.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/8.htm",
 		"httpStatus": 200,
 		"title": "Xenia- Wissensarchitekturen P. 8",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/wissensarchitekturen/08-landschaften-und-parkanlagen.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2578,13 +2815,14 @@
 			"https://xeniapolis.de/telepol/wissenbi/bild08.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/9.htm",
 		"httpStatus": 200,
 		"title": "Xenia- Wissensarchitekturen P. 9",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/wissensarchitekturen/09-kontextfirmament.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2592,13 +2830,14 @@
 			"https://xeniapolis.de/telepol/wissenbi/bild09.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/ann.htm",
 		"httpStatus": 200,
 		"title": "Xeniapolis: Annäherung",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/stadtviertel/annaeherung.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2606,13 +2845,14 @@
 			"https://xeniapolis.de/telepol/xeniabi/ann.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/atelier.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Atelier",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/atelier-fuer-innovatoren.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif",
@@ -2620,7 +2860,8 @@
 			"https://xeniapolis.de/telepol/xeniabi/atelier.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/atelier.html",
@@ -2629,26 +2870,28 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/buch.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Gästebuch",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/gaestebuch.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/fue.htm",
 		"httpStatus": 200,
 		"title": "Xeniapolis: Führung",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/stadtviertel/fuehrung.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2656,29 +2899,32 @@
 			"https://xeniapolis.de/telepol/xeniabi/fue.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/history.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Projekte",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
 		"assets": ["https://xeniapolis.de/telepol/bilder/hintergr.gif"],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/innovato.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Netzwerk der Innovatoren",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/index.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/innovato.html",
@@ -2687,39 +2933,42 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/ins.htm",
 		"httpStatus": 200,
 		"title": "Xeniapolis: Inszenierung",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/stadtviertel/inszenierung.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/kon.htm",
 		"httpStatus": 200,
 		"title": "Xeniapolis: Kontext",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/stadtviertel/kontext.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/koo.htm",
 		"httpStatus": 200,
 		"title": "Xeniapolis: Kooperation",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/stadtviertel/kooperation.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2727,13 +2976,14 @@
 			"https://xeniapolis.de/telepol/xeniabi/kon.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/kulturen.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Kulturen des Wissens",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/kulturen-des-wissens.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2743,7 +2993,8 @@
 			"https://xeniapolis.de/telepol/bilder/karte.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/kulturen.html",
@@ -2752,13 +3003,14 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/leitbild.htm",
 		"httpStatus": 200,
 		"title": "Xenia: die Wiederbelebung der Polis",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/leitbild.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2766,7 +3018,8 @@
 			"https://xeniapolis.de/telepol/bilder/blaues.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/leitbild.html",
@@ -2775,13 +3028,14 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/messe.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Messerückblick 1",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/messerueckblick/01-platz-der-zukunft.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2789,13 +3043,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/totale.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/mr10.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Messerückblick 10",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/messerueckblick/10-braess.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2803,13 +3058,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/braes.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/mr11.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Messerückblick 11",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/messerueckblick/11-hiltrud-schroeder.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2817,13 +3073,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/schr.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/mr12.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Messerückblick 12",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/messerueckblick/12-eckhart-bartels.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2831,13 +3088,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/bartels.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/mr13.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Messerückblick 13",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/messerueckblick/13-junge-besucher.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2845,13 +3103,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/kinder.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/mr14.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Messerückblick 14",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/messerueckblick/14-engelbert-und-volkmann.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2859,13 +3118,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/voeng.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/mr15.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Messerückblick 15",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/messerueckblick/15-messeigel.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2873,13 +3133,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/mkette.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/mr2.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Messerückblick 2",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/messerueckblick/02-besucher-chancen-2000.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2887,13 +3148,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/stud.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/mr3.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Messerückblick 3",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/messerueckblick/03-franz-alt.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2901,13 +3163,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/alt.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/mr4.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Messerückblick 4",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/messerueckblick/04-rita-suessmuth.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2915,13 +3178,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/suss.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/mr5.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Messerückblick 5",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/messerueckblick/05-ruettgers.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2929,13 +3193,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/rutt.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/mr6.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Messerückblick 6",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/messerueckblick/06-willy-leonhard.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2943,13 +3208,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/engel.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/mr7.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Messerückblick 7",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/messerueckblick/07-mediencafe-halle-15.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2957,13 +3223,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/halle15.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/mr8.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Messerückblick 8",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/messerueckblick/08-chinesische-wissenschaftsdelegation.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2971,13 +3238,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/chi.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/mr9.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Messerückblick 9",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/messerueckblick/09-ensemble-der-medien.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -2985,13 +3253,14 @@
 			"https://xeniapolis.de/telepol/mrbilder/publi.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/netzwerk.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Das Netzwerk der Städte des Wissens",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-der-staedte-des-wissens.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif",
@@ -2999,7 +3268,8 @@
 			"https://xeniapolis.de/telepol/bilder/umland.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/netzwerk.html",
@@ -3008,33 +3278,36 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/partner.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Kooperationspartner",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/kooperationspartner.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/publikat.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Publikationen",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/publikationen.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/publikationen.htm",
@@ -3043,13 +3316,14 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/res.htm",
 		"httpStatus": 200,
 		"title": "Xeniapolis: Ressourcen",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/stadtviertel/ressourcen.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -3057,129 +3331,139 @@
 			"https://xeniapolis.de/telepol/xeniabi/methoden.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/schwer1.htm",
 		"httpStatus": 200,
 		"title": "XENIA-Themenschwerpunkt 1",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/themenschwerpunkte/01-xenia-wissensstadt.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/schwer2.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Themenschwerpunkt 2",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/themenschwerpunkte/02-netzwerk-der-innovatoren.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/schwer3.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Themenschwerpunkt 3",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/themenschwerpunkte/03-staedte-des-wissens.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/schwer4.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Themenschwerpunkt 4",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/themenschwerpunkte/04-wiederbelebung-der-polis.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/schwer5.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Themenschwerpunkt 5",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/themenschwerpunkte/05-gestaltungsfelder.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/schwer6.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Themenschwerpunkt 6",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/themenschwerpunkte/06-leitvorhaben-und-projekte.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/schwer7.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Themenschwerpunkt 7",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/themenschwerpunkte/07-ressourcen-der-zukunftsgestaltung.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/schwer8.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Themenschwerpunkt 8",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/themenschwerpunkte/08-unternehmerische-herausforderungen.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/schwer9.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Themenschwerpunkt 9",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/themenschwerpunkte/09-arbeiten-im-atelier.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/schwerpu.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Themenschwerpunkte",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/themenschwerpunkte/index.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -3187,7 +3471,8 @@
 			"https://xeniapolis.de/telepol/bilder/themen.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/schwerpu.html",
@@ -3196,13 +3481,14 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/skizze.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Eine programmatische Skizzierung",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/programmatische-skizzierung.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -3210,7 +3496,8 @@
 			"https://xeniapolis.de/telepol/bilder/kondrat.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/Stadtv/annb.htm",
@@ -3219,7 +3506,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/Stadtv/fueb.htm",
@@ -3228,7 +3516,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/Stadtv/koob.htm",
@@ -3237,7 +3526,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/Stadtv/resb.htm",
@@ -3246,7 +3536,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/Stadtv/werb.htm",
@@ -3255,7 +3546,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/Stadtv/zenb.htm",
@@ -3264,13 +3556,14 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/wer.htm",
 		"httpStatus": 200,
 		"title": "Xeniapolis: Wertschöpfung",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/stadtviertel/wertschoepfung.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -3278,7 +3571,8 @@
 			"https://xeniapolis.de/telepol/xeniabi/wer.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/wissens.htm",
@@ -3287,13 +3581,14 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/wissensa.htm",
 		"httpStatus": 200,
 		"title": "Xenia: Informationen",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/wissensarchitekturen/index.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -3301,7 +3596,8 @@
 			"https://xeniapolis.de/telepol/bilder/wissensa.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/wissensa.html",
@@ -3310,13 +3606,14 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/wissenss.htm",
 		"httpStatus": 200,
 		"title": "XENIA, Wissensstadt am Wege zur Informationsgesellschaft",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/wissensstadt-am-wege-zur-informationsgesellschaft.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -3324,7 +3621,8 @@
 			"https://xeniapolis.de/telepol/xeniabi/planxeni.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/wissenss.html",
@@ -3333,7 +3631,8 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/wissensstadt.htm",
@@ -3342,20 +3641,22 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/xenia.htm",
 		"httpStatus": 200,
 		"title": "Willkommen bei Xenia",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/willkommen.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/xenialog.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/xeniaiueb.htm",
@@ -3364,13 +3665,14 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/xeniaueb.htm",
 		"httpStatus": 200,
 		"title": "Xenia Übersicht",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/uebersicht.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif",
@@ -3378,7 +3680,8 @@
 			"https://xeniapolis.de/telepol/bilder/uebersic.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/xeniaueb.html",
@@ -3387,13 +3690,14 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "http-error",
+		"notes": "Source returns HTTP 404 — nothing to migrate."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/zen.htm",
 		"httpStatus": 200,
 		"title": "Xeniapolis:Zentrum",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/stadtviertel/zentrum.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
@@ -3401,20 +3705,22 @@
 			"https://xeniapolis.de/telepol/xeniabi/zen.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/telepol/zuk.htm",
 		"httpStatus": 200,
 		"title": "Xeniapolis: Zukunft",
-		"targetPath": "",
+		"targetPath": "src/content/docs/xeniapolis/archiv/telepolis/stadtviertel/zukunft.mdx",
 		"assets": [
 			"https://xeniapolis.de/telepol/bilder/hintergr.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonan.gif",
 			"https://xeniapolis.de/telepol/bilder/buttonau.gif"
 		],
 		"underConstruction": false,
-		"notes": "No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage."
+		"disposition": "migrated",
+		"notes": "Page of the older Telepolis exhibition embedded in the source site, migrated into the archive."
 	},
 	{
 		"url": "https://xeniapolis.de/wer_frame.html",
@@ -3423,6 +3729,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -3435,6 +3742,7 @@
 			"https://xeniapolis.de/gifs/b_menu2/werbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -3444,6 +3752,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -3453,6 +3762,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/projektgeschichte.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -3462,6 +3772,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/die-idee.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -3471,6 +3782,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/palfred.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_sonst/ansatl.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3480,6 +3792,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/pallcad.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_stteil/stplan.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3489,6 +3802,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/parch.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_sonst/arch5.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3498,6 +3812,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/parno.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_person/braes.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3507,6 +3822,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/parthur.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_allg/zeichen1.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3516,6 +3832,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/pegloff.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_sonst/1modell.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3525,6 +3842,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/pfrank.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_64er/ewpot.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3534,6 +3852,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/pgabi.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_allg/blaues.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3543,6 +3862,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -3552,6 +3872,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/pmath.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3561,6 +3882,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/pmedinst.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_sonst/teleplog.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3570,6 +3892,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/pmicha.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_person/totale.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3579,6 +3902,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/pscanl.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3588,6 +3912,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/walex.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_person/alex.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3597,6 +3922,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/wcaro.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_person/caro.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3606,6 +3932,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/mitwirkende.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Content matches an already-migrated page (verified by comparing text)."
 	},
 	{
@@ -3615,6 +3942,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/index.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/werbild.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3624,6 +3952,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/wflo.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_person/flo.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3633,6 +3962,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/wfrei.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_person/freitag.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3642,6 +3972,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/wmagn.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_person/magnus.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3651,6 +3982,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/wrein.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_person/reiner.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3660,6 +3992,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/wsusa.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_person/suse.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3669,6 +4002,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/wthl.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_person/thl.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3678,6 +4012,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/wudo.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_person/udo.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3687,6 +4022,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/wuli.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_person/uli.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3696,6 +4032,7 @@
 		"targetPath": "src/content/docs/xeniapolis/wertschoepfung/wvolk.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_person/volkmann.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	},
 	{
@@ -3705,6 +4042,7 @@
 		"targetPath": "src/content/docs/impressum.mdx",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "There is only one Impressum site-wide, so it lives at the docs root rather than nested under xeniapolis/ (see src/content/docs/meta.json)."
 	},
 	{
@@ -3714,6 +4052,7 @@
 		"targetPath": "src/content/docs/xeniapolis/index.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/platz.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": "Pure navigation chrome (image map + copyright footer), no unique prose. The Zentrum's welcome role is fulfilled by index.mdx, whose \"Was ist/bietet Xenia\" text is verbatim-sourced from and verified against ann/annstart.html."
 	},
 	{
@@ -3723,6 +4062,7 @@
 		"targetPath": "",
 		"assets": [],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -3735,6 +4075,7 @@
 			"https://xeniapolis.de/gifs/b_menu2/zukbild.gif"
 		],
 		"underConstruction": false,
+		"disposition": "chrome",
 		"notes": "Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content."
 	},
 	{
@@ -3744,6 +4085,7 @@
 		"targetPath": "src/content/docs/xeniapolis/zukunft/index.mdx",
 		"assets": ["https://xeniapolis.de/gifs/b_icons/zukbild.gif"],
 		"underConstruction": false,
+		"disposition": "migrated",
 		"notes": ""
 	}
 ]

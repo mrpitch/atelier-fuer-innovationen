@@ -25,20 +25,25 @@ const CONTENT_DIR = 'src/content/docs'
 const DATA_DIR = 'src/data'
 const PUBLIC_DIR = 'public'
 
-interface IlluEntry {
+// Local mirrors of the unexported `IIllu`/`ISlide` data shapes in
+// `src/components/{illus,slides}.tsx`: this script stays standalone, like
+// `validate-okf.ts`, and imports nothing from `src/`.
+interface IIllu {
 	slug: string
 	name: string
 	image: string
+	themed?: boolean
 }
 
-interface SlideEntry {
+interface ISlide {
 	slug: string
 	name: string
 	image: string
 	url?: string
+	themed?: boolean
 }
 
-interface MetaJson {
+interface IMetaJson {
 	pages?: string[]
 }
 
@@ -52,15 +57,13 @@ function readJson<T>(absPath: string): T | null {
 	}
 }
 
-function loadIllus(root: string): IlluEntry[] {
-	const data = readJson<{ illus: IlluEntry[] }>(
-		join(root, DATA_DIR, 'illus.json')
-	)
+function loadIllus(root: string): IIllu[] {
+	const data = readJson<{ illus: IIllu[] }>(join(root, DATA_DIR, 'illus.json'))
 	return data?.illus ?? []
 }
 
-function loadSlides(root: string): SlideEntry[] {
-	const data = readJson<{ slides: SlideEntry[] }>(
+function loadSlides(root: string): ISlide[] {
+	const data = readJson<{ slides: ISlide[] }>(
 		join(root, DATA_DIR, 'slides.json')
 	)
 	return data?.slides ?? []
@@ -94,7 +97,7 @@ function checkMetaPages(
 	dir: string,
 	violations: ContentViolation[]
 ): void {
-	const meta = readJson<MetaJson>(absPath)
+	const meta = readJson<IMetaJson>(absPath)
 	if (!meta?.pages) return
 	for (const item of meta.pages) {
 		if (SEPARATOR_RE.test(item)) continue
@@ -128,21 +131,28 @@ const SLUG_ATTR_RE = /\bslug=["']([^"']+)["']/
 function checkComponentSlugs(
 	content: string,
 	relPath: string,
-	illus: IlluEntry[],
-	slides: SlideEntry[],
+	illus: IIllu[],
+	slides: ISlide[],
 	violations: ContentViolation[]
 ): void {
+	// COMPONENT_RE only captures these two names, so every lookup hits.
+	const datasets: Record<
+		string,
+		{ file: string; entries: { slug: string }[] }
+	> = {
+		Illu: { file: 'illus.json', entries: illus },
+		Slide: { file: 'slides.json', entries: slides },
+	}
 	for (const match of content.matchAll(COMPONENT_RE)) {
 		const [, component, attrs] = match
 		const slugMatch = SLUG_ATTR_RE.exec(attrs)
 		if (!slugMatch) continue
 		const slug = slugMatch[1]
-		const dataset = component === 'Illu' ? illus : slides
-		const dataFile = component === 'Illu' ? 'illus.json' : 'slides.json'
-		if (!dataset.some((entry) => entry.slug === slug)) {
+		const { file, entries } = datasets[component]
+		if (!entries.some((entry) => entry.slug === slug)) {
 			violations.push({
 				file: relPath,
-				reason: `<${component} slug="${slug}"> has no matching entry in ${dataFile}`,
+				reason: `<${component} slug="${slug}"> has no matching entry in ${file}`,
 			})
 		}
 	}

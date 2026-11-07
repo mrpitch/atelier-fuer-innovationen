@@ -1,12 +1,36 @@
 {
   "title": "Wertschöpfung",
-  "description": "Beschreibung zu Viertel der Wertschöpfung",
+  "description": "Das Viertel der Wertschöpfung ist dem Projekt Xenia selbst gewidmet: Chaos-Chancen und Forschungsarbeit.",
   "icon": "Building2",
   "pages": [
     "index",
     "die-idee",
     "projektgeschichte",
     "forschungsarbeit",
-    "mitwirkende"
+    "mitwirkende",
+    "---Beteiligte Personen und Partner---",
+    "palfred",
+    "pallcad",
+    "parch",
+    "parno",
+    "parthur",
+    "pegloff",
+    "pfrank",
+    "pgabi",
+    "pmath",
+    "pmedinst",
+    "pmicha",
+    "pscanl",
+    "walex",
+    "wcaro",
+    "wflo",
+    "wfrei",
+    "wmagn",
+    "wrein",
+    "wsusa",
+    "wthl",
+    "wudo",
+    "wuli",
+    "wvolk"
   ]
 }

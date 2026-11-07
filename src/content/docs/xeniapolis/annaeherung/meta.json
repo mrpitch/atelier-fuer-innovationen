@@ -1,6 +1,6 @@
 {
   "title": "Annäherung",
-  "description": "Beschreibung zu Viertel der Annäherung",
+  "description": "Das Viertel der Annäherung ist der Ausgangspunkt für Erstbesucher, hier beginnen die Stadtrundgänge durch die Wissensstadt.",
   "icon": "Building2",
   "pages": [
     "index",
@@ -8,6 +8,7 @@
     "kondratieffs-zyklen",
     "aufbruch-zum-kontinent-der-loesungen",
     "besuch-in-der-wissensstadt",
-    "die-stadtviertel-der-wissensstadt"
+    "die-stadtviertel-der-wissensstadt",
+    "umgebung"
   ]
 }
