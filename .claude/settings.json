@@ -1,17 +1,26 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(gh *)",
-      "Bash(git fetch *)",
-      "Bash(git checkout *)",
-      "Bash(git pull *)",
-      "Bash(git add *)",
-      "Bash(git diff *)",
-      "Bash(git commit *)",
-      "Bash(git push *)",
-      "Bash(pnpm run sandcastle:build)",
-      "Bash(pnpm tsx scripts/run-sandcastle.ts *)",
-      "Bash(./scripts/set-project-status.sh *)"
-    ]
-  }
+	"permissions": {
+		"allow": [
+			"Bash(npx sandcastle *)",
+			"Bash(pnpm tsx *)",
+			"Bash(docker build *)",
+			"Bash(git add *)",
+			"Bash(git commit *)",
+			"Bash(git fetch *)",
+			"Bash(git checkout *)",
+			"Bash(git ls-remote *)",
+			"Bash(gh issue *)",
+			"Bash(gh api *)",
+			"Bash(gh repo *)",
+			"Bash(gh *)",
+			"Bash(git pull *)",
+			"Bash(git diff *)",
+			"Bash(git push *)",
+			"Bash(pnpm run sandcastle:build)",
+			"Bash(pnpm sandcastle *)",
+			"Bash(pnpm sandcastle:build *)",
+			"Bash(pnpm install *)",
+			"Bash(./scripts/set-project-status.sh *)"
+		]
+	}
 }

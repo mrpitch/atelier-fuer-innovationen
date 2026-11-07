@@ -60,24 +60,94 @@ const DISTRICT_SLUGS: Record<string, string> = {
 // (one per stop, sequenced via annaeherung/meta.json) so each source page now
 // gets its own target below. ann/umgeb1.html has no numbered siblings of its
 // own, so it is listed here rather than getting a regex branch like besuchN
-// and viertelN below.
+// and viertelN below. kurzueb4.html and kurzueb5.html ("Ateliers für
+// Innovatoren" and "Xenia im Netzwerk der Wissensstädte") were themselves
+// re-homed from annaeherung/ into fuehrung/ by #107 — their content belongs
+// to the Führung district's "Netzwerk der Innovatoren" theme even though the
+// source pages are hosted under ann/ as Kurzübersicht tour stops.
+//
+// wer/idee0.html, wer/gesch0.html, and wer/werist0.html were each renamed to
+// a human-readable slug (die-idee, projektgeschichte, mitwirkende) rather
+// than keeping their mechanical basename. wer/arbeit0.html and
+// wer/plan0.html were aggregated into one forschungsarbeit.mdx (each ##
+// heading matches one source page's <title>), the district's own "current
+// work" and "future plans" sections, named after its own tagline
+// "Chaos-Chancen und Forschungsarbeit" (#104). fue/netzw0.html was likewise
+// renamed to netzwerk-der-innovatoren.mdx (#107).
+//
+// pot/msk01.html-msk17.html (the 17 MOSAIK knowledge modules), pot/lit0.html,
+// and pot/inh0.html were moved into their own potenziale/mosaik/ subfolder
+// rather than sitting flat in potenziale/ alongside index.mdx — the
+// collection is large enough (17 modules + literature + register) to warrant
+// its own folder and meta.json, referenced as a single "mosaik" entry from
+// potenziale/meta.json (#106). The modules were also renamed msk01→msk-01 …
+// msk17→msk-17 for readability, and lit0/inh0 to their human-readable German
+// names literatur/register, following the same rename pattern as wer/idee0.html.
 const VERIFIED_TARGETS: Record<string, string> = {
-	'/mar/marstart.html': 'src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx',
-	'/ann/kurzueb1.html': 'src/content/docs/xeniapolis/annaeherung/staetten-der-begegnung.mdx',
-	'/ann/kurzueb2.html': 'src/content/docs/xeniapolis/annaeherung/kondratieffs-zyklen.mdx',
-	'/ann/kurzueb3.html': 'src/content/docs/xeniapolis/annaeherung/aufbruch-zum-kontinent-der-loesungen.mdx',
-	'/ann/kurzueb4.html': 'src/content/docs/xeniapolis/annaeherung/ateliers-fuer-innovatoren.mdx',
-	'/ann/kurzueb5.html': 'src/content/docs/xeniapolis/annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx',
-	'/ann/umgeb1.html': 'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
-	'/kon/ewelt2.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2a.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2b.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2c.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2d.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2e.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2f.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2g.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
-	'/kon/ewelt2h.html': 'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/mar/marstart.html':
+		'src/content/docs/xeniapolis/maerkte/idee-kontakt-begegnungen.mdx',
+	'/ann/kurzueb1.html':
+		'src/content/docs/xeniapolis/annaeherung/staetten-der-begegnung.mdx',
+	'/ann/kurzueb2.html':
+		'src/content/docs/xeniapolis/annaeherung/kondratieffs-zyklen.mdx',
+	'/ann/kurzueb3.html':
+		'src/content/docs/xeniapolis/annaeherung/aufbruch-zum-kontinent-der-loesungen.mdx',
+	'/ann/kurzueb4.html':
+		'src/content/docs/xeniapolis/fuehrung/ateliers-fuer-innovatoren.mdx',
+	'/ann/kurzueb5.html':
+		'src/content/docs/xeniapolis/fuehrung/xenia-im-netzwerk-der-wissensstaedte.mdx',
+	'/ann/umgeb1.html':
+		'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
+	'/kon/ewelt2.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2a.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2b.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2c.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2d.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2e.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2f.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2g.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/kon/ewelt2h.html':
+		'src/content/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx',
+	'/wer/idee0.html': 'src/content/docs/xeniapolis/wertschoepfung/die-idee.mdx',
+	'/wer/gesch0.html':
+		'src/content/docs/xeniapolis/wertschoepfung/projektgeschichte.mdx',
+	'/wer/arbeit0.html':
+		'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx',
+	'/wer/plan0.html':
+		'src/content/docs/xeniapolis/wertschoepfung/forschungsarbeit.mdx',
+	'/wer/werist0.html':
+		'src/content/docs/xeniapolis/wertschoepfung/mitwirkende.mdx',
+	'/pot/msk01.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-01.mdx',
+	'/pot/msk02.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-02.mdx',
+	'/pot/msk03.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-03.mdx',
+	'/pot/msk04.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-04.mdx',
+	'/pot/msk05.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-05.mdx',
+	'/pot/msk06.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-06.mdx',
+	'/pot/msk07.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-07.mdx',
+	'/pot/msk08.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-08.mdx',
+	'/pot/msk09.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-09.mdx',
+	'/pot/msk10.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-10.mdx',
+	'/pot/msk11.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-11.mdx',
+	'/pot/msk12.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-12.mdx',
+	'/pot/msk13.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-13.mdx',
+	'/pot/msk14.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-14.mdx',
+	'/pot/msk15.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-15.mdx',
+	'/pot/msk16.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-16.mdx',
+	'/pot/msk17.html': 'src/content/docs/xeniapolis/potenziale/mosaik/msk-17.mdx',
+	'/pot/lit0.html':
+		'src/content/docs/xeniapolis/potenziale/mosaik/literatur.mdx',
+	'/pot/inh0.html':
+		'src/content/docs/xeniapolis/potenziale/mosaik/register.mdx',
+	'/fue/netzw0.html':
+		'src/content/docs/xeniapolis/fuehrung/netzwerk-der-innovatoren.mdx',
 }
 
 // #102's archive: the ins/ Medienspiegel and Präsentationen index pages
@@ -119,11 +189,16 @@ const NAMED_ENTITIES: Record<string, string> = {
 }
 
 export function decodeHtmlEntities(text: string): string {
-	return text.replace(/&(#x[0-9a-f]+|#\d+|[a-zA-Z]+);/g, (match, entity: string) => {
-		if (entity.startsWith('#x')) return String.fromCodePoint(parseInt(entity.slice(2), 16))
-		if (entity.startsWith('#')) return String.fromCodePoint(parseInt(entity.slice(1), 10))
-		return NAMED_ENTITIES[entity] ?? match
-	})
+	return text.replace(
+		/&(#x[0-9a-f]+|#\d+|[a-zA-Z]+);/g,
+		(match, entity: string) => {
+			if (entity.startsWith('#x'))
+				return String.fromCodePoint(parseInt(entity.slice(2), 16))
+			if (entity.startsWith('#'))
+				return String.fromCodePoint(parseInt(entity.slice(1), 10))
+			return NAMED_ENTITIES[entity] ?? match
+		}
+	)
 }
 
 export function extractTitle(html: string): string {
@@ -154,7 +229,10 @@ function isMalformed(rawValue: string): boolean {
 	return /[<>]|%3c|%3e/i.test(rawValue)
 }
 
-export function extractReferences(html: string, baseUrl: string): { pages: string[]; assets: string[] } {
+export function extractReferences(
+	html: string,
+	baseUrl: string
+): { pages: string[]; assets: string[] } {
 	const pages = new Set<string>()
 	const assets = new Set<string>()
 	const re = /(?:href|src|background)\s*=\s*["']([^"']*)["']/gi
@@ -201,7 +279,10 @@ function pathSegments(pathname: string): string[] {
 	return pathname.split('/').filter(Boolean)
 }
 
-export function computeTargetPath(pathname: string): { targetPath: string; notes: string } {
+export function computeTargetPath(pathname: string): {
+	targetPath: string
+	notes: string
+} {
 	const segments = pathSegments(pathname)
 	const file = (segments[segments.length - 1] ?? '').toLowerCase()
 
@@ -212,14 +293,33 @@ export function computeTargetPath(pathname: string): { targetPath: string; notes
 				'Shared "under construction" placeholder — no content to migrate; the five interactive features that linked to it (Gästebuch, Xenia-Tribune, Xenia-Ideenbox, Xenia-Weblink, Xenia-Newsgroup) plus zukstart.html\'s two sub-pages (Das XENIA-System, Der Arbeitsprozeß) are recorded as never-built plans in xeniapolis/archiv/nie-gebaute-features.mdx.',
 		}
 	}
-	if (segments.length === 0 || (segments.length === 1 && /^index\.html?$/.test(file))) {
-		return { targetPath: '', notes: 'Site root frameset — superseded by Fumadocs layout, not migrated as content.' }
+	if (
+		segments.length === 0 ||
+		(segments.length === 1 && /^index\.html?$/.test(file))
+	) {
+		return {
+			targetPath: '',
+			notes:
+				'Site root frameset — superseded by Fumadocs layout, not migrated as content.',
+		}
 	}
-	if (/_frame\.html?$/.test(file) || /_menu\.html?$/.test(file) || /^menu\d*\.html?$/.test(file)) {
-		return { targetPath: '', notes: 'Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content.' }
+	if (
+		/_frame\.html?$/.test(file) ||
+		/_menu\.html?$/.test(file) ||
+		/^menu\d*\.html?$/.test(file)
+	) {
+		return {
+			targetPath: '',
+			notes:
+				'Frame/menu navigation chrome — superseded by Fumadocs layout, not migrated as content.',
+		}
 	}
 	if (VERIFIED_TARGETS[pathname]) {
-		return { targetPath: VERIFIED_TARGETS[pathname], notes: 'Content matches an already-migrated page (verified by comparing text).' }
+		return {
+			targetPath: VERIFIED_TARGETS[pathname],
+			notes:
+				'Content matches an already-migrated page (verified by comparing text).',
+		}
 	}
 	if (ARCHIVED_TARGETS[pathname]) {
 		return {
@@ -231,31 +331,36 @@ export function computeTargetPath(pathname: string): { targetPath: string; notes
 	if (file === 'impress.html' && segments[0] === 'zen') {
 		return {
 			targetPath: 'src/content/docs/impressum.mdx',
-			notes: 'There is only one Impressum site-wide, so it lives at the docs root rather than nested under xeniapolis/ (see src/content/docs/meta.json).',
+			notes:
+				'There is only one Impressum site-wide, so it lives at the docs root rather than nested under xeniapolis/ (see src/content/docs/meta.json).',
 		}
 	}
 	if (file === 'zenstart.html' && segments[0] === 'zen') {
 		return {
 			targetPath: 'src/content/docs/xeniapolis/index.mdx',
 			notes:
-				"Pure navigation chrome (image map + copyright footer), no unique prose. The Zentrum's welcome role is fulfilled by index.mdx, whose \"Was ist/bietet Xenia\" text is verbatim-sourced from and verified against ann/annstart.html.",
+				'Pure navigation chrome (image map + copyright footer), no unique prose. The Zentrum\'s welcome role is fulfilled by index.mdx, whose "Was ist/bietet Xenia" text is verbatim-sourced from and verified against ann/annstart.html.',
 		}
 	}
 
 	const district = segments[0]
-	const isDistrictPath = segments.length === 2 && (Object.hasOwn(DISTRICT_SLUGS, district) || district === 'zen')
+	const isDistrictPath =
+		segments.length === 2 &&
+		(Object.hasOwn(DISTRICT_SLUGS, district) || district === 'zen')
 
 	if (isDistrictPath) {
 		if (/^viertel\d+\.html?$/.test(file)) {
 			return {
-				targetPath: 'src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx',
+				targetPath:
+					'src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx',
 				notes:
 					'Part of the cross-district Stadtviertel tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page.',
 			}
 		}
 		if (/^besuch\d+\.html?$/.test(file)) {
 			return {
-				targetPath: 'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
+				targetPath:
+					'src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx',
 				notes:
 					'Part of the cross-district Besuch-im-Zentrum tour, duplicated per district folder on the source site; consolidated into one already-migrated overview page.',
 			}
@@ -270,23 +375,34 @@ export function computeTargetPath(pathname: string): { targetPath: string; notes
 		if (district === 'zen') {
 			return {
 				targetPath: `src/content/docs/xeniapolis/zentrum/${slugifyFile(file)}.mdx`,
-				notes: 'Zentrum is not one of the 8 Stadtviertel — placed in its own top-level folder rather than the folder-per-Stadtviertel convention.',
+				notes:
+					'Zentrum is not one of the 8 Stadtviertel — placed in its own top-level folder rather than the folder-per-Stadtviertel convention.',
 			}
 		}
 		const slug = DISTRICT_SLUGS[district]
 		if (/^\w+start\.html?$/.test(file)) {
-			return { targetPath: `src/content/docs/xeniapolis/${slug}/index.mdx`, notes: '' }
+			return {
+				targetPath: `src/content/docs/xeniapolis/${slug}/index.mdx`,
+				notes: '',
+			}
 		}
-		return { targetPath: `src/content/docs/xeniapolis/${slug}/${slugifyFile(file)}.mdx`, notes: '' }
+		return {
+			targetPath: `src/content/docs/xeniapolis/${slug}/${slugifyFile(file)}.mdx`,
+			notes: '',
+		}
 	}
 
 	return {
 		targetPath: '',
-		notes: 'No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage.',
+		notes:
+			'No target-path convention applies (outside the Stadtviertel/Zentrum structure, or a broken/duplicate nested link) — needs manual triage.',
 	}
 }
 
-export async function crawlSite(startUrl: string, fetchPage: FetchPage): Promise<SourceMapRecord[]> {
+export async function crawlSite(
+	startUrl: string,
+	fetchPage: FetchPage
+): Promise<SourceMapRecord[]> {
 	const visited = new Set<string>()
 	const queue: string[] = [startUrl]
 	const records: SourceMapRecord[] = []
@@ -340,12 +456,14 @@ export function renderMarkdownTable(records: SourceMapRecord[]): string {
 	const lines: string[] = []
 	for (const key of [...groups.keys()].sort()) {
 		lines.push(`## ${key}`, '')
-		lines.push('| URL | Status | Title | Target path | Assets | Under construction | Notes |')
+		lines.push(
+			'| URL | Status | Title | Target path | Assets | Under construction | Notes |'
+		)
 		lines.push('| --- | --- | --- | --- | --- | --- | --- |')
 		for (const record of groups.get(key)!) {
 			const cell = (value: string): string => value.replace(/\|/g, '\\|')
 			lines.push(
-				`| ${cell(record.url)} | ${record.httpStatus} | ${cell(record.title)} | ${cell(record.targetPath || '—')} | ${record.assets.length} | ${record.underConstruction ? 'yes' : 'no'} | ${cell(record.notes || '—')} |`,
+				`| ${cell(record.url)} | ${record.httpStatus} | ${cell(record.title)} | ${cell(record.targetPath || '—')} | ${record.assets.length} | ${record.underConstruction ? 'yes' : 'no'} | ${cell(record.notes || '—')} |`
 			)
 		}
 		lines.push('')
@@ -357,7 +475,10 @@ async function fetchPageLive(url: string): Promise<FetchedPage> {
 	const controller = new AbortController()
 	const timer = setTimeout(() => controller.abort(), 15000)
 	try {
-		const res = await fetch(url, { signal: controller.signal, redirect: 'follow' })
+		const res = await fetch(url, {
+			signal: controller.signal,
+			redirect: 'follow',
+		})
 		const contentType = res.headers.get('content-type') ?? ''
 		if (!contentType.toLowerCase().includes('html')) {
 			return { status: res.status, html: null }
@@ -372,14 +493,18 @@ async function fetchPageLive(url: string): Promise<FetchedPage> {
 	}
 }
 
-const isMain = process.argv[1] && import.meta.url === `file://${process.argv[1]}`
+const isMain =
+	process.argv[1] && import.meta.url === `file://${process.argv[1]}`
 
 if (isMain) {
 	const records = await crawlSite(`${ORIGIN}/`, fetchPageLive)
 	const scriptDir = dirname(fileURLToPath(import.meta.url))
 	const outDir = join(scriptDir, '..', 'docs', 'reference')
 
-	writeFileSync(join(outDir, 'xeniapolis-source-map.json'), `${JSON.stringify(records, null, 2)}\n`)
+	writeFileSync(
+		join(outDir, 'xeniapolis-source-map.json'),
+		`${JSON.stringify(records, null, 2)}\n`
+	)
 
 	const frontmatter = `---
 name: Xeniapolis Source Map
@@ -401,10 +526,12 @@ ${records.length} source URLs found, grouped below by their first path segment (
 
 ## Target path convention
 
-- Each of the 8 Stadtviertel maps to its existing (or, for Märkte, not-yet-created) \`src/content/docs/xeniapolis/<slug>/\` folder; a district's \`<code>start.html\` is that folder's \`index.mdx\`.
+- Each of the 8 Stadtviertel maps to its existing \`src/content/docs/xeniapolis/<slug>/\` folder, including \`maerkte/\` (scaffolded with placeholder content in #94, then promoted to real migrated content in #99); a district's \`<code>start.html\` is that folder's \`index.mdx\`.
 - **Zentrum** (\`zen/\`) is not one of the 8 Stadtviertel (see \`docs/reference/glossary.md\`), so it gets its own \`xeniapolis/zentrum/\` folder rather than living inside the Stadtviertel convention.
 - The numbered \`viertelN.html\` and \`besuchN.html\` tours are each duplicated verbatim inside every district folder on the source site; all copies of a tour point at that tour's single already-migrated overview page — \`annaeherung/die-stadtviertel-der-wissensstadt.mdx\` and \`annaeherung/besuch-in-der-wissensstadt.mdx\` respectively (the latter also absorbs \`ann/umgeb1.html\`, the Umgebung tour's closing stop).
-- Some already-migrated MDX files aggregate several source pages into one (each \`##\` heading matches one source page's \`<title>\`): \`kon/ewelt2.html\`, \`ewelt2a.html\`–\`ewelt2h.html\` → \`konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx\`. \`ann/kurzueb1.html\`–\`kurzueb5.html\` used to follow the same pattern but were split in #98 into five ordered sibling pages (\`annaeherung/staetten-der-begegnung.mdx\` through \`annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx\`), sequenced via \`annaeherung/meta.json\` so Fumadocs prev/next provides the walk.
+- Some already-migrated MDX files aggregate several source pages into one (each \`##\` heading matches one source page's \`<title>\`): \`kon/ewelt2.html\`, \`ewelt2a.html\`–\`ewelt2h.html\` → \`konstellationen-beim-uebergang-zur-informationsgesellschaft.mdx\`. \`ann/kurzueb1.html\`–\`kurzueb5.html\` used to follow the same pattern but were split in #98 into five ordered sibling pages (\`annaeherung/staetten-der-begegnung.mdx\` through \`annaeherung/xenia-im-netzwerk-der-wissensstaedte.mdx\`), sequenced via \`annaeherung/meta.json\` so Fumadocs prev/next provides the walk. \`ann/kurzueb4.html\` and \`kurzueb5.html\` were then re-homed from \`annaeherung/\` into \`fuehrung/\` by #107, since their content ("Ateliers für Innovatoren" and "Xenia im Netzwerk der Wissensstädte") belongs to the Führung district's "Netzwerk der Innovatoren" theme.
+- \`wer/idee0.html\`, \`wer/gesch0.html\`, and \`wer/werist0.html\` were each renamed to a human-readable slug (\`die-idee\`, \`projektgeschichte\`, \`mitwirkende\`) rather than keeping their mechanical basename. \`wer/arbeit0.html\` and \`wer/plan0.html\` were aggregated the same way as the \`ewelt2*\` pages above, into one \`forschungsarbeit.mdx\` (#104) — the district's own "current work" and "future plans" sections, named after its own tagline "Chaos-Chancen und Forschungsarbeit". \`wer/palfred.html\`–\`wer/wvolk.html\` (the individual partner and team-member bios linked from \`werist0.html\`) are out of scope for #104 and remain mapped to their mechanical per-person target paths for a future ticket. \`fue/netzw0.html\` was likewise renamed to \`netzwerk-der-innovatoren.mdx\` (#107).
+- \`pot/msk01.html\`–\`msk17.html\` (the 17 MOSAIK knowledge modules), \`pot/lit0.html\`, and \`pot/inh0.html\` were moved into their own \`potenziale/mosaik/\` subfolder rather than sitting flat in \`potenziale/\` alongside \`index.mdx\` — the collection is large enough (17 modules + literature + register) to warrant its own folder and \`meta.json\`, referenced as a single \`"mosaik"\` entry from \`potenziale/meta.json\` (#106). The modules were also renamed \`msk01\`→\`msk-01\` … \`msk17\`→\`msk-17\` for readability, and \`lit0\`/\`inh0\` to their human-readable German names \`literatur\`/\`register\`, following the same rename pattern as \`wer/idee0.html\` above.
 - \`ins/\`'s Medienspiegel and Präsentationen *section index* pages (\`meilen0\`, \`zeitun0\`, \`radio0\`, \`web0\`, \`aufstz0\`, \`cebit0\`, \`telepol0\`) were migrated verbatim into \`xeniapolis/archiv/\` by #102, framed as dated source material (centered on the 1995/96 breakthrough, spanning 1991–1997 once Medienspiegel is counted) outside the Stadtviertel structure. Their numbered sub-items (\`aufstz01\`-\`aufstz26\`, \`cebit1\`-\`cebit5\`, \`zeitun01\`-\`zeitun25\`) remain unmigrated — out of #102's scope, which covered only the section index pages.
 - Frame/menu chrome, the site's root frameset, and the shared \`baustelle.html\` placeholder have no target path — they're navigation/placeholder artifacts, not content. The five interactive features that linked to \`baustelle.html\` (Gästebuch, Xenia-Tribune, Xenia-Ideenbox, Xenia-Weblink, Xenia-Newsgroup) plus \`zuk/zukstart.html\`'s two sub-pages (Das XENIA-System, Der Arbeitsprozeß) are recorded as never-built plans in \`xeniapolis/archiv/nie-gebaute-features.mdx\`.
 - \`telepol/\` and \`~mib/\` are a separate, older "Telepolis" exhibition embedded in the same site, outside the Stadtviertel/Zentrum structure; they're flagged \`needs manual triage\` rather than assigned a path.
@@ -413,7 +540,12 @@ ${records.length} source URLs found, grouped below by their first path segment (
 Full per-page asset lists live in \`xeniapolis-source-map.json\`; this table shows only the asset count per page.
 
 `
-	writeFileSync(join(outDir, 'xeniapolis-source-map.md'), frontmatter + intro + renderMarkdownTable(records))
+	writeFileSync(
+		join(outDir, 'xeniapolis-source-map.md'),
+		frontmatter + intro + renderMarkdownTable(records)
+	)
 
-	stdout.write(`Wrote ${records.length} records to docs/reference/xeniapolis-source-map.{json,md}\n`)
+	stdout.write(
+		`Wrote ${records.length} records to docs/reference/xeniapolis-source-map.{json,md}\n`
+	)
 }

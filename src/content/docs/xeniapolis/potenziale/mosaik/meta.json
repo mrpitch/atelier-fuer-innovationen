@@ -1,0 +1,28 @@
+{
+  "title": "MOSAIK",
+  "description": "Beschreibung zur Xenia-Kollektion MOSAIK",
+  "icon": "Building2",
+  "pages": [
+    "index",
+    "msk-01",
+    "msk-02",
+    "msk-03",
+    "msk-04",
+    "msk-05",
+    "msk-06",
+    "msk-07",
+    "msk-08",
+    "msk-09",
+    "msk-10",
+    "msk-11",
+    "msk-12",
+    "msk-13",
+    "msk-14",
+    "msk-15",
+    "msk-16",
+    "msk-17",
+    "---Quellen und Register---",
+    "literatur",
+    "register"
+  ]
+}

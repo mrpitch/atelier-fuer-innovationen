@@ -1,9 +1,8 @@
 ---
-name: "meta.json conventions"
-description: "meta.json controls sidebar structure: root:true makes a folder a top-level tab, pages array controls order using bare slugs, ---Label--- adds separators, !slug excludes a page."
-kind: reference
-type: Reference
-status: current
+title: 'meta.json conventions'
+description: 'meta.json controls sidebar structure: root:true makes a folder a top-level tab, pages array controls order using bare slugs, ---Label--- adds separators, !slug excludes a page.'
+type: reference
+status: stable
 last_reviewed: 2026-08-23
 tags: [fumadocs, meta, sidebar, navigation, content]
 ---
@@ -18,11 +17,11 @@ To make a folder appear as a top-level DocsLayout tab, set `"root": true`:
 
 ```json
 {
-  "title": "Atelier",
-  "description": "...",
-  "root": true,
-  "icon": "HousePlus",
-  "pages": ["index", "section-a", "section-b"]
+	"title": "Atelier",
+	"description": "...",
+	"root": true,
+	"icon": "HousePlus",
+	"pages": ["index", "section-a", "section-b"]
 }
 ```
 
