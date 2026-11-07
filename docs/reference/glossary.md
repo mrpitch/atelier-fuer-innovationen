@@ -36,6 +36,9 @@ _Avoid_: city-state
 The non-thematic hub at the heart of the Wissensstadt — a deliberately empty, Agora-like coordinating space where visitors orient themselves before dispersing into a Stadtviertel.
 _Avoid_: center, downtown
 
+**Archiv**:
+This site's own addition, not a concept from the original xeniapolis.de: a `src/content/docs/xeniapolis/archiv/` folder, alongside Zentrum and the eight Stadtviertel, that frames dated source material (centered on Xenia's 1995/96 public breakthrough, but spanning 1991–1997 once Medienspiegel's press, radio/TV, and internet entries are counted) — Medienspiegel, Präsentationen, and never-built plans — as historical record rather than current district content.
+
 **Stadtviertel** (District):
 One of Xenia's eight thematic zones, each built around a single **Gestaltungsschwerpunkt**. Always name which one; "Viertel" alone is ambiguous.
 _Avoid_: Viertel (without qualifying which), neighborhood, quarter (as a standalone translation)
