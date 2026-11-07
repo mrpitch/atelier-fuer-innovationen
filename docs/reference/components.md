@@ -3,8 +3,8 @@ title: Components
 description: The MDX components available to content pages, which ones live in src/components and which come from @fumadocs/base-ui, with their props and import paths.
 type: reference
 status: stable
-last_reviewed: 2026-11-06
-tags: [components, mdx, slides, illustrations, image-zoom, tabs]
+last_reviewed: 2026-11-07
+tags: [components, mdx, slides, illustrations, image-zoom, tabs, tour]
 ---
 
 # Components
@@ -22,8 +22,26 @@ The docs route registers only `@fumadocs/base-ui/mdx`'s default components (`src
 | `ImageZoom`     | `import { ImageZoom } from '@/components/image-zoom'`         | `next-image-export-optimizer` image props, plus `zoomInProps`, `rmiz`, `alt` |
 | `OverviewCards` | `import { OverviewCards } from '@/components/overview-cards'` | `children`; a responsive grid, 1 column on mobile, 2 from `md`, 3 from `lg`  |
 | `Tabs`, `Tab`   | `import { Tabs, Tab } from '@/components/tabs'`               | See [Tabs wrapper](./fumadocs/tabs-wrapper.md)                               |
+| `Tour`          | `import { Tour } from '@/components/tour'`                    | `tour: string`, `station: string`                                            |
 
 `Slide`, `Slides`, `Illu` and `Illus` are async server components.
+
+### `Tour`
+
+Step counter ("Station n von N") and previous/next controls for one station of a Stadtrundgang or a Kontexte slide series. `tour` selects an entry in `src/data/tours.ts` by slug; `station` is the current page's own absolute URL (one of that entry's `stations`). Use it once near the top and once near the bottom of a station page — each render is independent, so both instances just need the same `tour`/`station` pair.
+
+```mdx
+import { Tour } from '@/components/tour'
+
+<Tour
+	tour="kurzuebersicht"
+	station="/docs/xeniapolis/annaeherung/kondratieffs-zyklen"
+/>
+```
+
+The previous/next label text ("Zurück"/"Nächste") is fixed chrome; the `aria-label` on the working control also names the destination page (read from its frontmatter `title` via `source.getPage`), so the accessible name doesn't rely on surrounding context. At the first or last station of a tour, the missing side renders as a disabled, non-interactive placeholder instead of a dead link.
+
+`src/data/tours.ts` is the one place a tour's station order is defined, including the two Kurzübersicht stations that live under `fuehrung/` instead of `annaeherung/` (see `annaeherung/index.mdx`). An unknown `tour` slug, or a `station` not listed in that tour, renders nothing.
 
 ### `Slide`
 
