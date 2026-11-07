@@ -3,7 +3,7 @@
         "index",
         "atelier",
         "xeniapolis",
-        "components",
+        "!components",
         "!impressum"
     ]
 }

@@ -14,6 +14,7 @@
 		"test": "tsx --test scripts/*.test.ts",
 		"validate:okf": "tsx scripts/validate-okf.ts",
 		"validate:content": "tsx scripts/validate-content.ts",
+		"validate:stadtviertel": "tsx scripts/validate-stadtviertel.ts",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"lint": "eslint . --max-warnings 0",

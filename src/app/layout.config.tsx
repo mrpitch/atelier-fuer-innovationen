@@ -1,21 +1,30 @@
 import ExportedImage from 'next-image-export-optimizer'
 import Logo from '@/public/images/logo.png'
 import type { BaseLayoutProps } from '@fumadocs/base-ui/layouts/shared'
+import stadtviertelData from '@/data/stadtviertel.json'
 
-import {
-	HousePlus,
-	Building2,
-	ComponentIcon,
-	Compass,
-	Coins,
-	Drama,
-	Landmark,
-	Layers,
-	Puzzle,
-	Rocket,
-	Store,
-	Users,
-} from 'lucide-react'
+import { HousePlus, Building2, Landmark, icons } from 'lucide-react'
+
+// Home-page-only descriptions for the Xeniapolis mega menu; name, order and
+// icon come from src/data/stadtviertel.json (the single Stadtviertel source
+// of truth, see issue #147) so this menu can't drift from the docs nav.
+const stadtviertelDescriptions: Record<string, string> = {
+	annaeherung:
+		'Ansatz und Gestaltungsschwerpunkt des Viertels der Annäherung sowie die Stadtrundgänge, die hier ihren Ausgang nehmen',
+	maerkte:
+		'Ideen, Kontakte und Begegnungen als Netzwerk kooperierender Einheiten',
+	kontexte:
+		'Das XENIA-Thema "Eine Welt für morgen" im Kontext der Konstellationen beim Übergang zur Informationsgesellschaft',
+	inszenierung:
+		'Das Leitbild der Wiederbelebung der Polis, das Besucher nacherleben und mitgestalten können',
+	zukunft:
+		'Das XENIA-Thema "Futursysteme": den Wandel wollen und die Zukunft als Fremde gastlich empfangen',
+	wertschoepfung: 'Das Projekt Xenia selbst: Chaos-Chancen und Forschungsarbeit',
+	potenziale:
+		'Die Xenia-Kollektion MOSAIK: wiederverwendbare Wissensbausteine für innovative Aufgaben',
+	fuehrung:
+		'Ansatz und Gestaltungsschwerpunkt des Viertels der Führung sowie das XENIA-Thema "Netzwerk der Innovatoren"',
+}
 
 /**
  * Shared layout configurations
@@ -73,12 +82,6 @@ export const baseOptions: BaseLayoutProps = {
 						'Xenia: das Forschungsprojekt, das den Übergang in die Informationsgesellschaft als begehbare Wissensstadt erlebbar macht.',
 					url: '/docs/xeniapolis',
 				},
-				{
-					icon: <ComponentIcon />,
-					text: 'Components',
-					description: 'Übersicht über alle UI Komponenten',
-					url: '/docs/components',
-				},
 			],
 		},
 		{
@@ -93,62 +96,18 @@ export const baseOptions: BaseLayoutProps = {
 						'Der Stadtplatz der Wissensstadt: Orientierung vor dem Gang in eines der acht Stadtviertel',
 					url: '/docs/xeniapolis',
 				},
-				{
-					icon: <Compass />,
-					text: 'Viertel der Annäherung',
-					description:
-						'Ansatz und Gestaltungsschwerpunkt des Viertels der Annäherung sowie die Stadtrundgänge, die hier ihren Ausgang nehmen',
-					url: '/docs/xeniapolis/annaeherung',
-				},
-				{
-					icon: <Store />,
-					text: 'Viertel der Märkte und Kooperation',
-					description:
-						'Ideen, Kontakte und Begegnungen als Netzwerk kooperierender Einheiten',
-					url: '/docs/xeniapolis/maerkte',
-				},
-				{
-					icon: <Layers />,
-					text: 'Viertel der Kontexte',
-					description:
-						'Das XENIA-Thema "Eine Welt für morgen" im Kontext der Konstellationen beim Übergang zur Informationsgesellschaft',
-					url: '/docs/xeniapolis/kontexte',
-				},
-				{
-					icon: <Drama />,
-					text: 'Viertel der Inszenierung',
-					description:
-						'Das Leitbild der Wiederbelebung der Polis, das Besucher nacherleben und mitgestalten können',
-					url: '/docs/xeniapolis/inszenierung',
-				},
-				{
-					icon: <Rocket />,
-					text: 'Viertel der Zukunft',
-					description:
-						'Das XENIA-Thema "Futursysteme": den Wandel wollen und die Zukunft als Fremde gastlich empfangen',
-					url: '/docs/xeniapolis/zukunft',
-				},
-				{
-					icon: <Coins />,
-					text: 'Viertel der Wertschöpfung',
-					description:
-						'Das Projekt Xenia selbst: Chaos-Chancen und Forschungsarbeit',
-					url: '/docs/xeniapolis/wertschoepfung',
-				},
-				{
-					icon: <Puzzle />,
-					text: 'Viertel der Potenziale',
-					description:
-						'Die Xenia-Kollektion MOSAIK: wiederverwendbare Wissensbausteine für innovative Aufgaben',
-					url: '/docs/xeniapolis/potenziale',
-				},
-				{
-					icon: <Users />,
-					text: 'Viertel der Führung',
-					description:
-						'Ansatz und Gestaltungsschwerpunkt des Viertels der Führung sowie das XENIA-Thema "Netzwerk der Innovatoren"',
-					url: '/docs/xeniapolis/fuehrung',
-				},
+				...stadtviertelData.stadtviertel.map((stadtviertel) => {
+					const Icon = Object.hasOwn(icons, stadtviertel.icon)
+						? icons[stadtviertel.icon as keyof typeof icons]
+						: Building2
+					return {
+						icon: <Icon />,
+						text: stadtviertel.label,
+						description:
+							stadtviertelDescriptions[stadtviertel.slug] ?? stadtviertel.label,
+						url: `/docs/xeniapolis/${stadtviertel.slug}`,
+					}
+				}),
 			],
 		},
 	],

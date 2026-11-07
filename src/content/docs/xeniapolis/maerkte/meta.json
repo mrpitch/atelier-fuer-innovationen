@@ -1,7 +1,7 @@
 {
-  "title": "Märkte",
+  "title": "Viertel der Märkte und Kooperation",
   "description": "Das Viertel der Märkte und Kooperation verbindet Ideen, Kontakte und Begegnungen zu einem Netzwerk kooperierender Einheiten.",
-  "icon": "Building2",
+  "icon": "Store",
   "pages": [
     "index",
     "idee-kontakt-begegnungen",
