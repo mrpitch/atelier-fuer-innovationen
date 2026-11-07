@@ -15,6 +15,7 @@ sources:
   - resource: .github/workflows/main.yml
   - resource: package.json
   - resource: scripts/validate-okf.ts
+  - resource: scripts/copy-integrity.ts
 links:
   - 07-deployment/deployment-topology.md
   - 08-crosscutting/content-conventions.md
@@ -34,7 +35,7 @@ links:
 ```mermaid
 sequenceDiagram
   accTitle: Publishing a change
-  accDescr: A push to main starts the workflow. Job quality runs the format check, lint and typecheck. Job validate-okf runs the tests and the Content Validator. Job validate-content checks content integrity. Job build-check builds the site, scans the log for missing-image warnings and keeps the export as an artefact. Job deploy starts only when all four have passed. It syncs that export to S3 and invalidates CloudFront.
+  accDescr: A push to main starts the workflow. Job quality runs the format check, lint and typecheck. Job validate-okf runs the tests and the Content Validator. Job validate-content checks content integrity. Job validate-copy-integrity checks that protected Xeniapolis copy is unchanged. Job build-check builds the site, scans the log for missing-image warnings and keeps the export as an artefact. Job deploy starts only when all five have passed. It syncs that export to S3 and invalidates CloudFront.
   autonumber
   participant C as Contributor
   participant GH as GitHub
@@ -52,17 +53,19 @@ sequenceDiagram
     VAL-->>CI: pass or fail
   and job validate-content
     CI->>CI: pnpm validate:content
+  and job validate-copy-integrity
+    CI->>CI: pnpm validate:copy-integrity
   and job build-check
     CI->>CI: pnpm build, scan build log, upload out/
   end
-  opt all four jobs passed
+  opt all five jobs passed
     CI->>CI: job deploy: download out/ artefact
     CI->>S3: aws s3 sync ./out/
     CI->>CF: create-invalidation /*
   end
 ```
 
-_Figure: publishing a change, sequence. `quality`, `validate-okf`, `validate-content` and `build-check` run in parallel; `deploy` has `needs: [quality, validate-okf, validate-content, build-check]`._
+_Figure: publishing a change, sequence. `quality`, `validate-okf`, `validate-content`, `validate-copy-integrity` and `build-check` run in parallel; `deploy` has `needs: [quality, validate-okf, validate-content, validate-copy-integrity, build-check]`._
 
 ### Failure handling
 
@@ -71,6 +74,7 @@ _Figure: publishing a change, sequence. `quality`, `validate-okf`, `validate-con
 | `quality` fails                     | The run is marked failed and `deploy` does not run. The live site keeps the previous version.                                                    |
 | `validate-okf` fails                | The run is marked failed and `deploy` does not run. The live site keeps the previous version. See [RISK-03](../11-risks/risks-and-tech-debt.md). |
 | `validate-content` fails            | The run is marked failed and `deploy` does not run. The live site keeps the previous version.                                                    |
+| `validate-copy-integrity` fails     | A protected Xeniapolis text block was edited, split, merged or deleted. `deploy` does not run. The live site keeps the previous version.         |
 | `build-check` fails                 | `pnpm build` failed or its log holds a pinned missing-image warning. `deploy` does not run.                                                      |
 | `pnpm build` fails                  | `build-check` fails and `deploy` does not run. The live site keeps the previous version.                                                         |
 | `aws s3 sync` fails part-way        | [INFERENCE] The bucket holds a mix of old and new files until the next successful run.                                                           |
@@ -79,7 +83,7 @@ _Figure: publishing a change, sequence. `quality`, `validate-okf`, `validate-con
 
 ### Notes
 
-- Nothing publishes except the push to `main`. A pull request targeting `main` runs the four check jobs only; `deploy` is guarded by `github.event_name == 'push'`. There is no preview build and no manual approval step.
+- Nothing publishes except the push to `main`. A pull request targeting `main` runs the five check jobs only; `deploy` is guarded by `github.event_name == 'push'`. There is no preview build and no manual approval step.
 - [INFERENCE] A broken MDX file fails `pnpm build` and so never reaches S3. No test in the repository exercises this.
 - Credentials: `deploy` authenticates with the secrets listed in [Security conventions](../08-crosscutting/security-conventions.md).
 

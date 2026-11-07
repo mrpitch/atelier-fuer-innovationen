@@ -1,10 +1,11 @@
 ---
 title: Domain Glossary
 description: Canonical vocabulary for the Xenia / Wissensstadt concept published by this site, and for the Atelier für Innovationen brand it lives under.
-tags: [glossary, domain, xenia, wissensstadt, xeniapolis, concept]
+tags:
+  [glossary, domain, xenia, wissensstadt, xeniapolis, concept, copy-integrity]
 type: reference
 status: stable
-last_reviewed: 2026-11-06
+last_reviewed: 2026-11-07
 authoritative: true
 ---
 
@@ -99,6 +100,18 @@ _Avoid_: future systems (the plain English translation flattens a coined term ba
 **Atelier für Innovationen** (Workshop for Innovators):
 This site's own name — and, inside the Xenia content itself, the "Stätte der Begegnung" (place of encounter) that innovators use within a Wissensstadt. Treat the brand name and the in-content concept as the same idea, not a coincidence.
 _Avoid_: studio, lab
+
+## Protected copy and editorial text
+
+**Protected copy**:
+Any hand-written text block — a page title, heading, body paragraph, or list item — carried over from the original xeniapolis.de source (verbatim, per [the transcription rule](../how-to/transcribe-xeniapolis-source.md)) or otherwise authored as part of the Xeniapolis content itself. The copy rule from epic #144 applies: this text is never changed. Only labels, navigation, layout, components, addresses and _where_ a block appears may change. `scripts/copy-integrity.ts` (`pnpm validate:copy-integrity`) checks this against a checked-in baseline (`scripts/copy-integrity-baseline.json`): every baseline block must still exist verbatim among the tree's current protected blocks, regardless of page, position or order — an editorial block never counts as a match, so editing one can't mask the loss of real protected copy.
+_Avoid_: treating a reworded or re-translated paragraph as an acceptable "edit" — regenerate the baseline (`pnpm generate:copy-integrity-baseline`) only for a deliberate, reviewed content decision, not to silence a failing check.
+
+**Editorial text**:
+A block the migration itself added rather than transcribed from the source — a "Weitere Stadtviertel" cross-link list, a "Nicht migrierte Unterseiten" note explaining a never-built sub-page, a tour pointer describing this site's own navigation (e.g. "Stadtrundgänge durch Xenia"), or a verbatim-transcription aside. These are marked with `{/* editorial */}` on the line directly above the block they cover, so they never enter the baseline and changing or moving them never fails the check.
+_Avoid_: `<!-- editorial -->` (an HTML comment; MDX requires the JSX-comment form `{/* ... */}`)
+
+The marker's scope depends on what follows it: above a heading, it covers that heading and every block through the next heading of the same or shallower depth (or end of file) — i.e. the whole section; above a paragraph, just that one paragraph; above a list, every item in that run of list items.
 
 ## Status note
 
