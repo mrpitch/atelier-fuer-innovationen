@@ -11,7 +11,15 @@ import { Footer } from '@/app/_components/footer'
 
 const docsOptions: DocsLayoutProps = {
 	...baseOptions,
-	githubUrl: 'https://github.com/mrpitch/atelier-fuer-innovationen',
+	// `baseOptions.links` renders as the home page's top navbar (see
+	// src/app/(home)/layout.tsx). DocsLayout instead renders the same
+	// `links` as extra sidebar rows alongside the content tree, duplicating
+	// Einführung/Atelier/Xeniapolis — override it to empty here so the docs
+	// sidebar shows only the one page-tree-driven navigation. No `githubUrl`
+	// either: both removals are intentional, per issue #147's requirement
+	// that the GitHub link and the duplicated nav entries leave the docs
+	// navigation (the home page's own nav, above, is untouched).
+	links: [],
 	tree: source.pageTree,
 	tabs: {
 		transform(option, node) {

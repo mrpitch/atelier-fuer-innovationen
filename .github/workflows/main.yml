@@ -58,6 +58,19 @@ jobs:
       - name: Validate content integrity
         run: pnpm validate:content
 
+  validate-stadtviertel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v6
+        with:
+          cache: true
+      - name: Install modules
+        run: pnpm install --frozen-lockfile
+      - name: Validate Stadtviertel nav/breadcrumb data agrees with the canonical list
+        run: pnpm validate:stadtviertel
+
   build-check:
     runs-on: ubuntu-latest
     steps:
@@ -118,7 +131,14 @@ jobs:
   deploy:
     # A pull request runs the checks only; publishing is for pushes to main.
     if: github.event_name == 'push'
-    needs: [quality, validate-okf, validate-content, build-check]
+    needs:
+      [
+        quality,
+        validate-okf,
+        validate-content,
+        validate-stadtviertel,
+        build-check,
+      ]
     runs-on: ubuntu-latest
     steps:
       - name: Download static export
