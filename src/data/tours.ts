@@ -11,10 +11,22 @@
 export interface TourDefinition {
 	slug: string
 	stations: string[]
+	/**
+	 * Where the last station's "Nächste" leads once it leaves this tour's own
+	 * stations — e.g. ewelt1h continuing into
+	 * konstellationen-beim-uebergang-zur-informationsgesellschaft, or ewelt3h
+	 * into ewelt4. Without it, the last station's "Nächste" is disabled.
+	 */
+	exit?: string
 }
 
 const KONTEXTE_SERIES = [1, 3, 4, 5, 6, 7, 8]
 const KONTEXTE_SLIDES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+
+const KONTEXTE_EXIT: Record<number, string> = {
+	1: '/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft',
+	3: '/docs/xeniapolis/kontexte/ewelt4',
+}
 
 export const tours: TourDefinition[] = [
 	{
@@ -46,5 +58,40 @@ export const tours: TourDefinition[] = [
 		stations: KONTEXTE_SLIDES.map(
 			(letter) => `/docs/xeniapolis/kontexte/ewelt${n}${letter}`
 		),
+		exit: KONTEXTE_EXIT[n],
 	})),
 ]
+
+export interface ResolvedStation {
+	index: number
+	total: number
+	previous?: string
+	next?: string
+}
+
+/**
+ * Looks up `station`'s position within `tour` and resolves its
+ * previous/next hrefs, folding in the tour's `exit` for the last station.
+ * Pure data lookup, kept free of React/Next imports so it can be unit
+ * tested directly (see tours.test.ts).
+ */
+export function resolveStation(
+	tour: string,
+	station: string
+): ResolvedStation | undefined {
+	const definition = tours.find((candidate) => candidate.slug === tour)
+	if (!definition) return undefined
+
+	const index = definition.stations.indexOf(station)
+	if (index === -1) return undefined
+
+	const total = definition.stations.length
+	const isLast = index === total - 1
+
+	return {
+		index,
+		total,
+		previous: index > 0 ? definition.stations[index - 1] : undefined,
+		next: isLast ? definition.exit : definition.stations[index + 1],
+	}
+}

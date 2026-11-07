@@ -39,7 +39,7 @@ import { Tour } from '@/components/tour'
 />
 ```
 
-The previous/next label text ("Zurück"/"Nächste") is fixed chrome; the `aria-label` on the working control also names the destination page (read from its frontmatter `title` via `source.getPage`), so the accessible name doesn't rely on surrounding context. At the first or last station of a tour, the missing side renders as a disabled, non-interactive placeholder instead of a dead link.
+The previous/next label text ("Zurück"/"Nächste") is fixed chrome; the `aria-label` on the working control also names the destination page (read from its frontmatter `title` via `source.getPage`), so the accessible name doesn't rely on surrounding context. At the first station of a tour, "Zurück" renders as a disabled, non-interactive placeholder instead of a dead link. At the last station, "Nächste" does the same — unless the tour definition sets `exit`, in which case it links there instead (the `ewelt1`/`ewelt3` Kontexte series use this to continue into the next, unrelated page their last slide originally linked to). The `ewelt1`/`ewelt3` station pages also keep a plain link back to their series overview page next to `Tour`, carried over unchanged from the hand-written text — `Tour` has no concept of a series overview.
 
 `src/data/tours.ts` is the one place a tour's station order is defined, including the two Kurzübersicht stations that live under `fuehrung/` instead of `annaeherung/` (see `annaeherung/index.mdx`). An unknown `tour` slug, or a `station` not listed in that tour, renders nothing.
 
