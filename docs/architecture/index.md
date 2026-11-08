@@ -42,7 +42,7 @@ Sections 1, 2, 4 and 10 are `draft` stubs. The code cannot supply their content,
 | 4 Strategy    | Why the stack and the static export were chosen; no ADR records the export       |
 | 10 Quality    | Measurable quality scenarios; needs the §1.2 quality goals first                 |
 
-Also unknown to the code: the public URL, how CloudFront maps extensionless URLs to the exported `.html` files, its error-page and cache settings, IAM scope and GitHub branch protection. Recorded as unconfirmed in [§6](./06-runtime/runtime-main-flow.md), [§7](./07-deployment/deployment-topology.md) and [Security conventions](./08-crosscutting/security-conventions.md).
+Also unknown to the code: its error-page and cache settings, IAM scope and GitHub branch protection. Recorded as unconfirmed in [§6](./06-runtime/runtime-main-flow.md), [§7](./07-deployment/deployment-topology.md) and [Security conventions](./08-crosscutting/security-conventions.md).
 
 ## Attribution
 

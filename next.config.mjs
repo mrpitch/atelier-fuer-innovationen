@@ -5,6 +5,10 @@ const withMDX = createMDX()
 /** @type {import('next').NextConfig} */
 const config = {
 	output: 'export',
+	// The host (CloudFront Function RewriteSPAUrls) maps `/docs/x` to
+	// `/docs/x/index.html`, so the export must emit `docs/x/index.html`, not
+	// `docs/x.html`. See docs/how-to/how-to-build-and-deploy.md.
+	trailingSlash: true,
 	reactStrictMode: true,
 	images: {
 		loader: 'custom',

@@ -17,6 +17,7 @@
 		"validate:stadtviertel": "tsx scripts/validate-stadtviertel.ts",
 		"validate:copy-integrity": "tsx scripts/copy-integrity.ts",
 		"generate:copy-integrity-baseline": "tsx scripts/copy-integrity.ts --generate",
+		"check:deployed": "tsx scripts/check-deployed.ts",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"lint": "eslint . --max-warnings 0",

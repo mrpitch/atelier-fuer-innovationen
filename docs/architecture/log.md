@@ -2,6 +2,7 @@
 
 ## 2026-11-08
 
+- **Update**: 06-runtime/runtime-main-flow.md, 07-deployment/deployment-topology.md, index.md — `trailingSlash: true` and the CloudFront Function `RewriteSPAUrls` recorded as confirmed; public URL recorded; job `verify-deploy` (`scripts/check-deployed.ts`) requests every sitemap address after each deploy (#146)
 - **Update**: 06-runtime/runtime-publish-change.md, 08-crosscutting/content-conventions.md — CI job `validate-copy-integrity` (`scripts/copy-integrity.ts`) gates the deploy next to the other check jobs (#145); protected copy covers table cells and quotations; job `validate-stadtviertel` (#147) added to the job lists, six check jobs in total; `verified` bumped after checking the prose against `.github/workflows/main.yml` and `package.json`
 
 ## 2026-11-06
