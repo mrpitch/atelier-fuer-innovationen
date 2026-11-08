@@ -3,7 +3,8 @@ import Logo from '@/public/images/logo.png'
 import type { BaseLayoutProps } from '@fumadocs/base-ui/layouts/shared'
 import stadtviertelData from '@/data/stadtviertel.json'
 
-import { HousePlus, Building2, Landmark, icons } from 'lucide-react'
+import { HousePlus, Building2, Landmark } from 'lucide-react'
+import { resolveLucideIcon } from '@/lib/resolve-icon'
 
 // Home-page-only descriptions for the Xeniapolis mega menu; name, order and
 // icon come from src/data/stadtviertel.json (the single Stadtviertel source
@@ -19,7 +20,8 @@ const stadtviertelDescriptions: Record<string, string> = {
 		'Das Leitbild der Wiederbelebung der Polis, das Besucher nacherleben und mitgestalten können',
 	zukunft:
 		'Das XENIA-Thema "Futursysteme": den Wandel wollen und die Zukunft als Fremde gastlich empfangen',
-	wertschoepfung: 'Das Projekt Xenia selbst: Chaos-Chancen und Forschungsarbeit',
+	wertschoepfung:
+		'Das Projekt Xenia selbst: Chaos-Chancen und Forschungsarbeit',
 	potenziale:
 		'Die Xenia-Kollektion MOSAIK: wiederverwendbare Wissensbausteine für innovative Aufgaben',
 	fuehrung:
@@ -97,9 +99,7 @@ export const baseOptions: BaseLayoutProps = {
 					url: '/docs/xeniapolis',
 				},
 				...stadtviertelData.stadtviertel.map((stadtviertel) => {
-					const Icon = Object.hasOwn(icons, stadtviertel.icon)
-						? icons[stadtviertel.icon as keyof typeof icons]
-						: Building2
+					const Icon = resolveLucideIcon(stadtviertel.icon)
 					return {
 						icon: <Icon />,
 						text: stadtviertel.label,

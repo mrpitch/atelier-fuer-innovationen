@@ -42,6 +42,7 @@ export const tours: TourDefinition[] = [
 	{
 		slug: 'besuch-in-der-wissensstadt',
 		stations: ['/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt'],
+		exit: '/docs/xeniapolis/annaeherung/umgebung',
 	},
 	{
 		slug: 'die-stadtviertel-der-wissensstadt',

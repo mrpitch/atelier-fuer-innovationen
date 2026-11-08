@@ -71,6 +71,19 @@ jobs:
       - name: Validate Stadtviertel nav/breadcrumb data agrees with the canonical list
         run: pnpm validate:stadtviertel
 
+  validate-copy-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v6
+        with:
+          cache: true
+      - name: Install modules
+        run: pnpm install --frozen-lockfile
+      - name: Validate copy integrity
+        run: pnpm validate:copy-integrity
+
   build-check:
     runs-on: ubuntu-latest
     steps:
@@ -137,6 +150,7 @@ jobs:
         validate-okf,
         validate-content,
         validate-stadtviertel,
+        validate-copy-integrity,
         build-check,
       ]
     runs-on: ubuntu-latest

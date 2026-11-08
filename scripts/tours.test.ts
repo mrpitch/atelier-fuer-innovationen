@@ -4,7 +4,7 @@ import { dirname, join } from 'node:path'
 import { test } from 'node:test'
 import { fileURLToPath } from 'node:url'
 
-import { resolveStation, tours } from '../src/data/tours'
+import { resolveStation } from '../src/data/tours'
 
 const KONTEXTE_DIR = join(
 	dirname(fileURLToPath(import.meta.url)),
@@ -17,7 +17,8 @@ const EWELT3_OVERVIEW =
 	'["Eine Welt" im Wandel](/docs/xeniapolis/kontexte/ewelt3)'
 // ewelt3d carries the hand-written text's original extra space verbatim —
 // the copy rule forbids correcting it.
-const EWELT3D_OVERVIEW = '["Eine Welt " im Wandel](/docs/xeniapolis/kontexte/ewelt3)'
+const EWELT3D_OVERVIEW =
+	'["Eine Welt " im Wandel](/docs/xeniapolis/kontexte/ewelt3)'
 
 test('kurzuebersicht hops from annaeherung station 3 into fuehrung station 4 and back', () => {
 	const third = resolveStation(
@@ -26,7 +27,10 @@ test('kurzuebersicht hops from annaeherung station 3 into fuehrung station 4 and
 	)
 	assert.equal(third?.index, 2)
 	assert.equal(third?.total, 5)
-	assert.equal(third?.next, '/docs/xeniapolis/fuehrung/ateliers-fuer-innovatoren')
+	assert.equal(
+		third?.next,
+		'/docs/xeniapolis/fuehrung/ateliers-fuer-innovatoren'
+	)
 
 	const fourth = resolveStation(
 		'kurzuebersicht',
@@ -43,7 +47,7 @@ test('kurzuebersicht hops from annaeherung station 3 into fuehrung station 4 and
 	)
 })
 
-test('a tour without an exit disables the last station\'s next', () => {
+test("a tour without an exit disables the last station's next", () => {
 	const last = resolveStation(
 		'kurzuebersicht',
 		'/docs/xeniapolis/fuehrung/xenia-im-netzwerk-der-wissensstaedte'
@@ -52,7 +56,7 @@ test('a tour without an exit disables the last station\'s next', () => {
 	assert.equal(last?.next, undefined)
 })
 
-test('ewelt1\'s last station exits into konstellationen-beim-uebergang-zur-informationsgesellschaft', () => {
+test("ewelt1's last station exits into konstellationen-beim-uebergang-zur-informationsgesellschaft", () => {
 	const resolved = resolveStation('ewelt1', '/docs/xeniapolis/kontexte/ewelt1h')
 	assert.equal(resolved?.index, 7)
 	assert.equal(resolved?.total, 8)
@@ -62,7 +66,7 @@ test('ewelt1\'s last station exits into konstellationen-beim-uebergang-zur-infor
 	)
 })
 
-test('ewelt3\'s last station exits into ewelt4', () => {
+test("ewelt3's last station exits into ewelt4", () => {
 	const resolved = resolveStation('ewelt3', '/docs/xeniapolis/kontexte/ewelt3h')
 	assert.equal(resolved?.index, 7)
 	assert.equal(resolved?.total, 8)
@@ -85,9 +89,13 @@ test('a station not listed on the tour resolves to undefined', () => {
 	)
 })
 
-test('only ewelt1 and ewelt3 declare an exit', () => {
-	const withExit = tours.filter((tour) => tour.exit).map((tour) => tour.slug)
-	assert.deepEqual(withExit, ['ewelt1', 'ewelt3'])
+test("besuch-in-der-wissensstadt's single station exits into umgebung, the hop its old hand-written Weiter link made", () => {
+	const resolved = resolveStation(
+		'besuch-in-der-wissensstadt',
+		'/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt'
+	)
+	assert.equal(resolved?.previous, undefined)
+	assert.equal(resolved?.next, '/docs/xeniapolis/annaeherung/umgebung')
 })
 
 test('every ewelt1 station keeps its original link back to the series overview', () => {
