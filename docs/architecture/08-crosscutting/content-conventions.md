@@ -10,7 +10,7 @@ generated:
   at: 2026-11-05T11:01:33Z
 verified:
   by: claude-code/sonnet-5-5
-  at: 2026-11-05T18:05:41Z
+  at: 2026-11-08T11:55:02Z
 sources:
   - resource: scripts/validate-okf.ts
   - resource: scripts/validate-okf.test.ts
@@ -29,13 +29,13 @@ Content Sources, Content Validator and CI/CD Workflow share one contract: every 
 
 ## Rules
 
-| Rule                                                                                                                                                                                                                                                                      | Enforced by                                                     | Scope                                        |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | -------------------------------------------- |
-| Every `.md` and `.mdx` file has a frontmatter block with `type`                                                                                                                                                                                                           | `scripts/validate-okf.ts` (`pnpm validate:okf`)                 | Whole repository, minus the exemptions below |
-| Content pages also carry `title` and `description`                                                                                                                                                                                                                        | Convention in [README](../../../README.md); not machine-checked | `src/content/docs/`                          |
-| Every `<Illu>`/`<Slide>` slug resolves to a registry entry, every `illus.json`/`slides.json` asset exists under `public/`, every `meta.json` `pages` entry resolves to a page, and every relative image or link in MDX resolves to a file                                 | `scripts/validate-content.ts` (`pnpm validate:content`)         | `src/content/docs/`, `src/data/`, `public/`  |
-| A page appears in the sidebar only when its slug is in the section's `meta.json`                                                                                                                                                                                          | Convention; Fumadocs ignores the rest                           | `src/content/docs/**/meta.json`              |
-| Every protected text block (page title, heading, paragraph, list item) recorded in the baseline still exists verbatim somewhere in the tree; a block marked `{/* editorial */}` is exempt — see [glossary](../../reference/glossary.md#protected-copy-and-editorial-text) | `scripts/copy-integrity.ts` (`pnpm validate:copy-integrity`)    | `src/content/docs/xeniapolis/`               |
+| Rule                                                                                                                                                                                                                                                                                             | Enforced by                                                     | Scope                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------- | -------------------------------------------- |
+| Every `.md` and `.mdx` file has a frontmatter block with `type`                                                                                                                                                                                                                                  | `scripts/validate-okf.ts` (`pnpm validate:okf`)                 | Whole repository, minus the exemptions below |
+| Content pages also carry `title` and `description`                                                                                                                                                                                                                                               | Convention in [README](../../../README.md); not machine-checked | `src/content/docs/`                          |
+| Every `<Illu>`/`<Slide>` slug resolves to a registry entry, every `illus.json`/`slides.json` asset exists under `public/`, every `meta.json` `pages` entry resolves to a page, and every relative image or link in MDX resolves to a file                                                        | `scripts/validate-content.ts` (`pnpm validate:content`)         | `src/content/docs/`, `src/data/`, `public/`  |
+| A page appears in the sidebar only when its slug is in the section's `meta.json`                                                                                                                                                                                                                 | Convention; Fumadocs ignores the rest                           | `src/content/docs/**/meta.json`              |
+| Every protected text block (page title, heading, paragraph, list item, table cell, quotation) recorded in the baseline still exists verbatim somewhere in the tree; a block marked `{/* editorial */}` is exempt — see [glossary](../../reference/glossary.md#protected-copy-and-editorial-text) | `scripts/copy-integrity.ts` (`pnpm validate:copy-integrity`)    | `src/content/docs/xeniapolis/`               |
 
 ## Exemptions
 

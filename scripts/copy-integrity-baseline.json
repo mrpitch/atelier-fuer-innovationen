@@ -1082,7 +1082,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
 		"kind": "paragraph",
-		"text": "> Auf den Tag genau wie geplant ist rechtzeitig zum Jahrtausendwechsel am 31. Dezember 1999, 9,00 Uhr, die unter Führung des Alpha-Konsortiums mit einem Kapital von rund 550 Mill. Dollar erstellte Knowledge City in einem Vergnügungsareal im Pazifischen Raum nach nur dreijähriger Bauzeit ans Netz der Breitbandkommunikation gegangen. Die Betreiber sind optimistisch, in schon weiteren drei Jahren eine vollständige Refinanzierung zu erlangen."
+		"text": "Auf den Tag genau wie geplant ist rechtzeitig zum Jahrtausendwechsel am 31. Dezember 1999, 9,00 Uhr, die unter Führung des Alpha-Konsortiums mit einem Kapital von rund 550 Mill. Dollar erstellte Knowledge City in einem Vergnügungsareal im Pazifischen Raum nach nur dreijähriger Bauzeit ans Netz der Breitbandkommunikation gegangen. Die Betreiber sind optimistisch, in schon weiteren drei Jahren eine vollständige Refinanzierung zu erlangen."
 	},
 	{
 		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
@@ -1272,7 +1272,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
 		"kind": "paragraph",
-		"text": "> ressourcenschonende Produkte und Recycling, Energieersparnis, umweltschonender Verkehr, sozialverträgliche Arbeit und Automation, gesundes Bauen und Wohnen, Gesundheitsvorsorge, Sicherheit für den Bürger, komfortable Kommunikation, schlanke Organisation und gesicherte Information, sinnvermittelnde Bildung und Kultur, mußevolle Freizeit"
+		"text": "ressourcenschonende Produkte und Recycling, Energieersparnis, umweltschonender Verkehr, sozialverträgliche Arbeit und Automation, gesundes Bauen und Wohnen, Gesundheitsvorsorge, Sicherheit für den Bürger, komfortable Kommunikation, schlanke Organisation und gesicherte Information, sinnvermittelnde Bildung und Kultur, mußevolle Freizeit"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
@@ -1457,7 +1457,162 @@
 	{
 		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
 		"kind": "paragraph",
-		"text": "| Stadtviertel | Botschaft | Dokumente | |---|---|---| | Weg I (im Uhrzeigersinn) | | | | A Annäherung | die Betroffenen einbeziehen | Erfordernisse, Anforderungen | | B Inszenierung | Wissen in Szene setzen wie in einem Theater | Leitbild-Szenario | | C Kontexte | Kontextwissen als Orientierungs-, Ordnungs- und Metawissen verstärkt nutzen | Kontext Szenario | | D Kontakte | Die Interferenz der Wissenskulturen fördern | Handlungs-Szenario | | H Zukunft | Von der Zukunft her denken | Applikationen-Szenario | | Weg II (entgegen dem Uhrzeigersinn) | | | | E Führung | Unternehmerische Zeichen setzen | Das unternehmerische Programm | | F Methoden | Adäquate Methoden nutzen | Methodenrepertoire | | G Wertschöpfung | Wissen integrieren | Portfolio für Innovationen | | Z Zentrum | Das hermeneutische Dilemma beachten | Synopsis |"
+		"text": "Stadtviertel"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Botschaft"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Dokumente"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Weg I (im Uhrzeigersinn)"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "A Annäherung"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "die Betroffenen einbeziehen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Erfordernisse, Anforderungen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "B Inszenierung"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Wissen in Szene setzen wie in einem Theater"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Leitbild-Szenario"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "C Kontexte"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Kontextwissen als Orientierungs-, Ordnungs- und Metawissen verstärkt nutzen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Kontext Szenario"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "D Kontakte"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Die Interferenz der Wissenskulturen fördern"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Handlungs-Szenario"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "H Zukunft"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Von der Zukunft her denken"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Applikationen-Szenario"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Weg II (entgegen dem Uhrzeigersinn)"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "E Führung"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Unternehmerische Zeichen setzen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Das unternehmerische Programm"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "F Methoden"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Adäquate Methoden nutzen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Methodenrepertoire"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "G Wertschöpfung"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Wissen integrieren"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Portfolio für Innovationen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Z Zentrum"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Das hermeneutische Dilemma beachten"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
+		"kind": "paragraph",
+		"text": "Synopsis"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/02-impressionen-zum-leitbild.mdx",
@@ -2267,7 +2422,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/04-wandel-der-innovationskultur.mdx",
 		"kind": "paragraph",
-		"text": "> Es müßte einen Ort geben, wo das Lernen, Entdecken, Erfinden und Finden sich konzentriert ereignen könnte. Der Besucher oder Benutzer dieses Ortes hätte dann die Gewiheit, vorhandenes Brauchbares leichter entdecken zu können. Er kann seine Ziele dann schneller als üblich erreichen. Ein Wunsch von heute kann Fakten für morgen schaffen."
+		"text": "Es müßte einen Ort geben, wo das Lernen, Entdecken, Erfinden und Finden sich konzentriert ereignen könnte. Der Besucher oder Benutzer dieses Ortes hätte dann die Gewiheit, vorhandenes Brauchbares leichter entdecken zu können. Er kann seine Ziele dann schneller als üblich erreichen. Ein Wunsch von heute kann Fakten für morgen schaffen."
 	},
 	{
 		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/04-wandel-der-innovationskultur.mdx",
@@ -10762,7 +10917,92 @@
 	{
 		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
 		"kind": "paragraph",
-		"text": "| | | | |---|---|---| | 6 | Paradigmen | Informationsgesellschaft | | 5 | lange Wellen | fünfter Kondratieff | | 4 | Systeme | instabil | | 3 | Konjunktur | rezessiv | | 2 | Innovation | Ideen? | | 1 | Nachfrage | keine Arbeit |"
+		"text": "6"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Paradigmen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Informationsgesellschaft"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "5"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "lange Wellen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "fünfter Kondratieff"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "4"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Systeme"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "instabil"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "3"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Konjunktur"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "rezessiv"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "2"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Innovation"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Ideen?"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "1"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Nachfrage"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "keine Arbeit"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
@@ -11417,7 +11657,122 @@
 	{
 		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
 		"kind": "paragraph",
-		"text": "| | | | | |---|---|---|---| | Das Herausgeforderte Unternehmen | 5. Kondratieff | globale Herausforderungen | Unternehmen können helfen | | Das Ehrliche Unternehmen | Kybernetische Wirkungsgefüge | Gleich für Individuen Unternehmen Gesellschaften | durch ehrliche Analyse Handlungsoptionen gewinnen | | Das Politische Unternehmen | Erweiterte Fortschrittsauffassung | Politisches Netzwerk | durch Weitsicht Zukunft gestalten | | Das Visionäre Unternehmen | ein visionäres Vorfeld eröffenen | Chance durch Wagnis-Ideen | Gemeinsam Gestaltungsräume entfalten | | Das Fortschrittsfähige Unternehmen | Herausforderung zur radikalen Innovation | Bedarfs- und Gestaltungsfelder | Vorsorge für den Markt von morgen. | | Das Informationsgeführte Unternehmen | konkrete Leitvorhaben | Nutzung der Chancen | Ernte der Wirkungen |"
+		"text": "Das Herausgeforderte Unternehmen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "5. Kondratieff"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "globale Herausforderungen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Unternehmen können helfen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Das Ehrliche Unternehmen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Kybernetische Wirkungsgefüge"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Gleich für Individuen Unternehmen Gesellschaften"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "durch ehrliche Analyse Handlungsoptionen gewinnen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Das Politische Unternehmen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Erweiterte Fortschrittsauffassung"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Politisches Netzwerk"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "durch Weitsicht Zukunft gestalten"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Das Visionäre Unternehmen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "ein visionäres Vorfeld eröffenen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Chance durch Wagnis-Ideen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Gemeinsam Gestaltungsräume entfalten"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Das Fortschrittsfähige Unternehmen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Herausforderung zur radikalen Innovation"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Bedarfs- und Gestaltungsfelder"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Vorsorge für den Markt von morgen."
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Das Informationsgeführte Unternehmen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "konkrete Leitvorhaben"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Nutzung der Chancen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
+		"kind": "paragraph",
+		"text": "Ernte der Wirkungen"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/archiv/aufsaetze/17-die-zukunft-unternehmen.mdx",
@@ -18092,7 +18447,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
 		"kind": "paragraph",
-		"text": "> Menschen gehen gute Ideen zu neuen und guten Problemlösungen nicht aus. Nehmt sie ernst, schafft ihnen Freiraum und nehmt sie auch in die Pflicht. Diese Hand ermutigt - danke! (Rita Süßmuth)"
+		"text": "Menschen gehen gute Ideen zu neuen und guten Problemlösungen nicht aus. Nehmt sie ernst, schafft ihnen Freiraum und nehmt sie auch in die Pflicht. Diese Hand ermutigt - danke! (Rita Süßmuth)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
@@ -18187,7 +18542,127 @@
 	{
 		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
 		"kind": "paragraph",
-		"text": "| 1793-1825-1847 | 1939-1966-1989 [sic] | 1847-1873-1893 [sic] | 1893-1913-1939 | 1989-2015-2040\" | | --- | --- | --- | --- | --- | | Die Arbeit erleichtern | Ressourcen weltweit verfübar [sic] machen | Urbanität lebenswert gestalten | Individualität und Mobilität fördern | Probleme für die Mitwelt lösen | | Handelsnetze | Verkehrsnetze | Energienetze | Kommunika-<br />tionsnetze | Multimediale Netzwerke des Wissens, Wissensstädte | | Dampfmaschine | Eisenbahn, Bahnhöfe, Schiffahrt | Beleuchtung, Kino | Auto, Telephon, Fernsehen, Raketen | Informations- anlagen und -banken, immatrielle [sic] Waren | | Dampf | Stahl | Chemie, Elektrizität | Erdöl, Elektronik | Information, Ökologie |"
+		"text": "1793-1825-1847"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "1939-1966-1989 [sic]"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "1847-1873-1893 [sic]"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "1893-1913-1939"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "1989-2015-2040\""
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Die Arbeit erleichtern"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Ressourcen weltweit verfübar [sic] machen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Urbanität lebenswert gestalten"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Individualität und Mobilität fördern"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Probleme für die Mitwelt lösen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Handelsnetze"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Verkehrsnetze"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Energienetze"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Kommunika-<br />tionsnetze"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Multimediale Netzwerke des Wissens, Wissensstädte"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Dampfmaschine"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Eisenbahn, Bahnhöfe, Schiffahrt"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Beleuchtung, Kino"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Auto, Telephon, Fernsehen, Raketen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Informations- anlagen und -banken, immatrielle [sic] Waren"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Dampf"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Stahl"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Chemie, Elektrizität"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Erdöl, Elektronik"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
+		"kind": "paragraph",
+		"text": "Information, Ökologie"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
@@ -18267,7 +18742,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
 		"kind": "paragraph",
-		"text": "> Man muß endlich Neues wagen - jede und jeder (Renate Schmidt)"
+		"text": "Man muß endlich Neues wagen - jede und jeder (Renate Schmidt)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
@@ -18322,7 +18797,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
 		"kind": "paragraph",
-		"text": "> 'Die Sonne schickt uns keine Rechnung - die Energiewende ist möglich. Mit sonnigen Grüßen' Franz Alt"
+		"text": "'Die Sonne schickt uns keine Rechnung - die Energiewende ist möglich. Mit sonnigen Grüßen' Franz Alt"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/archiv/cebit/05-rueckblick-zfe-aktuell.mdx",
@@ -19587,7 +20062,137 @@
 	{
 		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
 		"kind": "paragraph",
-		"text": "| Ort und Anlass | Zeit | Inhalt | | --- | --- | --- | | **Rueschlikon/Zuerich**<br />Symposium: Wo bleibt die Informations- gesellschaft? | Nov '91 | Eine fiktive Meldung zum Start der Knowledge Cities<br />in: gdi-impulse 2/91 | | **Muenchen-Perlach**<br />Technopolis-Workshop | 1992/93 | Experimente zur Veranschaulichung komplexer Sachverhalte im Erscheinungsbild urbaner Strukturen | | **Ulm**<br />Fundamenta MM<br />Interdisziplinaere Begegnung | Feb. '94 | Aufbruch zum Kontinent der Loesungen<br />Wissensarchitekturen | | **Duesseldorf**<br />Innovation aus Tradition Kundenveranstaltung von Siemens | Dez. '94 | XENIA mit dem Leitbild Staedte des Wissens als Staetten der Begegnung | | **Hannover**<br />CeBit '95, CHANCEN2000 Industriemesse, Forschung und Technologie | Maerz '95<br />April '95 | XENIA mit den Exponaten (1) Kondratieffs Zyklen (2) Die Stadt als Schaufenster und virtuelle Metropole<br />(3) Atelier fuer Innovatoren<br />(4) Ensemble der Medien<br />(5) Kulturen des Wissens | | **Luxembourg**<br />Telepolis | 3.11. - 12.11.95 | [XENIA im Internet](/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren)<br />Wissensarchitekturen | | **Hannover**<br />CeBit home '96 | Aug. '96 | XENIA als Modell fuer das Veranstaltungs- design bei CHANCEN 2000 | | **Hannover**<br />EXPO 2000 Themenpark | Apr. 2000 bis Sep. 2000 | Eine Perspektive fuer die Wiederbelebung der Polis mit dem Netzwerk der Staedte des Wissens als Staetten der Begegnung |"
+		"text": "Ort und Anlass"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "Zeit"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "Inhalt"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "**Rueschlikon/Zuerich**<br />Symposium: Wo bleibt die Informations- gesellschaft?"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "Nov '91"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "Eine fiktive Meldung zum Start der Knowledge Cities<br />in: gdi-impulse 2/91"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "**Muenchen-Perlach**<br />Technopolis-Workshop"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "1992/93"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "Experimente zur Veranschaulichung komplexer Sachverhalte im Erscheinungsbild urbaner Strukturen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "**Ulm**<br />Fundamenta MM<br />Interdisziplinaere Begegnung"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "Feb. '94"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "Aufbruch zum Kontinent der Loesungen<br />Wissensarchitekturen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "**Duesseldorf**<br />Innovation aus Tradition Kundenveranstaltung von Siemens"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "Dez. '94"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "XENIA mit dem Leitbild Staedte des Wissens als Staetten der Begegnung"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "**Hannover**<br />CeBit '95, CHANCEN2000 Industriemesse, Forschung und Technologie"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "Maerz '95<br />April '95"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "XENIA mit den Exponaten (1) Kondratieffs Zyklen (2) Die Stadt als Schaufenster und virtuelle Metropole<br />(3) Atelier fuer Innovatoren<br />(4) Ensemble der Medien<br />(5) Kulturen des Wissens"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "**Luxembourg**<br />Telepolis"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "3.11. - 12.11.95"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "[XENIA im Internet](/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren)<br />Wissensarchitekturen"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "**Hannover**<br />CeBit home '96"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "Aug. '96"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "XENIA als Modell fuer das Veranstaltungs- design bei CHANCEN 2000"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "**Hannover**<br />EXPO 2000 Themenpark"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "Apr. 2000 bis Sep. 2000"
+	},
+	{
+		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/projekthistorie.mdx",
+		"kind": "paragraph",
+		"text": "Eine Perspektive fuer die Wiederbelebung der Polis mit dem Netzwerk der Staedte des Wissens als Staetten der Begegnung"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/archiv/telepolis/netzwerk-fuer-innovatoren/publikationen.mdx",
@@ -21407,7 +22012,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/archiv/zeitungen/04-merchants-of-vision.mdx",
 		"kind": "paragraph",
-		"text": "> What do we really want? We really want evolution to continue! We have to take care of the future. We have to take care of our children. And for that there will have to be an evolution of human consciousness."
+		"text": "What do we really want? We really want evolution to continue! We have to take care of the future. We have to take care of our children. And for that there will have to be an evolution of human consciousness."
 	},
 	{
 		"page": "src/content/docs/xeniapolis/archiv/zeitungen/04-merchants-of-vision.mdx",

@@ -22,6 +22,7 @@ import {
 	existsSync,
 	readFileSync,
 	readdirSync,
+	realpathSync,
 	statSync,
 	writeFileSync,
 } from 'node:fs'
@@ -59,6 +60,9 @@ const BASELINE_PATH = join(
 const MARKER_RE = /^\s*\{\/\*\s*editorial\s*\*\/\}\s*$/
 const HEADING_RE = /^(#{1,6})\s+(.*)$/
 const LIST_ITEM_RE = /^\s*(?:[-*]|\d+\.)\s+(.*)$/
+const QUOTE_RE = /^\s*>+\s?(.*)$/
+const TABLE_ROW_RE = /^\s*\|/
+const TABLE_SEPARATOR_RE = /^\s*\|[\s:|-]*-[\s:|-]*$/
 const JSX_LINE_RE = /^\s*<\/?[A-Za-z]/
 const CODE_FENCE_RE = /^\s*```/
 const IMPORT_EXPORT_RE = /^\s*(import|export)\s/
@@ -89,7 +93,11 @@ function extractFrontmatterTitle(content: string): {
 	return { title, bodyStart: bodyStart === -1 ? content.length : bodyStart + 1 }
 }
 
-type Region = { kind: 'heading'; level: number } | { kind: 'list' } | null
+type Region =
+	| { kind: 'heading'; level: number }
+	| { kind: 'list' }
+	| { kind: 'table' }
+	| null
 
 function extractFileBlocks(content: string, page: string): Block[] {
 	const blocks: Block[] = []
@@ -108,6 +116,7 @@ function extractFileBlocks(content: string, page: string): Block[] {
 	let pendingMarker = false
 	let paragraphLines: string[] = []
 	let paragraphEditorial = false
+	let paragraphQuoted = false
 	let currentListItem: { lines: string[]; editorial: boolean } | null = null
 	let inGenericComment = false
 	let inOpenJsxTag = false
@@ -139,13 +148,13 @@ function extractFileBlocks(content: string, page: string): Block[] {
 		currentListItem = null
 	}
 
-	// Leaving list territory for a different kind of block: flush whatever
-	// item was still open and, since a run of list items ends there too,
-	// drop the marked-list region (a heading region spans blank lines on
-	// purpose, so it isn't touched here).
-	const endListRun = (): void => {
+	// Leaving list or table territory for a different kind of block: flush
+	// whatever item was still open and, since a run of list items or table
+	// rows ends there too, drop the marked run's region (a heading region
+	// spans blank lines on purpose, so it isn't touched here).
+	const endRun = (): void => {
 		flushListItem()
-		if (region?.kind === 'list') region = null
+		if (region?.kind === 'list' || region?.kind === 'table') region = null
 	}
 
 	for (let line of lines) {
@@ -169,7 +178,7 @@ function extractFileBlocks(content: string, page: string): Block[] {
 		// item or JSX line, but isn't one).
 		if (CODE_FENCE_RE.test(line)) {
 			flushParagraph()
-			endListRun()
+			endRun()
 			pendingMarker = false
 			inCodeFence = true
 			continue
@@ -180,13 +189,13 @@ function extractFileBlocks(content: string, page: string): Block[] {
 		// rather than letting it drift onto a later block.
 		if (line.trim() === '') {
 			flushParagraph()
-			endListRun()
+			endRun()
 			pendingMarker = false
 			continue
 		}
 		if (MARKER_RE.test(line)) {
 			flushParagraph()
-			endListRun()
+			endRun()
 			pendingMarker = true
 			continue
 		}
@@ -205,7 +214,7 @@ function extractFileBlocks(content: string, page: string): Block[] {
 			if (commentEnd === -1) inGenericComment = true
 			if (rest.trim() === '') {
 				flushParagraph()
-				endListRun()
+				endRun()
 				pendingMarker = false
 				continue
 			}
@@ -213,13 +222,13 @@ function extractFileBlocks(content: string, page: string): Block[] {
 		}
 		if (IMPORT_EXPORT_RE.test(line)) {
 			flushParagraph()
-			endListRun()
+			endRun()
 			pendingMarker = false
 			continue
 		}
 		if (JSX_LINE_RE.test(line)) {
 			flushParagraph()
-			endListRun()
+			endRun()
 			pendingMarker = false
 			// A JSX tag whose closing `>` isn't on this line (attributes or
 			// `/>` spilling onto their own lines) is still markup, not prose —
@@ -228,10 +237,52 @@ function extractFileBlocks(content: string, page: string): Block[] {
 			continue
 		}
 
+		// A blockquote's `>` markers are Markdown syntax, not copy: strip them
+		// so the same words stay protected if the quote is restyled. A quote
+		// and the prose around it are separate paragraphs.
+		const quote = QUOTE_RE.exec(line)
+		const quoted = quote !== null
+		if (quote) line = quote[1]
+		if (paragraphLines.length > 0 && quoted !== paragraphQuoted) {
+			flushParagraph()
+		}
+		if (quoted && currentListItem) endRun()
+		if (quoted && line.trim() === '') {
+			flushParagraph()
+			continue
+		}
+
+		// A table row: every non-empty cell is its own protected text block
+		// (kind `paragraph`, so restyling the table as a list or cards keeps
+		// the words protected). The `|---|` separator row is syntax only.
+		if (TABLE_ROW_RE.test(line)) {
+			flushParagraph()
+			flushListItem()
+			if (TABLE_SEPARATOR_RE.test(line)) continue
+			let editorial: boolean
+			if (pendingMarker) {
+				editorial = true
+				region = { kind: 'table' }
+			} else {
+				editorial = region !== null
+			}
+			pendingMarker = false
+			const cells = line
+				.trim()
+				.replace(/^\|/, '')
+				.replace(/\|$/, '')
+				.split(/(?<!\\)\|/)
+			for (const cell of cells) {
+				const text = normalize(cell)
+				if (text) blocks.push({ page, kind: 'paragraph', text, editorial })
+			}
+			continue
+		}
+
 		const heading = HEADING_RE.exec(line)
 		if (heading) {
 			flushParagraph()
-			endListRun()
+			endRun()
 			const level = heading[1].length
 			let editorial: boolean
 			if (pendingMarker) {
@@ -274,6 +325,7 @@ function extractFileBlocks(content: string, page: string): Block[] {
 
 		if (paragraphLines.length === 0) {
 			paragraphEditorial = pendingMarker || region?.kind === 'heading'
+			paragraphQuoted = quoted
 			pendingMarker = false
 		}
 		paragraphLines.push(line.trim())
@@ -327,7 +379,8 @@ export function findCopyIntegrityViolations(
 ): CopyIntegrityViolation[] {
 	// Matching is keyed on kind as well as text, so e.g. a heading that now
 	// reads the same as a since-deleted paragraph doesn't mask the loss.
-	const matchKey = (kind: BlockKind, text: string): string => `${kind}\u0000${text}`
+	const matchKey = (kind: BlockKind, text: string): string =>
+		`${kind}\u0000${text}`
 
 	// Only non-editorial text can satisfy a baseline entry: otherwise editing
 	// an unrelated editorial block to coincidentally match a deleted
@@ -364,8 +417,12 @@ export function findCopyIntegrityViolations(
 	)
 }
 
+// Compare real paths: when the script is reached through a symlink (macOS
+// `/var` -> `/private/var`), `argv[1]` keeps the link while `import.meta.url`
+// is resolved, and a plain string comparison would silently skip the check.
 const isMain =
-	process.argv[1] && import.meta.url === `file://${process.argv[1]}`
+	process.argv[1] !== undefined &&
+	realpathSync(process.argv[1]) === fileURLToPath(import.meta.url)
 
 if (isMain) {
 	const generate = argv.includes('--generate')

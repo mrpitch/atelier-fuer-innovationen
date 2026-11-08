@@ -584,6 +584,107 @@ test('prose sharing a line with a generic JSX comment is kept, with just the com
 	)
 })
 
+test('a table contributes one protected block per non-empty cell, without pipes or the separator row', () => {
+	write(
+		PAGE,
+		[
+			'---',
+			'title: Titel',
+			'---',
+			'',
+			'| Kopf A | Kopf B |',
+			'|---|---|',
+			'| Zelle 1 | |',
+			'| | Zelle 4 |',
+			'',
+		].join('\n')
+	)
+
+	assert.deepEqual(
+		extractBlocks(root).map((b) => [b.kind, b.text, b.editorial]),
+		[
+			['title', 'Titel', false],
+			['paragraph', 'Kopf A', false],
+			['paragraph', 'Kopf B', false],
+			['paragraph', 'Zelle 1', false],
+			['paragraph', 'Zelle 4', false],
+		]
+	)
+})
+
+test('restyling a table as plain paragraphs keeps its cell text protected', () => {
+	write(
+		PAGE,
+		['---', 'title: Titel', '---', '', '| Zelle A | Zelle B |', ''].join('\n')
+	)
+	const baseline = generateBaseline(root)
+
+	write(
+		PAGE,
+		['---', 'title: Titel', '---', '', 'Zelle A', '', 'Zelle B', ''].join('\n')
+	)
+	assert.deepEqual(findCopyIntegrityViolations(root, baseline), [])
+
+	write(
+		PAGE,
+		['---', 'title: Titel', '---', '', 'Zelle A', '', 'Zelle C', ''].join('\n')
+	)
+	assert.equal(findCopyIntegrityViolations(root, baseline).length, 1)
+})
+
+test('a marker directly above a table marks every cell of that table editorial', () => {
+	write(
+		PAGE,
+		[
+			'---',
+			'title: Titel',
+			'---',
+			'',
+			'{/* editorial */}',
+			'| Hinweis A | Hinweis B |',
+			'|---|---|',
+			'| Hinweis C | Hinweis D |',
+			'',
+			'Geschützt.',
+			'',
+		].join('\n')
+	)
+
+	assert.deepEqual(
+		extractBlocks(root).map((b) => [b.text, b.editorial]),
+		[
+			['Titel', false],
+			['Hinweis A', true],
+			['Hinweis B', true],
+			['Hinweis C', true],
+			['Hinweis D', true],
+			['Geschützt.', false],
+		]
+	)
+})
+
+test('a blockquote is recorded without its `>` markers and apart from the prose around it', () => {
+	write(
+		PAGE,
+		[
+			'---',
+			'title: Titel',
+			'---',
+			'',
+			'Davor.',
+			'> Zitat Zeile eins',
+			'> Zitat Zeile zwei',
+			'Danach.',
+			'',
+		].join('\n')
+	)
+
+	assert.deepEqual(
+		extractBlocks(root).map((b) => b.text),
+		['Titel', 'Davor.', 'Zitat Zeile eins Zitat Zeile zwei', 'Danach.']
+	)
+})
+
 test('a wrapped list item continuation line stays part of the same list item, keeping its editorial flag', () => {
 	write(
 		PAGE,
@@ -639,7 +740,9 @@ test('baseline matching is keyed on kind as well as text, so a same-text block o
 	assert.match(violations[0].reason, /Geteilter Text\./)
 })
 
-const scriptPath = fileURLToPath(new URL('./copy-integrity.ts', import.meta.url))
+const scriptPath = fileURLToPath(
+	new URL('./copy-integrity.ts', import.meta.url)
+)
 const tsxBin = join(repoRoot, 'node_modules', '.bin', 'tsx')
 
 function runCli(
