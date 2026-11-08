@@ -1,0 +1,44 @@
+{
+	"stadtviertel": [
+		{
+			"slug": "annaeherung",
+			"label": "Viertel der Annäherung",
+			"icon": "Signpost"
+		},
+		{
+			"slug": "maerkte",
+			"label": "Viertel der Märkte und Kooperation",
+			"icon": "Store"
+		},
+		{
+			"slug": "kontexte",
+			"label": "Viertel der Kontexte",
+			"icon": "Globe"
+		},
+		{
+			"slug": "inszenierung",
+			"label": "Viertel der Inszenierung",
+			"icon": "Drama"
+		},
+		{
+			"slug": "zukunft",
+			"label": "Viertel der Zukunft",
+			"icon": "Rocket"
+		},
+		{
+			"slug": "wertschoepfung",
+			"label": "Viertel der Wertschöpfung",
+			"icon": "Sprout"
+		},
+		{
+			"slug": "potenziale",
+			"label": "Viertel der Potenziale",
+			"icon": "Hexagon"
+		},
+		{
+			"slug": "fuehrung",
+			"label": "Viertel der Führung",
+			"icon": "Crown"
+		}
+	]
+}

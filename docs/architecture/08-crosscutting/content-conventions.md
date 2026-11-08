@@ -52,7 +52,7 @@ The validator skips these without checking them:
 
 `.github/workflows/main.yml` runs job `validate-okf` (`pnpm test`, then `pnpm validate:okf`) on every push to `main` and every pull request targeting `main`, whether or not Markdown changed. Job `deploy` needs it (and job `quality`), so a failed validation stops the deploy. See [RISK-03](../11-risks/risks-and-tech-debt.md).
 
-Job `validate-content` runs `pnpm validate:content`, job `validate-copy-integrity` runs `pnpm validate:copy-integrity`, and job `build-check` runs `pnpm build` and fails on the pinned missing-image warning strings, all on every push and pull request. Job `deploy` needs all five check jobs.
+Job `validate-content` runs `pnpm validate:content`, job `validate-stadtviertel` runs `pnpm validate:stadtviertel` (the Stadtviertel data in `src/data/stadtviertel.json` against each Stadtviertel's `meta.json`, the section order and the icon names), job `validate-copy-integrity` runs `pnpm validate:copy-integrity`, and job `build-check` runs `pnpm build` and fails on the pinned missing-image warning strings, all on every push and pull request. Job `deploy` needs all six check jobs.
 
 `pnpm test` runs `tsx --test scripts/*.test.ts`. It covers the validator and the other scripts, not the application — `scripts/copy-integrity.test.ts` also asserts the checked-in `scripts/copy-integrity-baseline.json` against the current tree, so an edited protected block fails `pnpm test` too, not only CI.
 
