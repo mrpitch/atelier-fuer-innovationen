@@ -187,9 +187,15 @@ test('computeTargetPath maps the Inszenierung Medienspiegel/Präsentationen sect
 	}
 })
 
-test('computeTargetPath maps a generic district content page by filename', () => {
-	const { targetPath } = computeTargetPath('/kon/ewelt1a.html')
-	assert.equal(targetPath, 'src/content/docs/xeniapolis/kontexte/ewelt1a.mdx')
+test('computeTargetPath maps the kon/ewelt1* slides into their #151 chapter folder with readable slugs', () => {
+	assert.equal(
+		computeTargetPath('/kon/ewelt1.html').targetPath,
+		'src/content/docs/xeniapolis/kontexte/einstimmung-zur-zukunftsgestaltung/index.mdx'
+	)
+	assert.equal(
+		computeTargetPath('/kon/ewelt1a.html').targetPath,
+		'src/content/docs/xeniapolis/kontexte/einstimmung-zur-zukunftsgestaltung/wandel-der-beschaeftigungsstruktur.mdx'
+	)
 })
 
 test('computeTargetPath consolidates every viertelN.html copy onto the shared overview page', () => {
