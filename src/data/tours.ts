@@ -13,20 +13,27 @@ export interface TourDefinition {
 	stations: string[]
 	/**
 	 * Where the last station's "Nächste" leads once it leaves this tour's own
-	 * stations — e.g. ewelt1h continuing into
-	 * konstellationen-beim-uebergang-zur-informationsgesellschaft, or ewelt3h
-	 * into ewelt4. Without it, the last station's "Nächste" is disabled.
+	 * stations — e.g. chapter 1's last slide continuing into
+	 * konstellationen-beim-uebergang-zur-informationsgesellschaft, or chapter
+	 * 3's last slide into chapter 4's overview. Without it, the last
+	 * station's "Nächste" is disabled.
 	 */
 	exit?: string
 }
 
-const KONTEXTE_SERIES = [1, 3, 4, 5, 6, 7, 8]
-const KONTEXTE_SLIDES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
-
-const KONTEXTE_EXIT: Record<number, string> = {
-	1: '/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft',
-	3: '/docs/xeniapolis/kontexte/ewelt4',
-}
+// Each chapter folder under kontexte/ (#151) keeps the eight lettered
+// sub-slides, in their original a-h order, as one Tour; the chapter's own
+// overview page is not a station (it never was, even before the rename).
+const KONTEXTE_1 =
+	'/docs/xeniapolis/kontexte/einstimmung-zur-zukunftsgestaltung'
+const KONTEXTE_3 = '/docs/xeniapolis/kontexte/eine-welt-im-wandel'
+const KONTEXTE_4 = '/docs/xeniapolis/kontexte/die-wiederbelebung-der-polis'
+const KONTEXTE_5 = '/docs/xeniapolis/kontexte/wandel-chaos-und-chance'
+const KONTEXTE_6 =
+	'/docs/xeniapolis/kontexte/xenia-system-und-atelier-fuer-innovatoren'
+const KONTEXTE_7 =
+	'/docs/xeniapolis/kontexte/xenia-selbst-eine-fundamentale-innovation'
+const KONTEXTE_8 = '/docs/xeniapolis/kontexte/perspektiven-fuer-ein-netzwerk'
 
 export const tours: TourDefinition[] = [
 	{
@@ -54,13 +61,99 @@ export const tours: TourDefinition[] = [
 		slug: 'umgebung',
 		stations: ['/docs/xeniapolis/annaeherung/umgebung'],
 	},
-	...KONTEXTE_SERIES.map((n) => ({
-		slug: `ewelt${n}`,
-		stations: KONTEXTE_SLIDES.map(
-			(letter) => `/docs/xeniapolis/kontexte/ewelt${n}${letter}`
-		),
-		exit: KONTEXTE_EXIT[n],
-	})),
+	{
+		slug: 'ewelt1',
+		stations: [
+			`${KONTEXTE_1}/wandel-der-beschaeftigungsstruktur`,
+			`${KONTEXTE_1}/das-informationale-babylon`,
+			`${KONTEXTE_1}/beschuetzte-weisheit-geordnetes-staatswesen`,
+			`${KONTEXTE_1}/die-mission-des-hl-franziskus`,
+			`${KONTEXTE_1}/unternehmerische-engagements-im-visionaeren-vorfeld`,
+			`${KONTEXTE_1}/xenia-stadt-des-wissens-und-staette-der-begegnung`,
+			`${KONTEXTE_1}/potentiale-einer-stadt-des-wissens-nutzen`,
+			`${KONTEXTE_1}/das-vor-bild-der-erfinderunternehmer`,
+		],
+		exit: '/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft',
+	},
+	{
+		slug: 'ewelt3',
+		stations: [
+			`${KONTEXTE_3}/das-satori-konzept`,
+			`${KONTEXTE_3}/eine-welt-der-probleme-und-revolutionen`,
+			`${KONTEXTE_3}/die-gestaltungsfelder-der-problemloesungsgesellschaft`,
+			`${KONTEXTE_3}/aufbruch-zum-kontinent-der-loesungen`,
+			`${KONTEXTE_3}/die-erste-globale-revolution`,
+			`${KONTEXTE_3}/megatrends-der-erfordernisse`,
+			`${KONTEXTE_3}/gedanken`,
+			`${KONTEXTE_3}/eine-programmatische-skizzierung`,
+		],
+		exit: KONTEXTE_4,
+	},
+	{
+		slug: 'ewelt4',
+		stations: [
+			`${KONTEXTE_4}/lebensqualitaet-skala-der-beduerfnisse-und-der-beduerfnisbefriedigung`,
+			`${KONTEXTE_4}/staedte-potentiale-und-probleme`,
+			`${KONTEXTE_4}/die-wiederbelebung-der-polis`,
+			`${KONTEXTE_4}/xenia-platz-der-zukunft`,
+			`${KONTEXTE_4}/visionen-innovationen-paradigmen`,
+			`${KONTEXTE_4}/gedankenkreise-fuer-eine-heisse-kreative-mischung`,
+			`${KONTEXTE_4}/potential-defizit-balance-rechnung`,
+			`${KONTEXTE_4}/eine-welt-kommt-in-bewegung`,
+		],
+	},
+	{
+		slug: 'ewelt5',
+		stations: [
+			`${KONTEXTE_5}/das-individuum-in-der-gemeinschaft`,
+			`${KONTEXTE_5}/verantwortungsstrategien-auspraegungen-und-wirkungen`,
+			`${KONTEXTE_5}/bifurkationen-bei-alternativen-weltmodellen`,
+			`${KONTEXTE_5}/der-weg-ist-das-ziel`,
+			`${KONTEXTE_5}/xenia-stadtplan-der-modernen-viertel`,
+			`${KONTEXTE_5}/gestaltungsfelder-und-leitvorhaben`,
+			`${KONTEXTE_5}/kontextwissen-und-faktenwissen`,
+			`${KONTEXTE_5}/das-xenia-konzept`,
+		],
+	},
+	{
+		slug: 'ewelt6',
+		stations: [
+			`${KONTEXTE_6}/xenia-system-im-ueberblick`,
+			`${KONTEXTE_6}/wissensrepraesentation-in-urbanem-ambiente`,
+			`${KONTEXTE_6}/kontext-und-fokus-als-komplementaere-regulatoren`,
+			`${KONTEXTE_6}/die-thematisch-methodische-inszenierung`,
+			`${KONTEXTE_6}/das-fokusthema`,
+			`${KONTEXTE_6}/der-innovative-support`,
+			`${KONTEXTE_6}/mehrfach-weiterverwendbare-wissensbausteine`,
+			`${KONTEXTE_6}/das-netzwerk-fuer-innovatoren`,
+		],
+	},
+	{
+		slug: 'ewelt7',
+		stations: [
+			`${KONTEXTE_7}/das-xenia-konzept-vorbereitete-komplexe`,
+			`${KONTEXTE_7}/handlungsszenario-wissensstaedte-und-oder-datenautobahnen`,
+			`${KONTEXTE_7}/kontextszenario-die-leerstelle`,
+			`${KONTEXTE_7}/das-leitbild-entstehung-und-perspektiven-der-erweiterung`,
+			`${KONTEXTE_7}/das-applikationenszenario`,
+			`${KONTEXTE_7}/das-portfolio-fuer-innovationen`,
+			`${KONTEXTE_7}/das-potentialeportfolio`,
+			`${KONTEXTE_7}/das-unternehmerische-programm`,
+		],
+	},
+	{
+		slug: 'ewelt8',
+		stations: [
+			`${KONTEXTE_8}/innovative-herausforderungen-aus-sicht-der-fuehrung`,
+			`${KONTEXTE_8}/expo-2000-mehr-markttransparenz-fuer-innovationen`,
+			`${KONTEXTE_8}/kybernetischer-ansatz-zur-systembeherrschung`,
+			`${KONTEXTE_8}/xenia-festival-futur`,
+			`${KONTEXTE_8}/wege-zur-informationsgesellschaft`,
+			`${KONTEXTE_8}/makro-gestaltungspotentiale-des-wandels`,
+			`${KONTEXTE_8}/halb-voll-oder-halb-leer`,
+			`${KONTEXTE_8}/unternehmerische-perspektiven-mit-xenia`,
+		],
+	},
 ]
 
 export interface ResolvedStation {

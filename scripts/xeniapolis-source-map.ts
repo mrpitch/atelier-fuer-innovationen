@@ -79,8 +79,10 @@ interface TargetGroup {
 // Explicit overrides for source pages whose target is not derivable from the
 // URL: renamed pages, pages aggregated into one MDX file, and the archive.
 // Pages that follow the folder-per-Stadtviertel convention (including the
-// kon/ewelt* tour pages and the wer/ partner and team bios) need no entry;
-// see computeTargetPath.
+// wer/ partner and team bios) need no entry; see computeTargetPath. The
+// kon/ewelt* tour pages used to be such a case too, until #151 regrouped
+// them into one folder per chapter with readable slugs — now listed
+// explicitly above.
 const TARGET_GROUPS: TargetGroup[] = [
 	{
 		base: 'xeniapolis',
@@ -136,6 +138,133 @@ const TARGET_GROUPS: TargetGroup[] = [
 			'/pot/lit0.html': 'potenziale/mosaik/literatur.mdx',
 			'/pot/inh0.html': 'potenziale/mosaik/register.mdx',
 			'/fue/netzw0.html': 'fuehrung/netzwerk-der-innovatoren.mdx',
+		},
+	},
+	{
+		base: 'xeniapolis/kontexte',
+		note: '#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code.',
+		targets: {
+			'/kon/ewelt1.html': 'einstimmung-zur-zukunftsgestaltung/index.mdx',
+			'/kon/ewelt1a.html':
+				'einstimmung-zur-zukunftsgestaltung/wandel-der-beschaeftigungsstruktur.mdx',
+			'/kon/ewelt1b.html':
+				'einstimmung-zur-zukunftsgestaltung/das-informationale-babylon.mdx',
+			'/kon/ewelt1c.html':
+				'einstimmung-zur-zukunftsgestaltung/beschuetzte-weisheit-geordnetes-staatswesen.mdx',
+			'/kon/ewelt1d.html':
+				'einstimmung-zur-zukunftsgestaltung/die-mission-des-hl-franziskus.mdx',
+			'/kon/ewelt1e.html':
+				'einstimmung-zur-zukunftsgestaltung/unternehmerische-engagements-im-visionaeren-vorfeld.mdx',
+			'/kon/ewelt1f.html':
+				'einstimmung-zur-zukunftsgestaltung/xenia-stadt-des-wissens-und-staette-der-begegnung.mdx',
+			'/kon/ewelt1g.html':
+				'einstimmung-zur-zukunftsgestaltung/potentiale-einer-stadt-des-wissens-nutzen.mdx',
+			'/kon/ewelt1h.html':
+				'einstimmung-zur-zukunftsgestaltung/das-vor-bild-der-erfinderunternehmer.mdx',
+
+			'/kon/ewelt3.html': 'eine-welt-im-wandel/index.mdx',
+			'/kon/ewelt3a.html': 'eine-welt-im-wandel/das-satori-konzept.mdx',
+			'/kon/ewelt3b.html':
+				'eine-welt-im-wandel/eine-welt-der-probleme-und-revolutionen.mdx',
+			'/kon/ewelt3c.html':
+				'eine-welt-im-wandel/die-gestaltungsfelder-der-problemloesungsgesellschaft.mdx',
+			'/kon/ewelt3d.html':
+				'eine-welt-im-wandel/aufbruch-zum-kontinent-der-loesungen.mdx',
+			'/kon/ewelt3e.html':
+				'eine-welt-im-wandel/die-erste-globale-revolution.mdx',
+			'/kon/ewelt3f.html':
+				'eine-welt-im-wandel/megatrends-der-erfordernisse.mdx',
+			'/kon/ewelt3g.html': 'eine-welt-im-wandel/gedanken.mdx',
+			'/kon/ewelt3h.html':
+				'eine-welt-im-wandel/eine-programmatische-skizzierung.mdx',
+
+			'/kon/ewelt4.html': 'die-wiederbelebung-der-polis/index.mdx',
+			'/kon/ewelt4a.html':
+				'die-wiederbelebung-der-polis/lebensqualitaet-skala-der-beduerfnisse-und-der-beduerfnisbefriedigung.mdx',
+			'/kon/ewelt4b.html':
+				'die-wiederbelebung-der-polis/staedte-potentiale-und-probleme.mdx',
+			'/kon/ewelt4c.html':
+				'die-wiederbelebung-der-polis/die-wiederbelebung-der-polis.mdx',
+			'/kon/ewelt4d.html':
+				'die-wiederbelebung-der-polis/xenia-platz-der-zukunft.mdx',
+			'/kon/ewelt4e.html':
+				'die-wiederbelebung-der-polis/visionen-innovationen-paradigmen.mdx',
+			'/kon/ewelt4f.html':
+				'die-wiederbelebung-der-polis/gedankenkreise-fuer-eine-heisse-kreative-mischung.mdx',
+			'/kon/ewelt4g.html':
+				'die-wiederbelebung-der-polis/potential-defizit-balance-rechnung.mdx',
+			'/kon/ewelt4h.html':
+				'die-wiederbelebung-der-polis/eine-welt-kommt-in-bewegung.mdx',
+
+			'/kon/ewelt5.html': 'wandel-chaos-und-chance/index.mdx',
+			'/kon/ewelt5a.html':
+				'wandel-chaos-und-chance/das-individuum-in-der-gemeinschaft.mdx',
+			'/kon/ewelt5b.html':
+				'wandel-chaos-und-chance/verantwortungsstrategien-auspraegungen-und-wirkungen.mdx',
+			'/kon/ewelt5c.html':
+				'wandel-chaos-und-chance/bifurkationen-bei-alternativen-weltmodellen.mdx',
+			'/kon/ewelt5d.html': 'wandel-chaos-und-chance/der-weg-ist-das-ziel.mdx',
+			'/kon/ewelt5e.html':
+				'wandel-chaos-und-chance/xenia-stadtplan-der-modernen-viertel.mdx',
+			'/kon/ewelt5f.html':
+				'wandel-chaos-und-chance/gestaltungsfelder-und-leitvorhaben.mdx',
+			'/kon/ewelt5g.html':
+				'wandel-chaos-und-chance/kontextwissen-und-faktenwissen.mdx',
+			'/kon/ewelt5h.html': 'wandel-chaos-und-chance/das-xenia-konzept.mdx',
+
+			'/kon/ewelt6.html': 'xenia-system-und-atelier-fuer-innovatoren/index.mdx',
+			'/kon/ewelt6a.html':
+				'xenia-system-und-atelier-fuer-innovatoren/xenia-system-im-ueberblick.mdx',
+			'/kon/ewelt6b.html':
+				'xenia-system-und-atelier-fuer-innovatoren/wissensrepraesentation-in-urbanem-ambiente.mdx',
+			'/kon/ewelt6c.html':
+				'xenia-system-und-atelier-fuer-innovatoren/kontext-und-fokus-als-komplementaere-regulatoren.mdx',
+			'/kon/ewelt6d.html':
+				'xenia-system-und-atelier-fuer-innovatoren/die-thematisch-methodische-inszenierung.mdx',
+			'/kon/ewelt6e.html':
+				'xenia-system-und-atelier-fuer-innovatoren/das-fokusthema.mdx',
+			'/kon/ewelt6f.html':
+				'xenia-system-und-atelier-fuer-innovatoren/der-innovative-support.mdx',
+			'/kon/ewelt6g.html':
+				'xenia-system-und-atelier-fuer-innovatoren/mehrfach-weiterverwendbare-wissensbausteine.mdx',
+			'/kon/ewelt6h.html':
+				'xenia-system-und-atelier-fuer-innovatoren/das-netzwerk-fuer-innovatoren.mdx',
+
+			'/kon/ewelt7.html': 'xenia-selbst-eine-fundamentale-innovation/index.mdx',
+			'/kon/ewelt7a.html':
+				'xenia-selbst-eine-fundamentale-innovation/das-xenia-konzept-vorbereitete-komplexe.mdx',
+			'/kon/ewelt7b.html':
+				'xenia-selbst-eine-fundamentale-innovation/handlungsszenario-wissensstaedte-und-oder-datenautobahnen.mdx',
+			'/kon/ewelt7c.html':
+				'xenia-selbst-eine-fundamentale-innovation/kontextszenario-die-leerstelle.mdx',
+			'/kon/ewelt7d.html':
+				'xenia-selbst-eine-fundamentale-innovation/das-leitbild-entstehung-und-perspektiven-der-erweiterung.mdx',
+			'/kon/ewelt7e.html':
+				'xenia-selbst-eine-fundamentale-innovation/das-applikationenszenario.mdx',
+			'/kon/ewelt7f.html':
+				'xenia-selbst-eine-fundamentale-innovation/das-portfolio-fuer-innovationen.mdx',
+			'/kon/ewelt7g.html':
+				'xenia-selbst-eine-fundamentale-innovation/das-potentialeportfolio.mdx',
+			'/kon/ewelt7h.html':
+				'xenia-selbst-eine-fundamentale-innovation/das-unternehmerische-programm.mdx',
+
+			'/kon/ewelt8.html': 'perspektiven-fuer-ein-netzwerk/index.mdx',
+			'/kon/ewelt8a.html':
+				'perspektiven-fuer-ein-netzwerk/innovative-herausforderungen-aus-sicht-der-fuehrung.mdx',
+			'/kon/ewelt8b.html':
+				'perspektiven-fuer-ein-netzwerk/expo-2000-mehr-markttransparenz-fuer-innovationen.mdx',
+			'/kon/ewelt8c.html':
+				'perspektiven-fuer-ein-netzwerk/kybernetischer-ansatz-zur-systembeherrschung.mdx',
+			'/kon/ewelt8d.html':
+				'perspektiven-fuer-ein-netzwerk/xenia-festival-futur.mdx',
+			'/kon/ewelt8e.html':
+				'perspektiven-fuer-ein-netzwerk/wege-zur-informationsgesellschaft.mdx',
+			'/kon/ewelt8f.html':
+				'perspektiven-fuer-ein-netzwerk/makro-gestaltungspotentiale-des-wandels.mdx',
+			'/kon/ewelt8g.html':
+				'perspektiven-fuer-ein-netzwerk/halb-voll-oder-halb-leer.mdx',
+			'/kon/ewelt8h.html':
+				'perspektiven-fuer-ein-netzwerk/unternehmerische-perspektiven-mit-xenia.mdx',
 		},
 	},
 	{
@@ -744,10 +873,10 @@ HTTP 404 records have no target; their note reads \`Source returns HTTP 404 — 
 
 ## Target path convention
 
-- Each of the 8 Stadtviertel maps to \`src/content/docs/xeniapolis/<slug>/\`; a district's \`<code>start.html\` is that folder's \`index.mdx\`, and every other page maps to \`<file>.mdx\` in the same folder. This covers the \`kon/ewelt*\` tour pages and the \`wer/\` partner and team bios.
+- Each of the 8 Stadtviertel maps to \`src/content/docs/xeniapolis/<slug>/\`; a district's \`<code>start.html\` is that folder's \`index.mdx\`, and every other page maps to \`<file>.mdx\` in the same folder. This covers the \`wer/\` partner and team bios.
 - **Zentrum** (\`zen/\`) is not one of the 8 Stadtviertel (see \`docs/reference/glossary.md\`), so it gets its own \`xeniapolis/zentrum/\` folder.
 - The numbered \`viertelN.html\` and \`besuchN.html\` tours are duplicated verbatim inside every district folder on the source site; all copies point at the single overview page \`annaeherung/die-stadtviertel-der-wissensstadt.mdx\` or \`annaeherung/besuch-in-der-wissensstadt.mdx\`.
-- Renamed and aggregated pages are listed explicitly in \`TARGET_GROUPS\` in the generator: \`ann/kurzueb1–5\`, \`ann/umgeb1\` (\`annaeherung/umgebung.mdx\`), \`kon/ewelt2*\` (one aggregated page), \`wer/{idee0,gesch0,arbeit0,plan0,werist0}\`, \`pot/msk01–17\`, \`pot/lit0\`, \`pot/inh0\` (the \`potenziale/mosaik/\` folder), \`fue/netzw0\` and \`mar/marstart\`.
+- Renamed and aggregated pages are listed explicitly in \`TARGET_GROUPS\` in the generator: \`ann/kurzueb1–5\`, \`ann/umgeb1\` (\`annaeherung/umgebung.mdx\`), \`kon/ewelt2*\` (one aggregated page), \`kon/ewelt1*/3*/4*/5*/6*/7*/8*\` (#151 regrouped these into one folder per chapter with a readable slug per slide), \`wer/{idee0,gesch0,arbeit0,plan0,werist0}\`, \`pot/msk01–17\`, \`pot/lit0\`, \`pot/inh0\` (the \`potenziale/mosaik/\` folder), \`fue/netzw0\` and \`mar/marstart\`.
 - \`ins/\` section index pages (Medienspiegel, Präsentationen, CeBIT, Telepolis) and their sub-items live in \`xeniapolis/archiv/\`: \`aufsaetze/\` (\`ins/aufstz*\`), \`cebit/\` (\`ins/cebit1–5\`), \`zeitungen/\` (\`ins/zeitun*\`) and \`telepolis/\` (\`ins/telepol0\` and the older Telepolis exhibition under \`telepol/\`).
 - Frame/menu chrome and the root frameset are superseded by the Fumadocs layout. The shared \`baustelle.html\` placeholder has no content; the features that linked to it (Gästebuch, Xenia-Tribune, Xenia-Ideenbox, Xenia-Weblink, Xenia-Newsgroup, plus \`zuk/zukstart.html\`'s two sub-pages) are recorded as never-built plans in \`xeniapolis/archiv/nie-gebaute-features.mdx\`.
 

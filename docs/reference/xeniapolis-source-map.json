@@ -1159,118 +1159,118 @@
 		"url": "https://xeniapolis.de/kon/ewelt1.html",
 		"httpStatus": 200,
 		"title": "1: Einstimmung zur Zukunftsgestaltung",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/einstimmung-zur-zukunftsgestaltung/index.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_icons/annbild.gif",
 			"https://xeniapolis.de/gifs/b_64er/ewann.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt1a.html",
 		"httpStatus": 200,
 		"title": "1.1: Wandel der Beschäftigungsstruktur",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1a.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/einstimmung-zur-zukunftsgestaltung/wandel-der-beschaeftigungsstruktur.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/1_1-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt1b.html",
 		"httpStatus": 200,
 		"title": "1.2: Das informationale Babylon",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1b.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/einstimmung-zur-zukunftsgestaltung/das-informationale-babylon.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/1_2-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt1c.html",
 		"httpStatus": 200,
 		"title": "1.3: Beschützte Weisheit - Geordnetes Staatswesen",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1c.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/einstimmung-zur-zukunftsgestaltung/beschuetzte-weisheit-geordnetes-staatswesen.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/1_3-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt1d.html",
 		"httpStatus": 200,
 		"title": "1.4: Die Mission des Hl. Franziskus",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1d.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/einstimmung-zur-zukunftsgestaltung/die-mission-des-hl-franziskus.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/1_4-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt1e.html",
 		"httpStatus": 200,
 		"title": "1.5: Unternehmerische Engagements im visionären Vorfeld",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1e.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/einstimmung-zur-zukunftsgestaltung/unternehmerische-engagements-im-visionaeren-vorfeld.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/1_5-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt1f.html",
 		"httpStatus": 200,
 		"title": "1.6: Xenia, Stadt des Wissens und Stätte der Begegnung",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1f.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/einstimmung-zur-zukunftsgestaltung/xenia-stadt-des-wissens-und-staette-der-begegnung.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/1_6-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt1g.html",
 		"httpStatus": 200,
 		"title": "1.7: Potentiale einer Stadt des Wissens nutzen!",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1g.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/einstimmung-zur-zukunftsgestaltung/potentiale-einer-stadt-des-wissens-nutzen.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/1_7-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt1h.html",
 		"httpStatus": 200,
 		"title": "1.8: Das Vor-Bild: Der Erfinderunternehmer",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt1h.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/einstimmung-zur-zukunftsgestaltung/das-vor-bild-der-erfinderunternehmer.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewann_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/1_8-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt2.html",
@@ -1393,703 +1393,703 @@
 		"url": "https://xeniapolis.de/kon/ewelt3.html",
 		"httpStatus": 200,
 		"title": "3: Eine Welt im Wandel",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/eine-welt-im-wandel/index.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_icons/konbild.gif",
 			"https://xeniapolis.de/gifs/b_64er/ewkon.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt3a.html",
 		"httpStatus": 200,
 		"title": "3.1: Das SATORI-Konzept",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3a.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/eine-welt-im-wandel/das-satori-konzept.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/3_1-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt3b.html",
 		"httpStatus": 200,
 		"title": "3.2: \"Eine Welt\" der Probleme und Revolutionen",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3b.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/eine-welt-im-wandel/eine-welt-der-probleme-und-revolutionen.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/3_2-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt3c.html",
 		"httpStatus": 200,
 		"title": "3.3: Die Gestaltungsfelder der Problemlösungsgesellschaft",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3c.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/eine-welt-im-wandel/die-gestaltungsfelder-der-problemloesungsgesellschaft.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/3_3-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt3d.html",
 		"httpStatus": 200,
 		"title": "3.4: Aufbruch zum Kontinent der Lösungen",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3d.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/eine-welt-im-wandel/aufbruch-zum-kontinent-der-loesungen.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/3_4-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt3e.html",
 		"httpStatus": 200,
 		"title": "3.5: Die erste globale Revolution",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3e.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/eine-welt-im-wandel/die-erste-globale-revolution.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/3_5-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt3f.html",
 		"httpStatus": 200,
 		"title": "3.6: Megatrends der Erfordernisse",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3f.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/eine-welt-im-wandel/megatrends-der-erfordernisse.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/3_6-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt3g.html",
 		"httpStatus": 200,
 		"title": "3.7: \"Gedanken\"",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3g.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/eine-welt-im-wandel/gedanken.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/3_7-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt3h.html",
 		"httpStatus": 200,
 		"title": "3.8: Eine programmatische Skizzierung",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt3h.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/eine-welt-im-wandel/eine-programmatische-skizzierung.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewkon_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/3_8-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt4.html",
 		"httpStatus": 200,
 		"title": "4: Die Wiederbelebung der Polis",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/die-wiederbelebung-der-polis/index.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_icons/insbild.gif",
 			"https://xeniapolis.de/gifs/b_64er/ewins.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt4a.html",
 		"httpStatus": 200,
 		"title": "4.1: Lebensqualität, Skala der Bedürfnisse und der Bedürfnisbefriedigung",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4a.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/die-wiederbelebung-der-polis/lebensqualitaet-skala-der-beduerfnisse-und-der-beduerfnisbefriedigung.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/4_1-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt4b.html",
 		"httpStatus": 200,
 		"title": "4.2: \"Städte\": Potentiale und Probleme",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4b.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/die-wiederbelebung-der-polis/staedte-potentiale-und-probleme.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/4_2-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt4c.html",
 		"httpStatus": 200,
 		"title": "4.3: Die Wiederbelebung der Polis",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4c.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/die-wiederbelebung-der-polis/die-wiederbelebung-der-polis.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/4_3-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt4d.html",
 		"httpStatus": 200,
 		"title": "4.4: Xenia, Platz der Zukunft",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4d.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/die-wiederbelebung-der-polis/xenia-platz-der-zukunft.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/4_4-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt4e.html",
 		"httpStatus": 200,
 		"title": "4.5: Visionen - Innovationen - Paradigmen",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4e.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/die-wiederbelebung-der-polis/visionen-innovationen-paradigmen.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/4_5-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt4f.html",
 		"httpStatus": 200,
 		"title": "4.6: Gedankenkreise für eine \"heiße, kreative Mischung\"",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4f.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/die-wiederbelebung-der-polis/gedankenkreise-fuer-eine-heisse-kreative-mischung.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/4_6-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt4g.html",
 		"httpStatus": 200,
 		"title": "4.7: Potential-Defizit-Balance-Rechnung",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4g.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/die-wiederbelebung-der-polis/potential-defizit-balance-rechnung.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/4_7-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt4h.html",
 		"httpStatus": 200,
 		"title": "4.8: \"Eine Welt\" kommt in Bewegung",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt4h.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/die-wiederbelebung-der-polis/eine-welt-kommt-in-bewegung.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewins_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/4_8-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt5.html",
 		"httpStatus": 200,
 		"title": "5: Wandel: Chaos und Chance",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/wandel-chaos-und-chance/index.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_icons/zukbild.gif",
 			"https://xeniapolis.de/gifs/b_64er/ewzuk.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt5a.html",
 		"httpStatus": 200,
 		"title": "5.1: Das Individuum in der Gemeinschaft",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5a.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/wandel-chaos-und-chance/das-individuum-in-der-gemeinschaft.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/5_1-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt5b.html",
 		"httpStatus": 200,
 		"title": "5.2: Verantwortungsstrategien - Ausprägungen und Wirkungen",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5b.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/wandel-chaos-und-chance/verantwortungsstrategien-auspraegungen-und-wirkungen.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/5_2-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt5c.html",
 		"httpStatus": 200,
 		"title": "5.3: Bifurkationen bei alternativen Weltmodellen",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5c.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/wandel-chaos-und-chance/bifurkationen-bei-alternativen-weltmodellen.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/5_3-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt5d.html",
 		"httpStatus": 200,
 		"title": "5.4: Der Weg ist das Ziel!",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5d.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/wandel-chaos-und-chance/der-weg-ist-das-ziel.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/5_4-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt5e.html",
 		"httpStatus": 200,
 		"title": "5.5: Xenia - Stadtplan der modernen Viertel",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5e.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/wandel-chaos-und-chance/xenia-stadtplan-der-modernen-viertel.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/5_5-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt5f.html",
 		"httpStatus": 200,
 		"title": "5.6: Gestaltungsfelder und Leitvorhaben",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5f.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/wandel-chaos-und-chance/gestaltungsfelder-und-leitvorhaben.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/5_6-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt5g.html",
 		"httpStatus": 200,
 		"title": "5.7: Kontextwissen und Faktenwissen",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5g.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/wandel-chaos-und-chance/kontextwissen-und-faktenwissen.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/5_7-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt5h.html",
 		"httpStatus": 200,
 		"title": "5.8: Das XENIA-Konzept",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt5h.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/wandel-chaos-und-chance/das-xenia-konzept.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewzuk_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/5_8-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt6.html",
 		"httpStatus": 200,
 		"title": "6: XENIA-System und Atelier für Innovatoren",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-system-und-atelier-fuer-innovatoren/index.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_icons/werbild.gif",
 			"https://xeniapolis.de/gifs/b_64er/ewwer.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt6a.html",
 		"httpStatus": 200,
 		"title": "6.1: XENIA-System im Überblick",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6a.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-system-und-atelier-fuer-innovatoren/xenia-system-im-ueberblick.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/6_1-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt6b.html",
 		"httpStatus": 200,
 		"title": "6.2: Wissensrepräsentation in urbanem Ambiente",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6b.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-system-und-atelier-fuer-innovatoren/wissensrepraesentation-in-urbanem-ambiente.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/6_2-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt6c.html",
 		"httpStatus": 200,
 		"title": "6.3: Kontext und Fokus als komplementäre Regulatoren",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6c.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-system-und-atelier-fuer-innovatoren/kontext-und-fokus-als-komplementaere-regulatoren.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/6_3-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt6d.html",
 		"httpStatus": 200,
 		"title": "6.4: Die thematisch-methodische Inszenierung",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6d.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-system-und-atelier-fuer-innovatoren/die-thematisch-methodische-inszenierung.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/6_4-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt6e.html",
 		"httpStatus": 200,
 		"title": "6.5: Das Fokusthema",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6e.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-system-und-atelier-fuer-innovatoren/das-fokusthema.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/6_5-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt6f.html",
 		"httpStatus": 200,
 		"title": "6.6: Der innovative Support",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6f.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-system-und-atelier-fuer-innovatoren/der-innovative-support.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/6_6-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt6g.html",
 		"httpStatus": 200,
 		"title": "6.7: Mehrfach weiterverwendbare Wissensbausteine",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6g.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-system-und-atelier-fuer-innovatoren/mehrfach-weiterverwendbare-wissensbausteine.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/6_7-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt6h.html",
 		"httpStatus": 200,
 		"title": "6.8: Das Netzwerk für Innovatoren",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt6h.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-system-und-atelier-fuer-innovatoren/das-netzwerk-fuer-innovatoren.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewwer_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/6_8-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt7.html",
 		"httpStatus": 200,
 		"title": "7: Xenia, selbst eine fundamentale Innovation",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-selbst-eine-fundamentale-innovation/index.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_icons/potbild.gif",
 			"https://xeniapolis.de/gifs/b_64er/ewpot.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt7a.html",
 		"httpStatus": 200,
 		"title": "7.1: Das XENIA-Konzept - vorbereitete Komplexe",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7a.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-selbst-eine-fundamentale-innovation/das-xenia-konzept-vorbereitete-komplexe.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/7_1-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt7b.html",
 		"httpStatus": 200,
 		"title": "7.2: Handlungsszenario: Wissensstädte und/oder Datenautobahnen",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7b.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-selbst-eine-fundamentale-innovation/handlungsszenario-wissensstaedte-und-oder-datenautobahnen.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/7_2-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt7c.html",
 		"httpStatus": 200,
 		"title": "7.3: Kontextszenario: Die Leerstelle",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7c.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-selbst-eine-fundamentale-innovation/kontextszenario-die-leerstelle.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/7_3-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt7d.html",
 		"httpStatus": 200,
 		"title": "7.4: Das Leitbild: Entstehung und Perspektiven der Erweiterung",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7d.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-selbst-eine-fundamentale-innovation/das-leitbild-entstehung-und-perspektiven-der-erweiterung.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/7_4-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt7e.html",
 		"httpStatus": 200,
 		"title": "7.5: Das Applikationenszenario",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7e.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-selbst-eine-fundamentale-innovation/das-applikationenszenario.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/7_5-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt7f.html",
 		"httpStatus": 200,
 		"title": "7.6: Das Portfolio für Innovationen",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7f.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-selbst-eine-fundamentale-innovation/das-portfolio-fuer-innovationen.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/7_6-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt7g.html",
 		"httpStatus": 200,
 		"title": "7.7: Das Potentialeportfolio",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7g.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-selbst-eine-fundamentale-innovation/das-potentialeportfolio.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/7_7-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt7h.html",
 		"httpStatus": 200,
 		"title": "7.8: Das unternehmerische Programm",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt7h.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/xenia-selbst-eine-fundamentale-innovation/das-unternehmerische-programm.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewpot_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/7_8-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt8.html",
 		"httpStatus": 200,
 		"title": "8: Perspektiven für ein Netzwerk",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/perspektiven-fuer-ein-netzwerk/index.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_icons/fuebild.gif",
 			"https://xeniapolis.de/gifs/b_64er/ewfue.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt8a.html",
 		"httpStatus": 200,
 		"title": "8.1: Innovative Herausforderungen aus Sicht der Führung",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8a.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/perspektiven-fuer-ein-netzwerk/innovative-herausforderungen-aus-sicht-der-fuehrung.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/8_1-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt8b.html",
 		"httpStatus": 200,
 		"title": "8.2: EXPO 2000 - mehr Markttransparenz für Innovationen",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8b.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/perspektiven-fuer-ein-netzwerk/expo-2000-mehr-markttransparenz-fuer-innovationen.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/8_2-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt8c.html",
 		"httpStatus": 200,
 		"title": "8.3: Kybernetischer Ansatz zur Systembeherrschung",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8c.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/perspektiven-fuer-ein-netzwerk/kybernetischer-ansatz-zur-systembeherrschung.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/8_3-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt8d.html",
 		"httpStatus": 200,
 		"title": "8.4: Xenia, Festival Futur",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8d.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/perspektiven-fuer-ein-netzwerk/xenia-festival-futur.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/8_4-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt8e.html",
 		"httpStatus": 200,
 		"title": "8.5: Wege zur Informationsgesellschaft",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8e.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/perspektiven-fuer-ein-netzwerk/wege-zur-informationsgesellschaft.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/8_5-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt8f.html",
 		"httpStatus": 200,
 		"title": "8.6: Makro-Gestaltungspotentiale des Wandels",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8f.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/perspektiven-fuer-ein-netzwerk/makro-gestaltungspotentiale-des-wandels.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/8_6-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt8g.html",
 		"httpStatus": 200,
 		"title": "8.7: \"Halb voll oder halb leer\"",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8g.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/perspektiven-fuer-ein-netzwerk/halb-voll-oder-halb-leer.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/8_7-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/ewelt8h.html",
 		"httpStatus": 200,
 		"title": "8.8: Unternehmerische Perspektiven mit Xenia",
-		"targetPath": "src/content/docs/xeniapolis/kontexte/ewelt8h.mdx",
+		"targetPath": "src/content/docs/xeniapolis/kontexte/perspektiven-fuer-ein-netzwerk/unternehmerische-perspektiven-mit-xenia.mdx",
 		"assets": [
 			"https://xeniapolis.de/gifs/b_64er/ewfue_kl.gif",
 			"https://xeniapolis.de/gifs/b_64er/8_8-s.gif"
 		],
 		"underConstruction": false,
 		"disposition": "migrated",
-		"notes": ""
+		"notes": "#151 regrouped the Kontexte slide series into one folder per chapter with a readable slug per slide, replacing the flat ewelt<N><letter> file-name code."
 	},
 	{
 		"url": "https://xeniapolis.de/kon/fue/fuestart.html",
