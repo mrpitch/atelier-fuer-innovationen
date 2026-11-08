@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 import { linkVariants } from '@/components/ui/button'
 import { ImageZoom } from '@/components/image-zoom'
 import { isSvg, SvgFrame } from '@/components/svg-frame'
@@ -61,13 +59,15 @@ export const Slide = async ({ slug }: { slug: string }) => {
 				/>
 			)}
 			{slide?.url ? (
-				<Link
+				// Plain anchor: the target is a file, not a route. next/link would
+				// prefetch `<url>/__next._tree.txt`, a key that does not exist.
+				<a
 					className={linkVariants({ color: 'primary', size: 'sm' })}
 					href={slide?.url}
 					target="_blank"
 				>
 					Download {slide?.name}
-				</Link>
+				</a>
 			) : null}
 		</div>
 	)

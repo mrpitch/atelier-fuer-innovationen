@@ -169,4 +169,25 @@ jobs:
       - name: Deploy to S3
         run: aws s3 sync ./out/ s3://${{ vars.AWS_S3_BUCKET_NAME }}
       - name: Create CloudFront invalidation
-        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CF_DISTRIBUTION_ID }} --paths "/*"
+        id: invalidate
+        run: |
+          id=$(aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CF_DISTRIBUTION_ID }} --paths "/*" --query Invalidation.Id --output text)
+          echo "id=$id" >> "$GITHUB_OUTPUT"
+      - name: Wait for the invalidation to complete
+        # Without this the check below could read pre-deploy pages or a cached
+        # 403 from the edge. Needs cloudfront:GetInvalidation.
+        run: aws cloudfront wait invalidation-completed --distribution-id ${{ secrets.AWS_CF_DISTRIBUTION_ID }} --id ${{ steps.invalidate.outputs.id }}
+
+  verify-deploy:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v6
+        with:
+          cache: true
+      - name: Install modules
+        run: pnpm install --frozen-lockfile
+      - name: Request every sitemap address on the deployed host
+        run: pnpm check:deployed

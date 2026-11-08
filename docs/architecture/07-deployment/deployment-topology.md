@@ -56,7 +56,7 @@ _Figure: deployment, production (C4 deployment content, drawn as a flowchart). B
 
 **Motivation:** a static export needs no application runtime to run, patch or scale (see [Static export strategy](../08-crosscutting/static-export-strategy.md)).
 
-**Quality and performance features:** [INFERENCE] CloudFront caches at its edge locations. The workflow invalidates `/*` on every deploy, so a deploy never leaves a stale page behind once the invalidation completes. Scaling, availability targets, cache TTLs and the rewrite of extensionless URLs to `.html` files are not configured in this repository ([page view](../06-runtime/runtime-main-flow.md)).
+**Quality and performance features:** [INFERENCE] CloudFront caches at its edge locations. The workflow invalidates `/*` on every deploy, so a deploy never leaves a stale page behind once the invalidation completes. Scaling, availability targets and cache TTLs are not configured in this repository. The rewrite of extensionless URLs to `index.html` is a CloudFront Function in the AWS account; the export layout (`trailingSlash: true`) is what it relies on ([page view](../06-runtime/runtime-main-flow.md)).
 
 ### Mapping of building blocks to infrastructure
 
@@ -76,10 +76,10 @@ _Figure: deployment, production (C4 deployment content, drawn as a flowchart). B
 
 ### Environments
 
-| Environment | Purpose                                         | URL / Access                              |
-| ----------- | ----------------------------------------------- | ----------------------------------------- |
-| local       | Authoring and preview: `pnpm dev`, `pnpm start` | `http://localhost:3000`                   |
-| production  | Live site, deployed on every push to `main`     | Public URL not recorded in the repository |
+| Environment | Purpose                                         | URL / Access                                                        |
+| ----------- | ----------------------------------------------- | ------------------------------------------------------------------- |
+| local       | Authoring and preview: `pnpm dev`, `pnpm start` | `http://localhost:3000`                                             |
+| production  | Live site, deployed on every push to `main`     | https://atelier-fuer-innovationen.mrpitch.rocks (`src/lib/site.ts`) |
 
 There is no staging environment and no preview deployment. A merge to `main` is a production release.
 

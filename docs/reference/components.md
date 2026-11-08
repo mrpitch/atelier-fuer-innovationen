@@ -130,7 +130,7 @@ Add the JSON entry and the image first, then reference the slug.
 - A slug missing from the JSON renders nothing, and `pnpm build` still passes.
 - A typo in the slug and an image without a JSON entry fail the same silent way.
 - No check catches this. Also check `url`: it must point to a file in `public/`. A missing file gives a dead Download link; `slide-1` to `slide-3` currently point to PDFs that do not exist.
-- Verify: `grep -c 'slides/<name>' out/docs/<page>.html` is above 0 after `pnpm build`.
+- Verify: `grep -c 'slides/<name>' out/docs/<page>/index.html` is above 0 after `pnpm build`.
 
 ### `ImageZoom`
 

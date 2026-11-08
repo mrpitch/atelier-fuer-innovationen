@@ -26,4 +26,4 @@ status: draft
 
 - Never write `# Heading` in the body: it adds a second `<h1>`.
 - Don't skip levels (`##` then `####`).
-- Verify: the built page has one `<h1>`: `grep -c '<h1' out/docs/<page>.html`.
+- Verify: the built page has one `<h1>`: `grep -c '<h1' out/docs/<page>/index.html`.
