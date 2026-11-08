@@ -3,7 +3,7 @@ title: Components
 description: The MDX components available to content pages, which ones live in src/components and which come from @fumadocs/base-ui, with their props and import paths.
 type: reference
 status: stable
-last_reviewed: 2026-11-07
+last_reviewed: 2026-11-08
 tags: [components, mdx, slides, illustrations, image-zoom, tabs, tour]
 ---
 
@@ -13,16 +13,17 @@ The docs route registers only `@fumadocs/base-ui/mdx`'s default components (`src
 
 ## Local components (`src/components/`)
 
-| Component       | Import                                                        | Props                                                                        |
-| --------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `Slide`         | `import { Slide } from '@/components/slides'`                 | `slug: string`                                                               |
-| `Slides`        | `import { Slides } from '@/components/slides'`                | none; lists the names of all slides                                          |
-| `Illu`          | `import { Illu } from '@/components/illus'`                   | `slug: string`                                                               |
-| `Illus`         | `import { Illus } from '@/components/illus'`                  | none; lists the names of all illustrations                                   |
-| `ImageZoom`     | `import { ImageZoom } from '@/components/image-zoom'`         | `next-image-export-optimizer` image props, plus `zoomInProps`, `rmiz`, `alt` |
-| `OverviewCards` | `import { OverviewCards } from '@/components/overview-cards'` | `children`; a responsive grid, 1 column on mobile, 2 from `md`, 3 from `lg`  |
-| `Tabs`, `Tab`   | `import { Tabs, Tab } from '@/components/tabs'`               | See [Tabs wrapper](./fumadocs/tabs-wrapper.md)                               |
-| `Tour`          | `import { Tour } from '@/components/tour'`                    | `tour: string`, `station: string`                                            |
+| Component          | Import                                                              | Props                                                                        |
+| ------------------ | ------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `Slide`            | `import { Slide } from '@/components/slides'`                       | `slug: string`                                                               |
+| `Slides`           | `import { Slides } from '@/components/slides'`                      | none; lists the names of all slides                                          |
+| `Illu`             | `import { Illu } from '@/components/illus'`                         | `slug: string`                                                               |
+| `Illus`            | `import { Illus } from '@/components/illus'`                        | none; lists the names of all illustrations                                   |
+| `ImageZoom`        | `import { ImageZoom } from '@/components/image-zoom'`               | `next-image-export-optimizer` image props, plus `zoomInProps`, `rmiz`, `alt` |
+| `OverviewCards`    | `import { OverviewCards } from '@/components/overview-cards'`       | `children`; a responsive grid, 1 column on mobile, 2 from `md`, 3 from `lg`  |
+| `Tabs`, `Tab`      | `import { Tabs, Tab } from '@/components/tabs'`                     | See [Tabs wrapper](./fumadocs/tabs-wrapper.md)                               |
+| `Tour`             | `import { Tour } from '@/components/tour'`                          | `tour: string`, `station: string`                                            |
+| `StadtviertelText` | `import { StadtviertelText } from '@/components/stadtviertel-text'` | `children`; the shared frame for a Stadtviertel's in-place text              |
 
 `Slide`, `Slides`, `Illu` and `Illus` are async server components.
 
@@ -42,6 +43,25 @@ import { Tour } from '@/components/tour'
 The previous/next label text ("Zurück"/"Nächste") is fixed chrome; the `aria-label` on the working control also names the destination page (read from its frontmatter `title` via `source.getPage`), so the accessible name doesn't rely on surrounding context. At the first station of a tour, "Zurück" renders as a disabled, non-interactive placeholder instead of a dead link. At the last station, "Nächste" does the same — unless the tour definition sets `exit`, in which case it links there instead (the `ewelt1`/`ewelt3` Kontexte series use this to continue into the next, unrelated page their last slide originally linked to). The `ewelt1`/`ewelt3` station pages also keep a plain link back to their series overview page next to `Tour`, carried over unchanged from the hand-written text — `Tour` has no concept of a series overview.
 
 `src/data/tours.ts` is the one place a tour's station order is defined, including the two Kurzübersicht stations that live under `fuehrung/` instead of `annaeherung/` (see `annaeherung/index.mdx`). An unknown `tour` slug, or a `station` not listed in that tour, renders nothing.
+
+### `StadtviertelText`
+
+Frame for a Stadtviertel's four-part text (Prozeßansatz, Konzeptionelle Hinweise, Prozeßdokument, Gestaltungsschwerpunkt) on its own page. The eight Stadtviertel pages under `xeniapolis/*/index.mdx` all use it the same way, so they read alike. The component holds no text. Each page pulls its section out of the overview article with Fumadocs' `<include>`, keyed by the section heading's slug:
+
+```mdx
+import { Illu } from '@/components/illus'
+import { StadtviertelText } from '@/components/stadtviertel-text'
+
+<StadtviertelText>
+
+<include>
+	../annaeherung/die-stadtviertel-der-wissensstadt.mdx#das-viertel-der-märkte-und-kooperation
+</include>
+
+</StadtviertelText>
+```
+
+The words therefore live once, in `annaeherung/die-stadtviertel-der-wissensstadt.mdx`, and `pnpm validate:copy-integrity` sees them once. The page must import `Illu` itself: the included section contains `<Illu>` and resolves it in the including page's scope. Renaming a `## Das Viertel der …` heading in the overview breaks the build, which is intended. The sentence "Das vollständige Prozeßdokument … finden Sie im Abschnitt …" stays below the frame, marked `{/* editorial */}`, until a maintainer decides to remove it.
 
 ### `Slide`
 
