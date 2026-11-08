@@ -105,16 +105,6 @@
 		"text": "\"Xenia, die Gastliche\" wurde der andere jetzt lebendiger, \"auch die Gastgeschenke, aber im Wortstamm auch das Fremde beinhaltend?\" Und kommentierend fügte er hinzu, \"ein Symbol für die Gratwanderung zwischen dem Fremden uund der Erwartung des Gastlichen beim Aufbruch zum Kontinent der Lösungen? Von Xenia würde ich gern mehr erfahren!\" Soweit eine kleine Begegnung zweier Kongreteilnehmer in Xenia."
 	},
 	{
-		"page": "src/content/docs/xeniapolis/annaeherung/aufbruch-zum-kontinent-der-loesungen.mdx",
-		"kind": "paragraph",
-		"text": "Zurück: [Kondratieff´s Zyklen](/docs/xeniapolis/annaeherung/kondratieffs-zyklen)"
-	},
-	{
-		"page": "src/content/docs/xeniapolis/annaeherung/aufbruch-zum-kontinent-der-loesungen.mdx",
-		"kind": "paragraph",
-		"text": "Weiter: [Ateliers für Innovatoren](/docs/xeniapolis/fuehrung/ateliers-fuer-innovatoren)"
-	},
-	{
 		"page": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
 		"kind": "title",
 		"text": "Besuch in der Wissensstadt"
@@ -263,11 +253,6 @@
 		"page": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
 		"kind": "paragraph",
 		"text": "**_Führung in der Informationsgesellschaft: Neue Wege für die Zukunft._**"
-	},
-	{
-		"page": "src/content/docs/xeniapolis/annaeherung/besuch-in-der-wissensstadt.mdx",
-		"kind": "paragraph",
-		"text": "Weiter: [Die nähere und weitere Umgebung der Wissensstadt](/docs/xeniapolis/annaeherung/umgebung)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/annaeherung/die-stadtviertel-der-wissensstadt.mdx",
@@ -23420,16 +23405,6 @@
 		"text": "Eine Prozeßdynamik ermöglicht, der XENIA-Systematik folgend, vernetztes Arbeiten großer Gruppen zu komplexen Themenstellungen unter verschiedenen Aspekten."
 	},
 	{
-		"page": "src/content/docs/xeniapolis/fuehrung/ateliers-fuer-innovatoren.mdx",
-		"kind": "paragraph",
-		"text": "Zurück: [Aufbruch zum Kontinent der Lösungen](/docs/xeniapolis/annaeherung/aufbruch-zum-kontinent-der-loesungen)"
-	},
-	{
-		"page": "src/content/docs/xeniapolis/fuehrung/ateliers-fuer-innovatoren.mdx",
-		"kind": "paragraph",
-		"text": "Weiter: [Xenia im Netzwerk der Wissensstädte](/docs/xeniapolis/fuehrung/xenia-im-netzwerk-der-wissensstaedte)"
-	},
-	{
 		"page": "src/content/docs/xeniapolis/fuehrung/index.mdx",
 		"kind": "title",
 		"text": "Viertel der Führung"
@@ -23797,7 +23772,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt1a.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt1) · [Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1) · [Nächste](/docs/xeniapolis/kontexte/ewelt1b)"
+		"text": "[Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt1b.mdx",
@@ -23837,7 +23812,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt1b.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt1a) · [Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1) · [Nächste](/docs/xeniapolis/kontexte/ewelt1c)"
+		"text": "[Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt1c.mdx",
@@ -23867,7 +23842,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt1c.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt1b) · [Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1) · [Nächste](/docs/xeniapolis/kontexte/ewelt1d)"
+		"text": "[Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt1d.mdx",
@@ -23907,7 +23882,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt1d.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt1c) · [Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1) · [Nächste](/docs/xeniapolis/kontexte/ewelt1e)"
+		"text": "[Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt1e.mdx",
@@ -23942,7 +23917,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt1e.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt1d) · [Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1) · [Nächste](/docs/xeniapolis/kontexte/ewelt1f)"
+		"text": "[Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt1f.mdx",
@@ -23972,7 +23947,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt1f.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt1e) · [Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1) · [Nächste](/docs/xeniapolis/kontexte/ewelt1g)"
+		"text": "[Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt1g.mdx",
@@ -24022,7 +23997,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt1g.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt1f) · [Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1) · [Nächste](/docs/xeniapolis/kontexte/ewelt1h)"
+		"text": "[Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt1h.mdx",
@@ -24052,7 +24027,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt1h.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt1g) · [Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1) · [Nächste](/docs/xeniapolis/kontexte/konstellationen-beim-uebergang-zur-informationsgesellschaft)"
+		"text": "[Einstimmung zur Zukunftsgestaltung](/docs/xeniapolis/kontexte/ewelt1)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3.mdx",
@@ -24137,7 +24112,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3a.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt3) · [\"Eine Welt\" im Wandel](/docs/xeniapolis/kontexte/ewelt3) · [Nächste](/docs/xeniapolis/kontexte/ewelt3b)"
+		"text": "[\"Eine Welt\" im Wandel](/docs/xeniapolis/kontexte/ewelt3)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3b.mdx",
@@ -24227,7 +24202,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3b.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt3a) · [\"Eine Welt\" im Wandel](/docs/xeniapolis/kontexte/ewelt3) · [Nächste](/docs/xeniapolis/kontexte/ewelt3c)"
+		"text": "[\"Eine Welt\" im Wandel](/docs/xeniapolis/kontexte/ewelt3)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3c.mdx",
@@ -24267,7 +24242,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3c.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt3b) · [\"Eine Welt\" im Wandel](/docs/xeniapolis/kontexte/ewelt3) · [Nächste](/docs/xeniapolis/kontexte/ewelt3d)"
+		"text": "[\"Eine Welt\" im Wandel](/docs/xeniapolis/kontexte/ewelt3)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3d.mdx",
@@ -24312,7 +24287,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3d.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt3c) · [\"Eine Welt \" im Wandel](/docs/xeniapolis/kontexte/ewelt3) · [Nächste](/docs/xeniapolis/kontexte/ewelt3e)"
+		"text": "[\"Eine Welt \" im Wandel](/docs/xeniapolis/kontexte/ewelt3)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3e.mdx",
@@ -24347,7 +24322,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3e.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt3d) · [\"Eine Welt\" im Wandel](/docs/xeniapolis/kontexte/ewelt3) · [Nächste](/docs/xeniapolis/kontexte/ewelt3f)"
+		"text": "[\"Eine Welt\" im Wandel](/docs/xeniapolis/kontexte/ewelt3)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3f.mdx",
@@ -24387,7 +24362,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3f.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt3e) · [\"Eine Welt\" im Wandel](/docs/xeniapolis/kontexte/ewelt3) · [Nächste](/docs/xeniapolis/kontexte/ewelt3g)"
+		"text": "[\"Eine Welt\" im Wandel](/docs/xeniapolis/kontexte/ewelt3)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3g.mdx",
@@ -24417,7 +24392,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3g.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt3f) · [\"Eine Welt\" im Wandel](/docs/xeniapolis/kontexte/ewelt3) · [Nächste](/docs/xeniapolis/kontexte/ewelt3h)"
+		"text": "[\"Eine Welt\" im Wandel](/docs/xeniapolis/kontexte/ewelt3)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3h.mdx",
@@ -24447,7 +24422,7 @@
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt3h.mdx",
 		"kind": "paragraph",
-		"text": "[Zurück](/docs/xeniapolis/kontexte/ewelt3g) · [\"Eine Welt\" im Wandel](/docs/xeniapolis/kontexte/ewelt3) · [Nächste](/docs/xeniapolis/kontexte/ewelt4)"
+		"text": "[\"Eine Welt\" im Wandel](/docs/xeniapolis/kontexte/ewelt3)"
 	},
 	{
 		"page": "src/content/docs/xeniapolis/kontexte/ewelt4.mdx",

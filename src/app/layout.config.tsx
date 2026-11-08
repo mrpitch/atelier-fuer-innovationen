@@ -20,7 +20,8 @@ const stadtviertelDescriptions: Record<string, string> = {
 		'Das Leitbild der Wiederbelebung der Polis, das Besucher nacherleben und mitgestalten können',
 	zukunft:
 		'Das XENIA-Thema "Futursysteme": den Wandel wollen und die Zukunft als Fremde gastlich empfangen',
-	wertschoepfung: 'Das Projekt Xenia selbst: Chaos-Chancen und Forschungsarbeit',
+	wertschoepfung:
+		'Das Projekt Xenia selbst: Chaos-Chancen und Forschungsarbeit',
 	potenziale:
 		'Die Xenia-Kollektion MOSAIK: wiederverwendbare Wissensbausteine für innovative Aufgaben',
 	fuehrung:
