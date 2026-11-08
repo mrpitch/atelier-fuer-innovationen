@@ -5,8 +5,11 @@ type: Overview
 status: stable
 ---
 
+import { Construction } from 'lucide-react'
+
 import { Illu } from '@/components/illus'
 import { StadtviertelText } from '@/components/stadtviertel-text'
+import { Card } from '@fumadocs/base-ui/components/card'
 
 Das Viertel der Zukunft ist dem XENIA-Thema "Futursysteme" gewidmet: Den Wandel wollen — der Weg ist das Ziel.
 
@@ -49,6 +52,9 @@ Xenia, die Wissensstadt als XENIA-System, wird in Anwendung der Systematik auf e
 ## Nicht migrierte Unterseiten
 
 `zuk/zukstart.html` verwies auf zwei vertiefende Seiten, "Das XENIA-System" und "Der Arbeitsprozeß". Beide waren auf der Quellseite als `baustelle.html` hinterlegt — die geteilte "Baustelle"-Platzhalterseite ohne eigenen Inhalt — und sind daher nicht migriert.
+
+{/* editorial */}
+<Card icon={<Construction />} title="Nie gebaute Features" href="/docs/xeniapolis/archiv/nie-gebaute-features" />
 
 {/* editorial */}
 ## Weitere Stadtviertel
