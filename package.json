@@ -15,6 +15,8 @@
 		"validate:okf": "tsx scripts/validate-okf.ts",
 		"validate:content": "tsx scripts/validate-content.ts",
 		"validate:stadtviertel": "tsx scripts/validate-stadtviertel.ts",
+		"validate:copy-integrity": "tsx scripts/copy-integrity.ts",
+		"generate:copy-integrity-baseline": "tsx scripts/copy-integrity.ts --generate",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"lint": "eslint . --max-warnings 0",

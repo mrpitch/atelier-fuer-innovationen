@@ -3,7 +3,7 @@ title: How to build and deploy the site
 description: Build the static export with optimized images, preview it locally and understand what the GitHub Actions workflow publishes to S3 and CloudFront.
 type: how-to
 status: stable
-last_reviewed: 2026-11-05
+last_reviewed: 2026-11-07
 tags: [build, deploy, static-export, images, github-actions, aws]
 ---
 
@@ -39,8 +39,10 @@ pnpm start
 1. **`quality`** runs `pnpm format:check`, `pnpm lint` and `pnpm typecheck`.
 2. **`validate-okf`** runs `pnpm test` and `pnpm validate:okf`.
 3. **`validate-content`** runs `pnpm validate:content`: every `<Illu>`/`<Slide>` slug, registry asset, `meta.json` entry and relative image or link in the content must resolve.
-4. **`build-check`** runs `pnpm build`, fails if the build log contains a pinned missing-image warning string (the list lives in the workflow step), and uploads `out/` as an artefact.
-5. **`deploy`** runs on pushes only, once the four jobs above have passed. It downloads the `out/` artefact from `build-check`, syncs it to an S3 bucket with `aws s3 sync`, then creates a CloudFront invalidation for `/*`. It doesn't build again.
+4. **`validate-stadtviertel`** runs `pnpm validate:stadtviertel`: `src/data/stadtviertel.json` is the canonical list of the eight Stadtviertel, and each Stadtviertel's `meta.json`, the order in `xeniapolis/meta.json` and the icon names must agree with it.
+5. **`validate-copy-integrity`** runs `pnpm validate:copy-integrity`: every protected Xeniapolis text block recorded in `scripts/copy-integrity-baseline.json` must still exist verbatim somewhere in `src/content/docs/xeniapolis/` (see [glossary](../reference/glossary.md#protected-copy-and-editorial-text)).
+6. **`build-check`** runs `pnpm build`, fails if the build log contains a pinned missing-image warning string (the list lives in the workflow step), and uploads `out/` as an artefact.
+7. **`deploy`** runs on pushes only, once the six jobs above have passed. It downloads the `out/` artefact from `build-check`, syncs it to an S3 bucket with `aws s3 sync`, then creates a CloudFront invalidation for `/*`. It doesn't build again.
 
 All jobs run on every push and pull request; none is skipped by a path filter.
 
@@ -54,7 +56,7 @@ The workflow reads these from the repository settings:
 | Variable | `AWS_S3_REGION`            |
 | Variable | `AWS_S3_BUCKET_NAME`       |
 
-A failure in any of the four check jobs stops the deploy, and the live site keeps the previous version. A pull request never deploys.
+A failure in any of the six check jobs stops the deploy, and the live site keeps the previous version. A pull request never deploys.
 
 ## Deploy by hand
 

@@ -19,15 +19,16 @@ Open http://localhost:3000. The content is under `/docs`.
 
 ## Scripts
 
-| Command             | What it does                                              |
-| ------------------- | --------------------------------------------------------- |
-| `pnpm dev`          | Dev server on port 3000                                   |
-| `pnpm build`        | Static export to `out/`, then image optimization          |
-| `pnpm start`        | Serves `out/` locally to preview the export               |
-| `pnpm test`         | Tests for the tooling in `scripts/`                       |
-| `pnpm validate:okf` | Fails if a Markdown or MDX file has no `type` frontmatter |
-| `pnpm afk <issue>`  | Runs the sandboxed agent on a GitHub issue (see below)    |
-| `pnpm nuke`         | Deletes `node_modules` and `pnpm-lock.yaml`               |
+| Command                        | What it does                                                                    |
+| ------------------------------ | ------------------------------------------------------------------------------- |
+| `pnpm dev`                     | Dev server on port 3000                                                         |
+| `pnpm build`                   | Static export to `out/`, then image optimization                                |
+| `pnpm start`                   | Serves `out/` locally to preview the export                                     |
+| `pnpm test`                    | Tests for the tooling in `scripts/`                                             |
+| `pnpm validate:okf`            | Fails if a Markdown or MDX file has no `type` frontmatter                       |
+| `pnpm validate:copy-integrity` | Fails if a protected Xeniapolis text block was edited, split, merged or deleted |
+| `pnpm afk <issue>`             | Runs the sandboxed agent on a GitHub issue (see below)                          |
+| `pnpm nuke`                    | Deletes `node_modules` and `pnpm-lock.yaml`                                     |
 
 `pnpm install` also runs `fumadocs-mdx`, which generates `.source/` from the content.
 

@@ -1,5 +1,9 @@
 # Change log
 
+## 2026-11-08
+
+- **Update**: 06-runtime/runtime-publish-change.md, 08-crosscutting/content-conventions.md — CI job `validate-copy-integrity` (`scripts/copy-integrity.ts`) gates the deploy next to the other check jobs (#145); protected copy covers table cells and quotations; job `validate-stadtviertel` (#147) added to the job lists, six check jobs in total; `verified` bumped after checking the prose against `.github/workflows/main.yml` and `package.json`
+
 ## 2026-11-06
 
 - **Creation**: 09-decisions/adr-0003-vector-icon-and-illustration-conventions.md — ADR-0003 records the `<Illu>` icon-vs-illustration SVG convention (#113)
