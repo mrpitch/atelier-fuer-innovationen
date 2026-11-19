@@ -17,9 +17,9 @@ See `.agents/skills/implement-epic/SKILL.md` for the full workflow. This file ca
 
 `sandbox_command`: _(none configured)_
 
-Example: `pnpm tsx scripts/run-sandcastle.ts {issue}` — `{issue}` is substituted with the issue number. Keep it a literal template; `implement-epic` never builds it from a dynamic expression.
+Example: `~/Dev/home/tools/sandcastle/bin/sandcastle-run {issue}` — `{issue}` is substituted with the issue number. Keep it a literal template; `implement-epic` never builds it from a dynamic expression.
 
-`implement-epic` invokes `sandbox_command` directly — unlike the `afk` `package.json` script, it does not load `.sandcastle/.env` first. The sandcastle orchestrator itself reads `.sandcastle/.env` automatically and passes its contents into the *container's* environment, so `CLAUDE_CODE_OAUTH_TOKEN` reaches the agent correctly either way. But `DOCKER_HOST` (needed to find Colima's socket on macOS) is read from the *host* Node process's environment before the container even starts — it must already be in the shell `implement-epic` runs in, not merely present in `.sandcastle/.env`. Add it to your shell profile:
+The shared Home runner reads `.sandcastle/.env` itself, so `afk` (the `package.json` script) and `sandbox_command` behave the same: `CLAUDE_CODE_OAUTH_TOKEN` and `DOCKER_HOST` (needed to find Colima's socket on macOS) both reach the runner from `.sandcastle/.env`. Variables already set in the shell `implement-epic` runs in take precedence over the file, so exporting `DOCKER_HOST` in your shell profile still works:
 
 ```bash
 export DOCKER_HOST=unix:///Users/<username>/.colima/default/docker.sock

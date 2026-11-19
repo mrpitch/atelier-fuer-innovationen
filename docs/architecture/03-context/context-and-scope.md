@@ -73,6 +73,6 @@ Inside the boundary: the Next.js application, the MDX content, the image optimiz
 Outside the boundary:
 
 - **Hosting infrastructure.** The S3 bucket, the CloudFront distribution and the domain are configured outside this repository. Only their identifiers reach the workflow, as repository secrets and variables.
-- **Agent tooling.** `.sandcastle/` and `scripts/run-sandcastle.ts` run unattended coding agents against GitHub issues. They change the repository but never ship in the site. They are described in [About the epic/afk workflow](../../explanation/about-the-epic-afk-workflow.md).
+- **Agent tooling.** `.sandcastle/` and the shared Sandcastle runner in the Home repo (`~/Dev/home/tools/sandcastle/`) run unattended coding agents against GitHub issues. They change the repository but never ship in the site. They are described in [About the epic/afk workflow](../../explanation/about-the-epic-afk-workflow.md).
 - **Published product content.** What `src/content/docs/` says about Xenia and the Wissensstadt belongs to the domain glossary ([`docs/reference/glossary.md`](../../reference/glossary.md)), not to this architecture.
 - **Visitor tracking.** A search of `src/` and `next.config.mjs` finds no analytics, cookies or third-party scripts. The site makes no calls to other systems at run time.

@@ -24,7 +24,7 @@ Absence of the file, or of a field, falls back to the defaults below — the wor
 
 The four pluggable extras — all optional, off when unset:
 
-- **`sandbox_command`** — a literal shell command template (e.g. `pnpm tsx scripts/run-sandcastle.ts {issue}`) that runs an `afk` issue in an isolated sandbox. If unset, `afk` issues implement in-session — identical to `--watch`.
+- **`sandbox_command`** — a literal shell command template (e.g. `~/Dev/home/tools/sandcastle/bin/sandcastle-run {issue}`) that runs an `afk` issue in an isolated sandbox. If unset, `afk` issues implement in-session — identical to `--watch`.
 - **`project_status_command`** — a literal command template accepting `{issue}` and `{status}` (e.g. `./scripts/set-project-status.sh {issue} {status}`) that syncs a GitHub Project board's status field. If unset, skip every project-status step below silently.
 - **`auto_merge_afk_epic_subissues`** — boolean, default `false`. Only when `true` does step 4's auto-merge path apply.
 - **`version_bump_command`** — a command template (e.g. `pnpm version {level} --no-git-tag-version`) that bumps `package.json`'s version, without committing or tagging — `implement-epic` makes its own commit for the result. `{level}` is substituted with `patch`/`minor`/`major`; a template without `{level}` runs as-is. If unset, skip every version-bump sub-step. Applies only to trunk-facing PRs: a standalone issue's PR (step 4, `{level}=patch`) and the epic → trunk PR (step 6, level chosen there); never to a sub-issue PR against an epic branch.

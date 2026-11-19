@@ -45,9 +45,6 @@ importers:
         specifier: ^3
         version: 3.0.1
     devDependencies:
-      '@ai-hero/sandcastle':
-        specifier: ^0.12.0
-        version: 0.12.0
       '@fumadocs/cli':
         specifier: ^1
         version: 1.4.1
@@ -99,27 +96,12 @@ importers:
       typescript:
         specifier: ^5
         version: 5.7.3
-      zod:
-        specifier: ^4.4.3
-        version: 4.4.3
     optionalDependencies:
       vite:
         specifier: '*'
         version: 8.2.2(@types/node@22.13.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.1)
 
 packages:
-
-  '@ai-hero/sandcastle@0.12.0':
-    resolution: {integrity: sha512-kdQ414rM8t1QiWeqZ3Klz4KSd0PqQG4bRVuqGpRDUomWhojSZkEAc1tbcEcThVmBEaHkCt8LmYR49vqEPNIoYQ==}
-    hasBin: true
-    peerDependencies:
-      '@daytona/sdk': ^0.164.0
-      '@vercel/sandbox': '>=1.0.0'
-    peerDependenciesMeta:
-      '@daytona/sdk':
-        optional: true
-      '@vercel/sandbox':
-        optional: true
 
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
@@ -3909,10 +3891,6 @@ packages:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
-
-  '@ai-hero/sandcastle@0.12.0':
-    dependencies:
-      '@clack/prompts': 1.7.0
 
   '@alloc/quick-lru@5.2.0': {}
 

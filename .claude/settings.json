@@ -16,6 +16,7 @@
 			"Bash(git pull *)",
 			"Bash(git diff *)",
 			"Bash(git push *)",
+			"Bash(~/Dev/home/tools/sandcastle/bin/sandcastle-run *)",
 			"Bash(pnpm run sandcastle:build)",
 			"Bash(pnpm sandcastle *)",
 			"Bash(pnpm sandcastle:build *)",

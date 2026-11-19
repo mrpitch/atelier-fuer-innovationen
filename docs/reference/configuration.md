@@ -26,7 +26,7 @@ tags:
 | `format:check`     | `prettier --check .`                                        | Fails if a file is not Prettier-formatted; runs in CI                            |
 | `lint`             | `eslint . --max-warnings 0`                                 | Fails on any ESLint warning or error; runs in CI                                 |
 | `typecheck`        | `next typegen && tsc --noEmit`                              | Generates route types, then typechecks the project; runs in CI                   |
-| `afk`              | `tsx --env-file=.sandcastle/.env scripts/run-sandcastle.ts` | Runs the sandboxed agent on a GitHub issue                                       |
+| `afk`              | `~/Dev/home/tools/sandcastle/bin/sandcastle-run`            | Runs the shared Home Sandcastle runner on a GitHub issue                         |
 | `sandcastle:build` | `docker build ... -f .sandcastle/Dockerfile .`              | Builds the Sandcastle image `sandcastle:atelier-fuer-innovationen`               |
 | `nuke`             | `rm -r node_modules; rm -r pnpm-lock.yaml`                  | Deletes dependencies and the lockfile                                            |
 
