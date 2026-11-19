@@ -12,7 +12,7 @@
 
 ## `glossary.md`
 
-The authoritative domain vocabulary file (the `CONTEXT.md` equivalent for this repo). See `docs/agents/domain.md`.
+The authoritative domain vocabulary file (the `CONTEXT.md` equivalent for this repo). Its path is `docs.glossary` in `agents.yaml`.
 
 ## Avoid
 

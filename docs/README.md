@@ -21,7 +21,7 @@ This directory uses the [Diataxis](https://diataxis.fr/) framework.
 
 ## Not part of this documentation tree
 
-`src/content/docs/` is the site's published product content (the Fumadocs-rendered Atelier/Xeniapolis pages) — it is not contributor/agent documentation and is out of scope for this `docs/` tree. See `docs/agents/diataxis-context.md`.
+`src/content/docs/` is the site's published product content (the Fumadocs-rendered Atelier/Xeniapolis pages) — it is not contributor/agent documentation and is out of scope for this `docs/` tree. It is listed under `docs.excludedFolders` in `agents.yaml`.
 
 ## Contributing
 

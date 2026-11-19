@@ -21,7 +21,7 @@
 			"Bash(pnpm sandcastle *)",
 			"Bash(pnpm sandcastle:build *)",
 			"Bash(pnpm install *)",
-			"Bash(./scripts/set-project-status.sh *)"
+			"Bash(~/Dev/home/tools/agents-config/bin/set-project-status *)"
 		]
 	}
 }

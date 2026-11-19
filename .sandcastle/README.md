@@ -7,7 +7,7 @@ troubleshooting: `~/Dev/home/tools/sandcastle/README.md`.
 
 This repo's part:
 
-- `config.json`: check command and other per-repo settings for the runner.
+- Per-repo runner settings (check command, setup commands) live in the `sandbox` section of `agents.yaml` (repo root).
 - `Dockerfile`: sandbox image, built with `pnpm sandcastle:build`.
 - `.env` (from `.env.example`): tokens and `DOCKER_HOST`; loaded by `bin/sandcastle-run`.
 - `implement-prompt.md`, `efficiency-rules.md`: repo overrides of the runner's default prompts.

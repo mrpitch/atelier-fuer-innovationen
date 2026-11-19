@@ -37,7 +37,7 @@ Read `.sandcastle/efficiency-rules.md` and apply its rules for the duration of t
 
 ## How to work
 
-Run `/implement` on this issue — read `.agents/skills/implement/SKILL.md` if
+Run `/implement` on this issue — read `~/.claude/skills/implement/SKILL.md` if
 it isn't already loaded, and follow it as-is: explore, plan, tdd, verify,
 review (against the fixed point above), commit. Don't skip its review step
 or its commit step; both are expected to happen inside this sandbox now.

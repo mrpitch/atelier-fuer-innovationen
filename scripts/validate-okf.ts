@@ -29,21 +29,11 @@ const VENDOR_DIR_NAMES = new Set([
 ])
 
 // Path prefixes with a fixed, tool-owned frontmatter contract of their own.
-const EXEMPT_DIR_PREFIXES = [
-	'.claude/skills/',
-	'.agents/skills/',
-	'.sandcastle/',
-	'docs/audit-reports/',
-]
+const EXEMPT_DIR_PREFIXES = ['.sandcastle/', 'docs/audit-reports/']
 
-// AGENTS.md/CLAUDE.md are loaded verbatim as runtime agent instructions (not read via
-// `docs find` tooling like docs/agents/*.md) — same "don't touch tool-loaded frontmatter" risk as SKILL.md.
-const EXEMPT_FILES = new Set([
-	'docs/index.md',
-	'docs/agents/docs-context.md',
-	'AGENTS.md',
-	'CLAUDE.md',
-])
+// AGENTS.md/CLAUDE.md are loaded verbatim as runtime agent instructions — same
+// "don't touch tool-loaded frontmatter" risk as SKILL.md.
+const EXEMPT_FILES = new Set(['docs/index.md', 'AGENTS.md', 'CLAUDE.md'])
 
 // OKF reserves index.md and log.md in the arc42 bundle: they are navigation and change
 // history, not concept documents, and carry no `type` (the root index only `okf_version`).
