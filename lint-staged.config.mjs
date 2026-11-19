@@ -1,8 +1,8 @@
 import path from 'node:path'
 
-// Vendored or sandbox TS lives in the paths .prettierignore leaves alone.
+// Agent-tool or sandbox TS lives in the paths .prettierignore leaves alone.
 // Keep this list in step with it.
-const VENDORED = /^(\.agents|\.claude|\.sandcastle)\//
+const VENDORED = /^(\.claude|\.sandcastle)\//
 
 const quote = (files) => files.map((file) => JSON.stringify(file)).join(' ')
 

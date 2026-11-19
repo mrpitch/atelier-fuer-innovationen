@@ -42,8 +42,8 @@ The container has Chromium and Playwright, so the agent can look at rendered pag
 
 ## Status on the board
 
-Each step reports to GitHub Project #11 through `scripts/set-project-status.sh`: `in-progress` when an issue is picked up, `in-review` when its PR opens, `done` when it merges.
+Each step reports to GitHub Project #11 through the Home `set-project-status` tool (`~/Dev/home/tools/agents-config/bin/set-project-status`): `in-progress` when an issue is picked up, `in-review` when its PR opens, `done` when it merges.
 
 ## Where the settings live
 
-The labels, the sandbox command, the project number, auto-merge and the version-bump command are in `docs/agents/implementation-workflow.md`. To run the sandbox yourself, see [How to run an afk sandbox](../how-to/how-to-run-an-afk-sandbox.md). The sandbox files are described in `.sandcastle/README.md`.
+The labels, the project number, auto-merge, the sandbox check command and the version-bump command are in `agents.yaml`. To run the sandbox yourself, see [How to run an afk sandbox](../how-to/how-to-run-an-afk-sandbox.md). The sandbox files are described in `.sandcastle/README.md`.

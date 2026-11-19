@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "playwright": {
-      "command": "npx",
-      "args": ["--no-install", "@playwright/mcp", "--headless"]
-    }
-  }
-}

@@ -90,4 +90,4 @@ Project documentation lives in [`docs/`](docs/index.md), organized as tutorials,
 
 Issues are worked as epics with `afk` (unattended) and `hitl` (supervised) sub-issues through the `/implement-epic` skill. `afk` issues run in a Docker sandbox. See [about the epic/afk workflow](docs/explanation/about-the-epic-afk-workflow.md) and [how to run an afk sandbox](docs/how-to/how-to-run-an-afk-sandbox.md).
 
-Agent configuration is in `AGENTS.md` and `docs/agents/`.
+Agent configuration is in `AGENTS.md` and `agents.yaml`.

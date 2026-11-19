@@ -1,7 +1,5 @@
-# Vendored agent skills and their lockfile: owned upstream, not formatted here.
-.agents
+# Agent tool config (hooks, settings): owned by the tools, not formatted here.
 .claude
-skills-lock.json
 
 # Sandbox runner config and prompts.
 .sandcastle

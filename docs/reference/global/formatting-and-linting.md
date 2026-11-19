@@ -18,7 +18,7 @@ last_reviewed: 2026-11-05
 ## Tools
 
 - Prettier (`.prettierrc`): tabs, no semicolons, single quotes, es5 trailing commas, 80 columns. `prettier-plugin-tailwindcss` sorts classes.
-- `.prettierignore` leaves out vendored skills (`.agents`, `.claude`, `skills-lock.json`), the sandbox config (`.sandcastle`), `pnpm-lock.yaml`, the published content in `src/content`, build output (`.source`, `.next`, `out`) and the generated `docs/index.md`. Anything in `.gitignore` is skipped too.
+- `.prettierignore` leaves out agent tool config (`.claude`), the sandbox config (`.sandcastle`), `pnpm-lock.yaml`, the published content in `src/content`, build output (`.source`, `.next`, `out`) and the generated `docs/index.md`. Anything in `.gitignore` is skipped too.
 - ESLint (`eslint.config.mjs`): `eslint-config-next` core-web-vitals and typescript. `--max-warnings 0` makes a warning fail.
 - `typecheck` runs `next typegen` first because `next-env.d.ts` and the route types are gitignored and generated.
 - VS Code formats on save and runs ESLint fix-all (`.vscode/settings.json`).
@@ -27,7 +27,7 @@ last_reviewed: 2026-11-05
 
 - `pnpm install` runs `husky` (the `prepare` script), which points `core.hooksPath` at `.husky/_`. `.husky/pre-commit` runs `lint-staged` (`lint-staged.config.mjs`).
 - Staged `.ts` and `.tsx` files: `eslint --fix --max-warnings 0`, then `prettier --write`, then one full-project `pnpm typecheck`.
-- Staged `.ts` and `.tsx` files under `.agents`, `.claude` and `.sandcastle` are skipped by every step, matching `.prettierignore`.
+- Staged `.ts` and `.tsx` files under `.claude` and `.sandcastle` are skipped by every step, matching `.prettierignore`.
 - Every other staged file: `prettier --write --ignore-unknown`. Files matched by `.prettierignore` are left alone.
 - Fixes are re-staged. A failing step aborts the commit.
 - A commit with no staged `.ts` or `.tsx` file skips the typecheck.

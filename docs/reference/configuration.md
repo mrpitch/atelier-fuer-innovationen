@@ -93,8 +93,8 @@ GitHub Actions secrets and variables for the deploy are listed in [How to build 
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | `src/content/docs/**/meta.json` | Sidebar order and tabs; see [meta.json conventions](./fumadocs/meta-json.md)                                |
 | `.github/workflows/main.yml`    | CI: jobs `quality`, `validate-okf`, `validate-content` and `build-check`, then `deploy` on pushes to `main` |
-| `.prettierignore`               | Paths Prettier skips: vendored skills, sandbox, `src/content`, lockfile                                     |
+| `.prettierignore`               | Paths Prettier skips: agent tool config, sandbox, `src/content`, lockfile                                   |
 | `lint-staged.config.mjs`        | Pre-commit tasks on staged files; see [Format, lint and typecheck](./global/formatting-and-linting.md)      |
 | `.husky/pre-commit`             | Git hook that runs `lint-staged`                                                                            |
-| `docs/agents/*.md`              | Agent skill configuration                                                                                   |
+| `agents.yaml`                   | Project settings read by the agent skills (commands, labels, workflow, docs layout)                         |
 | `.sandcastle/`                  | Sandbox image, prompts and runner settings                                                                  |

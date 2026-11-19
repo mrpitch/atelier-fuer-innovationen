@@ -68,29 +68,11 @@ test('docs/index.md is exempt', () => {
 	assert.deepEqual(violations, [])
 })
 
-test('docs/agents/docs-context.md is exempt', () => {
-	write('docs/agents/docs-context.md', '# Generated project context\n')
-	const violations = findOkfViolations(root)
-	assert.deepEqual(violations, [])
-})
-
 test('docs/audit-reports/** is exempt', () => {
 	write(
 		'docs/audit-reports/docs-audit-2026-11-04.md',
 		'# Documentation Audit\n'
 	)
-	const violations = findOkfViolations(root)
-	assert.deepEqual(violations, [])
-})
-
-test('.claude/skills/** is exempt', () => {
-	write('.claude/skills/some-skill/SKILL.md', '---\nname: some-skill\n---\n')
-	const violations = findOkfViolations(root)
-	assert.deepEqual(violations, [])
-})
-
-test('.agents/skills/** is exempt', () => {
-	write('.agents/skills/some-skill/SKILL.md', '---\nname: some-skill\n---\n')
 	const violations = findOkfViolations(root)
 	assert.deepEqual(violations, [])
 })

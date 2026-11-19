@@ -1,8 +1,0 @@
-.env
-logs/
-container-cache/
-worktrees/
-base-branch.txt
-claude.json
-repair-context.md
-preserved/

@@ -1,3 +1,0 @@
-{
-	"checkCommand": "pnpm typecheck && pnpm lint"
-}
