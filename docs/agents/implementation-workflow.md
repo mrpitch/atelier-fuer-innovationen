@@ -19,15 +19,13 @@ See `.agents/skills/implement-epic/SKILL.md` for the full workflow. This file ca
 
 <!-- Leave blank to run afk issues in-session (identical to hitl). Fill in only if this repo has an isolated sandbox runner. -->
 
-`sandbox_command`: `pnpm tsx scripts/run-sandcastle.ts {issue}`
+`sandbox_command`: `~/Dev/home/tools/sandcastle/bin/sandcastle-run {issue}`
 
 `{issue}` is substituted with the issue number. Keep it a literal template; `implement-epic` never builds it from a dynamic expression.
 
-`implement-epic` invokes `sandbox_command` directly — unlike the `afk` `package.json` script, it does not load `.sandcastle/.env` first. The sandcastle orchestrator itself reads `.sandcastle/.env` automatically and passes its contents into the _container's_ environment, so `CLAUDE_CODE_OAUTH_TOKEN` reaches the agent correctly either way. But `DOCKER_HOST` (needed to find Colima's socket on macOS) is read from the _host_ Node process's environment before the container even starts — it must already be in the shell `implement-epic` runs in, not merely present in `.sandcastle/.env`. Add it to your shell profile:
+`sandbox_command` runs the shared Sandcastle runner in the Home repo (`~/Dev/home/tools/sandcastle/`, see its `README.md`) from this repo's root; per-repo settings live in `.sandcastle/config.json`. The runner's `bin/sandcastle-run` wrapper loads `.sandcastle/.env` itself, so `implement-epic` and the `afk` script behave the same — put `DOCKER_HOST` (needed to find Colima's socket on macOS) in that file and both work. It has to be on the host: `DOCKER_HOST` is read by the host Node process to locate the daemon before any container exists, while the orchestrator forwards `.env` into the _container's_ environment for `CLAUDE_CODE_OAUTH_TOKEN`.
 
-```bash
-export DOCKER_HOST=unix:///Users/<username>/.colima/default/docker.sock
-```
+**Keep `sandbox_command` byte-identical to the `Bash(~/Dev/home/tools/sandcastle/bin/sandcastle-run *)` allowlist rule in `.claude/settings.json`.** Prefixing it with an inline `DOCKER_HOST=…` defeats that match and prompts a human on every run.
 
 ## Project status command
 

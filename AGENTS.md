@@ -1,5 +1,3 @@
-Apply the `unslop` skill to every response in this conversation.
-
 ## Agent skills
 
 ### Issue tracker

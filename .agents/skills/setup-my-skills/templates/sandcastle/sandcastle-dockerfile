@@ -28,7 +28,7 @@ RUN npx --yes playwright install --with-deps chromium \
 USER ${AGENT_UID}:${AGENT_GID}
 
 # /implement's own flow ends with a commit, run inside this container on the
-# bind-mounted worktree (see run-sandcastle.ts) — git needs an identity to
+# bind-mounted worktree (see ~/Dev/home/tools/sandcastle/run-sandcastle.ts) — git needs an identity to
 # commit as. No GitHub credentials here regardless: this only covers the
 # local `git commit`; push and PR creation stay host-side.
 ENV GIT_AUTHOR_NAME="Sandcastle Agent"

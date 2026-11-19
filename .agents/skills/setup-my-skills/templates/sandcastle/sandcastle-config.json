@@ -1,0 +1,5 @@
+{
+  "checkCommand": "REPLACE_WITH_CHECK_COMMAND",
+  "installCommand": "CI=true pnpm install --frozen-lockfile",
+  "setupCommands": []
+}
