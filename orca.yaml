@@ -1,0 +1,4 @@
+# Orca worktree hooks. Setup runs in each new worktree's root.
+scripts:
+  setup: |
+    pnpm install --frozen-lockfile
